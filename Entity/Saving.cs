@@ -1,5 +1,7 @@
 ﻿namespace Entity
 {
+    using System;
+
     public class Saving
     {
         public int Id { get; set; } = 0;

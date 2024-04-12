@@ -1,5 +1,7 @@
 ﻿namespace Entity
 {
+    using System;
+
     public class CashFlow
     {
         public int Id { get; set; } = 0;
@@ -11,5 +13,7 @@
         public decimal BalanceChanging { get; set; } = 0.0M;
 
         public decimal BalanceRemaining { get; set; } = 0.0M;
+
+        public string Context {  get; set; } = string.Empty;
     }
 }

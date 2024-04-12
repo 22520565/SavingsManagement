@@ -1,7 +1,9 @@
-using System.Data;
-
 namespace Gui
 {
+    using System;
+    using System.Data;
+    using System.Windows.Forms;
+
     public partial class Form1 : Form
     {
         public Form1()

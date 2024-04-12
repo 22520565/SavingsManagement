@@ -11,9 +11,18 @@ namespace DataAccess
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "INSERT INTO CashFlows (id, customerId, time, balanceChanging, balanceRemaining) VALUES ({0}, {1}, '{2}', {3}, {4})";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
-                    cashFlow.Id, cashFlow.CustomerId, cashFlow.Time.ToString(CultureInfo.InvariantCulture), cashFlow.BalanceChanging, cashFlow.BalanceRemaining));
+                SqlQuery.ExecuteSqlCommand($"INSERT INTO {nameof(CashFlows)}(" +
+                    $"{nameof(cashFlow.CustomerId)}, " +
+                    $"{nameof(cashFlow.Time)}, " +
+                    $"{nameof(cashFlow.BalanceChanging)}, " +
+                    $"{nameof(cashFlow.BalanceRemaining)}, " +
+                    $"{nameof(cashFlow.Context)}, " +
+                    $"VALUES(" +
+                    $"{cashFlow.CustomerId}, " +
+                    $"'{cashFlow.Time}', " +
+                    $"{cashFlow.BalanceChanging}, " +
+                    $"{cashFlow.BalanceRemaining}, " +
+                    $"{cashFlow.Context})");
             }
         }
 
@@ -21,9 +30,13 @@ namespace DataAccess
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "UPDATE CashFlows SET customerId = {1}, time = '{2}', balanceChanging = {3}, balanceRemaining = {4} WHERE customerId = {0}";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
-                  cashFlow.Id, cashFlow.CustomerId, cashFlow.Time.ToString(CultureInfo.InvariantCulture), cashFlow.BalanceChanging, cashFlow.BalanceRemaining));
+                 SqlQuery.ExecuteSqlCommand($"UPDATE {nameof(CashFlows)} SET " +
+                     $"{nameof(cashFlow.CustomerId)} = {cashFlow.CustomerId}, " +
+                     $"{nameof(cashFlow.Time)} = '{cashFlow.Time}', " +
+                     $"{nameof(cashFlow.BalanceChanging)} = {cashFlow.BalanceChanging}, " +
+                     $"{nameof(cashFlow.BalanceRemaining)} = {cashFlow.BalanceRemaining}, " +
+                     $"{nameof(cashFlow.Context)} = {cashFlow.Context} " +
+                     $"WHERE {nameof(cashFlow.Id)} = {cashFlow.Id}");
             }
         }
 
@@ -31,8 +44,7 @@ namespace DataAccess
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "DELETE FROM CashFlows WHERE id = {0}";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, cashFlow.Id));
+                SqlQuery.ExecuteSqlCommand($"DELETE FROM {nameof(CashFlows)} WHERE {nameof(cashFlow.Id)} = {cashFlow.Id}");
             }
         }
 
@@ -40,8 +52,7 @@ namespace DataAccess
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "SELECT * FROM CashFlows {0}";
-                return SqlAccess.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
+                return SqlQuery.GetDataTable($"SELECT * FROM {nameof(CashFlows)} {conditionString}");
             }
         }
     }

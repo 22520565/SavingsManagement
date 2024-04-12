@@ -1,5 +1,8 @@
 ﻿namespace Gui
 {
+    using System.Drawing;
+    using System.Windows.Forms;
+
     partial class Form1
     {
         /// <summary>
@@ -318,11 +321,14 @@
             // 
             // customersDataGridView
             // 
+            customersDataGridView.AllowUserToAddRows = false;
+            customersDataGridView.AllowUserToDeleteRows = false;
             customersDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             customersDataGridView.Columns.AddRange(new DataGridViewColumn[] { customerIdColumn, customerNameColumn, maleColumn, cicNumberColumn, birthDateColumn, phoneNumberColumn, addressColumn, usernameColumn, hashedPasswordColumn, balanceColumn });
             customersDataGridView.Dock = DockStyle.Fill;
             customersDataGridView.Location = new Point(0, 252);
             customersDataGridView.Name = "customersDataGridView";
+            customersDataGridView.ReadOnly = true;
             customersDataGridView.RowHeadersWidth = 51;
             customersDataGridView.Size = new Size(888, 293);
             customersDataGridView.TabIndex = 2;
@@ -340,6 +346,7 @@
             customerNameColumn.HeaderText = "Name";
             customerNameColumn.MinimumWidth = 6;
             customerNameColumn.Name = "customerNameColumn";
+            customerNameColumn.ReadOnly = true;
             customerNameColumn.Width = 125;
             // 
             // maleColumn
@@ -347,6 +354,7 @@
             maleColumn.HeaderText = "Male";
             maleColumn.MinimumWidth = 6;
             maleColumn.Name = "maleColumn";
+            maleColumn.ReadOnly = true;
             maleColumn.Width = 125;
             // 
             // cicNumberColumn
@@ -354,6 +362,7 @@
             cicNumberColumn.HeaderText = "CIC number";
             cicNumberColumn.MinimumWidth = 6;
             cicNumberColumn.Name = "cicNumberColumn";
+            cicNumberColumn.ReadOnly = true;
             cicNumberColumn.Width = 125;
             // 
             // birthDateColumn
@@ -361,6 +370,7 @@
             birthDateColumn.HeaderText = "Birth date";
             birthDateColumn.MinimumWidth = 6;
             birthDateColumn.Name = "birthDateColumn";
+            birthDateColumn.ReadOnly = true;
             birthDateColumn.Width = 125;
             // 
             // phoneNumberColumn
@@ -368,6 +378,7 @@
             phoneNumberColumn.HeaderText = "Phone number";
             phoneNumberColumn.MinimumWidth = 6;
             phoneNumberColumn.Name = "phoneNumberColumn";
+            phoneNumberColumn.ReadOnly = true;
             phoneNumberColumn.Width = 125;
             // 
             // addressColumn
@@ -375,6 +386,7 @@
             addressColumn.HeaderText = "Address";
             addressColumn.MinimumWidth = 6;
             addressColumn.Name = "addressColumn";
+            addressColumn.ReadOnly = true;
             addressColumn.Width = 125;
             // 
             // usernameColumn
@@ -382,6 +394,7 @@
             usernameColumn.HeaderText = "Username";
             usernameColumn.MinimumWidth = 6;
             usernameColumn.Name = "usernameColumn";
+            usernameColumn.ReadOnly = true;
             usernameColumn.Width = 125;
             // 
             // hashedPasswordColumn
@@ -389,6 +402,7 @@
             hashedPasswordColumn.HeaderText = "Hashed password";
             hashedPasswordColumn.MinimumWidth = 6;
             hashedPasswordColumn.Name = "hashedPasswordColumn";
+            hashedPasswordColumn.ReadOnly = true;
             hashedPasswordColumn.Width = 125;
             // 
             // balanceColumn
@@ -396,6 +410,7 @@
             balanceColumn.HeaderText = "Balance";
             balanceColumn.MinimumWidth = 6;
             balanceColumn.Name = "balanceColumn";
+            balanceColumn.ReadOnly = true;
             balanceColumn.Width = 125;
             // 
             // Form1

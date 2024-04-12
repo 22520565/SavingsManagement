@@ -4,11 +4,13 @@
     using System.Data.SqlClient;
     using System.Globalization;
 
-    public static class SqlAccess
+    public static class SqlQuery
     {
+        private static readonly string ConnectionString = "Data Source={0};Initial Catalog={1};Integrated Security=SSPI;";
         private static readonly object LockConnectionObj = new object();
         private static readonly object LockExecutionObj = new object();
-        private static SqlConnection? sqlConnection = null;
+        private static readonly SqlConnection SqlConnection = new SqlConnection(
+                string.Format(CultureInfo.InvariantCulture, ConnectionString, "DESKTOP-COFIP2B", "SavingsManagement"));
 
         public static void ExecuteSqlCommand(string sqlCommandString)
         {
@@ -16,7 +18,7 @@
             {
                 try
                 {
-                    SqlCommand sqlCommand = new SqlCommand(sqlCommandString, sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand(sqlCommandString, SqlConnection);
                     OpenConnection();
                     sqlCommand.ExecuteNonQuery();
                     CloseConnection();
@@ -29,26 +31,25 @@
             }
         }
 
-        public static DataTable? GetDataTable(string sqlCommandString)
+        public static DataTable GetDataTable(string sqlCommandString)
         {
+            DataTable dataTable = new DataTable();
             lock (LockExecutionObj)
             {
                 try
                 {
-                    DataTable dataTable = new DataTable();
-                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommandString, sqlConnection);
+                    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommandString, SqlConnection);
                     OpenConnection();
                     sqlDataAdapter.Fill(dataTable);
                     CloseConnection();
                     sqlDataAdapter.Dispose();
-                    return dataTable;
                 }
                 catch
                 {
                     // ignore
                 }
-                return null;
             }
+            return dataTable;
         }
 
         public static string? GetValue(string sqlCommandString)
@@ -57,7 +58,7 @@
             {
                 string? valueToGet = null;
                 OpenConnection();
-                SqlCommand sqlCommand = new SqlCommand(sqlCommandString, sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand(sqlCommandString, SqlConnection);
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 while (sqlDataReader.Read())
                 {
@@ -70,15 +71,12 @@
 
         private static void OpenConnection()
         {
-            const string connectingString = "Data Source={0};Initial Catalog={1};Integrated Security=SSPI;";
-            sqlConnection ??= new SqlConnection(
-                string.Format(CultureInfo.InvariantCulture, connectingString, "DESKTOP-COFIP2B", "SavingsManagement"));
             lock (LockConnectionObj)
             {
-                if (sqlConnection.State != ConnectionState.Open)
+                if (SqlConnection.State != ConnectionState.Open)
                 {
-                    sqlConnection.Open();
-                    SqlCommand sqlCommand = new SqlCommand("set dateformat dmy", sqlConnection);
+                    SqlConnection.Open();
+                    SqlCommand sqlCommand = new SqlCommand("set dateformat dmy", SqlConnection);
                     sqlCommand.ExecuteNonQuery();
                     sqlCommand.Dispose();
                 }
@@ -89,9 +87,9 @@
         {
             lock (LockConnectionObj)
             {
-                if ((sqlConnection != null) && (sqlConnection.State == ConnectionState.Open))
+                if (SqlConnection.State == ConnectionState.Open)
                 {
-                    sqlConnection.Close();
+                    SqlConnection.Close();
                 }
             }
         }

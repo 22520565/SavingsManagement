@@ -12,7 +12,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "INSERT INTO Savings(id, customerId, balance, annualInterestRate, periodInMonths, openDate) VALUES ({0}, {1}, {2}, {3}, {4}, '{5}')";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
+                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
                     saving.Id, saving.CustomerId, saving.Balance, saving.AnnualInterestRate, saving.PeriodInMonths, saving.OpenDay.ToString(CultureInfo.InvariantCulture)));
             }
         }
@@ -22,7 +22,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "UPDATE Savings SET customerId = {1}, balance = {2}, annualInterestRate = {3}, periodInMonths = {4}, openDate = '{5}' WHERE id = {0}";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
+                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
                     saving.Id, saving.CustomerId, saving.Balance, saving.AnnualInterestRate, saving.PeriodInMonths, saving.OpenDay.ToString(CultureInfo.InvariantCulture)));
             }
         }
@@ -32,7 +32,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "DELETE FROM Savings WHERE id = {0}";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, saving.Id));
+                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, saving.Id));
             }
         }
 
@@ -41,7 +41,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "SELECT * FROM Savings {0}";
-                return SqlAccess.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
+                return SqlQuery.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
             }
         }
     }

@@ -12,7 +12,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "INSERT INTO StaffAccounts(id, name, isMale, position, username, hashedPassword, staffAccountTypeId) VALUES ({0}, N'{1}', {2}, N'{3}', '{4}', '{5}', {6})";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
+                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
                     staffAccount.Id, staffAccount.Name, staffAccount.IsMale, staffAccount.Position, staffAccount.Username, staffAccount.HashedPassword, staffAccount.StaffAccountTypeId));
             }
         }
@@ -22,7 +22,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "UPDATE StaffAccounts SET name = N'{1}', isMale = {2}, position = N'{3}', hashedPassword = '{4}', staffAccountTypeId = {5} WHERE id = {0}";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
+                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
                   staffAccount.Id, staffAccount.Name, staffAccount.IsMale, staffAccount.Position, staffAccount.HashedPassword, staffAccount.StaffAccountTypeId));
             }
         }
@@ -32,7 +32,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "DELETE FROM StaffAccounts WHERE id = {0}";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, staffAccount.Id));
+                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, staffAccount.Id));
             }
         }
 
@@ -41,7 +41,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "SELECT * FROM StaffAccounts {0}";
-                return SqlAccess.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
+                return SqlQuery.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
             }
         }
     }

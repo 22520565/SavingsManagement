@@ -12,7 +12,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "INSERT INTO AnnualSavingsInterestRates(periodInMonths, annualInterestRate) VALUES ({0}, {1})";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
+                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
                     annualSavingsInterestRate.PeriodInMonths, annualSavingsInterestRate.AnnualInterestRate));
             }
         }
@@ -22,7 +22,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "UPDATE AnnualSavingsInterestRates SET annualInterestRate = {1} WHERE periodInMonths = {0}";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
+                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
                    annualSavingsInterestRate.PeriodInMonths, annualSavingsInterestRate.AnnualInterestRate));
             }
         }
@@ -32,7 +32,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "DELETE FROM AnnualSavingsInterestRates WHERE id = {0}";
-                SqlAccess.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, annualSavingsInterestRate.PeriodInMonths));
+                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, annualSavingsInterestRate.PeriodInMonths));
             }
         }
 
@@ -41,7 +41,7 @@
             lock (LockObj)
             {
                 const string sqlCommandString = "SELECT * FROM AnnualSavingsInterestRates {0}";
-                return SqlAccess.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
+                return SqlQuery.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
             }
         }
     }

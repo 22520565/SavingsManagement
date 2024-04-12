@@ -1,5 +1,8 @@
 namespace Gui
 {
+    using System;
+    using System.Windows.Forms;
+
     internal static class Program
     {
         /// <summary>
