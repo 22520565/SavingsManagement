@@ -32,6 +32,7 @@ namespace Gui
         {
             Entity.CustomerAccount customerAccount = new Entity.CustomerAccount
             {
+                Id = (int)this.customerIdNumeric.Value,
                 Name = this.customerNameTextBox.Text,
                 IsMale = this.customerMaleCheckBox.Checked,
                 CicNumber = this.customerCicNumberTextBox.Text,
