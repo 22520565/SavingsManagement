@@ -12,7 +12,7 @@
 
         public string CicNumber { get; set; } = string.Empty;
 
-        public DateOnly BirthDate { get; set; } = new DateOnly();
+        public DateOnly BirthDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
 
         public string PhoneNumber { get; set; } = string.Empty;
 

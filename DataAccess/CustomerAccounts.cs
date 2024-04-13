@@ -11,7 +11,8 @@
         {
             lock (LockObj)
             {
-                SqlQuery.ExecuteSqlCommand($"INSERT INTO {nameof(CustomerAccounts)}(" +
+                SqlQuery.ExecuteSqlCommand(
+                    $"INSERT INTO {nameof(CustomerAccounts)}(" +
                     $"{nameof(customerAccount.Name)}, " +
                     $"{nameof(customerAccount.IsMale)}, " +
                     $"{nameof(customerAccount.CicNumber)}, " +
@@ -23,9 +24,9 @@
                     $"{nameof(customerAccount.Balance)}) " +
                     $"VALUES(" +
                     $"N'{customerAccount.Name}', " +
-                    $"{customerAccount.IsMale.GetHashCode()}, " +
+                    $"{(customerAccount.IsMale ? 1 : 0)}, " +
                     $"'{customerAccount.CicNumber}', " +
-                    $"'{customerAccount.BirthDate}', " +
+                    $"'{customerAccount.BirthDate.ToString(CultureInfo.InvariantCulture)}', " +
                     $"'{customerAccount.PhoneNumber}', " +
                     $"N'{customerAccount.Address}', " +
                     $"'{customerAccount.Username}', " +
@@ -38,9 +39,10 @@
         {
             lock (LockObj)
             {
-                SqlQuery.ExecuteSqlCommand($"UPDATE {nameof(CustomerAccounts)} SET " +
+                SqlQuery.ExecuteSqlCommand(
+                    $"UPDATE {nameof(CustomerAccounts)} SET " +
                     $"{nameof(customerAccount.Name)} = N'{customerAccount.Name}', " +
-                    $"{nameof(customerAccount.IsMale)} = {customerAccount.IsMale.GetHashCode()}, " +
+                    $"{nameof(customerAccount.IsMale)} = {(customerAccount.IsMale ? 1 : 0)}, " +
                     $"{nameof(customerAccount.CicNumber)} = '{customerAccount.CicNumber}', " +
                     $"{nameof(customerAccount.BirthDate)} = '{customerAccount.BirthDate.ToString(CultureInfo.InvariantCulture)}', " +
                     $"{nameof(customerAccount.PhoneNumber)} = '{customerAccount.PhoneNumber}', " +
@@ -55,16 +57,17 @@
         {
             lock (LockObj)
             {
-                SqlQuery.ExecuteSqlCommand($"DELETE FROM {nameof(CustomerAccounts)} " +
+                SqlQuery.ExecuteSqlCommand(
+                    $"DELETE FROM {nameof(CustomerAccounts)} " +
                     $"WHERE {nameof(customerAccount.Id)} = {customerAccount.Id}");
             }
         }
 
-        public static DataTable GetDataTable(string conditionString)
+        public static DataTable GetDataTable(string conditionalString)
         {
             lock (LockObj)
             {
-                return SqlQuery.GetDataTable($"SELECT * FROM {nameof(CustomerAccounts)} {conditionString}");
+                return SqlQuery.GetDataTable($"SELECT * FROM {nameof(CustomerAccounts)} {conditionalString}");
             }
         }
     }

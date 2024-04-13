@@ -1,8 +1,8 @@
-﻿using System.Data;
-using System.Globalization;
-
-namespace DataAccess
+﻿namespace DataAccess
 {
+    using System.Data;
+    using System.Globalization;
+
     public static class CashFlows
     {
         private static readonly object LockObj = new object();
@@ -19,7 +19,7 @@ namespace DataAccess
                     $"{nameof(cashFlow.Context)}, " +
                     $"VALUES(" +
                     $"{cashFlow.CustomerId}, " +
-                    $"'{cashFlow.Time}', " +
+                    $"'{cashFlow.Time.ToString(CultureInfo.InvariantCulture)}', " +
                     $"{cashFlow.BalanceChanging}, " +
                     $"{cashFlow.BalanceRemaining}, " +
                     $"{cashFlow.Context})");
@@ -30,13 +30,13 @@ namespace DataAccess
         {
             lock (LockObj)
             {
-                 SqlQuery.ExecuteSqlCommand($"UPDATE {nameof(CashFlows)} SET " +
-                     $"{nameof(cashFlow.CustomerId)} = {cashFlow.CustomerId}, " +
-                     $"{nameof(cashFlow.Time)} = '{cashFlow.Time}', " +
-                     $"{nameof(cashFlow.BalanceChanging)} = {cashFlow.BalanceChanging}, " +
-                     $"{nameof(cashFlow.BalanceRemaining)} = {cashFlow.BalanceRemaining}, " +
-                     $"{nameof(cashFlow.Context)} = {cashFlow.Context} " +
-                     $"WHERE {nameof(cashFlow.Id)} = {cashFlow.Id}");
+                SqlQuery.ExecuteSqlCommand($"UPDATE {nameof(CashFlows)} SET " +
+                    $"{nameof(cashFlow.CustomerId)} = {cashFlow.CustomerId}, " +
+                    $"{nameof(cashFlow.Time)} = '{cashFlow.Time.ToString(CultureInfo.InvariantCulture)}', " +
+                    $"{nameof(cashFlow.BalanceChanging)} = {cashFlow.BalanceChanging}, " +
+                    $"{nameof(cashFlow.BalanceRemaining)} = {cashFlow.BalanceRemaining}, " +
+                    $"{nameof(cashFlow.Context)} = {cashFlow.Context} " +
+                    $"WHERE {nameof(cashFlow.Id)} = {cashFlow.Id}");
             }
         }
 
@@ -48,11 +48,11 @@ namespace DataAccess
             }
         }
 
-        public static DataTable? GetDataTable(string conditionString)
+        public static DataTable? GetDataTable(string conditionalString)
         {
             lock (LockObj)
             {
-                return SqlQuery.GetDataTable($"SELECT * FROM {nameof(CashFlows)} {conditionString}");
+                return SqlQuery.GetDataTable($"SELECT * FROM {nameof(CashFlows)} {conditionalString}");
             }
         }
     }

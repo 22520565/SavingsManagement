@@ -76,9 +76,6 @@
                 if (SqlConnection.State != ConnectionState.Open)
                 {
                     SqlConnection.Open();
-                    SqlCommand sqlCommand = new SqlCommand("set dateformat dmy", SqlConnection);
-                    sqlCommand.ExecuteNonQuery();
-                    sqlCommand.Dispose();
                 }
             }
         }

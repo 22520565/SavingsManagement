@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Globalization;
 
 namespace DataAccess
 {
@@ -11,9 +10,13 @@ namespace DataAccess
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "INSERT INTO StaffAccountTypes(id, name, permissionId) VALUES ({0}, '{1}', {2})";
-                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
-                    staffAccountType.Id, staffAccountType.Name, staffAccountType.PermissionId));
+                SqlQuery.ExecuteSqlCommand(
+                    $"INSERT INTO {nameof(StaffAccountTypes)}(" +
+                    $"{nameof(staffAccountType.Name)}, " +
+                    $"{nameof(staffAccountType.PermissionId)}) " +
+                    $"VALUES(" +
+                    $"'{staffAccountType.Name}', " +
+                    $"{staffAccountType.PermissionId})");
             }
         }
 
@@ -21,9 +24,11 @@ namespace DataAccess
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "UPDATE StaffAccountTypes SET name = N'{1}', permissionId = {2} WHERE id = {0}";
-                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
-                   staffAccountType.Id, staffAccountType.Name, staffAccountType.PermissionId));
+                SqlQuery.ExecuteSqlCommand(
+                    $"UPDATE {nameof(StaffAccountTypes)} SET " +
+                    $"{nameof(staffAccountType.Name)} = '{staffAccountType.Name}', " +
+                    $"{nameof(staffAccountType.PermissionId)} = {staffAccountType.PermissionId} " +
+                    $"WHERE {nameof(staffAccountType.Id)} = {staffAccountType.Id}");
             }
         }
 
@@ -31,17 +36,17 @@ namespace DataAccess
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "DELETE FROM StaffAccountTypes WHERE id = {0}";
-                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, staffAccountType.Id));
+                SqlQuery.ExecuteSqlCommand(
+                    $"DELETE FROM {nameof(StaffAccountTypes)} " +
+                    $"WHERE {nameof(staffAccountType.Id)} = {staffAccountType.Id}");
             }
         }
 
-        public static DataTable? GetDataTable(string conditionString)
+        public static DataTable? GetDataTable(string conditionalString)
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "SELECT * FROM StaffAccountTypes {0}";
-                return SqlQuery.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
+                return SqlQuery.GetDataTable($"SELECT * FROM {nameof(StaffAccountTypes)} {conditionalString}");
             }
         }
     }

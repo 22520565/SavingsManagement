@@ -14,6 +14,6 @@
 
         public string HashedPassword { get; set; } = string.Empty;
 
-        public int StaffAccountTypeId { get; set; } = 0;
+        public int AccountTypeId { get; set; } = 0;
     }
 }

@@ -1,7 +1,6 @@
 ﻿namespace DataAccess
 {
     using System.Data;
-    using System.Globalization;
 
     public static class StaffPermissions
     {
@@ -11,9 +10,11 @@
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "INSERT INTO StaffPermissions(id, name) VALUES ({0}, '{1}')";
-                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
-                    staffPermission.Id, staffPermission.Name));
+                SqlQuery.ExecuteSqlCommand(
+                    $"INSERT INTO {nameof(StaffPermissions)}(" +
+                    $"{staffPermission.Name}) " +
+                    $"VALUES(" +
+                    $"'{staffPermission.Name}')");
             }
         }
 
@@ -21,9 +22,10 @@
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "UPDATE StaffPermissions SET name = '{1}' WHERE id = {0}";
-                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
-                   staffPermission.Id, staffPermission.Name));
+                SqlQuery.ExecuteSqlCommand(
+                    $"UPDATE {nameof(StaffPermissions)} SET " +
+                    $"{nameof(staffPermission.Name)} = '{staffPermission.Name}' " +
+                    $"WHERE {nameof(staffPermission.Id)} = {staffPermission.Id}");
             }
         }
 
@@ -31,17 +33,17 @@
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "DELETE FROM StaffPermissions WHERE id = {0}";
-                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, staffPermission.Id));
+                SqlQuery.ExecuteSqlCommand(
+                    $"DELETE FROM {nameof(StaffPermissions)} " +
+                    $"WHERE {nameof(staffPermission.Id)} = {staffPermission.Id}");
             }
         }
 
-        public static DataTable? GetDataTable(string conditionString)
+        public static DataTable? GetDataTable(string conditionalString)
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "SELECT * FROM StaffPermissions {0}";
-                return SqlQuery.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
+                return SqlQuery.GetDataTable($"SELECT * FROM {nameof(StaffPermissions)} {conditionalString}");
             }
         }
     }

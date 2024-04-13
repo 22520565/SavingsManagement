@@ -11,9 +11,19 @@
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "INSERT INTO Savings(id, customerId, balance, annualInterestRate, periodInMonths, openDate) VALUES ({0}, {1}, {2}, {3}, {4}, '{5}')";
-                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
-                    saving.Id, saving.CustomerId, saving.Balance, saving.AnnualInterestRate, saving.PeriodInMonths, saving.OpenDay.ToString(CultureInfo.InvariantCulture)));
+                SqlQuery.ExecuteSqlCommand(
+                    $"INSERT INTO {nameof(Savings)}(" +
+                    $"{nameof(saving.CustomerId)}, " +
+                    $"{nameof(saving.Balance)}, " +
+                    $"{nameof(saving.AnnualInterestRate)}, " +
+                    $"{nameof(saving.PeriodInMonths)}, " +
+                    $"{nameof(saving.OpenDay)}) " +
+                    $"VALUES(" +
+                    $"{saving.CustomerId}, " +
+                    $"{saving.Balance}, " +
+                    $"{saving.AnnualInterestRate}, " +
+                    $"{saving.PeriodInMonths}, " +
+                    $"'{saving.OpenDay.ToString(CultureInfo.InvariantCulture)}')");
             }
         }
 
@@ -21,9 +31,14 @@
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "UPDATE Savings SET customerId = {1}, balance = {2}, annualInterestRate = {3}, periodInMonths = {4}, openDate = '{5}' WHERE id = {0}";
-                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString,
-                    saving.Id, saving.CustomerId, saving.Balance, saving.AnnualInterestRate, saving.PeriodInMonths, saving.OpenDay.ToString(CultureInfo.InvariantCulture)));
+                SqlQuery.ExecuteSqlCommand(
+                    $"UPDATE Savings SET " +
+                    $"{nameof(saving.CustomerId)} = {saving.CustomerId}, " +
+                    $"{nameof(saving.Balance)} = {saving.Balance}, " +
+                    $"{nameof(saving.AnnualInterestRate)} = {saving.AnnualInterestRate}, " +
+                    $"{nameof(saving.PeriodInMonths)} = {saving.PeriodInMonths}, " +
+                    $"{nameof(saving.OpenDay)} = '{saving.OpenDay.ToString(CultureInfo.InvariantCulture)}' " +
+                    $"WHERE {nameof(saving.Id)} = {saving.Id}");
             }
         }
 
@@ -31,17 +46,17 @@
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "DELETE FROM Savings WHERE id = {0}";
-                SqlQuery.ExecuteSqlCommand(string.Format(CultureInfo.InvariantCulture, sqlCommandString, saving.Id));
+                SqlQuery.ExecuteSqlCommand(
+                    $"DELETE FROM {nameof(Savings)} " +
+                    $"WHERE {nameof(saving.Id)} = {saving.Id}");
             }
         }
 
-        public static DataTable? GetDataTable(string conditionString)
+        public static DataTable? GetDataTable(string conditionalString)
         {
             lock (LockObj)
             {
-                const string sqlCommandString = "SELECT * FROM Savings {0}";
-                return SqlQuery.GetDataTable(string.Format(CultureInfo.InvariantCulture, sqlCommandString, conditionString));
+                return SqlQuery.GetDataTable($"SELECT * FROM {nameof(Savings)} {conditionalString}");
             }
         }
     }
