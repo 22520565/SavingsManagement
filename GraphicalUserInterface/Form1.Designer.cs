@@ -32,6 +32,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            customerIdNumeric = new NumericUpDown();
             customerBalanceNumeric = new NumericUpDown();
             customerBalanceLabel = new Label();
             customerHashedPasswordLabel = new Label();
@@ -43,7 +44,6 @@
             customerMaleCheckBox = new CheckBox();
             customerBirthDatePicker = new DateTimePicker();
             customerNameTextBox = new TextBox();
-            customerIdTextBox = new TextBox();
             customerUsernameLabel = new Label();
             customerAddressLabel = new Label();
             customerPhoneNumberLabel = new Label();
@@ -52,6 +52,7 @@
             customerNameLabel = new Label();
             customerIdLabel = new Label();
             panel2 = new Panel();
+            cancelButton = new Button();
             deleteButton = new Button();
             editButton = new Button();
             saveButton = new Button();
@@ -68,6 +69,7 @@
             hashedPasswordColumn = new DataGridViewTextBoxColumn();
             balanceColumn = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)customerIdNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBalanceNumeric).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customersDataGridView).BeginInit();
@@ -75,6 +77,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(customerIdNumeric);
             panel1.Controls.Add(customerBalanceNumeric);
             panel1.Controls.Add(customerBalanceLabel);
             panel1.Controls.Add(customerHashedPasswordLabel);
@@ -86,7 +89,6 @@
             panel1.Controls.Add(customerMaleCheckBox);
             panel1.Controls.Add(customerBirthDatePicker);
             panel1.Controls.Add(customerNameTextBox);
-            panel1.Controls.Add(customerIdTextBox);
             panel1.Controls.Add(customerUsernameLabel);
             panel1.Controls.Add(customerAddressLabel);
             panel1.Controls.Add(customerPhoneNumberLabel);
@@ -100,6 +102,16 @@
             panel1.Size = new Size(888, 185);
             panel1.TabIndex = 0;
             // 
+            // customerIdNumeric
+            // 
+            customerIdNumeric.Enabled = false;
+            customerIdNumeric.Location = new Point(45, 8);
+            customerIdNumeric.Maximum = new decimal(new int[] { int.MaxValue, 0, 0, 0 });
+            customerIdNumeric.Name = "customerIdNumeric";
+            customerIdNumeric.ReadOnly = true;
+            customerIdNumeric.Size = new Size(232, 27);
+            customerIdNumeric.TabIndex = 0;
+            // 
             // customerBalanceNumeric
             // 
             customerBalanceNumeric.DecimalPlaces = 2;
@@ -108,7 +120,7 @@
             customerBalanceNumeric.Maximum = new decimal(new int[] { -1, -1, -1, 0 });
             customerBalanceNumeric.Name = "customerBalanceNumeric";
             customerBalanceNumeric.Size = new Size(150, 27);
-            customerBalanceNumeric.TabIndex = 20;
+            customerBalanceNumeric.TabIndex = 9;
             customerBalanceNumeric.ThousandsSeparator = true;
             // 
             // customerBalanceLabel
@@ -117,7 +129,7 @@
             customerBalanceLabel.Location = new Point(634, 142);
             customerBalanceLabel.Name = "customerBalanceLabel";
             customerBalanceLabel.Size = new Size(64, 20);
-            customerBalanceLabel.TabIndex = 19;
+            customerBalanceLabel.TabIndex = 9;
             customerBalanceLabel.Text = "Balance:";
             // 
             // customerHashedPasswordLabel
@@ -126,7 +138,7 @@
             customerHashedPasswordLabel.Location = new Point(296, 138);
             customerHashedPasswordLabel.Name = "customerHashedPasswordLabel";
             customerHashedPasswordLabel.Size = new Size(129, 20);
-            customerHashedPasswordLabel.TabIndex = 18;
+            customerHashedPasswordLabel.TabIndex = 8;
             customerHashedPasswordLabel.Text = "Hashed password:";
             // 
             // customerHashedPasswordTextBox
@@ -135,7 +147,7 @@
             customerHashedPasswordTextBox.Location = new Point(431, 135);
             customerHashedPasswordTextBox.Name = "customerHashedPasswordTextBox";
             customerHashedPasswordTextBox.Size = new Size(165, 27);
-            customerHashedPasswordTextBox.TabIndex = 16;
+            customerHashedPasswordTextBox.TabIndex = 8;
             // 
             // customerUsernameTextBox
             // 
@@ -143,7 +155,7 @@
             customerUsernameTextBox.Location = new Point(96, 135);
             customerUsernameTextBox.Name = "customerUsernameTextBox";
             customerUsernameTextBox.Size = new Size(175, 27);
-            customerUsernameTextBox.TabIndex = 15;
+            customerUsernameTextBox.TabIndex = 7;
             // 
             // customerAddressTextBox
             // 
@@ -151,7 +163,7 @@
             customerAddressTextBox.Location = new Point(93, 93);
             customerAddressTextBox.Name = "customerAddressTextBox";
             customerAddressTextBox.Size = new Size(783, 27);
-            customerAddressTextBox.TabIndex = 14;
+            customerAddressTextBox.TabIndex = 6;
             // 
             // customerCicNumberTextBox
             // 
@@ -159,7 +171,7 @@
             customerCicNumberTextBox.Location = new Point(109, 51);
             customerCicNumberTextBox.Name = "customerCicNumberTextBox";
             customerCicNumberTextBox.Size = new Size(195, 27);
-            customerCicNumberTextBox.TabIndex = 13;
+            customerCicNumberTextBox.TabIndex = 3;
             // 
             // customerPhoneNumberTextBox
             // 
@@ -167,7 +179,7 @@
             customerPhoneNumberTextBox.Location = new Point(704, 50);
             customerPhoneNumberTextBox.Name = "customerPhoneNumberTextBox";
             customerPhoneNumberTextBox.Size = new Size(172, 27);
-            customerPhoneNumberTextBox.TabIndex = 12;
+            customerPhoneNumberTextBox.TabIndex = 5;
             // 
             // customerMaleCheckBox
             // 
@@ -177,7 +189,7 @@
             customerMaleCheckBox.Location = new Point(787, 12);
             customerMaleCheckBox.Name = "customerMaleCheckBox";
             customerMaleCheckBox.Size = new Size(64, 24);
-            customerMaleCheckBox.TabIndex = 11;
+            customerMaleCheckBox.TabIndex = 2;
             customerMaleCheckBox.Text = "Male";
             customerMaleCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -187,7 +199,7 @@
             customerBirthDatePicker.Location = new Point(412, 51);
             customerBirthDatePicker.Name = "customerBirthDatePicker";
             customerBirthDatePicker.Size = new Size(161, 27);
-            customerBirthDatePicker.TabIndex = 10;
+            customerBirthDatePicker.TabIndex = 4;
             // 
             // customerNameTextBox
             // 
@@ -195,15 +207,7 @@
             customerNameTextBox.Location = new Point(341, 10);
             customerNameTextBox.Name = "customerNameTextBox";
             customerNameTextBox.Size = new Size(413, 27);
-            customerNameTextBox.TabIndex = 9;
-            // 
-            // customerIdTextBox
-            // 
-            customerIdTextBox.Enabled = false;
-            customerIdTextBox.Location = new Point(45, 6);
-            customerIdTextBox.Name = "customerIdTextBox";
-            customerIdTextBox.Size = new Size(215, 27);
-            customerIdTextBox.TabIndex = 8;
+            customerNameTextBox.TabIndex = 1;
             // 
             // customerUsernameLabel
             // 
@@ -270,6 +274,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(cancelButton);
             panel2.Controls.Add(deleteButton);
             panel2.Controls.Add(editButton);
             panel2.Controls.Add(saveButton);
@@ -278,25 +283,38 @@
             panel2.Location = new Point(0, 185);
             panel2.Name = "panel2";
             panel2.Size = new Size(888, 67);
-            panel2.TabIndex = 1;
+            panel2.TabIndex = 0;
+            // 
+            // cancelButton
+            // 
+            cancelButton.Enabled = false;
+            cancelButton.Location = new Point(539, 19);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(94, 29);
+            cancelButton.TabIndex = 14;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += cancelButton_Click;
             // 
             // deleteButton
             // 
             deleteButton.Location = new Point(397, 19);
             deleteButton.Name = "deleteButton";
             deleteButton.Size = new Size(94, 29);
-            deleteButton.TabIndex = 3;
+            deleteButton.TabIndex = 13;
             deleteButton.Text = "Delete";
             deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // editButton
             // 
             editButton.Location = new Point(258, 18);
             editButton.Name = "editButton";
             editButton.Size = new Size(94, 29);
-            editButton.TabIndex = 2;
+            editButton.TabIndex = 12;
             editButton.Text = "Edit";
             editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
             // 
             // saveButton
             // 
@@ -304,7 +322,7 @@
             saveButton.Location = new Point(129, 18);
             saveButton.Name = "saveButton";
             saveButton.Size = new Size(94, 29);
-            saveButton.TabIndex = 1;
+            saveButton.TabIndex = 11;
             saveButton.Text = "Save";
             saveButton.UseVisualStyleBackColor = true;
             saveButton.Click += saveButton_Click;
@@ -314,7 +332,7 @@
             addButton.Location = new Point(12, 18);
             addButton.Name = "addButton";
             addButton.Size = new Size(94, 29);
-            addButton.TabIndex = 0;
+            addButton.TabIndex = 10;
             addButton.Text = "Add";
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += addButton_Click;
@@ -331,7 +349,8 @@
             customersDataGridView.ReadOnly = true;
             customersDataGridView.RowHeadersWidth = 51;
             customersDataGridView.Size = new Size(888, 293);
-            customersDataGridView.TabIndex = 2;
+            customersDataGridView.TabIndex = 0;
+            customersDataGridView.RowEnter += customersDataGridView_RowEnter;
             // 
             // customerIdColumn
             // 
@@ -426,6 +445,7 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)customerIdNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBalanceNumeric).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)customersDataGridView).EndInit();
@@ -443,7 +463,7 @@
         private Label customerAddressLabel;
         private Label customerPhoneNumberLabel;
         private Label customerUsernameLabel;
-        private TextBox customerIdTextBox;
+        private NumericUpDown customerIdNumeric;
         private TextBox customerNameTextBox;
         private CheckBox customerMaleCheckBox;
         private DateTimePicker customerBirthDatePicker;
@@ -470,5 +490,6 @@
         private Button saveButton;
         private Button editButton;
         private Button deleteButton;
+        private Button cancelButton;
     }
 }
