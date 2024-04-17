@@ -1,7 +1,6 @@
 namespace Gui
 {
     using System;
-    using System.Data;
     using System.Windows.Forms;
 
     public partial class Form1 : Form
@@ -13,14 +12,6 @@ namespace Gui
             this.InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            foreach (DataRow dataRow in Business.CustomerAccounts.GetDataTable(string.Empty).Rows)
-            {
-                this.customersDataGridView.Rows.Add(dataRow.ItemArray);
-            }
-        }
-
         private void addButton_Click(object sender, EventArgs e)
         {
             this.ClearAllField();
@@ -30,26 +21,37 @@ namespace Gui
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Entity.CustomerAccount customerAccount = new Entity.CustomerAccount
-            {
-                Id = (int)this.customerIdNumeric.Value,
-                Name = this.customerNameTextBox.Text,
-                IsMale = this.customerMaleCheckBox.Checked,
-                CicNumber = this.customerCicNumberTextBox.Text,
-                BirthDate = DateOnly.FromDateTime(this.customerBirthDatePicker.Value),
-                PhoneNumber = this.customerPhoneNumberTextBox.Text,
-                Address = this.customerAddressTextBox.Text,
-                Username = this.customerUsernameTextBox.Text,
-                HashedPassword = this.customerHashedPasswordTextBox.Text,
-                Balance = this.customerBalanceNumeric.Value,
-            };
-
             if (this.inEditMode)
             {
+                Entity.CustomerAccount customerAccount = new Entity.CustomerAccount
+                {
+                    Id = (int)this.customerIdNumeric.Value,
+                    Name = this.customerNameTextBox.Text,
+                    IsMale = this.customerMaleCheckBox.Checked,
+                    CicNumber = this.customerCicNumberTextBox.Text,
+                    BirthDate = DateOnly.FromDateTime(this.customerBirthDatePicker.Value),
+                    PhoneNumber = this.customerPhoneNumberTextBox.Text,
+                    Address = this.customerAddressTextBox.Text,
+                    Username = this.customerUsernameTextBox.Text,
+                    HashedPassword = this.customerHashedPasswordTextBox.Text,
+                    Balance = this.customerBalanceNumeric.Value,
+                };
                 Business.CustomerAccounts.EditData(customerAccount);
             }
             else
             {
+                Entity.CustomerAccount customerAccount = new Entity.CustomerAccount
+                {
+                    Name = this.customerNameTextBox.Text,
+                    IsMale = this.customerMaleCheckBox.Checked,
+                    CicNumber = this.customerCicNumberTextBox.Text,
+                    BirthDate = DateOnly.FromDateTime(this.customerBirthDatePicker.Value),
+                    PhoneNumber = this.customerPhoneNumberTextBox.Text,
+                    Address = this.customerAddressTextBox.Text,
+                    Username = this.customerUsernameTextBox.Text,
+                    HashedPassword = this.customerHashedPasswordTextBox.Text,
+                    Balance = this.customerBalanceNumeric.Value,
+                };
                 Business.CustomerAccounts.AddData(customerAccount);
             }
 
@@ -79,34 +81,17 @@ namespace Gui
             this.ClearAllField();
         }
 
-        private void customersDataGridView_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                this.customerIdNumeric.Value = this.customersDataGridView[0, e.RowIndex].Value is int customerId ? customerId : 0;
-                this.customerNameTextBox.Text = this.customersDataGridView[1, e.RowIndex].Value as string ?? string.Empty;
-                this.customerMaleCheckBox.Checked = this.customersDataGridView[2, e.RowIndex].Value is not bool customerIsMale || customerIsMale;
-                this.customerCicNumberTextBox.Text = this.customersDataGridView[3, e.RowIndex].Value as string ?? string.Empty;
-                this.customerBirthDatePicker.Value = this.customersDataGridView[4, e.RowIndex].Value is DateTime customerBirthDate ? customerBirthDate : DateTime.Now;
-                this.customerPhoneNumberTextBox.Text = this.customersDataGridView[5, e.RowIndex].Value as string ?? string.Empty;
-                this.customerAddressTextBox.Text = this.customersDataGridView[6, e.RowIndex].Value as string ?? string.Empty;
-                this.customerUsernameTextBox.Text = this.customersDataGridView[7, e.RowIndex].Value as string ?? string.Empty;
-                this.customerHashedPasswordTextBox.Text = this.customersDataGridView[8, e.RowIndex].Value as string ?? string.Empty;
-                this.customerBalanceNumeric.Value = this.customersDataGridView[9, e.RowIndex].Value is decimal customerBalance ? customerBalance : 0;
-            }
-        }
-
         private void AllowEdit()
         {
             this.customerIdNumeric.Enabled = false;
-            this.customerNameTextBox.Enabled = true;
+            this.customerNameTextBox.ReadOnly = false;
             this.customerMaleCheckBox.Enabled = true;
-            this.customerCicNumberTextBox.Enabled = true;
+            this.customerCicNumberTextBox.ReadOnly = false;
             this.customerBirthDatePicker.Enabled = true;
-            this.customerPhoneNumberTextBox.Enabled = true;
-            this.customerAddressTextBox.Enabled = true;
-            this.customerUsernameTextBox.Enabled = true;
-            this.customerHashedPasswordTextBox.Enabled = true;
+            this.customerPhoneNumberTextBox.ReadOnly = false;
+            this.customerAddressTextBox.ReadOnly = false;
+            this.customerUsernameTextBox.ReadOnly = false;
+            this.customerHashedPasswordTextBox.ReadOnly = false;
             this.customerBalanceNumeric.Enabled = true;
 
             this.addButton.Enabled = false;
@@ -119,14 +104,14 @@ namespace Gui
         private void DisallowEdit()
         {
             this.customerIdNumeric.Enabled = false;
-            this.customerNameTextBox.Enabled = false;
+            this.customerNameTextBox.ReadOnly = true;
             this.customerMaleCheckBox.Enabled = false;
-            this.customerCicNumberTextBox.Enabled = false;
+            this.customerCicNumberTextBox.ReadOnly = true;
             this.customerBirthDatePicker.Enabled = false;
-            this.customerPhoneNumberTextBox.Enabled = false;
-            this.customerAddressTextBox.Enabled = false;
-            this.customerUsernameTextBox.Enabled = false;
-            this.customerHashedPasswordTextBox.Enabled = false;
+            this.customerPhoneNumberTextBox.ReadOnly = true;
+            this.customerAddressTextBox.ReadOnly = true;
+            this.customerUsernameTextBox.ReadOnly = true;
+            this.customerHashedPasswordTextBox.ReadOnly = true;
             this.customerBalanceNumeric.Enabled = false;
 
             this.addButton.Enabled = true;
@@ -152,12 +137,6 @@ namespace Gui
 
         private void RefreshDataGridView()
         {
-            this.customersDataGridView.Rows.Clear();
-            foreach (DataRow dataRow in Business.CustomerAccounts.GetDataTable(string.Empty).Rows)
-            {
-                this.customersDataGridView.Rows.Add(dataRow.ItemArray);
-            }
-
             this.DisallowEdit();
         }
     }
