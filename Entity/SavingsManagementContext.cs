@@ -33,7 +33,7 @@ public partial class SavingsManagementContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-COFIP2B;Initial Catalog=SavingsManagement;Integrated Security=True;Encrypt=True");
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-COFIP2B;Initial Catalog=SavingsManagement;Integrated Security=True;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -90,6 +90,7 @@ public partial class SavingsManagementContext : DbContext
 
             entity.Property(e => e.AnnualInterestRate).HasColumnType("decimal(5, 3)");
             entity.Property(e => e.Balance).HasColumnType("money");
+            entity.Property(e => e.OpenDate).HasDefaultValueSql("(sysdatetimeoffset())");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Savings)
                 .HasForeignKey(d => d.CustomerId)
@@ -101,7 +102,7 @@ public partial class SavingsManagementContext : DbContext
         {
             entity.HasKey(e => e.PeriodInMonths).HasName("PK_AnnualInterestRates");
 
-            entity.Property(e => e.AnnualInterestRate).HasColumnType("decimal(5, 3)");
+            entity.Property(e => e.AnnualInterestRate).HasColumnType("decimal(8, 5)");
         });
 
         modelBuilder.Entity<StaffAccount>(entity =>

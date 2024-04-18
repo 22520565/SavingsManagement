@@ -17,7 +17,7 @@ public partial class Saving
 
     public int PeriodInMonths { get; set; }
 
-    public DateOnly OpenDate { get; set; }
+    public DateTimeOffset OpenDate { get; set; }
 
     public virtual CustomerAccount Customer { get; set; }
 }
