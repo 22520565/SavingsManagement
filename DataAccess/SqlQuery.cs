@@ -1,5 +1,8 @@
 ﻿namespace DataAccess
 {
+    using Entity;
+    using System;
+    using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
     using System.Globalization;
@@ -10,7 +13,7 @@
         private static readonly object LockConnectionObj = new object();
         private static readonly object LockExecutionObj = new object();
         private static readonly SqlConnection SqlConnection = new SqlConnection(
-                string.Format(CultureInfo.InvariantCulture, ConnectionString, "DESKTOP-COFIP2B", "SavingsManagement"));
+                string.Format(CultureInfo.InvariantCulture, ConnectionString, "DESKTOP-O6AO007\\SQLEXPRESS", "SavingsManagement"));
 
         public static void ExecuteSqlCommand(string sqlCommandString)
         {
@@ -52,7 +55,7 @@
             return dataTable;
         }
 
-        public static string? GetValue(string sqlCommandString)
+        public static string? GetValue(string sqlCommandString)//
         {
             lock (LockExecutionObj)
             {
@@ -64,6 +67,7 @@
                 {
                     valueToGet = sqlDataReader.GetString(0);
                 }
+                sqlDataReader.Close();
                 CloseConnection();
                 return valueToGet;
             }
@@ -89,6 +93,24 @@
                     SqlConnection.Close();
                 }
             }
+        }
+
+        //
+        public static List<Account> Accounts(string sqlCommandString) // login, signup, forgot password, account permission
+        {
+            List<Account> accounts = new List<Account>();
+            OpenConnection();
+            using (SqlCommand cmd = new SqlCommand(sqlCommandString, SqlConnection))
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    accounts.Add(new Account(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetBoolean(4), reader.GetInt32(5),
+                                             reader.GetString(6), reader.GetBoolean(7), reader.GetString(8), reader.GetDateTime(9), reader.GetString(10), reader.GetString(11), reader.GetDecimal(12)));
+                }
+            }
+            CloseConnection();
+            return accounts;
         }
     }
 }
