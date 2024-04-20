@@ -9,13 +9,11 @@ public partial class CashFlow
 {
     public int Id { get; set; }
 
-    public int CustomerId { get; set; }
-
     public DateTimeOffset Time { get; set; }
 
-    public decimal BalanceChanging { get; set; }
+    public int CustomerId { get; set; }
 
-    public decimal BalanceRemaining { get; set; }
+    public decimal BalanceChanging { get; set; }
 
     public string Context { get; set; }
 

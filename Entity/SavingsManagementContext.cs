@@ -42,10 +42,10 @@ public partial class SavingsManagementContext : DbContext
             entity.ToTable(tb => tb.HasTrigger("UpdateCustomerBalance"));
 
             entity.Property(e => e.BalanceChanging).HasColumnType("money");
-            entity.Property(e => e.BalanceRemaining).HasColumnType("money");
             entity.Property(e => e.Context)
                 .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(300);
+            entity.Property(e => e.Time).HasDefaultValueSql("(sysdatetimeoffset())");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.CashFlows)
                 .HasForeignKey(d => d.CustomerId)

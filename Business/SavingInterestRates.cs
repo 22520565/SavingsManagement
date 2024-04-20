@@ -27,6 +27,6 @@ public static class SavingInterestRates
     public static decimal GetInterest(int period)
     {
         using var context = new SavingsManagementContext();
-        return context.SavingInterestRates.Where(s => s.PeriodInMonths == period).Select(s => s.PeriodInMonths).First();
+        return context.SavingInterestRates.Where(s => s.PeriodInMonths == period).Select(s => s.AnnualInterestRate).First();
     }
 }

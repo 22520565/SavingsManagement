@@ -1,8 +1,6 @@
 ﻿namespace Business;
 
 using System.Linq;
-using Entity;
-
 
 public static class CustomerAccounts
 {
@@ -27,9 +25,9 @@ public static class CustomerAccounts
         context.SaveChanges();
     }
 
-    public static CustomerAccount GetCustomerAccount(int id)
+    public static Entity.CustomerAccount GetCustomerAccount(int id)
     {
         using var context = new Entity.SavingsManagementContext();
-        return context.CustomerAccounts.Where(c => c.Id == id).First();
+        return context.CustomerAccounts.First(c => c.Id == id);
     }
 }
