@@ -1,6 +1,6 @@
-﻿namespace GraphicalUserInterface
+﻿namespace Gui
 {
-    partial class Form_MainMenu
+    partial class MainMenuForm
     {
         /// <summary>
         /// Required designer variable.
