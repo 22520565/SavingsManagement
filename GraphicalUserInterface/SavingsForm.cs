@@ -1,4 +1,4 @@
-﻿namespace GraphicalUserInterface;
+﻿namespace Gui;
 
 using System;
 using System.Globalization;

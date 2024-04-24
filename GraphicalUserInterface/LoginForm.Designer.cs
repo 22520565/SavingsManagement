@@ -1,6 +1,6 @@
-﻿namespace GraphicalUserInterface
+﻿namespace Gui
 {
-    partial class Form_Login
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -50,8 +50,8 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.Users;
-            pictureBox1.Location = new System.Drawing.Point(200, 20);
+            pictureBox1.Location = new System.Drawing.Point(160, 16);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(400, 300);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -62,9 +62,10 @@
             // 
             txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             txtUsername.Font = new System.Drawing.Font("Segoe UI", 14F);
-            txtUsername.Location = new System.Drawing.Point(237, 359);
+            txtUsername.Location = new System.Drawing.Point(190, 287);
+            txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new System.Drawing.Size(514, 45);
+            txtUsername.Size = new System.Drawing.Size(412, 39);
             txtUsername.TabIndex = 1;
             // 
             // label1
@@ -72,9 +73,10 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Segoe UI", 14F);
             label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            label1.Location = new System.Drawing.Point(89, 361);
+            label1.Location = new System.Drawing.Point(71, 289);
+            label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(142, 38);
+            label1.Size = new System.Drawing.Size(121, 32);
             label1.TabIndex = 2;
             label1.Text = "Username";
             // 
@@ -82,9 +84,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Segoe UI", 14F);
-            label2.Location = new System.Drawing.Point(90, 443);
+            label2.Location = new System.Drawing.Point(72, 354);
+            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(132, 38);
+            label2.Size = new System.Drawing.Size(111, 32);
             label2.TabIndex = 4;
             label2.Text = "Password";
             // 
@@ -92,27 +95,29 @@
             // 
             txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             txtPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
-            txtPassword.Location = new System.Drawing.Point(237, 441);
+            txtPassword.Location = new System.Drawing.Point(190, 353);
+            txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new System.Drawing.Size(514, 45);
+            txtPassword.Size = new System.Drawing.Size(412, 39);
             txtPassword.TabIndex = 3;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.user;
-            pictureBox2.Location = new System.Drawing.Point(36, 356);
+            pictureBox2.Location = new System.Drawing.Point(29, 285);
+            pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(48, 48);
+            pictureBox2.Size = new System.Drawing.Size(38, 38);
             pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 5;
             pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = Properties.Resources.padlock;
-            pictureBox3.Location = new System.Drawing.Point(36, 438);
+            pictureBox3.Location = new System.Drawing.Point(29, 350);
+            pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new System.Drawing.Size(48, 48);
+            pictureBox3.Size = new System.Drawing.Size(38, 38);
             pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 6;
             pictureBox3.TabStop = false;
@@ -120,9 +125,10 @@
             // cbShowPassword
             // 
             cbShowPassword.AutoSize = true;
-            cbShowPassword.Location = new System.Drawing.Point(237, 515);
+            cbShowPassword.Location = new System.Drawing.Point(190, 412);
+            cbShowPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             cbShowPassword.Name = "cbShowPassword";
-            cbShowPassword.Size = new System.Drawing.Size(164, 29);
+            cbShowPassword.Size = new System.Drawing.Size(134, 24);
             cbShowPassword.TabIndex = 7;
             cbShowPassword.Text = "Show password";
             cbShowPassword.UseVisualStyleBackColor = true;
@@ -132,9 +138,10 @@
             // 
             linkLabel_ForgotPassword.AutoSize = true;
             linkLabel_ForgotPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
-            linkLabel_ForgotPassword.Location = new System.Drawing.Point(98, 589);
+            linkLabel_ForgotPassword.Location = new System.Drawing.Point(78, 471);
+            linkLabel_ForgotPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             linkLabel_ForgotPassword.Name = "linkLabel_ForgotPassword";
-            linkLabel_ForgotPassword.Size = new System.Drawing.Size(235, 38);
+            linkLabel_ForgotPassword.Size = new System.Drawing.Size(201, 32);
             linkLabel_ForgotPassword.TabIndex = 8;
             linkLabel_ForgotPassword.TabStop = true;
             linkLabel_ForgotPassword.Text = "Forgot password?";
@@ -144,9 +151,10 @@
             // 
             linkLabel_SignUp.AutoSize = true;
             linkLabel_SignUp.Font = new System.Drawing.Font("Segoe UI", 14F);
-            linkLabel_SignUp.Location = new System.Drawing.Point(543, 589);
+            linkLabel_SignUp.Location = new System.Drawing.Point(434, 471);
+            linkLabel_SignUp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             linkLabel_SignUp.Name = "linkLabel_SignUp";
-            linkLabel_SignUp.Size = new System.Drawing.Size(114, 38);
+            linkLabel_SignUp.Size = new System.Drawing.Size(98, 32);
             linkLabel_SignUp.TabIndex = 9;
             linkLabel_SignUp.TabStop = true;
             linkLabel_SignUp.Text = "Sign Up";
@@ -157,9 +165,10 @@
             btnLogin.AutoSize = true;
             btnLogin.BackColor = System.Drawing.SystemColors.Control;
             btnLogin.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            btnLogin.Location = new System.Drawing.Point(319, 680);
+            btnLogin.Location = new System.Drawing.Point(255, 544);
+            btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new System.Drawing.Size(163, 48);
+            btnLogin.Size = new System.Drawing.Size(130, 42);
             btnLogin.TabIndex = 10;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
@@ -169,10 +178,10 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.Image = Properties.Resources.login;
             pictureBox4.Location = new System.Drawing.Point(0, 0);
+            pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(100, 100);
+            pictureBox4.Size = new System.Drawing.Size(80, 80);
             pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 12;
             pictureBox4.TabStop = false;
@@ -180,9 +189,10 @@
             // cbRememberInfo
             // 
             cbRememberInfo.AutoSize = true;
-            cbRememberInfo.Location = new System.Drawing.Point(484, 515);
+            cbRememberInfo.Location = new System.Drawing.Point(387, 412);
+            cbRememberInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             cbRememberInfo.Name = "cbRememberInfo";
-            cbRememberInfo.Size = new System.Drawing.Size(267, 29);
+            cbRememberInfo.Size = new System.Drawing.Size(224, 24);
             cbRememberInfo.TabIndex = 13;
             cbRememberInfo.Text = "Remember login information";
             cbRememberInfo.UseVisualStyleBackColor = true;
@@ -192,9 +202,10 @@
             // 
             btnExit.BackColor = System.Drawing.SystemColors.Control;
             btnExit.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            btnExit.Location = new System.Drawing.Point(738, 12);
+            btnExit.Location = new System.Drawing.Point(590, 10);
+            btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new System.Drawing.Size(50, 50);
+            btnExit.Size = new System.Drawing.Size(40, 40);
             btnExit.TabIndex = 14;
             btnExit.Text = "X";
             btnExit.UseVisualStyleBackColor = false;
@@ -202,13 +213,13 @@
             btnExit.MouseEnter += btnExit_MouseEnter;
             btnExit.MouseLeave += btnExit_MouseLeave;
             // 
-            // Form_Login
+            // LoginForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             BackColor = System.Drawing.Color.White;
-            ClientSize = new System.Drawing.Size(800, 780);
+            ClientSize = new System.Drawing.Size(640, 624);
             ControlBox = false;
             Controls.Add(btnExit);
             Controls.Add(cbRememberInfo);
@@ -224,10 +235,11 @@
             Controls.Add(label1);
             Controls.Add(txtUsername);
             Controls.Add(pictureBox1);
-            Name = "Form_Login";
+            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            Name = "LoginForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Form_Login";
-            Load += Form_Login_Load;
+            Load += LoginForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

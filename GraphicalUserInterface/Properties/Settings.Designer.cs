@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GraphicalUserInterface.Properties {
+namespace Gui {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -1,33 +1,82 @@
 ﻿namespace Business;
 
+using System;
 using System.Linq;
+using Entity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
 
 public static class CustomerAccounts
 {
-    public static void AddData(Entity.CustomerAccount customerAccount)
+    private static readonly PasswordHasher<CustomerAccount> PasswordHasher = new();
+
+    public enum LoginResult
     {
-        using var context = new Entity.SavingsManagementContext();
-        context.Add(customerAccount);
-        context.SaveChanges();
+        Success,
+        UsernameError,
+        MultiUsernameError,
+        PasswordError,
     }
 
-    public static void EditData(Entity.CustomerAccount customerAccount)
+    public static int? CurrentCustomerId { get; private set; } = null;
+
+    public static LoginResult Login(LoginInfo loginInfo)
     {
-        using var context = new Entity.SavingsManagementContext();
-        context.Update(customerAccount);
-        context.SaveChanges();
+        ArgumentNullException.ThrowIfNull(loginInfo);
+
+        LoginResult loginResult = LoginResult.PasswordError;
+
+        using var context = new SavingsManagementContext();
+        var listAccounts = context.CustomerAccounts.Where(customerAccount => customerAccount.Username == loginInfo.Username);
+        if (listAccounts.IsNullOrEmpty())
+        {
+            loginResult = LoginResult.UsernameError;
+        }
+        else if (listAccounts.Count() > 1)
+        {
+            loginResult = LoginResult.MultiUsernameError;
+        }
+        else
+        {
+            var customerAccount = listAccounts.ElementAt(Index.Start);
+            switch (PasswordHasher.VerifyHashedPassword(null!, customerAccount.HashedPassword, loginInfo.Password))
+            {
+                case PasswordVerificationResult.Success:
+                case PasswordVerificationResult.SuccessRehashNeeded:
+                    loginResult = LoginResult.Success;
+                    CurrentCustomerId = customerAccount.Id;
+                    break;
+
+                default:
+                    loginResult = LoginResult.PasswordError;
+                    break;
+            }
+        }
+
+        return loginResult;
     }
 
-    public static void DeleteData(Entity.CustomerAccount customerAccount)
+    public static void LogOut()
     {
-        using var context = new Entity.SavingsManagementContext();
-        context.Remove(customerAccount);
-        context.SaveChanges();
+        CurrentCustomerId = null;
     }
 
-    public static Entity.CustomerAccount GetCustomerAccount(int id)
+    public static void SignUp(SignUpInfo signUpInfo)
     {
-        using var context = new Entity.SavingsManagementContext();
-        return context.CustomerAccounts.First(c => c.Id == id);
+        ArgumentNullException.ThrowIfNull(signUpInfo);
+
+        using var context = new SavingsManagementContext();
+        context.CustomerAccounts.Add(new CustomerAccount
+        {
+            Name = signUpInfo.Name,
+            IsMale = signUpInfo.IsMale,
+            CicNumber = signUpInfo.CicNumber,
+            BirthDate = signUpInfo.BirthDate,
+            PhoneNumber = signUpInfo.PhoneNumber,
+            Address = signUpInfo.Address,
+            Email = signUpInfo.Email,
+            Username = signUpInfo.Username,
+            HashedPassword = PasswordHasher.HashPassword(null!, signUpInfo.Password),
+        });
     }
 }
