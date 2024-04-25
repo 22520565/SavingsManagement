@@ -35,10 +35,6 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[StaffAccountTypes]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[StaffPermissions]",
          "ObjectType": 0
       }

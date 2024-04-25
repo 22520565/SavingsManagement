@@ -6,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Entity;
 
+[Index("Username", Name = "UQ_Customer", IsUnique = true)]
 [Index("Email", Name = "UQ_Email", IsUnique = true)]
-[Index("Username", Name = "UQ__Customer", IsUnique = true)]
 [Serializable]
 public sealed class CustomerAccount
 {
@@ -46,6 +46,8 @@ public sealed class CustomerAccount
 
     [Column(TypeName = "money")]
     public decimal Balance { get; set; }
+
+    public bool IsDisabled { get; set; }
 
     [InverseProperty("Customer")]
     public ICollection<CashFlow> CashFlows { get; } = new List<CashFlow>();
