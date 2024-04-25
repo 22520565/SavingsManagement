@@ -1,19 +1,30 @@
-﻿namespace Entity
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace Entity;
+
+[Serializable]
+public sealed class Saving
 {
-    using System;
+    [Key]
+    public int Id { get; set; }
 
-    public class Saving
-    {
-        public int Id { get; set; } = 0;
+    public int CustomerId { get; set; }
 
-        public int CustomerId { get; set; } = 0;
+    [Column(TypeName = "money")]
+    public decimal Balance { get; set; }
 
-        public decimal Balance { get; set; } = 0.0M;
+    [Column(TypeName = "decimal(5, 3)")]
+    public decimal AnnualInterestRate { get; set; }
 
-        public decimal AnnualInterestRate { get; set; } = 0.0M;
+    public int PeriodInMonths { get; set; }
 
-        public int PeriodInMonths { get; set; } = 0;
+    public DateTimeOffset OpenDate { get; set; }
 
-        public DateOnly OpenDay { get; set; } = new DateOnly();
-    }
+    [ForeignKey("CustomerId")]
+    [InverseProperty("Savings")]
+    public CustomerAccount Customer { get; set; } = null!;
 }

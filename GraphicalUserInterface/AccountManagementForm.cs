@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GraphicalUserInterface
 {
-    public partial class Form_PersonalInformation : Form
+    public partial class AccountManagementForm : Form
     {
-        public Form_PersonalInformation()
+        public AccountManagementForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace GraphicalUserInterface
 {
-    partial class Form_SignUp
+    partial class CustomerSignUpForm
     {
         /// <summary>
         /// Required designer variable.

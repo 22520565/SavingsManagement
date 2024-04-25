@@ -1,4 +1,4 @@
-﻿namespace Gui
+﻿namespace GraphicalUserInterface
 {
     using System.Drawing;
     using System.Windows.Forms;
@@ -57,22 +57,10 @@
             editButton = new Button();
             saveButton = new Button();
             addButton = new Button();
-            customersDataGridView = new DataGridView();
-            customerIdColumn = new DataGridViewTextBoxColumn();
-            customerNameColumn = new DataGridViewTextBoxColumn();
-            maleColumn = new DataGridViewCheckBoxColumn();
-            cicNumberColumn = new DataGridViewTextBoxColumn();
-            birthDateColumn = new DataGridViewTextBoxColumn();
-            phoneNumberColumn = new DataGridViewTextBoxColumn();
-            addressColumn = new DataGridViewTextBoxColumn();
-            usernameColumn = new DataGridViewTextBoxColumn();
-            hashedPasswordColumn = new DataGridViewTextBoxColumn();
-            balanceColumn = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customerIdNumeric).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBalanceNumeric).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)customersDataGridView).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -119,6 +107,7 @@
             customerBalanceNumeric.Location = new Point(704, 138);
             customerBalanceNumeric.Maximum = new decimal(new int[] { -1, -1, -1, 0 });
             customerBalanceNumeric.Name = "customerBalanceNumeric";
+            customerBalanceNumeric.ReadOnly = true;
             customerBalanceNumeric.Size = new Size(150, 27);
             customerBalanceNumeric.TabIndex = 9;
             customerBalanceNumeric.ThousandsSeparator = true;
@@ -143,41 +132,41 @@
             // 
             // customerHashedPasswordTextBox
             // 
-            customerHashedPasswordTextBox.Enabled = false;
             customerHashedPasswordTextBox.Location = new Point(431, 135);
             customerHashedPasswordTextBox.Name = "customerHashedPasswordTextBox";
+            customerHashedPasswordTextBox.ReadOnly = true;
             customerHashedPasswordTextBox.Size = new Size(165, 27);
             customerHashedPasswordTextBox.TabIndex = 8;
             // 
             // customerUsernameTextBox
             // 
-            customerUsernameTextBox.Enabled = false;
             customerUsernameTextBox.Location = new Point(96, 135);
             customerUsernameTextBox.Name = "customerUsernameTextBox";
+            customerUsernameTextBox.ReadOnly = true;
             customerUsernameTextBox.Size = new Size(175, 27);
             customerUsernameTextBox.TabIndex = 7;
             // 
             // customerAddressTextBox
             // 
-            customerAddressTextBox.Enabled = false;
             customerAddressTextBox.Location = new Point(93, 93);
             customerAddressTextBox.Name = "customerAddressTextBox";
+            customerAddressTextBox.ReadOnly = true;
             customerAddressTextBox.Size = new Size(783, 27);
             customerAddressTextBox.TabIndex = 6;
             // 
             // customerCicNumberTextBox
             // 
-            customerCicNumberTextBox.Enabled = false;
             customerCicNumberTextBox.Location = new Point(109, 51);
             customerCicNumberTextBox.Name = "customerCicNumberTextBox";
+            customerCicNumberTextBox.ReadOnly = true;
             customerCicNumberTextBox.Size = new Size(195, 27);
             customerCicNumberTextBox.TabIndex = 3;
             // 
             // customerPhoneNumberTextBox
             // 
-            customerPhoneNumberTextBox.Enabled = false;
             customerPhoneNumberTextBox.Location = new Point(704, 50);
             customerPhoneNumberTextBox.Name = "customerPhoneNumberTextBox";
+            customerPhoneNumberTextBox.ReadOnly = true;
             customerPhoneNumberTextBox.Size = new Size(172, 27);
             customerPhoneNumberTextBox.TabIndex = 5;
             // 
@@ -203,9 +192,9 @@
             // 
             // customerNameTextBox
             // 
-            customerNameTextBox.Enabled = false;
             customerNameTextBox.Location = new Point(341, 10);
             customerNameTextBox.Name = "customerNameTextBox";
+            customerNameTextBox.ReadOnly = true;
             customerNameTextBox.Size = new Size(413, 27);
             customerNameTextBox.TabIndex = 1;
             // 
@@ -337,118 +326,20 @@
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += addButton_Click;
             // 
-            // customersDataGridView
-            // 
-            customersDataGridView.AllowUserToAddRows = false;
-            customersDataGridView.AllowUserToDeleteRows = false;
-            customersDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customersDataGridView.Columns.AddRange(new DataGridViewColumn[] { customerIdColumn, customerNameColumn, maleColumn, cicNumberColumn, birthDateColumn, phoneNumberColumn, addressColumn, usernameColumn, hashedPasswordColumn, balanceColumn });
-            customersDataGridView.Dock = DockStyle.Fill;
-            customersDataGridView.Location = new Point(0, 252);
-            customersDataGridView.Name = "customersDataGridView";
-            customersDataGridView.ReadOnly = true;
-            customersDataGridView.RowHeadersWidth = 51;
-            customersDataGridView.Size = new Size(888, 293);
-            customersDataGridView.TabIndex = 0;
-            customersDataGridView.RowEnter += customersDataGridView_RowEnter;
-            // 
-            // customerIdColumn
-            // 
-            customerIdColumn.HeaderText = "ID";
-            customerIdColumn.MinimumWidth = 6;
-            customerIdColumn.Name = "customerIdColumn";
-            customerIdColumn.ReadOnly = true;
-            customerIdColumn.Width = 125;
-            // 
-            // customerNameColumn
-            // 
-            customerNameColumn.HeaderText = "Name";
-            customerNameColumn.MinimumWidth = 6;
-            customerNameColumn.Name = "customerNameColumn";
-            customerNameColumn.ReadOnly = true;
-            customerNameColumn.Width = 125;
-            // 
-            // maleColumn
-            // 
-            maleColumn.HeaderText = "Male";
-            maleColumn.MinimumWidth = 6;
-            maleColumn.Name = "maleColumn";
-            maleColumn.ReadOnly = true;
-            maleColumn.Width = 125;
-            // 
-            // cicNumberColumn
-            // 
-            cicNumberColumn.HeaderText = "CIC number";
-            cicNumberColumn.MinimumWidth = 6;
-            cicNumberColumn.Name = "cicNumberColumn";
-            cicNumberColumn.ReadOnly = true;
-            cicNumberColumn.Width = 125;
-            // 
-            // birthDateColumn
-            // 
-            birthDateColumn.HeaderText = "Birth date";
-            birthDateColumn.MinimumWidth = 6;
-            birthDateColumn.Name = "birthDateColumn";
-            birthDateColumn.ReadOnly = true;
-            birthDateColumn.Width = 125;
-            // 
-            // phoneNumberColumn
-            // 
-            phoneNumberColumn.HeaderText = "Phone number";
-            phoneNumberColumn.MinimumWidth = 6;
-            phoneNumberColumn.Name = "phoneNumberColumn";
-            phoneNumberColumn.ReadOnly = true;
-            phoneNumberColumn.Width = 125;
-            // 
-            // addressColumn
-            // 
-            addressColumn.HeaderText = "Address";
-            addressColumn.MinimumWidth = 6;
-            addressColumn.Name = "addressColumn";
-            addressColumn.ReadOnly = true;
-            addressColumn.Width = 125;
-            // 
-            // usernameColumn
-            // 
-            usernameColumn.HeaderText = "Username";
-            usernameColumn.MinimumWidth = 6;
-            usernameColumn.Name = "usernameColumn";
-            usernameColumn.ReadOnly = true;
-            usernameColumn.Width = 125;
-            // 
-            // hashedPasswordColumn
-            // 
-            hashedPasswordColumn.HeaderText = "Hashed password";
-            hashedPasswordColumn.MinimumWidth = 6;
-            hashedPasswordColumn.Name = "hashedPasswordColumn";
-            hashedPasswordColumn.ReadOnly = true;
-            hashedPasswordColumn.Width = 125;
-            // 
-            // balanceColumn
-            // 
-            balanceColumn.HeaderText = "Balance";
-            balanceColumn.MinimumWidth = 6;
-            balanceColumn.Name = "balanceColumn";
-            balanceColumn.ReadOnly = true;
-            balanceColumn.Width = 125;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(888, 545);
-            Controls.Add(customersDataGridView);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customerIdNumeric).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerBalanceNumeric).EndInit();
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)customersDataGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -456,7 +347,6 @@
 
         private Panel panel1;
         private Panel panel2;
-        private DataGridView customersDataGridView;
         private Label customerNameLabel;
         private Label customerIdLabel;
         private Label customerCicNumberLabel;
@@ -476,16 +366,6 @@
         private TextBox customerHashedPasswordTextBox;
         private Label customerBalanceLabel;
         private NumericUpDown customerBalanceNumeric;
-        private DataGridViewTextBoxColumn customerIdColumn;
-        private DataGridViewTextBoxColumn customerNameColumn;
-        private DataGridViewCheckBoxColumn maleColumn;
-        private DataGridViewTextBoxColumn cicNumberColumn;
-        private DataGridViewTextBoxColumn birthDateColumn;
-        private DataGridViewTextBoxColumn phoneNumberColumn;
-        private DataGridViewTextBoxColumn addressColumn;
-        private DataGridViewTextBoxColumn usernameColumn;
-        private DataGridViewTextBoxColumn hashedPasswordColumn;
-        private DataGridViewTextBoxColumn balanceColumn;
         private Button addButton;
         private Button saveButton;
         private Button editButton;

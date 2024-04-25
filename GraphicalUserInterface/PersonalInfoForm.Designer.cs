@@ -1,6 +1,6 @@
 ﻿namespace GraphicalUserInterface
 {
-    partial class Form_PersonalInformation
+    partial class PersonalInfoForm
     {
         /// <summary>
         /// Required designer variable.

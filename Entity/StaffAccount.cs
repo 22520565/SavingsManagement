@@ -1,19 +1,37 @@
-﻿namespace Entity
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace Entity;
+
+[Index("Username", Name = "UQ__StaffAcc__F3DBC572752A95C1", IsUnique = true)]
+[Serializable]
+public sealed class StaffAccount
 {
-    public class StaffAccount
-    {
-        public int Id { get; set; } = 0;
+    [Key]
+    public int Id { get; set; }
 
-        public string Name { get; set; } = string.Empty;
+    [StringLength(50)]
+    public string Name { get; set; } = null!;
 
-        public bool IsMale { get; set; } = true;
+    public bool IsMale { get; set; }
 
-        public string Position { get; set; } = string.Empty;
+    [StringLength(50)]
+    public string Position { get; set; } = null!;
 
-        public string Username { get; set; } = string.Empty;
+    [StringLength(50)]
+    [Unicode(false)]
+    public string Username { get; set; } = null!;
 
-        public string HashedPassword { get; set; } = string.Empty;
+    [StringLength(50)]
+    [Unicode(false)]
+    public string HashedPassword { get; set; } = null!;
 
-        public int AccountTypeId { get; set; } = 0;
-    }
+    public int PermissionId { get; set; }
+
+    [ForeignKey("PermissionId")]
+    [InverseProperty("StaffAccounts")]
+    public StaffPermission Permission { get; set; } = null!;
 }

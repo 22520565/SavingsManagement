@@ -1,6 +1,6 @@
 ﻿namespace GraphicalUserInterface
 {
-    partial class Form_ForgotPassword
+    partial class ForgotPasswordForm
     {
         /// <summary>
         /// Required designer variable.

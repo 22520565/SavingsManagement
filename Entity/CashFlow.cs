@@ -1,19 +1,28 @@
-﻿namespace Entity
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
+
+namespace Entity;
+
+[Serializable]
+public sealed class CashFlow
 {
-    using System;
+    [Key]
+    public int Id { get; set; }
 
-    public class CashFlow
-    {
-        public int Id { get; set; } = 0;
+    public DateTimeOffset Time { get; set; }
 
-        public int CustomerId { get; set; } = 0;
+    public int CustomerId { get; set; }
 
-        public DateTime Time { get; set; } = DateTime.Now;
+    [Column(TypeName = "money")]
+    public decimal BalanceChanging { get; set; }
 
-        public decimal BalanceChanging { get; set; } = 0.0M;
+    [StringLength(300)]
+    public string Context { get; set; } = null!;
 
-        public decimal BalanceRemaining { get; set; } = 0.0M;
-
-        public string Context {  get; set; } = string.Empty;
-    }
+    [ForeignKey("CustomerId")]
+    [InverseProperty("CashFlows")]
+    public CustomerAccount Customer { get; set; } = null!;
 }

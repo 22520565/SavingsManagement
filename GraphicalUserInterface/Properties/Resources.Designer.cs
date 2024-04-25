@@ -61,6 +61,15 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your account has been disabled! Please contact us for support!.
+        /// </summary>
+        internal static string AccountDisabledErrorString {
+            get {
+                return ResourceManager.GetString("AccountDisabledErrorString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Computer_process {
@@ -77,6 +86,24 @@ namespace GraphicalUserInterface.Properties {
             get {
                 object obj = ResourceManager.GetObject("Computer process1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string ErrorTitleString {
+            get {
+                return ResourceManager.GetString("ErrorTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to exit?.
+        /// </summary>
+        internal static string ExitConfirmationString {
+            get {
+                return ResourceManager.GetString("ExitConfirmationString", resourceCulture);
             }
         }
         
@@ -121,12 +148,48 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to log out?.
+        /// </summary>
+        internal static string LogOutConfirmationString {
+            get {
+                return ResourceManager.GetString("LogOutConfirmationString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification.
+        /// </summary>
+        internal static string NotificationTitleString {
+            get {
+                return ResourceManager.GetString("NotificationTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap padlock {
             get {
                 object obj = ResourceManager.GetObject("padlock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password cannot be blank!.
+        /// </summary>
+        internal static string PasswordBlankWarningString {
+            get {
+                return ResourceManager.GetString("PasswordBlankWarningString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is not correct! Please try again!.
+        /// </summary>
+        internal static string PasswordIncorrectWarningString {
+            get {
+                return ResourceManager.GetString("PasswordIncorrectWarningString", resourceCulture);
             }
         }
         
@@ -141,6 +204,15 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An unknown error occurred! Please try again later!.
+        /// </summary>
+        internal static string UnknownErrorString {
+            get {
+                return ResourceManager.GetString("UnknownErrorString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap user {
@@ -151,12 +223,39 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username cannot be blank!.
+        /// </summary>
+        internal static string UsernameBlankWarningString {
+            get {
+                return ResourceManager.GetString("UsernameBlankWarningString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username not found! Please try again!.
+        /// </summary>
+        internal static string UsernameNotFoundWarningString {
+            get {
+                return ResourceManager.GetString("UsernameNotFoundWarningString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Users {
             get {
                 object obj = ResourceManager.GetObject("Users", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        internal static string WarningTitleString {
+            get {
+                return ResourceManager.GetString("WarningTitleString", resourceCulture);
             }
         }
     }

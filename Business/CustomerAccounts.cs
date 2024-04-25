@@ -1,27 +1,101 @@
-﻿namespace Business
+﻿namespace Business;
+
+using System;
+using System.Linq;
+using Entity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+
+public static class CustomerAccounts
 {
-    using System.Data;
+    private static readonly PasswordHasher<CustomerAccount> PasswordHasher = new();
 
-    public static class CustomerAccounts
+    public enum LoginResult
     {
-        public static void AddData(Entity.CustomerAccount customerAccount)
+        Success,
+        UsernameError,
+        MultiUsernameError,
+        PasswordError,
+        Disabled,
+    }
+
+    public static int? CurrentCustomerId { get; private set; } = null;
+
+    public static decimal? CurrentCustomerBalance
+    {
+        get
         {
-            DataAccess.CustomerAccounts.AddData(customerAccount);
+            using var context = new SavingsManagementContext();
+            return CurrentCustomerId is not null
+                ? context.CustomerAccounts.Single(customerAccount => customerAccount.Id == CurrentCustomerId).Balance
+                : null;
+        }
+    }
+
+    public static LoginResult Login(LoginInfo loginInfo)
+    {
+        ArgumentNullException.ThrowIfNull(loginInfo);
+
+        LoginResult loginResult = LoginResult.PasswordError;
+
+        using var context = new SavingsManagementContext();
+        var listAccounts = context.CustomerAccounts.Where(customerAccount => customerAccount.Username == loginInfo.Username).AsEnumerable();
+        if (listAccounts.IsNullOrEmpty())
+        {
+            loginResult = LoginResult.UsernameError;
+        }
+        else if (listAccounts.Count() > 1)
+        {
+            loginResult = LoginResult.MultiUsernameError;
+        }
+        else
+        {
+            var customerAccount = listAccounts.ElementAt(Index.Start);
+            if (customerAccount.IsDisabled)
+            {
+                loginResult = LoginResult.Disabled;
+            }
+            else
+            {
+                switch (PasswordHasher.VerifyHashedPassword(null!, customerAccount.HashedPassword, loginInfo.Password))
+                {
+                    case PasswordVerificationResult.Success:
+                    case PasswordVerificationResult.SuccessRehashNeeded:
+                        loginResult = LoginResult.Success;
+                        CurrentCustomerId = customerAccount.Id;
+                        break;
+
+                    default:
+                        loginResult = LoginResult.PasswordError;
+                        break;
+                }
+            }
         }
 
-        public static void EditData(Entity.CustomerAccount customerAccount)
-        {
-            DataAccess.CustomerAccounts.EditData(customerAccount);
-        }
+        return loginResult;
+    }
 
-        public static void DeleteData(Entity.CustomerAccount customerAccount)
-        {
-            DataAccess.CustomerAccounts.DeleteData(customerAccount);
-        }
+    public static void LogOut()
+    {
+        CurrentCustomerId = null;
+    }
 
-        public static DataTable GetDataTable(string conditionalString)
+    public static void SignUp(SignUpInfo signUpInfo)
+    {
+        ArgumentNullException.ThrowIfNull(signUpInfo);
+
+        using var context = new SavingsManagementContext();
+        context.CustomerAccounts.Add(new CustomerAccount
         {
-            return DataAccess.CustomerAccounts.GetDataTable(conditionalString);
-        }
+            Name = signUpInfo.Name,
+            IsMale = signUpInfo.IsMale,
+            CicNumber = signUpInfo.CicNumber,
+            BirthDate = signUpInfo.BirthDate,
+            PhoneNumber = signUpInfo.PhoneNumber,
+            Address = signUpInfo.Address,
+            Email = signUpInfo.Email,
+            Username = signUpInfo.Username,
+            HashedPassword = PasswordHasher.HashPassword(null!, signUpInfo.Password),
+        });
     }
 }
