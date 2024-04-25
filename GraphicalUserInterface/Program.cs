@@ -15,16 +15,16 @@ internal static class Program
         // see https://aka.ms/applicationconfiguration.
 
         ApplicationConfiguration.Initialize();
-        using var loginForm = new LoginForm();
-        using var mainMenuForm = new MainMenuForm();
         do
         {
+            using var loginForm = new LoginForm();
             Application.Run(loginForm);
             if (!loginForm.UserSuccessfullyAuthenticated)
             {
                 break;
             }
 
+            using var mainMenuForm = new MainMenuForm();
             Application.Run(mainMenuForm);
             if (!mainMenuForm.GoingBackToLoginForm)
             {
