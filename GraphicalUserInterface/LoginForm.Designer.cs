@@ -1,4 +1,4 @@
-﻿namespace Gui
+﻿namespace GraphicalUserInterface
 {
     partial class LoginForm
     {
@@ -135,7 +135,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = Resources.padlock;
+            pictureBox3.Image = Properties.Resources.padlock;
             pictureBox3.Location = new System.Drawing.Point(17, 343);
             pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             pictureBox3.Name = "pictureBox3";
@@ -146,7 +146,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Resources.user;
+            pictureBox2.Image = Properties.Resources.user;
             pictureBox2.Location = new System.Drawing.Point(17, 278);
             pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             pictureBox2.Name = "pictureBox2";
@@ -202,8 +202,8 @@
             // pictureBox1
             // 
             pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            pictureBox1.Image = Resources.Users;
-            pictureBox1.InitialImage = Resources.user;
+            pictureBox1.Image = Properties.Resources.Users;
+            pictureBox1.InitialImage = Properties.Resources.user;
             pictureBox1.Location = new System.Drawing.Point(3, 3);
             pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             pictureBox1.Name = "pictureBox1";
@@ -269,7 +269,7 @@
             // 
             // pictureBox6
             // 
-            pictureBox6.Image = Resources.padlock;
+            pictureBox6.Image = Properties.Resources.padlock;
             pictureBox6.Location = new System.Drawing.Point(17, 340);
             pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             pictureBox6.Name = "pictureBox6";
@@ -280,7 +280,7 @@
             // 
             // pictureBox7
             // 
-            pictureBox7.Image = Resources.user;
+            pictureBox7.Image = Properties.Resources.user;
             pictureBox7.Location = new System.Drawing.Point(17, 275);
             pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             pictureBox7.Name = "pictureBox7";
@@ -336,8 +336,8 @@
             // pictureBox8
             // 
             pictureBox8.Dock = System.Windows.Forms.DockStyle.Top;
-            pictureBox8.Image = Resources.Users;
-            pictureBox8.InitialImage = Resources.user;
+            pictureBox8.Image = Properties.Resources.Users;
+            pictureBox8.InitialImage = Properties.Resources.user;
             pictureBox8.Location = new System.Drawing.Point(3, 3);
             pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             pictureBox8.Name = "pictureBox8";

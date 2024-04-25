@@ -1,4 +1,4 @@
-﻿namespace Gui
+﻿namespace GraphicalUserInterface
 {
     partial class PersonalInfoForm
     {

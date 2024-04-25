@@ -1,4 +1,4 @@
-﻿namespace Gui;
+﻿namespace GraphicalUserInterface;
 
 using System;
 using System.Globalization;
@@ -96,7 +96,7 @@ public partial class SavingForm : Form
         }
         else
         {
-            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+            MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             this.LoadForm();
         }
@@ -140,7 +140,7 @@ public partial class SavingForm : Form
         }
         else
         {
-            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+            MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             this.LoadForm();
         }
@@ -215,7 +215,7 @@ public partial class SavingForm : Form
         }
         else
         {
-            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+            MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             this.LoadForm();
         }

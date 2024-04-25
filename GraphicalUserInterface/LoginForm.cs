@@ -1,4 +1,4 @@
-﻿namespace Gui;
+﻿namespace GraphicalUserInterface;
 
 using System;
 using System.Drawing;
@@ -53,12 +53,12 @@ public partial class LoginForm : Form
         {
             if (txtCustomerUsername.Text.IsNullOrEmpty())
             {
-                MessageBox.Show(this, Resources.UsernameBlankWarningString, Resources.WarningTitleString,
+                MessageBox.Show(this, Properties.Resources.UsernameBlankWarningString, Properties.Resources.WarningTitleString,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (txtCustomerPassword.Text.IsNullOrEmpty())
             {
-                MessageBox.Show(this, Resources.PasswordBlankWarningString, Resources.WarningTitleString,
+                MessageBox.Show(this, Properties.Resources.PasswordBlankWarningString, Properties.Resources.WarningTitleString,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
@@ -75,22 +75,22 @@ public partial class LoginForm : Form
                         break;
 
                     case CustomerAccounts.LoginResult.PasswordError:
-                        MessageBox.Show(this, Resources.PasswordIncorrectWarningString, Resources.WarningTitleString,
+                        MessageBox.Show(this, Properties.Resources.PasswordIncorrectWarningString, Properties.Resources.WarningTitleString,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
 
                     case CustomerAccounts.LoginResult.UsernameError:
-                        MessageBox.Show(this, Resources.UsernameNotFoundWarningString, Resources.WarningTitleString,
+                        MessageBox.Show(this, Properties.Resources.UsernameNotFoundWarningString, Properties.Resources.WarningTitleString,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
 
                     case CustomerAccounts.LoginResult.Disabled:
-                        MessageBox.Show(this, Resources.AccountDisabledErrorString, Resources.ErrorTitleString,
+                        MessageBox.Show(this, Properties.Resources.AccountDisabledErrorString, Properties.Resources.ErrorTitleString,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
 
                     default:
-                        MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+                        MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                 }
@@ -108,13 +108,13 @@ public partial class LoginForm : Form
         {
             if (cbCustomerRememberInfo.Checked)
             {
-                Settings.Default.AcUsername = txtCustomerUsername.Text;
-                Settings.Default.AcPassword = txtCustomerPassword.Text;
-                Settings.Default.Save();
+                Properties.Settings.Default.AcUsername = txtCustomerUsername.Text;
+                Properties.Settings.Default.AcPassword = txtCustomerPassword.Text;
+                Properties.Settings.Default.Save();
             }
             else
             {
-                Settings.Default.Reset();
+                Properties.Settings.Default.Reset();
             }
         }
     }
@@ -123,15 +123,15 @@ public partial class LoginForm : Form
     {
         this.UserSuccessfullyAuthenticated = false;
         CustomerAccounts.LogOut();
-        txtCustomerUsername.Text = Settings.Default.AcUsername;
-        txtCustomerPassword.Text = Settings.Default.AcPassword;
-        cbCustomerRememberInfo.Checked = !Settings.Default.AcUsername.IsNullOrEmpty();
+        txtCustomerUsername.Text = Properties.Settings.Default.AcUsername;
+        txtCustomerPassword.Text = Properties.Settings.Default.AcPassword;
+        cbCustomerRememberInfo.Checked = !Properties.Settings.Default.AcUsername.IsNullOrEmpty();
     }
 
     private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         if (!this.UserSuccessfullyAuthenticated &&
-            MessageBox.Show(Resources.ExitConfirmationString, Resources.NotificationTitleString,
+            MessageBox.Show(Properties.Resources.ExitConfirmationString, Properties.Resources.NotificationTitleString,
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
             != DialogResult.Yes)
         {

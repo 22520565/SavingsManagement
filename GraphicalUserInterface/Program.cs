@@ -1,4 +1,4 @@
-namespace Gui;
+namespace GraphicalUserInterface;
 
 using System;
 using System.Windows.Forms;

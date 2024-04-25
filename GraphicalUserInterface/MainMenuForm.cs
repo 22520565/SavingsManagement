@@ -1,4 +1,4 @@
-﻿namespace Gui;
+﻿namespace GraphicalUserInterface;
 
 using System;
 using System.Windows.Forms;
@@ -15,8 +15,8 @@ public partial class MainMenuForm : Form
     private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (MessageBox.Show(
-                Resources.LogOutConfirmationString,
-                Resources.NotificationTitleString,
+                Properties.Resources.LogOutConfirmationString,
+                Properties.Resources.NotificationTitleString,
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question)
             == DialogResult.Yes)
