@@ -22,10 +22,10 @@ public partial class SavingsForm : Form
     {
         try
         {
-            var customerAccount = CustomerAccounts.GetCustomerAccount(CurrentUser.Id);
+            var customerBalance = CustomerAccounts.CurrentCustomerBalance;
             this.balanceDepositTextBox.Text = string.Format(
-                CultureInfo.CurrentCulture, BalanceTextFormat, customerAccount.Balance);
-            this.amountDepositNumeric.Maximum = customerAccount.Balance;
+                CultureInfo.CurrentCulture, BalanceTextFormat, customerBalance);
+            this.amountDepositNumeric.Maximum = customerBalance is decimal balance ? balance : decimal.Zero;
 
             this.savingDetailsComboBox.SelectedItem = null;
             this.savingWithdrawComboBox.SelectedItem = null;
@@ -96,7 +96,8 @@ public partial class SavingsForm : Form
         }
         else
         {
-            MessageBox.Show(this, "An error occurred! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             this.LoadForm();
         }
     }
@@ -125,7 +126,8 @@ public partial class SavingsForm : Form
 
                 this.interestDepositTextBox.Text = string.Format(
                     CultureInfo.InvariantCulture, InterestTextFormat, this.savingDepositInfo.AnnualInterestRate);
-                this.maturityDayDepositTextBox.Text = DateOnly.FromDateTime(DateTime.Now).AddMonths(this.savingDepositInfo.PeriodInMonths)
+                this.maturityDayDepositTextBox.Text = DateOnly.FromDateTime(DateTimeOffset.Now.LocalDateTime)
+                                                        .AddMonths(this.savingDepositInfo.PeriodInMonths)
                                                         .ToString(CultureInfo.CurrentCulture);
 
                 this.depositButton.Enabled = true;
@@ -138,7 +140,8 @@ public partial class SavingsForm : Form
         }
         else
         {
-            MessageBox.Show(this, "An error occurred! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             this.LoadForm();
         }
     }
@@ -212,7 +215,8 @@ public partial class SavingsForm : Form
         }
         else
         {
-            MessageBox.Show(this, "An error occurred! Please try again!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             this.LoadForm();
         }
     }

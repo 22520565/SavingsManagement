@@ -109,7 +109,7 @@
             // 
             // maturityDayDetailsTextBox
             // 
-            maturityDayDetailsTextBox.Location = new System.Drawing.Point(190, 199);
+            maturityDayDetailsTextBox.Location = new System.Drawing.Point(215, 204);
             maturityDayDetailsTextBox.Name = "maturityDayDetailsTextBox";
             maturityDayDetailsTextBox.ReadOnly = true;
             maturityDayDetailsTextBox.Size = new System.Drawing.Size(213, 27);
@@ -118,7 +118,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(18, 199);
+            label5.Location = new System.Drawing.Point(43, 204);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(95, 20);
             label5.TabIndex = 6;
@@ -127,7 +127,7 @@
             // withdrawDetailsButton
             // 
             withdrawDetailsButton.Enabled = false;
-            withdrawDetailsButton.Location = new System.Drawing.Point(365, 259);
+            withdrawDetailsButton.Location = new System.Drawing.Point(390, 258);
             withdrawDetailsButton.Name = "withdrawDetailsButton";
             withdrawDetailsButton.Size = new System.Drawing.Size(94, 29);
             withdrawDetailsButton.TabIndex = 5;
@@ -137,7 +137,7 @@
             // 
             // openDayDetailsTextBox
             // 
-            openDayDetailsTextBox.Location = new System.Drawing.Point(190, 159);
+            openDayDetailsTextBox.Location = new System.Drawing.Point(215, 164);
             openDayDetailsTextBox.Name = "openDayDetailsTextBox";
             openDayDetailsTextBox.ReadOnly = true;
             openDayDetailsTextBox.Size = new System.Drawing.Size(213, 27);
@@ -146,7 +146,7 @@
             // openDayDetailsLabel
             // 
             openDayDetailsLabel.AutoSize = true;
-            openDayDetailsLabel.Location = new System.Drawing.Point(18, 162);
+            openDayDetailsLabel.Location = new System.Drawing.Point(43, 167);
             openDayDetailsLabel.Name = "openDayDetailsLabel";
             openDayDetailsLabel.Size = new System.Drawing.Size(76, 20);
             openDayDetailsLabel.TabIndex = 4;
@@ -154,7 +154,7 @@
             // 
             // interestDetailsTextBox
             // 
-            interestDetailsTextBox.Location = new System.Drawing.Point(190, 122);
+            interestDetailsTextBox.Location = new System.Drawing.Point(215, 127);
             interestDetailsTextBox.Name = "interestDetailsTextBox";
             interestDetailsTextBox.ReadOnly = true;
             interestDetailsTextBox.Size = new System.Drawing.Size(213, 27);
@@ -163,7 +163,7 @@
             // interestDetailsLabel
             // 
             interestDetailsLabel.AutoSize = true;
-            interestDetailsLabel.Location = new System.Drawing.Point(18, 125);
+            interestDetailsLabel.Location = new System.Drawing.Point(43, 130);
             interestDetailsLabel.Name = "interestDetailsLabel";
             interestDetailsLabel.Size = new System.Drawing.Size(141, 20);
             interestDetailsLabel.TabIndex = 3;
@@ -171,7 +171,7 @@
             // 
             // periodDetailsTextBox
             // 
-            periodDetailsTextBox.Location = new System.Drawing.Point(190, 87);
+            periodDetailsTextBox.Location = new System.Drawing.Point(215, 92);
             periodDetailsTextBox.Name = "periodDetailsTextBox";
             periodDetailsTextBox.ReadOnly = true;
             periodDetailsTextBox.Size = new System.Drawing.Size(213, 27);
@@ -180,7 +180,7 @@
             // periodDetailsLabel
             // 
             periodDetailsLabel.AutoSize = true;
-            periodDetailsLabel.Location = new System.Drawing.Point(18, 90);
+            periodDetailsLabel.Location = new System.Drawing.Point(43, 95);
             periodDetailsLabel.Name = "periodDetailsLabel";
             periodDetailsLabel.Size = new System.Drawing.Size(117, 20);
             periodDetailsLabel.TabIndex = 2;
@@ -188,7 +188,7 @@
             // 
             // balanceDetailsTextBox
             // 
-            balanceDetailsTextBox.Location = new System.Drawing.Point(190, 50);
+            balanceDetailsTextBox.Location = new System.Drawing.Point(215, 55);
             balanceDetailsTextBox.Name = "balanceDetailsTextBox";
             balanceDetailsTextBox.ReadOnly = true;
             balanceDetailsTextBox.Size = new System.Drawing.Size(213, 27);
@@ -197,7 +197,7 @@
             // balanceDetailsLabel
             // 
             balanceDetailsLabel.AutoSize = true;
-            balanceDetailsLabel.Location = new System.Drawing.Point(18, 53);
+            balanceDetailsLabel.Location = new System.Drawing.Point(43, 58);
             balanceDetailsLabel.Name = "balanceDetailsLabel";
             balanceDetailsLabel.Size = new System.Drawing.Size(64, 20);
             balanceDetailsLabel.TabIndex = 1;
@@ -206,7 +206,7 @@
             // savingDetailsComboBox
             // 
             savingDetailsComboBox.FormattingEnabled = true;
-            savingDetailsComboBox.Location = new System.Drawing.Point(190, 16);
+            savingDetailsComboBox.Location = new System.Drawing.Point(215, 21);
             savingDetailsComboBox.Name = "savingDetailsComboBox";
             savingDetailsComboBox.Size = new System.Drawing.Size(213, 28);
             savingDetailsComboBox.TabIndex = 0;
@@ -215,7 +215,7 @@
             // savingsDetailsLabel
             // 
             savingsDetailsLabel.AutoSize = true;
-            savingsDetailsLabel.Location = new System.Drawing.Point(18, 19);
+            savingsDetailsLabel.Location = new System.Drawing.Point(43, 24);
             savingsDetailsLabel.Name = "savingsDetailsLabel";
             savingsDetailsLabel.Size = new System.Drawing.Size(56, 20);
             savingsDetailsLabel.TabIndex = 0;
@@ -244,7 +244,7 @@
             // 
             // maturityDayDepositTextBox
             // 
-            maturityDayDepositTextBox.Location = new System.Drawing.Point(167, 125);
+            maturityDayDepositTextBox.Location = new System.Drawing.Point(196, 156);
             maturityDayDepositTextBox.Name = "maturityDayDepositTextBox";
             maturityDayDepositTextBox.ReadOnly = true;
             maturityDayDepositTextBox.Size = new System.Drawing.Size(244, 27);
@@ -253,7 +253,7 @@
             // maturityDayDepositLabel
             // 
             maturityDayDepositLabel.AutoSize = true;
-            maturityDayDepositLabel.Location = new System.Drawing.Point(20, 128);
+            maturityDayDepositLabel.Location = new System.Drawing.Point(49, 159);
             maturityDayDepositLabel.Name = "maturityDayDepositLabel";
             maturityDayDepositLabel.Size = new System.Drawing.Size(95, 20);
             maturityDayDepositLabel.TabIndex = 8;
@@ -261,7 +261,7 @@
             // 
             // interestDepositTextBox
             // 
-            interestDepositTextBox.Location = new System.Drawing.Point(167, 89);
+            interestDepositTextBox.Location = new System.Drawing.Point(196, 120);
             interestDepositTextBox.Name = "interestDepositTextBox";
             interestDepositTextBox.ReadOnly = true;
             interestDepositTextBox.ShortcutsEnabled = false;
@@ -271,7 +271,7 @@
             // interestDepositLabel
             // 
             interestDepositLabel.AutoSize = true;
-            interestDepositLabel.Location = new System.Drawing.Point(20, 92);
+            interestDepositLabel.Location = new System.Drawing.Point(49, 123);
             interestDepositLabel.Name = "interestDepositLabel";
             interestDepositLabel.Size = new System.Drawing.Size(141, 20);
             interestDepositLabel.TabIndex = 2;
@@ -280,7 +280,7 @@
             // depositButton
             // 
             depositButton.Enabled = false;
-            depositButton.Location = new System.Drawing.Point(386, 205);
+            depositButton.Location = new System.Drawing.Point(415, 236);
             depositButton.Name = "depositButton";
             depositButton.Size = new System.Drawing.Size(94, 29);
             depositButton.TabIndex = 3;
@@ -290,7 +290,7 @@
             // 
             // balanceDepositTextBox
             // 
-            balanceDepositTextBox.Location = new System.Drawing.Point(167, 16);
+            balanceDepositTextBox.Location = new System.Drawing.Point(196, 47);
             balanceDepositTextBox.Name = "balanceDepositTextBox";
             balanceDepositTextBox.ReadOnly = true;
             balanceDepositTextBox.ShortcutsEnabled = false;
@@ -300,7 +300,7 @@
             // amountDepositNumeric
             // 
             amountDepositNumeric.DecimalPlaces = 2;
-            amountDepositNumeric.Location = new System.Drawing.Point(167, 161);
+            amountDepositNumeric.Location = new System.Drawing.Point(196, 192);
             amountDepositNumeric.Name = "amountDepositNumeric";
             amountDepositNumeric.Size = new System.Drawing.Size(244, 27);
             amountDepositNumeric.TabIndex = 3;
@@ -308,7 +308,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(20, 164);
+            label3.Location = new System.Drawing.Point(49, 195);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(137, 20);
             label3.TabIndex = 2;
@@ -317,7 +317,7 @@
             // periodLabel
             // 
             periodLabel.AutoSize = true;
-            periodLabel.Location = new System.Drawing.Point(20, 56);
+            periodLabel.Location = new System.Drawing.Point(49, 87);
             periodLabel.Name = "periodLabel";
             periodLabel.Size = new System.Drawing.Size(117, 20);
             periodLabel.TabIndex = 1;
@@ -326,7 +326,7 @@
             // periodDepositComboBox
             // 
             periodDepositComboBox.FormattingEnabled = true;
-            periodDepositComboBox.Location = new System.Drawing.Point(167, 52);
+            periodDepositComboBox.Location = new System.Drawing.Point(196, 83);
             periodDepositComboBox.Name = "periodDepositComboBox";
             periodDepositComboBox.Size = new System.Drawing.Size(244, 28);
             periodDepositComboBox.TabIndex = 1;
@@ -335,7 +335,7 @@
             // balanceDepositLabel
             // 
             balanceDepositLabel.AutoSize = true;
-            balanceDepositLabel.Location = new System.Drawing.Point(20, 19);
+            balanceDepositLabel.Location = new System.Drawing.Point(49, 50);
             balanceDepositLabel.Name = "balanceDepositLabel";
             balanceDepositLabel.Size = new System.Drawing.Size(97, 20);
             balanceDepositLabel.TabIndex = 0;
@@ -362,7 +362,7 @@
             // 
             // maturityDayWithdrawTextBox
             // 
-            maturityDayWithdrawTextBox.Location = new System.Drawing.Point(232, 113);
+            maturityDayWithdrawTextBox.Location = new System.Drawing.Point(211, 136);
             maturityDayWithdrawTextBox.Name = "maturityDayWithdrawTextBox";
             maturityDayWithdrawTextBox.ReadOnly = true;
             maturityDayWithdrawTextBox.Size = new System.Drawing.Size(213, 27);
@@ -371,7 +371,7 @@
             // maturityDayWithdrawLabel
             // 
             maturityDayWithdrawLabel.AutoSize = true;
-            maturityDayWithdrawLabel.Location = new System.Drawing.Point(60, 116);
+            maturityDayWithdrawLabel.Location = new System.Drawing.Point(39, 139);
             maturityDayWithdrawLabel.Name = "maturityDayWithdrawLabel";
             maturityDayWithdrawLabel.Size = new System.Drawing.Size(95, 20);
             maturityDayWithdrawLabel.TabIndex = 2;
@@ -380,7 +380,7 @@
             // withdrawWithdrawButton
             // 
             withdrawWithdrawButton.Enabled = false;
-            withdrawWithdrawButton.Location = new System.Drawing.Point(341, 199);
+            withdrawWithdrawButton.Location = new System.Drawing.Point(406, 215);
             withdrawWithdrawButton.Name = "withdrawWithdrawButton";
             withdrawWithdrawButton.Size = new System.Drawing.Size(94, 29);
             withdrawWithdrawButton.TabIndex = 4;
@@ -390,7 +390,7 @@
             // 
             // amountToGetWithdrawTextBox
             // 
-            amountToGetWithdrawTextBox.Location = new System.Drawing.Point(232, 145);
+            amountToGetWithdrawTextBox.Location = new System.Drawing.Point(211, 168);
             amountToGetWithdrawTextBox.Name = "amountToGetWithdrawTextBox";
             amountToGetWithdrawTextBox.ReadOnly = true;
             amountToGetWithdrawTextBox.Size = new System.Drawing.Size(213, 27);
@@ -399,7 +399,7 @@
             // amountToGetWithdrawLabel
             // 
             amountToGetWithdrawLabel.AutoSize = true;
-            amountToGetWithdrawLabel.Location = new System.Drawing.Point(60, 148);
+            amountToGetWithdrawLabel.Location = new System.Drawing.Point(39, 171);
             amountToGetWithdrawLabel.Name = "amountToGetWithdrawLabel";
             amountToGetWithdrawLabel.Size = new System.Drawing.Size(89, 20);
             amountToGetWithdrawLabel.TabIndex = 3;
@@ -407,7 +407,7 @@
             // 
             // balanceWithdrawTextBox
             // 
-            balanceWithdrawTextBox.Location = new System.Drawing.Point(232, 80);
+            balanceWithdrawTextBox.Location = new System.Drawing.Point(211, 103);
             balanceWithdrawTextBox.Name = "balanceWithdrawTextBox";
             balanceWithdrawTextBox.ReadOnly = true;
             balanceWithdrawTextBox.Size = new System.Drawing.Size(213, 27);
@@ -416,7 +416,7 @@
             // balanceWithdrawLabel
             // 
             balanceWithdrawLabel.AutoSize = true;
-            balanceWithdrawLabel.Location = new System.Drawing.Point(60, 83);
+            balanceWithdrawLabel.Location = new System.Drawing.Point(39, 106);
             balanceWithdrawLabel.Name = "balanceWithdrawLabel";
             balanceWithdrawLabel.Size = new System.Drawing.Size(64, 20);
             balanceWithdrawLabel.TabIndex = 1;
@@ -425,7 +425,7 @@
             // savingWithdrawComboBox
             // 
             savingWithdrawComboBox.FormattingEnabled = true;
-            savingWithdrawComboBox.Location = new System.Drawing.Point(232, 46);
+            savingWithdrawComboBox.Location = new System.Drawing.Point(211, 69);
             savingWithdrawComboBox.Name = "savingWithdrawComboBox";
             savingWithdrawComboBox.Size = new System.Drawing.Size(213, 28);
             savingWithdrawComboBox.TabIndex = 0;
@@ -434,7 +434,7 @@
             // savingWithdrawLabel
             // 
             savingWithdrawLabel.AutoSize = true;
-            savingWithdrawLabel.Location = new System.Drawing.Point(60, 49);
+            savingWithdrawLabel.Location = new System.Drawing.Point(39, 72);
             savingWithdrawLabel.Name = "savingWithdrawLabel";
             savingWithdrawLabel.Size = new System.Drawing.Size(56, 20);
             savingWithdrawLabel.TabIndex = 0;
@@ -448,7 +448,7 @@
             Controls.Add(savingTabControl);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             Name = "SavingsForm";
-            Text = "SavingsForm";
+            Text = "Saving";
             Load += SavingsForm_Load;
             savingTabControl.ResumeLayout(false);
             detailsTabPage.ResumeLayout(false);
