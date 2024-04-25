@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entity;
+namespace DataAccess;
 
 [Index("Username", Name = "UQ__StaffAcc__F3DBC572752A95C1", IsUnique = true)]
 [Serializable]

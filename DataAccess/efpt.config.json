@@ -8,7 +8,7 @@
    "OutputContextPath": null,
    "OutputPath": "",
    "PreserveCasingWithRegex": true,
-   "ProjectRootNamespace": "Entity",
+   "ProjectRootNamespace": "DataAccess",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 2,
    "SelectedToBeGenerated": 0,

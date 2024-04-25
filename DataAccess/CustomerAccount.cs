@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entity;
+namespace DataAccess;
 
 [Index("Username", Name = "UQ_Customer", IsUnique = true)]
 [Index("Email", Name = "UQ_Email", IsUnique = true)]

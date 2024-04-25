@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Entity\Entity.csproj", "{CF72EDC6-6C91-4669-B284-CB2C3A488CAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{CF72EDC6-6C91-4669-B284-CB2C3A488CAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

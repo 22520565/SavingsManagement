@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entity;
+namespace DataAccess;
 
 public sealed partial class SavingsManagementContext : DbContext
 {

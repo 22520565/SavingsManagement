@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entity;
+namespace DataAccess;
 
 [Serializable]
 public sealed class SavingInterestRate

@@ -4,25 +4,27 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entity;
+namespace DataAccess;
 
 [Serializable]
-public sealed class CashFlow
+public sealed class Saving
 {
     [Key]
     public int Id { get; set; }
 
-    public DateTimeOffset Time { get; set; }
-
     public int CustomerId { get; set; }
 
     [Column(TypeName = "money")]
-    public decimal BalanceChanging { get; set; }
+    public decimal Balance { get; set; }
 
-    [StringLength(300)]
-    public string Context { get; set; } = null!;
+    [Column(TypeName = "decimal(5, 3)")]
+    public decimal AnnualInterestRate { get; set; }
+
+    public int PeriodInMonths { get; set; }
+
+    public DateTimeOffset OpenDate { get; set; }
 
     [ForeignKey("CustomerId")]
-    [InverseProperty("CashFlows")]
+    [InverseProperty("Savings")]
     public CustomerAccount Customer { get; set; } = null!;
 }
