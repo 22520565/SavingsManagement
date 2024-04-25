@@ -28,190 +28,323 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            txtUsername = new System.Windows.Forms.TextBox();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            txtPassword = new System.Windows.Forms.TextBox();
-            pictureBox2 = new System.Windows.Forms.PictureBox();
+            tabControl = new System.Windows.Forms.TabControl();
+            customerTabPage = new System.Windows.Forms.TabPage();
+            cbCustomerRememberInfo = new System.Windows.Forms.CheckBox();
+            btnCustomerLogin = new System.Windows.Forms.Button();
+            cbCustomerShowPassword = new System.Windows.Forms.CheckBox();
             pictureBox3 = new System.Windows.Forms.PictureBox();
-            cbShowPassword = new System.Windows.Forms.CheckBox();
-            linkLabel_ForgotPassword = new System.Windows.Forms.LinkLabel();
-            linkLabel_SignUp = new System.Windows.Forms.LinkLabel();
-            btnLogin = new System.Windows.Forms.Button();
-            pictureBox4 = new System.Windows.Forms.PictureBox();
-            cbRememberInfo = new System.Windows.Forms.CheckBox();
-            btnExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            label2 = new System.Windows.Forms.Label();
+            txtCustomerPassword = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
+            txtCustomerUsername = new System.Windows.Forms.TextBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            staffTabPage = new System.Windows.Forms.TabPage();
+            cbStaffRemeberInfo = new System.Windows.Forms.CheckBox();
+            btnStaffLogin = new System.Windows.Forms.Button();
+            cbStaffShowPassword = new System.Windows.Forms.CheckBox();
+            pictureBox6 = new System.Windows.Forms.PictureBox();
+            pictureBox7 = new System.Windows.Forms.PictureBox();
+            label3 = new System.Windows.Forms.Label();
+            txtStaffPassword = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            txtStaffUsername = new System.Windows.Forms.TextBox();
+            pictureBox8 = new System.Windows.Forms.PictureBox();
+            tabControl.SuspendLayout();
+            customerTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            staffTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // tabControl
             // 
-            pictureBox1.Location = new System.Drawing.Point(160, 16);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(400, 300);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            tabControl.Controls.Add(customerTabPage);
+            tabControl.Controls.Add(staffTabPage);
+            tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            tabControl.Location = new System.Drawing.Point(0, 0);
+            tabControl.Name = "tabControl";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new System.Drawing.Size(618, 528);
+            tabControl.TabIndex = 0;
             // 
-            // txtUsername
+            // customerTabPage
             // 
-            txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtUsername.Font = new System.Drawing.Font("Segoe UI", 14F);
-            txtUsername.Location = new System.Drawing.Point(190, 287);
-            txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new System.Drawing.Size(412, 39);
-            txtUsername.TabIndex = 1;
+            customerTabPage.Controls.Add(cbCustomerRememberInfo);
+            customerTabPage.Controls.Add(btnCustomerLogin);
+            customerTabPage.Controls.Add(cbCustomerShowPassword);
+            customerTabPage.Controls.Add(pictureBox3);
+            customerTabPage.Controls.Add(pictureBox2);
+            customerTabPage.Controls.Add(label2);
+            customerTabPage.Controls.Add(txtCustomerPassword);
+            customerTabPage.Controls.Add(label1);
+            customerTabPage.Controls.Add(txtCustomerUsername);
+            customerTabPage.Controls.Add(pictureBox1);
+            customerTabPage.Location = new System.Drawing.Point(4, 29);
+            customerTabPage.Name = "customerTabPage";
+            customerTabPage.Padding = new System.Windows.Forms.Padding(3);
+            customerTabPage.Size = new System.Drawing.Size(610, 495);
+            customerTabPage.TabIndex = 0;
+            customerTabPage.Text = "Customer";
+            customerTabPage.UseVisualStyleBackColor = true;
+            // 
+            // cbCustomerRememberInfo
+            // 
+            cbCustomerRememberInfo.AutoSize = true;
+            cbCustomerRememberInfo.Location = new System.Drawing.Point(470, 405);
+            cbCustomerRememberInfo.Margin = new System.Windows.Forms.Padding(2);
+            cbCustomerRememberInfo.Name = "cbCustomerRememberInfo";
+            cbCustomerRememberInfo.Size = new System.Drawing.Size(129, 24);
+            cbCustomerRememberInfo.TabIndex = 24;
+            cbCustomerRememberInfo.Text = "Remember me";
+            cbCustomerRememberInfo.UseVisualStyleBackColor = true;
+            cbCustomerRememberInfo.CheckedChanged += cbRememberInfo_CheckedChanged;
+            // 
+            // btnCustomerLogin
+            // 
+            btnCustomerLogin.AutoSize = true;
+            btnCustomerLogin.BackColor = System.Drawing.SystemColors.Control;
+            btnCustomerLogin.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnCustomerLogin.Location = new System.Drawing.Point(263, 447);
+            btnCustomerLogin.Margin = new System.Windows.Forms.Padding(2);
+            btnCustomerLogin.Name = "btnCustomerLogin";
+            btnCustomerLogin.Size = new System.Drawing.Size(130, 42);
+            btnCustomerLogin.TabIndex = 22;
+            btnCustomerLogin.Text = "Login";
+            btnCustomerLogin.UseVisualStyleBackColor = false;
+            btnCustomerLogin.Click += btnLogin_Click;
+            btnCustomerLogin.MouseEnter += btnLogin_MouseEnter;
+            btnCustomerLogin.MouseLeave += btnLogin_MouseLeave;
+            // 
+            // cbCustomerShowPassword
+            // 
+            cbCustomerShowPassword.AutoSize = true;
+            cbCustomerShowPassword.Location = new System.Drawing.Point(187, 405);
+            cbCustomerShowPassword.Margin = new System.Windows.Forms.Padding(2);
+            cbCustomerShowPassword.Name = "cbCustomerShowPassword";
+            cbCustomerShowPassword.Size = new System.Drawing.Size(134, 24);
+            cbCustomerShowPassword.TabIndex = 21;
+            cbCustomerShowPassword.Text = "Show password";
+            cbCustomerShowPassword.UseVisualStyleBackColor = true;
+            cbCustomerShowPassword.CheckedChanged += cbShowPassword_CheckedChanged;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Resources.padlock;
+            pictureBox3.Location = new System.Drawing.Point(17, 343);
+            pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(38, 38);
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 20;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Resources.user;
+            pictureBox2.Location = new System.Drawing.Point(17, 278);
+            pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(38, 38);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 19;
+            pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Segoe UI", 14F);
+            label2.Location = new System.Drawing.Point(60, 347);
+            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(111, 32);
+            label2.TabIndex = 18;
+            label2.Text = "Password";
+            // 
+            // txtCustomerPassword
+            // 
+            txtCustomerPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtCustomerPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
+            txtCustomerPassword.Location = new System.Drawing.Point(187, 346);
+            txtCustomerPassword.Margin = new System.Windows.Forms.Padding(2);
+            txtCustomerPassword.Name = "txtCustomerPassword";
+            txtCustomerPassword.Size = new System.Drawing.Size(412, 39);
+            txtCustomerPassword.TabIndex = 17;
+            txtCustomerPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Segoe UI", 14F);
             label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            label1.Location = new System.Drawing.Point(71, 289);
+            label1.Location = new System.Drawing.Point(59, 282);
             label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(121, 32);
-            label1.TabIndex = 2;
+            label1.TabIndex = 16;
             label1.Text = "Username";
             // 
-            // label2
+            // txtCustomerUsername
             // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Segoe UI", 14F);
-            label2.Location = new System.Drawing.Point(72, 354);
-            label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(111, 32);
-            label2.TabIndex = 4;
-            label2.Text = "Password";
+            txtCustomerUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtCustomerUsername.Font = new System.Drawing.Font("Segoe UI", 14F);
+            txtCustomerUsername.Location = new System.Drawing.Point(187, 280);
+            txtCustomerUsername.Margin = new System.Windows.Forms.Padding(2);
+            txtCustomerUsername.Name = "txtCustomerUsername";
+            txtCustomerUsername.Size = new System.Drawing.Size(412, 39);
+            txtCustomerUsername.TabIndex = 15;
             // 
-            // txtPassword
+            // pictureBox1
             // 
-            txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
-            txtPassword.Location = new System.Drawing.Point(190, 353);
-            txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new System.Drawing.Size(412, 39);
-            txtPassword.TabIndex = 3;
-            txtPassword.UseSystemPasswordChar = true;
+            pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            pictureBox1.Image = Resources.Users;
+            pictureBox1.InitialImage = Resources.user;
+            pictureBox1.Location = new System.Drawing.Point(3, 3);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(604, 241);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // staffTabPage
             // 
-            pictureBox2.Location = new System.Drawing.Point(29, 285);
-            pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(38, 38);
-            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
+            staffTabPage.Controls.Add(cbStaffRemeberInfo);
+            staffTabPage.Controls.Add(btnStaffLogin);
+            staffTabPage.Controls.Add(cbStaffShowPassword);
+            staffTabPage.Controls.Add(pictureBox6);
+            staffTabPage.Controls.Add(pictureBox7);
+            staffTabPage.Controls.Add(label3);
+            staffTabPage.Controls.Add(txtStaffPassword);
+            staffTabPage.Controls.Add(label4);
+            staffTabPage.Controls.Add(txtStaffUsername);
+            staffTabPage.Controls.Add(pictureBox8);
+            staffTabPage.Location = new System.Drawing.Point(4, 29);
+            staffTabPage.Name = "staffTabPage";
+            staffTabPage.Padding = new System.Windows.Forms.Padding(3);
+            staffTabPage.Size = new System.Drawing.Size(610, 495);
+            staffTabPage.TabIndex = 1;
+            staffTabPage.Text = "Staff";
+            staffTabPage.UseVisualStyleBackColor = true;
             // 
-            // pictureBox3
+            // cbStaffRemeberInfo
             // 
-            pictureBox3.Location = new System.Drawing.Point(29, 350);
-            pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new System.Drawing.Size(38, 38);
-            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 6;
-            pictureBox3.TabStop = false;
+            cbStaffRemeberInfo.AutoSize = true;
+            cbStaffRemeberInfo.Location = new System.Drawing.Point(470, 402);
+            cbStaffRemeberInfo.Margin = new System.Windows.Forms.Padding(2);
+            cbStaffRemeberInfo.Name = "cbStaffRemeberInfo";
+            cbStaffRemeberInfo.Size = new System.Drawing.Size(129, 24);
+            cbStaffRemeberInfo.TabIndex = 35;
+            cbStaffRemeberInfo.Text = "Remember me";
+            cbStaffRemeberInfo.UseVisualStyleBackColor = true;
             // 
-            // cbShowPassword
+            // btnStaffLogin
             // 
-            cbShowPassword.AutoSize = true;
-            cbShowPassword.Location = new System.Drawing.Point(190, 412);
-            cbShowPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            cbShowPassword.Name = "cbShowPassword";
-            cbShowPassword.Size = new System.Drawing.Size(134, 24);
-            cbShowPassword.TabIndex = 7;
-            cbShowPassword.Text = "Show password";
-            cbShowPassword.UseVisualStyleBackColor = true;
-            cbShowPassword.CheckedChanged += cbShowPassword_CheckedChanged;
+            btnStaffLogin.AutoSize = true;
+            btnStaffLogin.BackColor = System.Drawing.SystemColors.Control;
+            btnStaffLogin.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            btnStaffLogin.Location = new System.Drawing.Point(263, 444);
+            btnStaffLogin.Margin = new System.Windows.Forms.Padding(2);
+            btnStaffLogin.Name = "btnStaffLogin";
+            btnStaffLogin.Size = new System.Drawing.Size(130, 42);
+            btnStaffLogin.TabIndex = 33;
+            btnStaffLogin.Text = "Login";
+            btnStaffLogin.UseVisualStyleBackColor = false;
             // 
-            // linkLabel_ForgotPassword
+            // cbStaffShowPassword
             // 
-            linkLabel_ForgotPassword.AutoSize = true;
-            linkLabel_ForgotPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
-            linkLabel_ForgotPassword.Location = new System.Drawing.Point(78, 471);
-            linkLabel_ForgotPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            linkLabel_ForgotPassword.Name = "linkLabel_ForgotPassword";
-            linkLabel_ForgotPassword.Size = new System.Drawing.Size(201, 32);
-            linkLabel_ForgotPassword.TabIndex = 8;
-            linkLabel_ForgotPassword.TabStop = true;
-            linkLabel_ForgotPassword.Text = "Forgot password?";
-            linkLabel_ForgotPassword.LinkClicked += linkLabel_ForgotPassword_LinkClicked;
+            cbStaffShowPassword.AutoSize = true;
+            cbStaffShowPassword.Location = new System.Drawing.Point(187, 402);
+            cbStaffShowPassword.Margin = new System.Windows.Forms.Padding(2);
+            cbStaffShowPassword.Name = "cbStaffShowPassword";
+            cbStaffShowPassword.Size = new System.Drawing.Size(134, 24);
+            cbStaffShowPassword.TabIndex = 32;
+            cbStaffShowPassword.Text = "Show password";
+            cbStaffShowPassword.UseVisualStyleBackColor = true;
             // 
-            // linkLabel_SignUp
+            // pictureBox6
             // 
-            linkLabel_SignUp.AutoSize = true;
-            linkLabel_SignUp.Font = new System.Drawing.Font("Segoe UI", 14F);
-            linkLabel_SignUp.Location = new System.Drawing.Point(434, 471);
-            linkLabel_SignUp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            linkLabel_SignUp.Name = "linkLabel_SignUp";
-            linkLabel_SignUp.Size = new System.Drawing.Size(98, 32);
-            linkLabel_SignUp.TabIndex = 9;
-            linkLabel_SignUp.TabStop = true;
-            linkLabel_SignUp.Text = "Sign Up";
-            linkLabel_SignUp.LinkClicked += linkLabel_SignUp_LinkClicked;
+            pictureBox6.Image = Resources.padlock;
+            pictureBox6.Location = new System.Drawing.Point(17, 340);
+            pictureBox6.Margin = new System.Windows.Forms.Padding(2);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new System.Drawing.Size(38, 38);
+            pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 31;
+            pictureBox6.TabStop = false;
             // 
-            // btnLogin
+            // pictureBox7
             // 
-            btnLogin.AutoSize = true;
-            btnLogin.BackColor = System.Drawing.SystemColors.Control;
-            btnLogin.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            btnLogin.Location = new System.Drawing.Point(255, 544);
-            btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new System.Drawing.Size(130, 42);
-            btnLogin.TabIndex = 10;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = false;
-            btnLogin.Click += btnLogin_Click;
-            btnLogin.MouseEnter += btnLogin_MouseEnter;
-            btnLogin.MouseLeave += btnLogin_MouseLeave;
+            pictureBox7.Image = Resources.user;
+            pictureBox7.Location = new System.Drawing.Point(17, 275);
+            pictureBox7.Margin = new System.Windows.Forms.Padding(2);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(38, 38);
+            pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox7.TabIndex = 30;
+            pictureBox7.TabStop = false;
             // 
-            // pictureBox4
+            // label3
             // 
-            pictureBox4.Location = new System.Drawing.Point(0, 0);
-            pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(80, 80);
-            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 12;
-            pictureBox4.TabStop = false;
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Segoe UI", 14F);
+            label3.Location = new System.Drawing.Point(60, 344);
+            label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(111, 32);
+            label3.TabIndex = 29;
+            label3.Text = "Password";
             // 
-            // cbRememberInfo
+            // txtStaffPassword
             // 
-            cbRememberInfo.AutoSize = true;
-            cbRememberInfo.Location = new System.Drawing.Point(387, 412);
-            cbRememberInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            cbRememberInfo.Name = "cbRememberInfo";
-            cbRememberInfo.Size = new System.Drawing.Size(224, 24);
-            cbRememberInfo.TabIndex = 13;
-            cbRememberInfo.Text = "Remember login information";
-            cbRememberInfo.UseVisualStyleBackColor = true;
-            cbRememberInfo.CheckedChanged += cbRememberInfo_CheckedChanged;
+            txtStaffPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtStaffPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
+            txtStaffPassword.Location = new System.Drawing.Point(187, 343);
+            txtStaffPassword.Margin = new System.Windows.Forms.Padding(2);
+            txtStaffPassword.Name = "txtStaffPassword";
+            txtStaffPassword.Size = new System.Drawing.Size(412, 39);
+            txtStaffPassword.TabIndex = 28;
+            txtStaffPassword.UseSystemPasswordChar = true;
             // 
-            // btnExit
+            // label4
             // 
-            btnExit.BackColor = System.Drawing.SystemColors.Control;
-            btnExit.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            btnExit.Location = new System.Drawing.Point(590, 10);
-            btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new System.Drawing.Size(40, 40);
-            btnExit.TabIndex = 14;
-            btnExit.Text = "X";
-            btnExit.UseVisualStyleBackColor = false;
-            btnExit.Click += btnExit_Click;
-            btnExit.MouseEnter += btnExit_MouseEnter;
-            btnExit.MouseLeave += btnExit_MouseLeave;
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Segoe UI", 14F);
+            label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            label4.Location = new System.Drawing.Point(59, 279);
+            label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(121, 32);
+            label4.TabIndex = 27;
+            label4.Text = "Username";
+            // 
+            // txtStaffUsername
+            // 
+            txtStaffUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtStaffUsername.Font = new System.Drawing.Font("Segoe UI", 14F);
+            txtStaffUsername.Location = new System.Drawing.Point(187, 277);
+            txtStaffUsername.Margin = new System.Windows.Forms.Padding(2);
+            txtStaffUsername.Name = "txtStaffUsername";
+            txtStaffUsername.Size = new System.Drawing.Size(412, 39);
+            txtStaffUsername.TabIndex = 26;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Dock = System.Windows.Forms.DockStyle.Top;
+            pictureBox8.Image = Resources.Users;
+            pictureBox8.InitialImage = Resources.user;
+            pictureBox8.Location = new System.Drawing.Point(3, 3);
+            pictureBox8.Margin = new System.Windows.Forms.Padding(2);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(604, 241);
+            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            pictureBox8.TabIndex = 25;
+            pictureBox8.TabStop = false;
             // 
             // LoginForm
             // 
@@ -219,50 +352,52 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             BackColor = System.Drawing.Color.White;
-            ClientSize = new System.Drawing.Size(640, 624);
-            ControlBox = false;
-            Controls.Add(btnExit);
-            Controls.Add(cbRememberInfo);
-            Controls.Add(pictureBox4);
-            Controls.Add(btnLogin);
-            Controls.Add(linkLabel_SignUp);
-            Controls.Add(linkLabel_ForgotPassword);
-            Controls.Add(cbShowPassword);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
-            Controls.Add(label2);
-            Controls.Add(txtPassword);
-            Controls.Add(label1);
-            Controls.Add(txtUsername);
-            Controls.Add(pictureBox1);
-            Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            ClientSize = new System.Drawing.Size(618, 528);
+            Controls.Add(tabControl);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            Margin = new System.Windows.Forms.Padding(2);
             Name = "LoginForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Form_Login";
+            Text = "Login";
             Load += LoginForm_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            tabControl.ResumeLayout(false);
+            customerTabPage.ResumeLayout(false);
+            customerTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            staffTabPage.ResumeLayout(false);
+            staffTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage customerTabPage;
+        private System.Windows.Forms.TabPage staffTabPage;
+        private System.Windows.Forms.CheckBox cbCustomerRememberInfo;
+        private System.Windows.Forms.Button btnCustomerLogin;
+        private System.Windows.Forms.CheckBox cbCustomerShowPassword;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.CheckBox cbShowPassword;
-        private System.Windows.Forms.LinkLabel linkLabel_ForgotPassword;
-        private System.Windows.Forms.LinkLabel linkLabel_SignUp;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.CheckBox cbRememberInfo;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCustomerPassword;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCustomerUsername;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox cbStaffRemeberInfo;
+        private System.Windows.Forms.Button btnStaffLogin;
+        private System.Windows.Forms.CheckBox cbStaffShowPassword;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtStaffPassword;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtStaffUsername;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }

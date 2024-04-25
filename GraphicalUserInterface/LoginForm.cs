@@ -8,22 +8,11 @@ using Microsoft.IdentityModel.Tokens;
 
 public partial class LoginForm : Form
 {
+    public bool UserSuccessfullyAuthenticated { get; private set; } = false;
 
     public LoginForm()
     {
         InitializeComponent();
-    }
-
-    private void btnExit_MouseEnter(object sender, EventArgs e)
-    {
-        btnExit.BackColor = Color.Red;
-        btnExit.ForeColor = Color.White;
-    }
-
-    private void btnExit_MouseLeave(object sender, EventArgs e)
-    {
-        btnExit.BackColor = SystemColors.Control;
-        btnExit.ForeColor = SystemColors.ControlText;
     }
 
     private void btnExit_Click(object sender, EventArgs e)
@@ -38,9 +27,10 @@ public partial class LoginForm : Form
 
     private void linkLabel_ForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
+        using var passwordRecoveryForm = new Form_ForgotPassword();
         this.Hide();
-        new Form_ForgotPassword().ShowDialog();
-        this.Close();
+        passwordRecoveryForm.ShowDialog(this);
+        this.Show();
     }
 
     private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -52,38 +42,31 @@ public partial class LoginForm : Form
 
     private void btnLogin_MouseEnter(object sender, EventArgs e)
     {
-        btnLogin.BackColor = Color.Blue;
-        btnLogin.ForeColor = Color.White;
+        btnCustomerLogin.BackColor = Color.Blue;
+        btnCustomerLogin.ForeColor = Color.White;
     }
 
     private void btnLogin_MouseLeave(object sender, EventArgs e)
     {
-        btnLogin.BackColor = SystemColors.Control;
-        btnLogin.ForeColor = SystemColors.ControlText;
+        btnCustomerLogin.BackColor = SystemColors.Control;
+        btnCustomerLogin.ForeColor = SystemColors.ControlText;
     }
 
     private void cbShowPassword_CheckedChanged(object sender, EventArgs e)
     {
-        if (cbShowPassword.Checked)
-        {
-            txtPassword.UseSystemPasswordChar = false;
-        }
-        if (!cbShowPassword.Checked)
-        {
-            txtPassword.UseSystemPasswordChar = true;
-        }
+        txtCustomerPassword.UseSystemPasswordChar = !cbCustomerShowPassword.Checked;
     }
 
     private void btnLogin_Click(object sender, EventArgs e)
     {
         try
         {
-            if (txtUsername.Text.IsNullOrEmpty())
+            if (txtCustomerUsername.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Resources.UsernameBlankWarningString, Resources.WarningTitleString,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (txtPassword.Text.IsNullOrEmpty())
+            else if (txtCustomerPassword.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Resources.PasswordBlankWarningString, Resources.WarningTitleString,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -92,12 +75,12 @@ public partial class LoginForm : Form
             {
                 switch (CustomerAccounts.Login(new LoginInfo
                 {
-                    Username = txtUsername.Text,
-                    Password = txtPassword.Text,
+                    Username = txtCustomerUsername.Text,
+                    Password = txtCustomerPassword.Text,
                 }))
                 {
                     case CustomerAccounts.LoginResult.Success:
-                        new Form_MainMenu().Show();
+                        this.UserSuccessfullyAuthenticated = true;
                         this.Close();
                         break;
 
@@ -129,12 +112,12 @@ public partial class LoginForm : Form
 
     private void cbRememberInfo_CheckedChanged(object sender, EventArgs e)
     {
-        if (!string.IsNullOrEmpty(txtUsername.Text) && !string.IsNullOrEmpty(txtPassword.Text))
+        if (!string.IsNullOrEmpty(txtCustomerUsername.Text) && !string.IsNullOrEmpty(txtCustomerPassword.Text))
         {
-            if (cbRememberInfo.Checked)
+            if (cbCustomerRememberInfo.Checked)
             {
-                Settings.Default.AcUsername = txtUsername.Text;
-                Settings.Default.AcPassword = txtPassword.Text;
+                Settings.Default.AcUsername = txtCustomerUsername.Text;
+                Settings.Default.AcPassword = txtCustomerPassword.Text;
                 Settings.Default.Save();
             }
             else
@@ -146,11 +129,12 @@ public partial class LoginForm : Form
 
     private void LoginForm_Load(object sender, EventArgs e)
     {
-        txtUsername.Text = Settings.Default.AcUsername;
-        txtPassword.Text = Settings.Default.AcPassword;
+        this.UserSuccessfullyAuthenticated = false;
+        txtCustomerUsername.Text = Settings.Default.AcUsername;
+        txtCustomerPassword.Text = Settings.Default.AcPassword;
         if (!string.IsNullOrEmpty(Settings.Default.AcUsername))
         {
-            cbRememberInfo.Checked = true;
+            cbCustomerRememberInfo.Checked = true;
         }
     }
 }
