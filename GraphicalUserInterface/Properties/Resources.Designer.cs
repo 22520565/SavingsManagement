@@ -61,6 +61,15 @@ namespace Gui {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your account has been disabled! Please contact us for support!.
+        /// </summary>
+        internal static string AccountDisabledErrorString {
+            get {
+                return ResourceManager.GetString("AccountDisabledErrorString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Computer_process {

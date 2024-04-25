@@ -36,7 +36,7 @@ namespace Gui
                     HashedPassword = this.customerHashedPasswordTextBox.Text,
                     Balance = this.customerBalanceNumeric.Value,
                 };
-                Business.CustomerAccounts.EditData(customerAccount);
+                // Business.CustomerAccounts.EditData(customerAccount);
             }
             else
             {
@@ -52,7 +52,7 @@ namespace Gui
                     HashedPassword = this.customerHashedPasswordTextBox.Text,
                     Balance = this.customerBalanceNumeric.Value,
                 };
-                Business.CustomerAccounts.AddData(customerAccount);
+                // Business.CustomerAccounts.AddData(customerAccount);
             }
 
             this.RefreshDataGridView();
@@ -70,7 +70,7 @@ namespace Gui
             {
                 Id = (int)this.customerIdNumeric.Value,
             };
-            Business.CustomerAccounts.DeleteData(customerAccount);
+            //Business.CustomerAccounts.DeleteData(customerAccount);
 
             this.RefreshDataGridView();
         }

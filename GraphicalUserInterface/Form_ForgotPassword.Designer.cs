@@ -1,4 +1,4 @@
-﻿namespace GraphicalUserInterface
+﻿namespace Gui
 {
     partial class Form_ForgotPassword
     {
@@ -42,7 +42,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.How_to_Password_Protect_Antivirus_Settings__Kaspersky_Daily;
+            pictureBox1.Image = Resources.How_to_Password_Protect_Antivirus_Settings__Kaspersky_Daily;
             pictureBox1.Location = new System.Drawing.Point(185, 36);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(440, 280);
@@ -110,7 +110,7 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.Image = Properties.Resources.help;
+            pictureBox4.Image = Resources.help;
             pictureBox4.Location = new System.Drawing.Point(0, 0);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new System.Drawing.Size(100, 100);

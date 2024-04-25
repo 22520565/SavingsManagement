@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GraphicalUserInterface
+namespace Gui
 {
     public partial class Form_AccountManagement : Form
     {

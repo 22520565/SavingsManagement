@@ -35,9 +35,7 @@
             customerInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             serviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            openASavingsBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            sendMoneyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            rútTiềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            savingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             statisticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             changeRegulationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +49,7 @@
             menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { systemToolStripMenuItem, serviceToolStripMenuItem, statisticalToolStripMenuItem, searchToolStripMenuItem, changeRegulationsToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new System.Drawing.Size(1200, 46);
+            menuStrip1.Size = new System.Drawing.Size(1200, 40);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -59,90 +57,79 @@
             // 
             systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { accountInformationToolStripMenuItem, accountManagementToolStripMenuItem, customerInformationToolStripMenuItem, logOutToolStripMenuItem });
             systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            systemToolStripMenuItem.Size = new System.Drawing.Size(121, 42);
+            systemToolStripMenuItem.Size = new System.Drawing.Size(104, 36);
             systemToolStripMenuItem.Text = "System";
             // 
             // accountInformationToolStripMenuItem
             // 
             accountInformationToolStripMenuItem.Name = "accountInformationToolStripMenuItem";
-            accountInformationToolStripMenuItem.Size = new System.Drawing.Size(397, 46);
+            accountInformationToolStripMenuItem.Size = new System.Drawing.Size(339, 36);
             accountInformationToolStripMenuItem.Text = "Account Information";
             accountInformationToolStripMenuItem.Click += accountInformationToolStripMenuItem_Click;
             // 
             // accountManagementToolStripMenuItem
             // 
             accountManagementToolStripMenuItem.Name = "accountManagementToolStripMenuItem";
-            accountManagementToolStripMenuItem.Size = new System.Drawing.Size(397, 46);
+            accountManagementToolStripMenuItem.Size = new System.Drawing.Size(339, 36);
             accountManagementToolStripMenuItem.Text = "Account Management";
             accountManagementToolStripMenuItem.Click += accountManagementToolStripMenuItem_Click;
             // 
             // customerInformationToolStripMenuItem
             // 
             customerInformationToolStripMenuItem.Name = "customerInformationToolStripMenuItem";
-            customerInformationToolStripMenuItem.Size = new System.Drawing.Size(397, 46);
+            customerInformationToolStripMenuItem.Size = new System.Drawing.Size(339, 36);
             customerInformationToolStripMenuItem.Text = "Personal Information";
             customerInformationToolStripMenuItem.Click += customerInformationToolStripMenuItem_Click;
             // 
             // logOutToolStripMenuItem
             // 
             logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            logOutToolStripMenuItem.Size = new System.Drawing.Size(397, 46);
+            logOutToolStripMenuItem.Size = new System.Drawing.Size(339, 36);
             logOutToolStripMenuItem.Text = "Log out";
             logOutToolStripMenuItem.Click += logOutToolStripMenuItem_Click;
             // 
             // serviceToolStripMenuItem
             // 
-            serviceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { openASavingsBookToolStripMenuItem, sendMoneyToolStripMenuItem, rútTiềnToolStripMenuItem });
+            serviceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { savingToolStripMenuItem });
             serviceToolStripMenuItem.Name = "serviceToolStripMenuItem";
-            serviceToolStripMenuItem.Size = new System.Drawing.Size(121, 42);
+            serviceToolStripMenuItem.Size = new System.Drawing.Size(104, 36);
             serviceToolStripMenuItem.Text = "Service";
             // 
-            // openASavingsBookToolStripMenuItem
+            // savingToolStripMenuItem
             // 
-            openASavingsBookToolStripMenuItem.Name = "openASavingsBookToolStripMenuItem";
-            openASavingsBookToolStripMenuItem.Size = new System.Drawing.Size(382, 46);
-            openASavingsBookToolStripMenuItem.Text = "Open a savings book";
-            // 
-            // sendMoneyToolStripMenuItem
-            // 
-            sendMoneyToolStripMenuItem.Name = "sendMoneyToolStripMenuItem";
-            sendMoneyToolStripMenuItem.Size = new System.Drawing.Size(382, 46);
-            sendMoneyToolStripMenuItem.Text = "Send money";
-            // 
-            // rútTiềnToolStripMenuItem
-            // 
-            rútTiềnToolStripMenuItem.Name = "rútTiềnToolStripMenuItem";
-            rútTiềnToolStripMenuItem.Size = new System.Drawing.Size(382, 46);
-            rútTiềnToolStripMenuItem.Text = "Withdraw money";
+            savingToolStripMenuItem.Name = "savingToolStripMenuItem";
+            savingToolStripMenuItem.Size = new System.Drawing.Size(224, 36);
+            savingToolStripMenuItem.Text = "Saving";
+            savingToolStripMenuItem.Click += savingToolStripMenuItem_Click;
             // 
             // statisticalToolStripMenuItem
             // 
             statisticalToolStripMenuItem.Name = "statisticalToolStripMenuItem";
-            statisticalToolStripMenuItem.Size = new System.Drawing.Size(148, 42);
+            statisticalToolStripMenuItem.Size = new System.Drawing.Size(127, 36);
             statisticalToolStripMenuItem.Text = "Statistical";
             // 
             // searchToolStripMenuItem
             // 
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            searchToolStripMenuItem.Size = new System.Drawing.Size(116, 42);
+            searchToolStripMenuItem.Size = new System.Drawing.Size(99, 36);
             searchToolStripMenuItem.Text = "Search";
             // 
             // changeRegulationsToolStripMenuItem
             // 
             changeRegulationsToolStripMenuItem.Name = "changeRegulationsToolStripMenuItem";
-            changeRegulationsToolStripMenuItem.Size = new System.Drawing.Size(279, 42);
+            changeRegulationsToolStripMenuItem.Size = new System.Drawing.Size(241, 36);
             changeRegulationsToolStripMenuItem.Text = "Change Regulations";
             // 
-            // Form_MainMenu
+            // MainMenuForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(15F, 38F);
+            AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1200, 684);
             Controls.Add(menuStrip1);
             Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             MainMenuStrip = menuStrip1;
             Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            Name = "Form_MainMenu";
+            Name = "MainMenuForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Form_MainMenu";
             Load += Form_MainMenu_Load;
@@ -160,9 +147,7 @@
         private System.Windows.Forms.ToolStripMenuItem accountManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openASavingsBookToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sendMoneyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rútTiềnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem savingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statisticalToolStripMenuItem;

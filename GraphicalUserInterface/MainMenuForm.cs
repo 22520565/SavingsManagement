@@ -5,6 +5,8 @@ using System.Windows.Forms;
 
 public partial class MainMenuForm : Form
 {
+    public bool GoingBackToLoginForm { get; private set; } = false;
+
     public MainMenuForm()
     {
         InitializeComponent();
@@ -19,8 +21,7 @@ public partial class MainMenuForm : Form
                 MessageBoxIcon.Question)
             == DialogResult.Yes)
         {
-            this.Hide();
-            new LoginForm().ShowDialog();
+            this.GoingBackToLoginForm = true;
             this.Close();
         }
     }
@@ -28,6 +29,8 @@ public partial class MainMenuForm : Form
     // FIXME
     private void Form_MainMenu_Load(object sender, EventArgs e)
     {
+        this.GoingBackToLoginForm = false;
+
         switch (string.Empty)
         {
             case "error":
@@ -60,5 +63,11 @@ public partial class MainMenuForm : Form
     private void customerInformationToolStripMenuItem_Click(object sender, EventArgs e)
     {
         new Form_PersonalInformation().ShowDialog(this);
+    }
+
+    private void savingToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        using var savingForm = new SavingsForm();
+        savingForm.ShowDialog(this);
     }
 }

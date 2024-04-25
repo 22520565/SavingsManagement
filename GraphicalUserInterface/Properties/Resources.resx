@@ -178,4 +178,7 @@
   <data name="WarningTitleString" xml:space="preserve">
     <value>Warning</value>
   </data>
+  <data name="AccountDisabledErrorString" xml:space="preserve">
+    <value>Your account has been disabled! Please contact us for support!</value>
+  </data>
 </root>
