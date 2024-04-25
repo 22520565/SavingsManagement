@@ -16,9 +16,21 @@ public static class CustomerAccounts
         UsernameError,
         MultiUsernameError,
         PasswordError,
+        Disabled,
     }
 
     public static int? CurrentCustomerId { get; private set; } = null;
+
+    public static decimal? CurrentCustomerBalance
+    {
+        get
+        {
+            using var context = new SavingsManagementContext();
+            return CurrentCustomerId is not null
+                ? context.CustomerAccounts.Single(customerAccount => customerAccount.Id == CurrentCustomerId).Balance
+                : null;
+        }
+    }
 
     public static LoginResult Login(LoginInfo loginInfo)
     {
@@ -27,7 +39,7 @@ public static class CustomerAccounts
         LoginResult loginResult = LoginResult.PasswordError;
 
         using var context = new SavingsManagementContext();
-        var listAccounts = context.CustomerAccounts.Where(customerAccount => customerAccount.Username == loginInfo.Username);
+        var listAccounts = context.CustomerAccounts.Where(customerAccount => customerAccount.Username == loginInfo.Username).AsEnumerable();
         if (listAccounts.IsNullOrEmpty())
         {
             loginResult = LoginResult.UsernameError;
@@ -39,17 +51,24 @@ public static class CustomerAccounts
         else
         {
             var customerAccount = listAccounts.ElementAt(Index.Start);
-            switch (PasswordHasher.VerifyHashedPassword(null!, customerAccount.HashedPassword, loginInfo.Password))
+            if (customerAccount.IsDisabled)
             {
-                case PasswordVerificationResult.Success:
-                case PasswordVerificationResult.SuccessRehashNeeded:
-                    loginResult = LoginResult.Success;
-                    CurrentCustomerId = customerAccount.Id;
-                    break;
+                loginResult = LoginResult.Disabled;
+            }
+            else
+            {
+                switch (PasswordHasher.VerifyHashedPassword(null!, customerAccount.HashedPassword, loginInfo.Password))
+                {
+                    case PasswordVerificationResult.Success:
+                    case PasswordVerificationResult.SuccessRehashNeeded:
+                        loginResult = LoginResult.Success;
+                        CurrentCustomerId = customerAccount.Id;
+                        break;
 
-                default:
-                    loginResult = LoginResult.PasswordError;
-                    break;
+                    default:
+                        loginResult = LoginResult.PasswordError;
+                        break;
+                }
             }
         }
 

@@ -13,7 +13,7 @@ public static class Savings
         {
             using var context = new SavingsManagementContext();
             return [.. context.Savings
-            .Where(s => s.CustomerId == CurrentUser.Id)
+            .Where(s => s.CustomerId == CustomerAccounts.CurrentCustomerId)
             .Select(s => s.Id)];
         }
     }
@@ -21,28 +21,30 @@ public static class Savings
     public static Saving GetSaving(int savingId)
     {
         using var context = new SavingsManagementContext();
-        return context.Savings.First(s => (s.Id == savingId) && (s.CustomerId == CurrentUser.Id));
+        return context.Savings.First(s => (s.Id == savingId) && (s.CustomerId == CustomerAccounts.CurrentCustomerId));
     }
 
     public static void Deposit(SavingDepositInfo savingDepositInfo)
     {
+        ArgumentNullException.ThrowIfNull(savingDepositInfo);
+
         using var context = new SavingsManagementContext();
 
-        decimal? currentBalance = context.CustomerAccounts.FirstOrDefault(c => c.Id == CurrentUser.Id)?.Balance;
+        decimal? currentBalance = CustomerAccounts.CurrentCustomerBalance;
         if (currentBalance is null || savingDepositInfo.Balance > currentBalance)
         {
-            throw new Exception("The balance is not enough to deposit into a saving");
+            throw new ArgumentException("The balance is not enough to deposit into a saving");
         }
 
         decimal? actualInterestRate = context.SavingInterestRates.FirstOrDefault(s => s.PeriodInMonths == savingDepositInfo.PeriodInMonths)?.AnnualInterestRate;
         if (actualInterestRate is null || savingDepositInfo.AnnualInterestRate != actualInterestRate)
         {
-            throw new Exception("The interest rate may have been changed! Please try again!");
+            throw new ArgumentException("The interest rate may have been changed! Please try again!");
         }
 
         Saving saving = new Saving
         {
-            CustomerId = CurrentUser.Id,
+            CustomerId = CustomerAccounts.CurrentCustomerId is int id ? id : throw new ArgumentNullException(),
             Balance = savingDepositInfo.Balance,
             AnnualInterestRate = savingDepositInfo.AnnualInterestRate,
             PeriodInMonths = savingDepositInfo.PeriodInMonths,
@@ -76,16 +78,18 @@ public static class Savings
         };
 
         DateOnly openDate = DateOnly.FromDateTime(saving.OpenDate.LocalDateTime);
-        DateOnly currentDate = DateOnly.FromDateTime(DateTime.Now);
+        DateOnly currentDate = DateOnly.FromDateTime(DateTimeOffset.Now.LocalDateTime);
 
         if (savingWithdrawInfo.MaturityDate <= currentDate)
         {
-            savingWithdrawInfo.AmountToGet += saving.Balance * (saving.AnnualInterestRate * (saving.PeriodInMonths / 12.0M));
+            savingWithdrawInfo.AmountToGet += saving.Balance * saving.AnnualInterestRate * (saving.PeriodInMonths / 12.0M);
         }
         else if (openDate < currentDate)
         {
-            decimal actualInterestRate = context.SavingInterestRates.Where(s => s.PeriodInMonths == 0).Select(s => s.AnnualInterestRate)
-                .AsEnumerable().FirstOrDefault(decimal.Zero);
+            decimal actualInterestRate = context.SavingInterestRates
+                                                .Where(s => s.PeriodInMonths == 0)
+                                                .Select(s => s.AnnualInterestRate)
+                                                .AsEnumerable().FirstOrDefault(decimal.Zero);
             savingWithdrawInfo.AmountToGet += saving.Balance * (actualInterestRate * (currentDate.DayNumber - openDate.DayNumber - 1) / 365.0M);
         }
         else

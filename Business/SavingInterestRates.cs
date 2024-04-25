@@ -1,5 +1,6 @@
 ﻿namespace Business;
 
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Entity;
@@ -15,7 +16,7 @@ public static class SavingInterestRates
         }
     }
 
-    public static Collection<int> Periods
+    public static ICollection<int> Periods
     {
         get
         {
