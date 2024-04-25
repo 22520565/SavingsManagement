@@ -103,7 +103,7 @@
             cbCustomerRememberInfo.TabIndex = 24;
             cbCustomerRememberInfo.Text = "Remember me";
             cbCustomerRememberInfo.UseVisualStyleBackColor = true;
-            cbCustomerRememberInfo.CheckedChanged += cbRememberInfo_CheckedChanged;
+            cbCustomerRememberInfo.CheckedChanged += cbCustomerRememberInfo_CheckedChanged;
             // 
             // btnCustomerLogin
             // 
@@ -117,9 +117,9 @@
             btnCustomerLogin.TabIndex = 22;
             btnCustomerLogin.Text = "Login";
             btnCustomerLogin.UseVisualStyleBackColor = false;
-            btnCustomerLogin.Click += btnLogin_Click;
-            btnCustomerLogin.MouseEnter += btnLogin_MouseEnter;
-            btnCustomerLogin.MouseLeave += btnLogin_MouseLeave;
+            btnCustomerLogin.Click += btnCustomerLogin_Click;
+            btnCustomerLogin.MouseEnter += btnCustomerLogin_MouseEnter;
+            btnCustomerLogin.MouseLeave += btnCustomerLogin_MouseLeave;
             // 
             // cbCustomerShowPassword
             // 
@@ -131,7 +131,7 @@
             cbCustomerShowPassword.TabIndex = 21;
             cbCustomerShowPassword.Text = "Show password";
             cbCustomerShowPassword.UseVisualStyleBackColor = true;
-            cbCustomerShowPassword.CheckedChanged += cbShowPassword_CheckedChanged;
+            cbCustomerShowPassword.CheckedChanged += cbCustomerShowPassword_CheckedChanged;
             // 
             // pictureBox3
             // 
@@ -359,6 +359,7 @@
             Name = "LoginForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Login";
+            FormClosing += LoginForm_FormClosing;
             Load += LoginForm_Load;
             tabControl.ResumeLayout(false);
             customerTabPage.ResumeLayout(false);

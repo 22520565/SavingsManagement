@@ -15,16 +15,6 @@ public partial class LoginForm : Form
         InitializeComponent();
     }
 
-    private void btnExit_Click(object sender, EventArgs e)
-    {
-        if (MessageBox.Show(Resources.ExitConfirmationString, Resources.NotificationTitleString,
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            == DialogResult.Yes)
-        {
-            Application.Exit();
-        }
-    }
-
     private void linkLabel_ForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         using var passwordRecoveryForm = new Form_ForgotPassword();
@@ -40,24 +30,24 @@ public partial class LoginForm : Form
         this.Close();
     }
 
-    private void btnLogin_MouseEnter(object sender, EventArgs e)
+    private void btnCustomerLogin_MouseEnter(object sender, EventArgs e)
     {
         btnCustomerLogin.BackColor = Color.Blue;
         btnCustomerLogin.ForeColor = Color.White;
     }
 
-    private void btnLogin_MouseLeave(object sender, EventArgs e)
+    private void btnCustomerLogin_MouseLeave(object sender, EventArgs e)
     {
         btnCustomerLogin.BackColor = SystemColors.Control;
         btnCustomerLogin.ForeColor = SystemColors.ControlText;
     }
 
-    private void cbShowPassword_CheckedChanged(object sender, EventArgs e)
+    private void cbCustomerShowPassword_CheckedChanged(object sender, EventArgs e)
     {
         txtCustomerPassword.UseSystemPasswordChar = !cbCustomerShowPassword.Checked;
     }
 
-    private void btnLogin_Click(object sender, EventArgs e)
+    private void btnCustomerLogin_Click(object sender, EventArgs e)
     {
         try
         {
@@ -94,12 +84,14 @@ public partial class LoginForm : Form
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
 
-                    case CustomerAccounts.LoginResult.MultiUsernameError:
-                        MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+                    case CustomerAccounts.LoginResult.Disabled:
+                        MessageBox.Show(this, Resources.AccountDisabledErrorString, Resources.ErrorTitleString,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
 
                     default:
+                        MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
                 }
             }
@@ -110,7 +102,7 @@ public partial class LoginForm : Form
         }
     }
 
-    private void cbRememberInfo_CheckedChanged(object sender, EventArgs e)
+    private void cbCustomerRememberInfo_CheckedChanged(object sender, EventArgs e)
     {
         if (!string.IsNullOrEmpty(txtCustomerUsername.Text) && !string.IsNullOrEmpty(txtCustomerPassword.Text))
         {
@@ -130,11 +122,20 @@ public partial class LoginForm : Form
     private void LoginForm_Load(object sender, EventArgs e)
     {
         this.UserSuccessfullyAuthenticated = false;
+        CustomerAccounts.LogOut();
         txtCustomerUsername.Text = Settings.Default.AcUsername;
         txtCustomerPassword.Text = Settings.Default.AcPassword;
-        if (!string.IsNullOrEmpty(Settings.Default.AcUsername))
+        cbCustomerRememberInfo.Checked = !Settings.Default.AcUsername.IsNullOrEmpty();
+    }
+
+    private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        if (!this.UserSuccessfullyAuthenticated &&
+            MessageBox.Show(Resources.ExitConfirmationString, Resources.NotificationTitleString,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            != DialogResult.Yes)
         {
-            cbCustomerRememberInfo.Checked = true;
+            e.Cancel = true;
         }
     }
 }
