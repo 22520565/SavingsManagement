@@ -5,9 +5,9 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-public partial class Form_ForgotPassword : Form
+public partial class ForgotPasswordForm : Form
 {
-    public Form_ForgotPassword()
+    public ForgotPasswordForm()
     {
         InitializeComponent();
     }

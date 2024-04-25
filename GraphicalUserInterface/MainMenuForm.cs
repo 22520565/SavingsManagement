@@ -52,22 +52,22 @@ public partial class MainMenuForm : Form
 
     private void accountInformationToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        new Form_AccountInformation().ShowDialog(this);
+        new AccountInfoForm().ShowDialog(this);
     }
 
     private void accountManagementToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        new Form_AccountManagement().ShowDialog(this);
+        new AccountManagementForm().ShowDialog(this);
     }
 
     private void customerInformationToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        new Form_PersonalInformation().ShowDialog(this);
+        new PersonalInfoForm().ShowDialog(this);
     }
 
     private void savingToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        using var savingForm = new SavingsForm();
+        using var savingForm = new SavingForm();
         savingForm.ShowDialog(this);
     }
 }

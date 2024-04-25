@@ -1,6 +1,6 @@
 ﻿namespace Gui
 {
-    partial class SavingsForm
+    partial class SavingForm
     {
         /// <summary>
         /// Required designer variable.

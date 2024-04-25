@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gui
 {
-    public partial class Form_AccountInformation : Form
+    public partial class AccountManagementForm : Form
     {
-        public Form_AccountInformation()
+        public AccountManagementForm()
         {
             InitializeComponent();
         }

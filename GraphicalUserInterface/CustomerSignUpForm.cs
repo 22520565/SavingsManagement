@@ -5,10 +5,10 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-public partial class Form_SignUp : Form
+public partial class CustomerSignUpForm : Form
 {
 
-    public Form_SignUp()
+    public CustomerSignUpForm()
     {
         InitializeComponent();
     }

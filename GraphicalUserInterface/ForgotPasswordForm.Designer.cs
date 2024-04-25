@@ -1,6 +1,6 @@
 ﻿namespace Gui
 {
-    partial class Form_ForgotPassword
+    partial class ForgotPasswordForm
     {
         /// <summary>
         /// Required designer variable.

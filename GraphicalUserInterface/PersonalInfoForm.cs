@@ -2,9 +2,9 @@
 
 using System.Windows.Forms;
 
-public partial class Form_PersonalInformation : Form
+public partial class PersonalInfoForm : Form
 {
-    public Form_PersonalInformation()
+    public PersonalInfoForm()
     {
         InitializeComponent();
     }

@@ -17,7 +17,7 @@ public partial class LoginForm : Form
 
     private void linkLabel_ForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-        using var passwordRecoveryForm = new Form_ForgotPassword();
+        using var passwordRecoveryForm = new ForgotPasswordForm();
         this.Hide();
         passwordRecoveryForm.ShowDialog(this);
         this.Show();
@@ -26,7 +26,7 @@ public partial class LoginForm : Form
     private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         this.Hide();
-        new Form_SignUp().ShowDialog();
+        new CustomerSignUpForm().ShowDialog();
         this.Close();
     }
 

@@ -6,14 +6,14 @@ using System.Windows.Forms;
 using Business;
 using Entity;
 
-public partial class SavingsForm : Form
+public partial class SavingForm : Form
 {
     private const string InterestTextFormat = "{0:#,0.00#%}/year";
     private const string BalanceTextFormat = "{0:#,0.00##}";
     private SavingDepositInfo? savingDepositInfo = new SavingDepositInfo();
     private SavingWithdrawInfo? savingWithdrawInfo = new SavingWithdrawInfo();
 
-    public SavingsForm()
+    public SavingForm()
     {
         this.InitializeComponent();
     }
