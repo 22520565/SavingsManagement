@@ -70,6 +70,24 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are about to close your saving before its maturity day. You will benefit only non-term savings interest. Are you sure you want to proceed this?.
+        /// </summary>
+        internal static string ClosingSavingBeforeMaturityDayWarningString {
+            get {
+                return ResourceManager.GetString("ClosingSavingBeforeMaturityDayWarningString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully closing your saving!.
+        /// </summary>
+        internal static string ClosingSavingSuccessfullyString {
+            get {
+                return ResourceManager.GetString("ClosingSavingSuccessfullyString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Computer_process {
@@ -86,6 +104,15 @@ namespace GraphicalUserInterface.Properties {
             get {
                 object obj = ResourceManager.GetObject("Computer process1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmation.
+        /// </summary>
+        internal static string ConfirmationTitleString {
+            get {
+                return ResourceManager.GetString("ConfirmationTitleString", resourceCulture);
             }
         }
         
@@ -138,6 +165,15 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        internal static string InformationTitleString {
+            get {
+                return ResourceManager.GetString("InformationTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap login {
@@ -162,6 +198,27 @@ namespace GraphicalUserInterface.Properties {
         internal static string NotificationTitleString {
             get {
                 return ResourceManager.GetString("NotificationTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please confirm the following information of depositing saving before processing:
+        ///- Periods (months): {0}
+        ///- Annual interest rate: {1:#,0.00##%}/year
+        ///- Deposit amount: {2:#,0.00##}.
+        /// </summary>
+        internal static string OpeningSavingConfirmationStringFormat {
+            get {
+                return ResourceManager.GetString("OpeningSavingConfirmationStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully opening a saving!.
+        /// </summary>
+        internal static string OpeningSavingSuccessfullyString {
+            get {
+                return ResourceManager.GetString("OpeningSavingSuccessfullyString", resourceCulture);
             }
         }
         

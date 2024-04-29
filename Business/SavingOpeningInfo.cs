@@ -1,6 +1,6 @@
 ﻿namespace Business;
 
-public class SavingDepositInfo
+public class SavingOpeningInfo
 {
     public decimal Balance { get; set; } = decimal.Zero;
 

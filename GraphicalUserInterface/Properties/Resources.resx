@@ -181,4 +181,25 @@
   <data name="AccountDisabledErrorString" xml:space="preserve">
     <value>Your account has been disabled! Please contact us for support!</value>
   </data>
+  <data name="ClosingSavingBeforeMaturityDayWarningString" xml:space="preserve">
+    <value>You are about to close your saving before its maturity day. You will benefit only non-term savings interest. Are you sure you want to proceed this?</value>
+  </data>
+  <data name="ClosingSavingSuccessfullyString" xml:space="preserve">
+    <value>Successfully closing your saving!</value>
+  </data>
+  <data name="ConfirmationTitleString" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="InformationTitleString" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="OpeningSavingConfirmationStringFormat" xml:space="preserve">
+    <value>Please confirm the following information of depositing saving before processing:
+- Periods (months): {0}
+- Annual interest rate: {1:#,0.00##%}/year
+- Deposit amount: {2:#,0.00##}</value>
+  </data>
+  <data name="OpeningSavingSuccessfullyString" xml:space="preserve">
+    <value>Successfully opening a saving!</value>
+  </data>
 </root>

@@ -54,11 +54,11 @@ public sealed partial class SavingsManagementContext : DbContext
         {
             entity.ToTable(tb =>
                 {
-                    tb.HasTrigger("DepositSavings_CashFlow");
-                    tb.HasTrigger("WithdrawSavings_CashFlow");
+                    tb.HasTrigger("CloseSavingInsertCashFlow");
+                    tb.HasTrigger("OpenSavingInsertCashFlow");
                 });
 
-            entity.Property(e => e.OpenDate).HasDefaultValueSql("(sysdatetimeoffset())");
+            entity.Property(e => e.OpeningDateTime).HasDefaultValueSql("(sysdatetimeoffset())");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Savings)
                 .OnDelete(DeleteBehavior.ClientSetNull)
