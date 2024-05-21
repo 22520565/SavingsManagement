@@ -73,11 +73,11 @@ public static class Savings
         {
             Id = saving.Id,
             Balance = saving.Balance,
-            MaturityDate = GetMaturityDate(saving.OpenDate, saving.PeriodInMonths),
+            MaturityDate = GetMaturityDate(saving.OpeningDateTime, saving.PeriodInMonths),
             AmountToGet = saving.Balance,
         };
 
-        DateOnly openDate = DateOnly.FromDateTime(saving.OpenDate.LocalDateTime);
+        DateOnly openDate = DateOnly.FromDateTime(saving.OpeningDateTime.LocalDateTime);
         DateOnly currentDate = DateOnly.FromDateTime(DateTimeOffset.Now.LocalDateTime);
 
         if (savingWithdrawInfo.MaturityDate <= currentDate)

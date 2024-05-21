@@ -20,7 +20,7 @@ public sealed class CashFlow
     public decimal BalanceChanging { get; set; }
 
     [StringLength(300)]
-    public string Context { get; set; } = null!;
+    public string Content { get; set; } = null!;
 
     [ForeignKey("CustomerId")]
     [InverseProperty("CashFlows")]

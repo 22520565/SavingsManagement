@@ -110,6 +110,16 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap expenses {
+            get {
+                object obj = ResourceManager.GetObject("expenses", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Frustrated_Head_GIF_by_swerk___Find___Share_on_GIPHY {
             get {
                 object obj = ResourceManager.GetObject("Frustrated Head GIF by swerk - Find & Share on GIPHY", resourceCulture);
@@ -190,6 +200,26 @@ namespace GraphicalUserInterface.Properties {
         internal static string PasswordIncorrectWarningString {
             get {
                 return ResourceManager.GetString("PasswordIncorrectWarningString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap savings {
+            get {
+                object obj = ResourceManager.GetObject("savings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap savings1 {
+            get {
+                object obj = ResourceManager.GetObject("savings1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

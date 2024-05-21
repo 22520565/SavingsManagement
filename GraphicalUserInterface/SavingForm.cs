@@ -81,9 +81,9 @@ public partial class SavingForm : Form
                 this.periodDetailsTextBox.Text = saving.PeriodInMonths.ToString(CultureInfo.CurrentCulture);
                 this.interestDetailsTextBox.Text = string.Format(
                     CultureInfo.InvariantCulture, InterestTextFormat, saving.AnnualInterestRate);
-                this.openDayDetailsTextBox.Text = DateOnly.FromDateTime(saving.OpenDate.LocalDateTime)
+                this.openDayDetailsTextBox.Text = DateOnly.FromDateTime(saving.OpeningDateTime.LocalDateTime)
                     .ToString(CultureInfo.CurrentCulture);
-                this.maturityDayDetailsTextBox.Text = Savings.GetMaturityDate(saving.OpenDate, saving.PeriodInMonths)
+                this.maturityDayDetailsTextBox.Text = Savings.GetMaturityDate(saving.OpeningDateTime, saving.PeriodInMonths)
                     .ToString(CultureInfo.CurrentCulture);
 
                 this.withdrawDetailsButton.Enabled = true;

@@ -17,12 +17,12 @@ public sealed class Saving
     [Column(TypeName = "money")]
     public decimal Balance { get; set; }
 
-    [Column(TypeName = "decimal(5, 3)")]
+    [Column(TypeName = "decimal(10, 8)")]
     public decimal AnnualInterestRate { get; set; }
 
     public int PeriodInMonths { get; set; }
 
-    public DateTimeOffset OpenDate { get; set; }
+    public DateTimeOffset OpeningDateTime { get; set; }
 
     [ForeignKey("CustomerId")]
     [InverseProperty("Savings")]
