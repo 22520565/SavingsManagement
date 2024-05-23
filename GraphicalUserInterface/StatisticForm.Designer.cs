@@ -1,5 +1,5 @@
 ﻿namespace GraphicalUserInterface {
-	partial class Statistic {
+	partial class StatisticForm {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -187,7 +187,7 @@
 			// pictureBox1
 			// 
 			pictureBox1.BackColor = System.Drawing.Color.Transparent;
-			pictureBox1.Image = Properties.Resources.savings;
+			pictureBox1.Image = Properties.Resources.savingsImage;
 			pictureBox1.Location = new System.Drawing.Point(16, 20);
 			pictureBox1.Name = "pictureBox1";
 			pictureBox1.Size = new System.Drawing.Size(40, 40);
