@@ -24,20 +24,20 @@ public static class Savings
         return context.Savings.First(s => (s.Id == savingId) && (s.CustomerId == CustomerAccounts.CurrentCustomerId));
     }
 
-    public static void Deposit(SavingDepositInfo savingDepositInfo)
+    public static void Open(SavingOpeningInfo savingOpeningInfo)
     {
-        ArgumentNullException.ThrowIfNull(savingDepositInfo);
+        ArgumentNullException.ThrowIfNull(savingOpeningInfo);
 
         using var context = new SavingsManagementContext();
 
         decimal? currentBalance = CustomerAccounts.CurrentCustomerBalance;
-        if (currentBalance is null || savingDepositInfo.Balance > currentBalance)
+        if (currentBalance is null || savingOpeningInfo.Balance > currentBalance)
         {
-            throw new ArgumentException("The balance is not enough to deposit into a saving");
+            throw new ArgumentException("The balance is not enough to open a saving");
         }
 
-        decimal? actualInterestRate = context.SavingInterestRates.FirstOrDefault(s => s.PeriodInMonths == savingDepositInfo.PeriodInMonths)?.AnnualInterestRate;
-        if (actualInterestRate is null || savingDepositInfo.AnnualInterestRate != actualInterestRate)
+        decimal? actualInterestRate = context.SavingInterestRates.FirstOrDefault(s => s.PeriodInMonths == savingOpeningInfo.PeriodInMonths)?.AnnualInterestRate;
+        if (actualInterestRate is null || savingOpeningInfo.AnnualInterestRate != actualInterestRate)
         {
             throw new ArgumentException("The interest rate may have been changed! Please try again!");
         }
@@ -45,15 +45,15 @@ public static class Savings
         Saving saving = new Saving
         {
             CustomerId = CustomerAccounts.CurrentCustomerId is int id ? id : throw new ArgumentNullException(),
-            Balance = savingDepositInfo.Balance,
-            AnnualInterestRate = savingDepositInfo.AnnualInterestRate,
-            PeriodInMonths = savingDepositInfo.PeriodInMonths,
+            Balance = savingOpeningInfo.Balance,
+            AnnualInterestRate = savingOpeningInfo.AnnualInterestRate,
+            PeriodInMonths = savingOpeningInfo.PeriodInMonths,
         };
         context.Add(saving);
         context.SaveChanges();
     }
 
-    public static void Withdraw(int savingId)
+    public static void Close(int savingId)
     {
         using var context = new SavingsManagementContext();
         context.Remove(context.Savings.First(s => s.Id == savingId));
@@ -73,11 +73,11 @@ public static class Savings
         {
             Id = saving.Id,
             Balance = saving.Balance,
-            MaturityDate = GetMaturityDate(saving.OpenDate, saving.PeriodInMonths),
+            MaturityDate = GetMaturityDate(saving.OpeningDateTime, saving.PeriodInMonths),
             AmountToGet = saving.Balance,
         };
 
-        DateOnly openDate = DateOnly.FromDateTime(saving.OpenDate.LocalDateTime);
+        DateOnly openDate = DateOnly.FromDateTime(saving.OpeningDateTime.LocalDateTime);
         DateOnly currentDate = DateOnly.FromDateTime(DateTimeOffset.Now.LocalDateTime);
 
         if (savingWithdrawInfo.MaturityDate <= currentDate)

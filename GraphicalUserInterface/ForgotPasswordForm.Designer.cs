@@ -110,7 +110,7 @@
             // 
             // pictureBox4
             // 
-            pictureBox4.Image = Properties.Resources.help;
+            pictureBox4.Image = Properties.Resources.HelpImage;
             pictureBox4.Location = new System.Drawing.Point(0, 0);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new System.Drawing.Size(100, 100);

@@ -70,22 +70,39 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized string similar to You are about to close your saving before its maturity day. You will benefit only non-term savings interest. Are you sure you want to proceed this?.
         /// </summary>
-        internal static System.Drawing.Bitmap Computer_process {
+        internal static string ClosingSavingBeforeMaturityDayWarningString {
             get {
-                object obj = ResourceManager.GetObject("Computer process", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("ClosingSavingBeforeMaturityDayWarningString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully closing your saving!.
+        /// </summary>
+        internal static string ClosingSavingSuccessfullyString {
+            get {
+                return ResourceManager.GetString("ClosingSavingSuccessfullyString", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Computer_process1 {
+        internal static System.Drawing.Bitmap ComputerProcessImage {
             get {
-                object obj = ResourceManager.GetObject("Computer process1", resourceCulture);
+                object obj = ResourceManager.GetObject("ComputerProcessImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmation.
+        /// </summary>
+        internal static string ConfirmationTitleString {
+            get {
+                return ResourceManager.GetString("ConfirmationTitleString", resourceCulture);
             }
         }
         
@@ -110,9 +127,9 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Frustrated_Head_GIF_by_swerk___Find___Share_on_GIPHY {
+        internal static System.Drawing.Bitmap expenses {
             get {
-                object obj = ResourceManager.GetObject("Frustrated Head GIF by swerk - Find & Share on GIPHY", resourceCulture);
+                object obj = ResourceManager.GetObject("expenses", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -120,9 +137,19 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap help {
+        internal static System.Drawing.Bitmap FrustratedHeadGifImage {
             get {
-                object obj = ResourceManager.GetObject("help", resourceCulture);
+                object obj = ResourceManager.GetObject("FrustratedHeadGifImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HelpImage {
+            get {
+                object obj = ResourceManager.GetObject("HelpImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -138,11 +165,20 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        internal static string InformationTitleString {
+            get {
+                return ResourceManager.GetString("InformationTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap login {
+        internal static System.Drawing.Bitmap LoginImage {
             get {
-                object obj = ResourceManager.GetObject("login", resourceCulture);
+                object obj = ResourceManager.GetObject("LoginImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,11 +202,32 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please confirm the following information of depositing saving before processing:
+        ///- Periods (months): {0}
+        ///- Annual interest rate: {1:#,0.00##%}/year
+        ///- Deposit amount: {2:#,0.00##}.
+        /// </summary>
+        internal static string OpeningSavingConfirmationStringFormat {
+            get {
+                return ResourceManager.GetString("OpeningSavingConfirmationStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully opening a saving!.
+        /// </summary>
+        internal static string OpeningSavingSuccessfullyString {
+            get {
+                return ResourceManager.GetString("OpeningSavingSuccessfullyString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap padlock {
+        internal static System.Drawing.Bitmap PadlockImage {
             get {
-                object obj = ResourceManager.GetObject("padlock", resourceCulture);
+                object obj = ResourceManager.GetObject("PadlockImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,9 +253,29 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sign_up {
+        internal static System.Drawing.Bitmap savings1 {
             get {
-                object obj = ResourceManager.GetObject("sign-up", resourceCulture);
+                object obj = ResourceManager.GetObject("savings1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap savingsImage {
+            get {
+                object obj = ResourceManager.GetObject("savingsImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SignupImage {
+            get {
+                object obj = ResourceManager.GetObject("SignupImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

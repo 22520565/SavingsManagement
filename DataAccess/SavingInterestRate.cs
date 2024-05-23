@@ -12,6 +12,6 @@ public sealed class SavingInterestRate
     [Key]
     public byte PeriodInMonths { get; set; }
 
-    [Column(TypeName = "decimal(8, 5)")]
+    [Column(TypeName = "decimal(10, 8)")]
     public decimal AnnualInterestRate { get; set; }
 }

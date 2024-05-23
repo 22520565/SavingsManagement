@@ -10,7 +10,7 @@ public partial class SavingForm : Form
 {
     private const string InterestTextFormat = "{0:#,0.00#%}/year";
     private const string BalanceTextFormat = "{0:#,0.00##}";
-    private SavingDepositInfo? savingDepositInfo = new SavingDepositInfo();
+    private SavingOpeningInfo? savingDepositInfo = new SavingOpeningInfo();
     private SavingWithdrawInfo? savingWithdrawInfo = new SavingWithdrawInfo();
 
     public SavingForm()
@@ -23,26 +23,26 @@ public partial class SavingForm : Form
         try
         {
             var customerBalance = CustomerAccounts.CurrentCustomerBalance;
-            this.balanceDepositTextBox.Text = string.Format(
+            this.balanceOpeningTextBox.Text = string.Format(
                 CultureInfo.CurrentCulture, BalanceTextFormat, customerBalance);
-            this.amountDepositNumeric.Maximum = customerBalance is decimal balance ? balance : decimal.Zero;
+            this.amountOpeningNumeric.Maximum = customerBalance is decimal balance ? balance : decimal.Zero;
 
             this.savingDetailsComboBox.SelectedItem = null;
-            this.savingWithdrawComboBox.SelectedItem = null;
-            this.periodDepositComboBox.SelectedItem = null;
+            this.savingClosingComboBox.SelectedItem = null;
+            this.periodOpeningComboBox.SelectedItem = null;
 
             this.savingDetailsComboBox.Items.Clear();
-            this.savingWithdrawComboBox.Items.Clear();
+            this.savingClosingComboBox.Items.Clear();
             foreach (object id in Savings.SavingsId)
             {
                 this.savingDetailsComboBox.Items.Add(id);
-                this.savingWithdrawComboBox.Items.Add(id);
+                this.savingClosingComboBox.Items.Add(id);
             }
 
-            this.periodDepositComboBox.Items.Clear();
+            this.periodOpeningComboBox.Items.Clear();
             foreach (var period in SavingInterestRates.Periods)
             {
-                this.periodDepositComboBox.Items.Add(period);
+                this.periodOpeningComboBox.Items.Add(period);
             }
 
             this.savingTabControl.SelectedTab = this.detailsTabPage;
@@ -69,7 +69,7 @@ public partial class SavingForm : Form
             this.openDayDetailsTextBox.Text = string.Empty;
             this.maturityDayDetailsTextBox.Text = string.Empty;
 
-            this.withdrawDetailsButton.Enabled = false;
+            this.closeSavingDetailsButton.Enabled = false;
         }
         else if (this.savingDetailsComboBox.SelectedItem is int savingId)
         {
@@ -81,12 +81,12 @@ public partial class SavingForm : Form
                 this.periodDetailsTextBox.Text = saving.PeriodInMonths.ToString(CultureInfo.CurrentCulture);
                 this.interestDetailsTextBox.Text = string.Format(
                     CultureInfo.InvariantCulture, InterestTextFormat, saving.AnnualInterestRate);
-                this.openDayDetailsTextBox.Text = DateOnly.FromDateTime(saving.OpenDate.LocalDateTime)
+                this.openDayDetailsTextBox.Text = DateOnly.FromDateTime(saving.OpeningDateTime.LocalDateTime)
                     .ToString(CultureInfo.CurrentCulture);
-                this.maturityDayDetailsTextBox.Text = Savings.GetMaturityDate(saving.OpenDate, saving.PeriodInMonths)
+                this.maturityDayDetailsTextBox.Text = Savings.GetMaturityDate(saving.OpeningDateTime, saving.PeriodInMonths)
                     .ToString(CultureInfo.CurrentCulture);
 
-                this.withdrawDetailsButton.Enabled = true;
+                this.closeSavingDetailsButton.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -104,33 +104,33 @@ public partial class SavingForm : Form
 
     private void periodDepositComboBox_SelectedValueChanged(object sender, EventArgs e)
     {
-        if (this.periodDepositComboBox.SelectedItem is null)
+        if (this.periodOpeningComboBox.SelectedItem is null)
         {
             this.savingDepositInfo = null;
 
-            this.interestDepositTextBox.Text = string.Empty;
-            this.maturityDayDepositTextBox.Text = string.Empty;
-            this.amountDepositNumeric.Value = this.amountDepositNumeric.Minimum;
+            this.interestOpeningTextBox.Text = string.Empty;
+            this.maturityDayOpeningTextBox.Text = string.Empty;
+            this.amountOpeningNumeric.Value = this.amountOpeningNumeric.Minimum;
 
-            this.depositButton.Enabled = false;
+            this.openingSavingOpeningButton.Enabled = false;
         }
-        else if (this.periodDepositComboBox.SelectedItem is int period)
+        else if (this.periodOpeningComboBox.SelectedItem is int period)
         {
             try
             {
-                this.savingDepositInfo = new SavingDepositInfo
+                this.savingDepositInfo = new SavingOpeningInfo
                 {
                     PeriodInMonths = period,
                     AnnualInterestRate = SavingInterestRates.GetInterest(period),
                 };
 
-                this.interestDepositTextBox.Text = string.Format(
+                this.interestOpeningTextBox.Text = string.Format(
                     CultureInfo.InvariantCulture, InterestTextFormat, this.savingDepositInfo.AnnualInterestRate);
-                this.maturityDayDepositTextBox.Text = DateOnly.FromDateTime(DateTimeOffset.Now.LocalDateTime)
+                this.maturityDayOpeningTextBox.Text = DateOnly.FromDateTime(DateTimeOffset.Now.LocalDateTime)
                                                         .AddMonths(this.savingDepositInfo.PeriodInMonths)
                                                         .ToString(CultureInfo.CurrentCulture);
 
-                this.depositButton.Enabled = true;
+                this.openingSavingOpeningButton.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -146,25 +146,22 @@ public partial class SavingForm : Form
         }
     }
 
-    private void depositButton_Click(object sender, EventArgs e)
+    private void openingSavingOpeningButton_Click(object sender, EventArgs e)
     {
         try
         {
             ArgumentNullException.ThrowIfNull(this.savingDepositInfo);
 
-            const string confirmationFormatText = "Please confirm the following information of depositing saving before processing:\n" +
-                                                    "- Periods (months): {0}\n" +
-                                                    "- Annual interest rate: {1:#,0.00##%}/year\n" +
-                                                    "- Ammount: {2:#,0.00##}\n";
-            this.savingDepositInfo.Balance = this.amountDepositNumeric.Value;
+            this.savingDepositInfo.Balance = this.amountOpeningNumeric.Value;
 
-            if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, confirmationFormatText,
+            if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, Properties.Resources.OpeningSavingConfirmationStringFormat,
                 this.savingDepositInfo.PeriodInMonths, this.savingDepositInfo.AnnualInterestRate, this.savingDepositInfo.Balance),
-                "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+                Properties.Resources.ConfirmationTitleString, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                 == DialogResult.Yes)
             {
-                Savings.Deposit(this.savingDepositInfo);
-                MessageBox.Show(this, "Successfully depositing savings", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Savings.Open(this.savingDepositInfo);
+                MessageBox.Show(this, Properties.Resources.OpeningSavingSuccessfullyString, Properties.Resources.InformationTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.LoadForm();
             }
 
@@ -176,36 +173,36 @@ public partial class SavingForm : Form
         }
     }
 
-    private void withdrawDetailsButton_Click(object sender, EventArgs e)
+    private void closingSavingDetailsButton_Click(object sender, EventArgs e)
     {
-        this.savingWithdrawComboBox.SelectedItem = this.savingDetailsComboBox.SelectedItem;
+        this.savingClosingComboBox.SelectedItem = this.savingDetailsComboBox.SelectedItem;
         this.savingTabControl.SelectedTab = this.withdrawTabPage;
     }
 
-    private void savingWithdrawComboBox_SelectedValueChanged(object sender, EventArgs e)
+    private void savingClosingComboBox_SelectedValueChanged(object sender, EventArgs e)
     {
-        if (this.savingWithdrawComboBox.SelectedItem is null)
+        if (this.savingClosingComboBox.SelectedItem is null)
         {
             this.savingWithdrawInfo = null;
 
-            this.balanceWithdrawTextBox.Text = string.Empty;
-            this.maturityDayWithdrawTextBox.Text = string.Empty;
-            this.amountToGetWithdrawTextBox.Text = string.Empty;
+            this.balanceClosingTextBox.Text = string.Empty;
+            this.maturityDayClosingTextBox.Text = string.Empty;
+            this.amountToGetClosingTextBox.Text = string.Empty;
 
-            this.withdrawWithdrawButton.Enabled = false;
+            this.closingSavingClosingButton.Enabled = false;
         }
-        else if (this.savingWithdrawComboBox.SelectedItem is int savingId)
+        else if (this.savingClosingComboBox.SelectedItem is int savingId)
         {
             try
             {
                 this.savingWithdrawInfo = Savings.GetWithdrawInfo(savingId);
-                this.balanceWithdrawTextBox.Text = string.Format(
+                this.balanceClosingTextBox.Text = string.Format(
                     CultureInfo.CurrentCulture, BalanceTextFormat, savingWithdrawInfo.Balance);
-                this.maturityDayWithdrawTextBox.Text = savingWithdrawInfo.MaturityDate.ToString(CultureInfo.CurrentCulture);
-                this.amountToGetWithdrawTextBox.Text = string.Format(
+                this.maturityDayClosingTextBox.Text = savingWithdrawInfo.MaturityDate.ToString(CultureInfo.CurrentCulture);
+                this.amountToGetClosingTextBox.Text = string.Format(
                     CultureInfo.CurrentCulture, BalanceTextFormat, savingWithdrawInfo.AmountToGet);
 
-                this.withdrawWithdrawButton.Enabled = true;
+                this.closingSavingClosingButton.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -221,22 +218,20 @@ public partial class SavingForm : Form
         }
     }
 
-    private void withdrawWithdrawButton_Click(object sender, EventArgs e)
+    private void closingSavingClosingButton_Click(object sender, EventArgs e)
     {
         try
         {
             ArgumentNullException.ThrowIfNull(this.savingWithdrawInfo);
 
-            const string warningWithdrawBeforeMaturityDayText = "You are about to withdraw your saving before its maturity day. " +
-                "You will receive only non-term savings interest. " +
-                "Are you sure you want to proceed this?";
             if (this.savingWithdrawInfo.MaturityDate <= DateOnly.FromDateTime(DateTime.Now) ||
-                (MessageBox.Show(this, warningWithdrawBeforeMaturityDayText, "Warning",
+                (MessageBox.Show(this, Properties.Resources.ClosingSavingBeforeMaturityDayWarningString, Properties.Resources.WarningTitleString,
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                 == DialogResult.Yes))
             {
-                Savings.Withdraw(this.savingWithdrawInfo.Id);
-                MessageBox.Show(this, "Successfully withdrawing savings", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Savings.Close(this.savingWithdrawInfo.Id);
+                MessageBox.Show(this, Properties.Resources.ClosingSavingSuccessfullyString, Properties.Resources.InformationTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         catch (Exception ex)
