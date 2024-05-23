@@ -90,19 +90,9 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Computer_process {
+        internal static System.Drawing.Bitmap ComputerProcessImage {
             get {
-                object obj = ResourceManager.GetObject("Computer process", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Computer_process1 {
-            get {
-                object obj = ResourceManager.GetObject("Computer process1", resourceCulture);
+                object obj = ResourceManager.GetObject("ComputerProcessImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -147,9 +137,9 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Frustrated_Head_GIF_by_swerk___Find___Share_on_GIPHY {
+        internal static System.Drawing.Bitmap FrustratedHeadGifImage {
             get {
-                object obj = ResourceManager.GetObject("Frustrated Head GIF by swerk - Find & Share on GIPHY", resourceCulture);
+                object obj = ResourceManager.GetObject("FrustratedHeadGifImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -157,9 +147,9 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap help {
+        internal static System.Drawing.Bitmap HelpImage {
             get {
-                object obj = ResourceManager.GetObject("help", resourceCulture);
+                object obj = ResourceManager.GetObject("HelpImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,9 +176,9 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap login {
+        internal static System.Drawing.Bitmap LoginImage {
             get {
-                object obj = ResourceManager.GetObject("login", resourceCulture);
+                object obj = ResourceManager.GetObject("LoginImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -235,9 +225,9 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap padlock {
+        internal static System.Drawing.Bitmap PadlockImage {
             get {
-                object obj = ResourceManager.GetObject("padlock", resourceCulture);
+                object obj = ResourceManager.GetObject("PadlockImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,16 +253,6 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap savings {
-            get {
-                object obj = ResourceManager.GetObject("savings", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap savings1 {
             get {
                 object obj = ResourceManager.GetObject("savings1", resourceCulture);
@@ -283,9 +263,19 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sign_up {
+        internal static System.Drawing.Bitmap savingsImage {
             get {
-                object obj = ResourceManager.GetObject("sign-up", resourceCulture);
+                object obj = ResourceManager.GetObject("savingsImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SignupImage {
+            get {
+                object obj = ResourceManager.GetObject("SignupImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -2,6 +2,7 @@
 
 using System;
 
+[Serializable]
 public class SavingWithdrawInfo
 {
     public int Id { get; set; } = 0;

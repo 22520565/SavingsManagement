@@ -135,7 +135,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = Properties.Resources.padlock;
+            pictureBox3.Image = Properties.Resources.PadlockImage;
             pictureBox3.Location = new System.Drawing.Point(17, 343);
             pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             pictureBox3.Name = "pictureBox3";
@@ -269,7 +269,7 @@
             // 
             // pictureBox6
             // 
-            pictureBox6.Image = Properties.Resources.padlock;
+            pictureBox6.Image = Properties.Resources.PadlockImage;
             pictureBox6.Location = new System.Drawing.Point(17, 340);
             pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             pictureBox6.Name = "pictureBox6";
