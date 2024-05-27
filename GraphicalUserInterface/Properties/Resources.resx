@@ -117,87 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ComputerProcessImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Computer process.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PasswordIncorrectWarningString" xml:space="preserve">
-    <value>Password is not correct! Please try again!</value>
-  </data>
-  <data name="UsernameBlankWarningString" xml:space="preserve">
-    <value>Username cannot be blank!</value>
-  </data>
-  <data name="NotificationTitleString" xml:space="preserve">
-    <value>Notification</value>
-  </data>
-  <data name="How to Password Protect Antivirus Settings -Kaspersky Daily" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\How to Password Protect Antivirus Settings -Kaspersky Daily.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SignupImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sign-up.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PadlockImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\padlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FrustratedHeadGifImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Frustrated Head GIF by swerk - Find &amp; Share on GIPHY.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ExitConfirmationString" xml:space="preserve">
-    <value>Do you want to exit?</value>
-  </data>
-  <data name="UnknownErrorString" xml:space="preserve">
-    <value>An unknown error occurred! Please try again later!</value>
-  </data>
-  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="savingsImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ErrorTitleString" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="AccountDisabledErrorString" xml:space="preserve">
-    <value>Your account has been disabled! Please contact us for support!</value>
-  </data>
   <data name="UsernameNotFoundWarningString" xml:space="preserve">
     <value>Username not found! Please try again!</value>
-  </data>
-  <data name="Users" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Users.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LogOutConfirmationString" xml:space="preserve">
-    <value>Do you want to log out?</value>
-  </data>
-  <data name="PasswordBlankWarningString" xml:space="preserve">
-    <value>Password cannot be blank!</value>
-  </data>
-  <data name="WarningTitleString" xml:space="preserve">
-    <value>Warning</value>
-  </data>
-  <data name="HelpImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\help.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LoginImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\login.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="savings1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="expenses" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\expenses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ClosingSavingBeforeMaturityDayWarningString" xml:space="preserve">
-    <value>You are about to close your saving before its maturity day. You will benefit only non-term savings interest. Are you sure you want to proceed this?</value>
-  </data>
-  <data name="ClosingSavingSuccessfullyString" xml:space="preserve">
-    <value>Successfully closing your saving!</value>
   </data>
   <data name="ConfirmationTitleString" xml:space="preserve">
     <value>Confirmation</value>
   </data>
-  <data name="InformationTitleString" xml:space="preserve">
-    <value>Information</value>
+  <data name="PasswordIncorrectWarningString" xml:space="preserve">
+    <value>Password is not correct! Please try again!</value>
+  </data>
+  <data name="LogOutConfirmationString" xml:space="preserve">
+    <value>Do you want to log out?</value>
   </data>
   <data name="OpeningSavingConfirmationStringFormat" xml:space="preserve">
     <value>Please confirm the following information of depositing saving before processing:
@@ -205,7 +135,80 @@
 - Annual interest rate: {1:#,0.00##%}/year
 - Deposit amount: {2:#,0.00##}</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="expenses" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expenses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SignupImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sign-up.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="savingsImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="OpeningSavingSuccessfullyString" xml:space="preserve">
     <value>Successfully opening a saving!</value>
+  </data>
+  <data name="AccountDisabledErrorString" xml:space="preserve">
+    <value>Your account has been disabled! Please contact us for support!</value>
+  </data>
+  <data name="PadlockImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\padlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Users" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Users.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PasswordBlankWarningString" xml:space="preserve">
+    <value>Password cannot be blank!</value>
+  </data>
+  <data name="InformationTitleString" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="savings1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\savings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ExitConfirmationString" xml:space="preserve">
+    <value>Do you want to exit?</value>
+  </data>
+  <data name="WarningTitleString" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="UsernameBlankWarningString" xml:space="preserve">
+    <value>Username cannot be blank!</value>
+  </data>
+  <data name="ErrorTitleString" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ComputerProcessImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer process.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LoginImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClosingSavingBeforeMaturityDayWarningString" xml:space="preserve">
+    <value>You are about to close your saving before its maturity day. You will benefit only non-term savings interest. Are you sure you want to proceed this?</value>
+  </data>
+  <data name="UnknownErrorString" xml:space="preserve">
+    <value>An unknown error occurred! Please try again later!</value>
+  </data>
+  <data name="How to Password Protect Antivirus Settings -Kaspersky Daily" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\How to Password Protect Antivirus Settings -Kaspersky Daily.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HelpImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\help.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClosingSavingSuccessfullyString" xml:space="preserve">
+    <value>Successfully closing your saving!</value>
+  </data>
+  <data name="NotificationTitleString" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="FrustratedHeadGifImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Frustrated Head GIF by swerk - Find &amp; Share on GIPHY.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

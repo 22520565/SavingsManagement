@@ -1,6 +1,7 @@
 ﻿namespace GraphicalUserInterface;
 
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 public partial class MainMenuForm : Form
@@ -14,17 +15,26 @@ public partial class MainMenuForm : Form
 
     private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        if (MessageBox.Show(
-                Properties.Resources.LogOutConfirmationString,
-                Properties.Resources.NotificationTitleString,
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question)
-            == DialogResult.Yes)
-        {
-            this.GoingBackToLoginForm = true;
-            this.Close();
-        }
-    }
+		Form bg = new Form();
+		CloseWindow logOut = new CloseWindow();
+		using (logOut) {
+			bg.StartPosition = FormStartPosition.Manual;
+			bg.FormBorderStyle = FormBorderStyle.None;
+			bg.BackColor = Color.Black;
+			bg.Opacity = 0.7d;
+			bg.Size = this.Size;
+			bg.Location = this.Location;
+			bg.ShowInTaskbar = false;
+			bg.Show(this);
+			logOut.Owner = bg;
+			logOut.ShowDialog(bg);
+			bg.Dispose();
+		}
+		if (logOut.IsNotClosed == false) {
+			this.GoingBackToLoginForm = true;
+			this.Close();
+		}
+	}
 
     // FIXME
     private void Form_MainMenu_Load(object sender, EventArgs e)
