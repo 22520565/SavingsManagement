@@ -18,6 +18,9 @@ public partial class MainMenuForm : Form
 		Form bg = new Form();
 		CloseWindow logOut = new CloseWindow();
 		using (logOut) {
+            logOut.Notification.Text = "Do you want to log out?";
+            logOut.Text = "Log out";
+            logOut.Confirm.Text = "Log out";
 			bg.StartPosition = FormStartPosition.Manual;
 			bg.FormBorderStyle = FormBorderStyle.None;
 			bg.BackColor = Color.Black;

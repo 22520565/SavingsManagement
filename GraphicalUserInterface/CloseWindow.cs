@@ -11,8 +11,12 @@ using System.Windows.Forms;
 namespace GraphicalUserInterface {
 	public partial class CloseWindow : Form {
 		public bool IsNotClosed = true;
+		public Label Notification = new Label();
+		public Button Confirm = new Button();
 		public CloseWindow() {
 			InitializeComponent();
+			Notification = lbNoti;
+			Confirm = btn_Yes;
 		}
 
 		private void btn_Yes_Click(object sender, EventArgs e) {
