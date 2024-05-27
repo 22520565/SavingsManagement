@@ -29,37 +29,38 @@
 		private void InitializeComponent() {
 			tabControl = new System.Windows.Forms.TabControl();
 			customerTabPage = new System.Windows.Forms.TabPage();
+			label6 = new System.Windows.Forms.Label();
+			label7 = new System.Windows.Forms.Label();
+			linkLabel_SignUp = new System.Windows.Forms.LinkLabel();
+			linkLabel_ForgotPassword = new System.Windows.Forms.LinkLabel();
 			btnExit = new System.Windows.Forms.Button();
 			panel2 = new System.Windows.Forms.Panel();
 			pictureBox3 = new System.Windows.Forms.PictureBox();
 			label2 = new System.Windows.Forms.Label();
 			txtCustomerPassword = new System.Windows.Forms.TextBox();
+			cbCustomerShowPassword = new System.Windows.Forms.CheckBox();
 			panel1 = new System.Windows.Forms.Panel();
 			txtCustomerUsername = new System.Windows.Forms.TextBox();
 			pictureBox2 = new System.Windows.Forms.PictureBox();
 			label1 = new System.Windows.Forms.Label();
 			cbCustomerRememberInfo = new System.Windows.Forms.CheckBox();
 			btnCustomerLogin = new System.Windows.Forms.Button();
-			cbCustomerShowPassword = new System.Windows.Forms.CheckBox();
 			pictureBox1 = new System.Windows.Forms.PictureBox();
 			staffTabPage = new System.Windows.Forms.TabPage();
-			pictureBox6 = new System.Windows.Forms.PictureBox();
+			label4 = new System.Windows.Forms.Label();
 			button1 = new System.Windows.Forms.Button();
 			panel4 = new System.Windows.Forms.Panel();
 			pictureBox5 = new System.Windows.Forms.PictureBox();
 			label3 = new System.Windows.Forms.Label();
 			txtStaffPassword = new System.Windows.Forms.TextBox();
+			cbStaffShowPassword = new System.Windows.Forms.CheckBox();
 			panel3 = new System.Windows.Forms.Panel();
 			pictureBox4 = new System.Windows.Forms.PictureBox();
 			label5 = new System.Windows.Forms.Label();
 			txtStaffUsername = new System.Windows.Forms.TextBox();
 			cbStaffRemeberInfo = new System.Windows.Forms.CheckBox();
 			btnStaffLogin = new System.Windows.Forms.Button();
-			cbStaffShowPassword = new System.Windows.Forms.CheckBox();
 			pictureBox8 = new System.Windows.Forms.PictureBox();
-			label4 = new System.Windows.Forms.Label();
-			label6 = new System.Windows.Forms.Label();
-			pictureBox7 = new System.Windows.Forms.PictureBox();
 			tabControl.SuspendLayout();
 			customerTabPage.SuspendLayout();
 			panel2.SuspendLayout();
@@ -68,13 +69,11 @@
 			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			staffTabPage.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
 			panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
 			panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
 			SuspendLayout();
 			// 
 			// tabControl
@@ -86,38 +85,86 @@
 			tabControl.Location = new System.Drawing.Point(0, 0);
 			tabControl.Name = "tabControl";
 			tabControl.SelectedIndex = 0;
-			tabControl.Size = new System.Drawing.Size(968, 503);
+			tabControl.Size = new System.Drawing.Size(968, 588);
 			tabControl.TabIndex = 0;
 			// 
 			// customerTabPage
 			// 
 			customerTabPage.BackColor = System.Drawing.Color.Transparent;
 			customerTabPage.Controls.Add(label6);
-			customerTabPage.Controls.Add(pictureBox7);
+			customerTabPage.Controls.Add(label7);
+			customerTabPage.Controls.Add(linkLabel_SignUp);
+			customerTabPage.Controls.Add(linkLabel_ForgotPassword);
 			customerTabPage.Controls.Add(btnExit);
 			customerTabPage.Controls.Add(panel2);
 			customerTabPage.Controls.Add(panel1);
 			customerTabPage.Controls.Add(cbCustomerRememberInfo);
 			customerTabPage.Controls.Add(btnCustomerLogin);
-			customerTabPage.Controls.Add(cbCustomerShowPassword);
 			customerTabPage.Controls.Add(pictureBox1);
 			customerTabPage.Location = new System.Drawing.Point(4, 36);
 			customerTabPage.Name = "customerTabPage";
 			customerTabPage.Padding = new System.Windows.Forms.Padding(3);
-			customerTabPage.Size = new System.Drawing.Size(960, 463);
+			customerTabPage.Size = new System.Drawing.Size(960, 548);
 			customerTabPage.TabIndex = 0;
 			customerTabPage.Text = "Customer";
+			// 
+			// label6
+			// 
+			label6.AutoSize = true;
+			label6.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+			label6.Location = new System.Drawing.Point(584, 39);
+			label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			label6.Name = "label6";
+			label6.Size = new System.Drawing.Size(325, 40);
+			label6.TabIndex = 30;
+			label6.Text = "Savings Management";
+			// 
+			// label7
+			// 
+			label7.AutoSize = true;
+			label7.Font = new System.Drawing.Font("Cambria", 12F);
+			label7.Location = new System.Drawing.Point(561, 501);
+			label7.Name = "label7";
+			label7.Size = new System.Drawing.Size(206, 23);
+			label7.TabIndex = 45;
+			label7.Text = "Don't have an account?";
+			// 
+			// linkLabel_SignUp
+			// 
+			linkLabel_SignUp.AutoSize = true;
+			linkLabel_SignUp.Font = new System.Drawing.Font("Cambria", 12F);
+			linkLabel_SignUp.Location = new System.Drawing.Point(773, 501);
+			linkLabel_SignUp.Name = "linkLabel_SignUp";
+			linkLabel_SignUp.Size = new System.Drawing.Size(126, 23);
+			linkLabel_SignUp.TabIndex = 44;
+			linkLabel_SignUp.TabStop = true;
+			linkLabel_SignUp.Text = "Register Now";
+			linkLabel_SignUp.LinkClicked += linkLabel_SignUp_LinkClicked;
+			// 
+			// linkLabel_ForgotPassword
+			// 
+			linkLabel_ForgotPassword.AutoSize = true;
+			linkLabel_ForgotPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			linkLabel_ForgotPassword.Location = new System.Drawing.Point(765, 342);
+			linkLabel_ForgotPassword.Name = "linkLabel_ForgotPassword";
+			linkLabel_ForgotPassword.Size = new System.Drawing.Size(163, 23);
+			linkLabel_ForgotPassword.TabIndex = 43;
+			linkLabel_ForgotPassword.TabStop = true;
+			linkLabel_ForgotPassword.Text = "Forgot password?";
+			linkLabel_ForgotPassword.LinkClicked += linkLabel_ForgotPassword_LinkClicked;
 			// 
 			// btnExit
 			// 
 			btnExit.AutoSize = true;
 			btnExit.BackColor = System.Drawing.SystemColors.Control;
+			btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnExit.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			btnExit.Location = new System.Drawing.Point(752, 403);
+			btnExit.Location = new System.Drawing.Point(752, 417);
 			btnExit.Margin = new System.Windows.Forms.Padding(2);
 			btnExit.Name = "btnExit";
 			btnExit.Size = new System.Drawing.Size(130, 42);
-			btnExit.TabIndex = 36;
+			btnExit.TabIndex = 4;
 			btnExit.Text = "Exit";
 			btnExit.UseVisualStyleBackColor = false;
 			btnExit.Click += btnExit_Click;
@@ -127,6 +174,7 @@
 			panel2.Controls.Add(pictureBox3);
 			panel2.Controls.Add(label2);
 			panel2.Controls.Add(txtCustomerPassword);
+			panel2.Controls.Add(cbCustomerShowPassword);
 			panel2.Location = new System.Drawing.Point(529, 229);
 			panel2.Name = "panel2";
 			panel2.Size = new System.Drawing.Size(417, 96);
@@ -163,8 +211,22 @@
 			txtCustomerPassword.Margin = new System.Windows.Forms.Padding(2);
 			txtCustomerPassword.Name = "txtCustomerPassword";
 			txtCustomerPassword.Size = new System.Drawing.Size(386, 34);
-			txtCustomerPassword.TabIndex = 27;
+			txtCustomerPassword.TabIndex = 2;
 			txtCustomerPassword.UseSystemPasswordChar = true;
+			// 
+			// cbCustomerShowPassword
+			// 
+			cbCustomerShowPassword.BackgroundImage = Properties.Resources.show;
+			cbCustomerShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			cbCustomerShowPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			cbCustomerShowPassword.ForeColor = System.Drawing.Color.Transparent;
+			cbCustomerShowPassword.Location = new System.Drawing.Point(375, 11);
+			cbCustomerShowPassword.Margin = new System.Windows.Forms.Padding(2);
+			cbCustomerShowPassword.Name = "cbCustomerShowPassword";
+			cbCustomerShowPassword.Size = new System.Drawing.Size(24, 24);
+			cbCustomerShowPassword.TabIndex = 5;
+			cbCustomerShowPassword.UseVisualStyleBackColor = true;
+			cbCustomerShowPassword.CheckedChanged += cbCustomerShowPassword_CheckedChanged;
 			// 
 			// panel1
 			// 
@@ -184,7 +246,7 @@
 			txtCustomerUsername.Margin = new System.Windows.Forms.Padding(2);
 			txtCustomerUsername.Name = "txtCustomerUsername";
 			txtCustomerUsername.Size = new System.Drawing.Size(386, 34);
-			txtCustomerUsername.TabIndex = 25;
+			txtCustomerUsername.TabIndex = 1;
 			// 
 			// pictureBox2
 			// 
@@ -213,11 +275,11 @@
 			// 
 			cbCustomerRememberInfo.AutoSize = true;
 			cbCustomerRememberInfo.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			cbCustomerRememberInfo.Location = new System.Drawing.Point(770, 345);
+			cbCustomerRememberInfo.Location = new System.Drawing.Point(542, 342);
 			cbCustomerRememberInfo.Margin = new System.Windows.Forms.Padding(2);
 			cbCustomerRememberInfo.Name = "cbCustomerRememberInfo";
 			cbCustomerRememberInfo.Size = new System.Drawing.Size(158, 27);
-			cbCustomerRememberInfo.TabIndex = 33;
+			cbCustomerRememberInfo.TabIndex = 6;
 			cbCustomerRememberInfo.Text = "Remember me";
 			cbCustomerRememberInfo.UseVisualStyleBackColor = true;
 			cbCustomerRememberInfo.CheckedChanged += cbCustomerRememberInfo_CheckedChanged;
@@ -226,30 +288,18 @@
 			// 
 			btnCustomerLogin.AutoSize = true;
 			btnCustomerLogin.BackColor = System.Drawing.SystemColors.Control;
+			btnCustomerLogin.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnCustomerLogin.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			btnCustomerLogin.Location = new System.Drawing.Point(584, 403);
+			btnCustomerLogin.Location = new System.Drawing.Point(584, 417);
 			btnCustomerLogin.Margin = new System.Windows.Forms.Padding(2);
 			btnCustomerLogin.Name = "btnCustomerLogin";
 			btnCustomerLogin.Size = new System.Drawing.Size(130, 42);
-			btnCustomerLogin.TabIndex = 32;
+			btnCustomerLogin.TabIndex = 3;
 			btnCustomerLogin.Text = "Login";
 			btnCustomerLogin.UseVisualStyleBackColor = false;
 			btnCustomerLogin.Click += btnCustomerLogin_Click;
 			btnCustomerLogin.MouseEnter += btnCustomerLogin_MouseEnter;
 			btnCustomerLogin.MouseLeave += btnCustomerLogin_MouseLeave;
-			// 
-			// cbCustomerShowPassword
-			// 
-			cbCustomerShowPassword.AutoSize = true;
-			cbCustomerShowPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			cbCustomerShowPassword.Location = new System.Drawing.Point(542, 345);
-			cbCustomerShowPassword.Margin = new System.Windows.Forms.Padding(2);
-			cbCustomerShowPassword.Name = "cbCustomerShowPassword";
-			cbCustomerShowPassword.Size = new System.Drawing.Size(167, 27);
-			cbCustomerShowPassword.TabIndex = 31;
-			cbCustomerShowPassword.Text = "Show password";
-			cbCustomerShowPassword.UseVisualStyleBackColor = true;
-			cbCustomerShowPassword.CheckedChanged += cbCustomerShowPassword_CheckedChanged;
 			// 
 			// pictureBox1
 			// 
@@ -258,7 +308,7 @@
 			pictureBox1.Location = new System.Drawing.Point(-4, 0);
 			pictureBox1.Margin = new System.Windows.Forms.Padding(2);
 			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new System.Drawing.Size(517, 468);
+			pictureBox1.Size = new System.Drawing.Size(517, 548);
 			pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			pictureBox1.TabIndex = 14;
 			pictureBox1.TabStop = false;
@@ -267,30 +317,28 @@
 			// 
 			staffTabPage.BackColor = System.Drawing.Color.Transparent;
 			staffTabPage.Controls.Add(label4);
-			staffTabPage.Controls.Add(pictureBox6);
 			staffTabPage.Controls.Add(button1);
 			staffTabPage.Controls.Add(panel4);
 			staffTabPage.Controls.Add(panel3);
 			staffTabPage.Controls.Add(cbStaffRemeberInfo);
 			staffTabPage.Controls.Add(btnStaffLogin);
-			staffTabPage.Controls.Add(cbStaffShowPassword);
 			staffTabPage.Controls.Add(pictureBox8);
 			staffTabPage.Location = new System.Drawing.Point(4, 36);
 			staffTabPage.Name = "staffTabPage";
 			staffTabPage.Padding = new System.Windows.Forms.Padding(3);
-			staffTabPage.Size = new System.Drawing.Size(960, 463);
+			staffTabPage.Size = new System.Drawing.Size(960, 548);
 			staffTabPage.TabIndex = 1;
 			staffTabPage.Text = "Staff";
 			// 
-			// pictureBox6
+			// label4
 			// 
-			pictureBox6.Image = Properties.Resources.saving;
-			pictureBox6.Location = new System.Drawing.Point(138, 29);
-			pictureBox6.Name = "pictureBox6";
-			pictureBox6.Size = new System.Drawing.Size(69, 62);
-			pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			pictureBox6.TabIndex = 39;
-			pictureBox6.TabStop = false;
+			label4.AutoSize = true;
+			label4.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label4.Location = new System.Drawing.Point(57, 42);
+			label4.Name = "label4";
+			label4.Size = new System.Drawing.Size(325, 40);
+			label4.TabIndex = 40;
+			label4.Text = "Savings Management";
 			// 
 			// button1
 			// 
@@ -301,7 +349,7 @@
 			button1.Margin = new System.Windows.Forms.Padding(2);
 			button1.Name = "button1";
 			button1.Size = new System.Drawing.Size(130, 42);
-			button1.TabIndex = 38;
+			button1.TabIndex = 6;
 			button1.Text = "Exit";
 			button1.UseVisualStyleBackColor = false;
 			// 
@@ -310,6 +358,7 @@
 			panel4.Controls.Add(pictureBox5);
 			panel4.Controls.Add(label3);
 			panel4.Controls.Add(txtStaffPassword);
+			panel4.Controls.Add(cbStaffShowPassword);
 			panel4.Location = new System.Drawing.Point(15, 229);
 			panel4.Name = "panel4";
 			panel4.Size = new System.Drawing.Size(417, 96);
@@ -346,8 +395,19 @@
 			txtStaffPassword.Margin = new System.Windows.Forms.Padding(2);
 			txtStaffPassword.Name = "txtStaffPassword";
 			txtStaffPassword.Size = new System.Drawing.Size(386, 39);
-			txtStaffPassword.TabIndex = 28;
+			txtStaffPassword.TabIndex = 2;
 			txtStaffPassword.UseSystemPasswordChar = true;
+			// 
+			// cbStaffShowPassword
+			// 
+			cbStaffShowPassword.AutoSize = true;
+			cbStaffShowPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			cbStaffShowPassword.Location = new System.Drawing.Point(381, 12);
+			cbStaffShowPassword.Margin = new System.Windows.Forms.Padding(2);
+			cbStaffShowPassword.Name = "cbStaffShowPassword";
+			cbStaffShowPassword.Size = new System.Drawing.Size(18, 17);
+			cbStaffShowPassword.TabIndex = 3;
+			cbStaffShowPassword.UseVisualStyleBackColor = true;
 			// 
 			// panel3
 			// 
@@ -390,17 +450,17 @@
 			txtStaffUsername.Margin = new System.Windows.Forms.Padding(2);
 			txtStaffUsername.Name = "txtStaffUsername";
 			txtStaffUsername.Size = new System.Drawing.Size(386, 39);
-			txtStaffUsername.TabIndex = 26;
+			txtStaffUsername.TabIndex = 1;
 			// 
 			// cbStaffRemeberInfo
 			// 
 			cbStaffRemeberInfo.AutoSize = true;
 			cbStaffRemeberInfo.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			cbStaffRemeberInfo.Location = new System.Drawing.Point(256, 345);
+			cbStaffRemeberInfo.Location = new System.Drawing.Point(28, 343);
 			cbStaffRemeberInfo.Margin = new System.Windows.Forms.Padding(2);
 			cbStaffRemeberInfo.Name = "cbStaffRemeberInfo";
 			cbStaffRemeberInfo.Size = new System.Drawing.Size(158, 27);
-			cbStaffRemeberInfo.TabIndex = 35;
+			cbStaffRemeberInfo.TabIndex = 4;
 			cbStaffRemeberInfo.Text = "Remember me";
 			cbStaffRemeberInfo.UseVisualStyleBackColor = true;
 			// 
@@ -413,21 +473,9 @@
 			btnStaffLogin.Margin = new System.Windows.Forms.Padding(2);
 			btnStaffLogin.Name = "btnStaffLogin";
 			btnStaffLogin.Size = new System.Drawing.Size(130, 42);
-			btnStaffLogin.TabIndex = 33;
+			btnStaffLogin.TabIndex = 5;
 			btnStaffLogin.Text = "Login";
 			btnStaffLogin.UseVisualStyleBackColor = false;
-			// 
-			// cbStaffShowPassword
-			// 
-			cbStaffShowPassword.AutoSize = true;
-			cbStaffShowPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			cbStaffShowPassword.Location = new System.Drawing.Point(28, 345);
-			cbStaffShowPassword.Margin = new System.Windows.Forms.Padding(2);
-			cbStaffShowPassword.Name = "cbStaffShowPassword";
-			cbStaffShowPassword.Size = new System.Drawing.Size(167, 27);
-			cbStaffShowPassword.TabIndex = 32;
-			cbStaffShowPassword.Text = "Show password";
-			cbStaffShowPassword.UseVisualStyleBackColor = true;
 			// 
 			// pictureBox8
 			// 
@@ -436,41 +484,10 @@
 			pictureBox8.Location = new System.Drawing.Point(448, 2);
 			pictureBox8.Margin = new System.Windows.Forms.Padding(2);
 			pictureBox8.Name = "pictureBox8";
-			pictureBox8.Size = new System.Drawing.Size(510, 465);
+			pictureBox8.Size = new System.Drawing.Size(510, 544);
 			pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			pictureBox8.TabIndex = 25;
 			pictureBox8.TabStop = false;
-			// 
-			// label4
-			// 
-			label4.AutoSize = true;
-			label4.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			label4.Location = new System.Drawing.Point(223, 41);
-			label4.Name = "label4";
-			label4.Size = new System.Drawing.Size(98, 40);
-			label4.TabIndex = 40;
-			label4.Text = "Login";
-			label4.Click += label4_Click;
-			// 
-			// label6
-			// 
-			label6.AutoSize = true;
-			label6.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			label6.Location = new System.Drawing.Point(740, 41);
-			label6.Name = "label6";
-			label6.Size = new System.Drawing.Size(98, 40);
-			label6.TabIndex = 42;
-			label6.Text = "Login";
-			// 
-			// pictureBox7
-			// 
-			pictureBox7.Image = Properties.Resources.saving;
-			pictureBox7.Location = new System.Drawing.Point(655, 29);
-			pictureBox7.Name = "pictureBox7";
-			pictureBox7.Size = new System.Drawing.Size(69, 62);
-			pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			pictureBox7.TabIndex = 41;
-			pictureBox7.TabStop = false;
 			// 
 			// LoginForm
 			// 
@@ -478,7 +495,7 @@
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			BackColor = System.Drawing.Color.White;
-			ClientSize = new System.Drawing.Size(968, 503);
+			ClientSize = new System.Drawing.Size(968, 588);
 			Controls.Add(tabControl);
 			FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			Margin = new System.Windows.Forms.Padding(2);
@@ -498,7 +515,6 @@
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			staffTabPage.ResumeLayout(false);
 			staffTabPage.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
 			panel4.ResumeLayout(false);
 			panel4.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
@@ -506,7 +522,6 @@
 			panel3.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -541,9 +556,10 @@
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.PictureBox pictureBox5;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.PictureBox pictureBox6;
 		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.LinkLabel linkLabel_ForgotPassword;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.LinkLabel linkLabel_SignUp;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.PictureBox pictureBox7;
 	}
 }

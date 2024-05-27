@@ -33,13 +33,21 @@ public partial class StatisticForm : Form {
 		dt = new DataTable();
 		dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Amount", typeof(string)),
 						new DataColumn("Transaction Time", typeof(string)), new DataColumn("Content", typeof(string))});
-
 		int? currentCustomerId = CustomerAccounts.CurrentCustomerId;
 		if (currentCustomerId.HasValue) {
+			decimal expenses = 0;
+			decimal savings = 0;
 			var cashFlows = CashFlows.GetCashFlowsByCustomerId(currentCustomerId.Value);
 			foreach (var cashFlow in cashFlows) {
 				AddCashFlowEntry(cashFlow);
+				if (cashFlow.BalanceChanging < 0) {
+					expenses += Math.Abs(cashFlow.BalanceChanging);
+				} else {
+					savings += cashFlow.BalanceChanging;
+				}
 			}
+			lbExpenses.Text = "$" + expenses.ToString();
+			lbSavings.Text = "$" + savings.ToString();
 		} else {
 			MessageBox.Show("No customer is currently logged in.");
 		}
@@ -47,7 +55,7 @@ public partial class StatisticForm : Form {
 	}
 
 	private void AddCashFlowEntry(CashFlow cashFlow) {
-		dt.Rows.Add(cashFlow.BalanceChanging, cashFlow.Time, cashFlow.Content);
+		dt.Rows.Add("$" + cashFlow.BalanceChanging.ToString(), cashFlow.Time.ToString("h:m:s:tt,  d/M/yyyy"), cashFlow.Content);
 		this.data_Transactions.DataSource = dt;
 		data_Transactions.Columns[0].ReadOnly = false;
 		for (int k = 1; k < data_Transactions.Columns.Count; k++) {

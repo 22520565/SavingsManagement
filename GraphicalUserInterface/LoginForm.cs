@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Business;
 using Microsoft.IdentityModel.Tokens;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 public partial class LoginForm : Form {
 	public bool UserSuccessfullyAuthenticated { get; private set; } = false;
@@ -14,10 +15,9 @@ public partial class LoginForm : Form {
 	}
 
 	private void linkLabel_ForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-		using var passwordRecoveryForm = new ForgotPasswordForm();
 		this.Hide();
-		passwordRecoveryForm.ShowDialog(this);
-		this.Show();
+		new ForgotPasswordForm().ShowDialog();
+		this.Close();
 	}
 
 	private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
@@ -37,7 +37,14 @@ public partial class LoginForm : Form {
 	}
 
 	private void cbCustomerShowPassword_CheckedChanged(object sender, EventArgs e) {
-		txtCustomerPassword.UseSystemPasswordChar = !cbCustomerShowPassword.Checked;
+		if (!cbCustomerShowPassword.Checked) {
+			txtCustomerPassword.UseSystemPasswordChar = true;
+			cbCustomerShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
+		} else {
+			txtCustomerPassword.UseSystemPasswordChar = false;
+			cbCustomerShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\show.png");
+		}
+		
 	}
 
 	private void btnCustomerLogin_Click(object sender, EventArgs e) {
@@ -104,6 +111,13 @@ public partial class LoginForm : Form {
 		txtCustomerUsername.Text = Properties.Settings.Default.AcUsername;
 		txtCustomerPassword.Text = Properties.Settings.Default.AcPassword;
 		cbCustomerRememberInfo.Checked = !Properties.Settings.Default.AcUsername.IsNullOrEmpty();
+
+		// Show password checkbox custom
+		cbCustomerShowPassword.Appearance = Appearance.Button;
+		cbCustomerShowPassword.FlatStyle = FlatStyle.Flat;
+		cbCustomerShowPassword.FlatAppearance.BorderSize = 0;
+		cbCustomerShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
+
 	}
 
 	private void btnExit_Click(object sender, EventArgs e) {
@@ -126,11 +140,7 @@ public partial class LoginForm : Form {
 			bg.Dispose();
 		}
 		if (logOut.IsNotClosed == false) {
-			this.Close();
+			Application.Exit();
 		}
-	}
-
-	private void label4_Click(object sender, EventArgs e) {
-
 	}
 }

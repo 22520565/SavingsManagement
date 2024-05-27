@@ -23,19 +23,19 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			panelTransactionList = new System.Windows.Forms.Panel();
 			data_Transactions = new System.Windows.Forms.DataGridView();
 			label1 = new System.Windows.Forms.Label();
 			panelSavings = new GradientPanel();
 			pictureBox1 = new System.Windows.Forms.PictureBox();
-			label6 = new System.Windows.Forms.Label();
+			lbSavings = new System.Windows.Forms.Label();
 			label5 = new System.Windows.Forms.Label();
 			panelExpenses = new GradientPanel();
 			pictureBox2 = new System.Windows.Forms.PictureBox();
-			label7 = new System.Windows.Forms.Label();
+			lbExpenses = new System.Windows.Forms.Label();
 			label8 = new System.Windows.Forms.Label();
 			btnExport = new System.Windows.Forms.Button();
 			panelTransactionList.SuspendLayout();
@@ -63,30 +63,34 @@
 			data_Transactions.AllowUserToResizeColumns = false;
 			data_Transactions.AllowUserToResizeRows = false;
 			data_Transactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			data_Transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			data_Transactions.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			data_Transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			data_Transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
-			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			data_Transactions.DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			data_Transactions.DefaultCellStyle = dataGridViewCellStyle2;
 			data_Transactions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
 			data_Transactions.Location = new System.Drawing.Point(3, 78);
 			data_Transactions.Name = "data_Transactions";
 			data_Transactions.RowHeadersVisible = false;
 			data_Transactions.RowHeadersWidth = 51;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			data_Transactions.RowsDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+			data_Transactions.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			data_Transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			data_Transactions.Size = new System.Drawing.Size(810, 624);
 			data_Transactions.TabIndex = 3;
@@ -94,11 +98,11 @@
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Font = new System.Drawing.Font("Segoe UI", 19.8000011F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label1.Font = new System.Drawing.Font("Cambria", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 			label1.ForeColor = System.Drawing.Color.White;
-			label1.Location = new System.Drawing.Point(272, 17);
+			label1.Location = new System.Drawing.Point(255, 12);
 			label1.Name = "label1";
-			label1.Size = new System.Drawing.Size(300, 46);
+			label1.Size = new System.Drawing.Size(351, 47);
 			label1.TabIndex = 2;
 			label1.Text = "Recent Transaction";
 			// 
@@ -106,7 +110,7 @@
 			// 
 			panelSavings.Angle = 0F;
 			panelSavings.Controls.Add(pictureBox1);
-			panelSavings.Controls.Add(label6);
+			panelSavings.Controls.Add(lbSavings);
 			panelSavings.Controls.Add(label5);
 			panelSavings.LeftColor = System.Drawing.Color.Empty;
 			panelSavings.Location = new System.Drawing.Point(12, 12);
@@ -126,27 +130,27 @@
 			pictureBox1.TabIndex = 4;
 			pictureBox1.TabStop = false;
 			// 
-			// label6
+			// lbSavings
 			// 
-			label6.AutoSize = true;
-			label6.BackColor = System.Drawing.Color.Transparent;
-			label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			label6.ForeColor = System.Drawing.Color.White;
-			label6.Location = new System.Drawing.Point(16, 121);
-			label6.Name = "label6";
-			label6.Size = new System.Drawing.Size(97, 28);
-			label6.TabIndex = 1;
-			label6.Text = "$1,146.45";
+			lbSavings.AutoSize = true;
+			lbSavings.BackColor = System.Drawing.Color.Transparent;
+			lbSavings.Font = new System.Drawing.Font("Cambria", 13.8F);
+			lbSavings.ForeColor = System.Drawing.Color.White;
+			lbSavings.Location = new System.Drawing.Point(16, 121);
+			lbSavings.Name = "lbSavings";
+			lbSavings.Size = new System.Drawing.Size(112, 27);
+			lbSavings.TabIndex = 1;
+			lbSavings.Text = "$1,146.45";
 			// 
 			// label5
 			// 
 			label5.AutoSize = true;
 			label5.BackColor = System.Drawing.Color.Transparent;
-			label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label5.Font = new System.Drawing.Font("Cambria", 13.8F);
 			label5.ForeColor = System.Drawing.Color.White;
 			label5.Location = new System.Drawing.Point(16, 79);
 			label5.Name = "label5";
-			label5.Size = new System.Drawing.Size(79, 28);
+			label5.Size = new System.Drawing.Size(86, 27);
 			label5.TabIndex = 0;
 			label5.Text = "Savings";
 			// 
@@ -154,7 +158,7 @@
 			// 
 			panelExpenses.Angle = 0F;
 			panelExpenses.Controls.Add(pictureBox2);
-			panelExpenses.Controls.Add(label7);
+			panelExpenses.Controls.Add(lbExpenses);
 			panelExpenses.Controls.Add(label8);
 			panelExpenses.LeftColor = System.Drawing.Color.Empty;
 			panelExpenses.Location = new System.Drawing.Point(12, 208);
@@ -174,35 +178,36 @@
 			pictureBox2.TabIndex = 4;
 			pictureBox2.TabStop = false;
 			// 
-			// label7
+			// lbExpenses
 			// 
-			label7.AutoSize = true;
-			label7.BackColor = System.Drawing.Color.Transparent;
-			label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			label7.ForeColor = System.Drawing.Color.White;
-			label7.Location = new System.Drawing.Point(16, 121);
-			label7.Name = "label7";
-			label7.Size = new System.Drawing.Size(97, 28);
-			label7.TabIndex = 1;
-			label7.Text = "$2,146.45";
+			lbExpenses.AutoSize = true;
+			lbExpenses.BackColor = System.Drawing.Color.Transparent;
+			lbExpenses.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			lbExpenses.ForeColor = System.Drawing.Color.White;
+			lbExpenses.Location = new System.Drawing.Point(16, 121);
+			lbExpenses.Name = "lbExpenses";
+			lbExpenses.Size = new System.Drawing.Size(112, 27);
+			lbExpenses.TabIndex = 1;
+			lbExpenses.Text = "$2,146.45";
 			// 
 			// label8
 			// 
 			label8.AutoSize = true;
 			label8.BackColor = System.Drawing.Color.Transparent;
-			label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label8.Font = new System.Drawing.Font("Cambria", 13.8F);
 			label8.ForeColor = System.Drawing.Color.White;
 			label8.Location = new System.Drawing.Point(16, 79);
 			label8.Name = "label8";
-			label8.Size = new System.Drawing.Size(90, 28);
+			label8.Size = new System.Drawing.Size(104, 27);
 			label8.TabIndex = 0;
 			label8.Text = "Expenses";
 			// 
 			// btnExport
 			// 
-			btnExport.Location = new System.Drawing.Point(12, 514);
+			btnExport.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			btnExport.Location = new System.Drawing.Point(12, 482);
 			btnExport.Name = "btnExport";
-			btnExport.Size = new System.Drawing.Size(137, 46);
+			btnExport.Size = new System.Drawing.Size(250, 46);
 			btnExport.TabIndex = 6;
 			btnExport.Text = "Export File ";
 			btnExport.UseVisualStyleBackColor = true;
@@ -240,10 +245,10 @@
 		private GradientPanel panelSavings;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label lbSavings;
 		private GradientPanel panelExpenses;
 		private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label lbExpenses;
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Button btnExport;
 		private System.Windows.Forms.DataGridView data_Transactions;
