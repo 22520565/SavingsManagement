@@ -32,13 +32,12 @@
 			label6 = new System.Windows.Forms.Label();
 			label7 = new System.Windows.Forms.Label();
 			linkLabel_SignUp = new System.Windows.Forms.LinkLabel();
-			linkLabel_ForgotPassword = new System.Windows.Forms.LinkLabel();
 			btnExit = new System.Windows.Forms.Button();
 			panel2 = new System.Windows.Forms.Panel();
 			pictureBox3 = new System.Windows.Forms.PictureBox();
 			label2 = new System.Windows.Forms.Label();
-			txtCustomerPassword = new System.Windows.Forms.TextBox();
 			cbCustomerShowPassword = new System.Windows.Forms.CheckBox();
+			txtCustomerPassword = new System.Windows.Forms.TextBox();
 			panel1 = new System.Windows.Forms.Panel();
 			txtCustomerUsername = new System.Windows.Forms.TextBox();
 			pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -94,7 +93,6 @@
 			customerTabPage.Controls.Add(label6);
 			customerTabPage.Controls.Add(label7);
 			customerTabPage.Controls.Add(linkLabel_SignUp);
-			customerTabPage.Controls.Add(linkLabel_ForgotPassword);
 			customerTabPage.Controls.Add(btnExit);
 			customerTabPage.Controls.Add(panel2);
 			customerTabPage.Controls.Add(panel1);
@@ -111,12 +109,12 @@
 			// label6
 			// 
 			label6.AutoSize = true;
-			label6.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label6.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
 			label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
 			label6.Location = new System.Drawing.Point(584, 39);
 			label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label6.Name = "label6";
-			label6.Size = new System.Drawing.Size(325, 40);
+			label6.Size = new System.Drawing.Size(345, 40);
 			label6.TabIndex = 30;
 			label6.Text = "Savings Management";
 			// 
@@ -142,39 +140,31 @@
 			linkLabel_SignUp.Text = "Register Now";
 			linkLabel_SignUp.LinkClicked += linkLabel_SignUp_LinkClicked;
 			// 
-			// linkLabel_ForgotPassword
-			// 
-			linkLabel_ForgotPassword.AutoSize = true;
-			linkLabel_ForgotPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			linkLabel_ForgotPassword.Location = new System.Drawing.Point(765, 342);
-			linkLabel_ForgotPassword.Name = "linkLabel_ForgotPassword";
-			linkLabel_ForgotPassword.Size = new System.Drawing.Size(163, 23);
-			linkLabel_ForgotPassword.TabIndex = 43;
-			linkLabel_ForgotPassword.TabStop = true;
-			linkLabel_ForgotPassword.Text = "Forgot password?";
-			linkLabel_ForgotPassword.LinkClicked += linkLabel_ForgotPassword_LinkClicked;
-			// 
 			// btnExit
 			// 
 			btnExit.AutoSize = true;
-			btnExit.BackColor = System.Drawing.SystemColors.Control;
+			btnExit.BackColor = System.Drawing.Color.Black;
 			btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnExit.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			btnExit.Location = new System.Drawing.Point(752, 417);
+			btnExit.ForeColor = System.Drawing.Color.White;
+			btnExit.Location = new System.Drawing.Point(754, 401);
 			btnExit.Margin = new System.Windows.Forms.Padding(2);
 			btnExit.Name = "btnExit";
-			btnExit.Size = new System.Drawing.Size(130, 42);
+			btnExit.Padding = new System.Windows.Forms.Padding(5);
+			btnExit.Size = new System.Drawing.Size(130, 47);
 			btnExit.TabIndex = 4;
 			btnExit.Text = "Exit";
 			btnExit.UseVisualStyleBackColor = false;
 			btnExit.Click += btnExit_Click;
+			btnExit.MouseEnter += btnExit_MouseEnter;
+			btnExit.MouseLeave += btnExit_MouseLeave;
 			// 
 			// panel2
 			// 
 			panel2.Controls.Add(pictureBox3);
 			panel2.Controls.Add(label2);
-			panel2.Controls.Add(txtCustomerPassword);
 			panel2.Controls.Add(cbCustomerShowPassword);
+			panel2.Controls.Add(txtCustomerPassword);
 			panel2.Location = new System.Drawing.Point(529, 229);
 			panel2.Name = "panel2";
 			panel2.Size = new System.Drawing.Size(417, 96);
@@ -203,6 +193,20 @@
 			label2.TabIndex = 26;
 			label2.Text = "Password";
 			// 
+			// cbCustomerShowPassword
+			// 
+			cbCustomerShowPassword.BackgroundImage = Properties.Resources.show;
+			cbCustomerShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			cbCustomerShowPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			cbCustomerShowPassword.ForeColor = System.Drawing.Color.Transparent;
+			cbCustomerShowPassword.Location = new System.Drawing.Point(369, 49);
+			cbCustomerShowPassword.Margin = new System.Windows.Forms.Padding(2);
+			cbCustomerShowPassword.Name = "cbCustomerShowPassword";
+			cbCustomerShowPassword.Size = new System.Drawing.Size(24, 24);
+			cbCustomerShowPassword.TabIndex = 5;
+			cbCustomerShowPassword.UseVisualStyleBackColor = true;
+			cbCustomerShowPassword.CheckedChanged += cbCustomerShowPassword_CheckedChanged;
+			// 
 			// txtCustomerPassword
 			// 
 			txtCustomerPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -213,20 +217,6 @@
 			txtCustomerPassword.Size = new System.Drawing.Size(386, 34);
 			txtCustomerPassword.TabIndex = 2;
 			txtCustomerPassword.UseSystemPasswordChar = true;
-			// 
-			// cbCustomerShowPassword
-			// 
-			cbCustomerShowPassword.BackgroundImage = Properties.Resources.show;
-			cbCustomerShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			cbCustomerShowPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			cbCustomerShowPassword.ForeColor = System.Drawing.Color.Transparent;
-			cbCustomerShowPassword.Location = new System.Drawing.Point(375, 11);
-			cbCustomerShowPassword.Margin = new System.Windows.Forms.Padding(2);
-			cbCustomerShowPassword.Name = "cbCustomerShowPassword";
-			cbCustomerShowPassword.Size = new System.Drawing.Size(24, 24);
-			cbCustomerShowPassword.TabIndex = 5;
-			cbCustomerShowPassword.UseVisualStyleBackColor = true;
-			cbCustomerShowPassword.CheckedChanged += cbCustomerShowPassword_CheckedChanged;
 			// 
 			// panel1
 			// 
@@ -275,7 +265,7 @@
 			// 
 			cbCustomerRememberInfo.AutoSize = true;
 			cbCustomerRememberInfo.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			cbCustomerRememberInfo.Location = new System.Drawing.Point(542, 342);
+			cbCustomerRememberInfo.Location = new System.Drawing.Point(542, 330);
 			cbCustomerRememberInfo.Margin = new System.Windows.Forms.Padding(2);
 			cbCustomerRememberInfo.Name = "cbCustomerRememberInfo";
 			cbCustomerRememberInfo.Size = new System.Drawing.Size(158, 27);
@@ -287,13 +277,15 @@
 			// btnCustomerLogin
 			// 
 			btnCustomerLogin.AutoSize = true;
-			btnCustomerLogin.BackColor = System.Drawing.SystemColors.Control;
+			btnCustomerLogin.BackColor = System.Drawing.Color.Black;
 			btnCustomerLogin.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnCustomerLogin.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			btnCustomerLogin.Location = new System.Drawing.Point(584, 417);
+			btnCustomerLogin.ForeColor = System.Drawing.Color.White;
+			btnCustomerLogin.Location = new System.Drawing.Point(586, 401);
 			btnCustomerLogin.Margin = new System.Windows.Forms.Padding(2);
 			btnCustomerLogin.Name = "btnCustomerLogin";
-			btnCustomerLogin.Size = new System.Drawing.Size(130, 42);
+			btnCustomerLogin.Padding = new System.Windows.Forms.Padding(5);
+			btnCustomerLogin.Size = new System.Drawing.Size(130, 47);
 			btnCustomerLogin.TabIndex = 3;
 			btnCustomerLogin.Text = "Login";
 			btnCustomerLogin.UseVisualStyleBackColor = false;
@@ -557,7 +549,6 @@
 		private System.Windows.Forms.PictureBox pictureBox5;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.LinkLabel linkLabel_ForgotPassword;
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.LinkLabel linkLabel_SignUp;
 		private System.Windows.Forms.Label label6;
