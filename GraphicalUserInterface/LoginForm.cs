@@ -14,12 +14,6 @@ public partial class LoginForm : Form {
 		InitializeComponent();
 	}
 
-	private void linkLabel_ForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-		this.Hide();
-		new ForgotPasswordForm().ShowDialog();
-		this.Close();
-	}
-
 	private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
 		this.Hide();
 		new CustomerSignUpForm().ShowDialog();
@@ -27,13 +21,23 @@ public partial class LoginForm : Form {
 	}
 
 	private void btnCustomerLogin_MouseEnter(object sender, EventArgs e) {
-		btnCustomerLogin.BackColor = Color.Blue;
+		btnCustomerLogin.BackColor = Color.FromArgb(11, 9, 120);
 		btnCustomerLogin.ForeColor = Color.White;
 	}
 
 	private void btnCustomerLogin_MouseLeave(object sender, EventArgs e) {
-		btnCustomerLogin.BackColor = SystemColors.Control;
-		btnCustomerLogin.ForeColor = SystemColors.ControlText;
+		btnCustomerLogin.BackColor = Color.Black;
+		btnCustomerLogin.ForeColor = Color.White;
+	}
+
+	private void btnExit_MouseEnter(object sender, EventArgs e) {
+		btnExit.BackColor = Color.FromArgb(11, 9, 120);
+		btnExit.ForeColor = Color.White;
+	}
+
+	private void btnExit_MouseLeave(object sender, EventArgs e) {
+		btnExit.BackColor = Color.Black;
+		btnExit.ForeColor = Color.White;
 	}
 
 	private void cbCustomerShowPassword_CheckedChanged(object sender, EventArgs e) {
@@ -143,4 +147,6 @@ public partial class LoginForm : Form {
 			Application.Exit();
 		}
 	}
+
+
 }

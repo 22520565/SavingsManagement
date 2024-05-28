@@ -90,6 +90,16 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close {
+            get {
+                object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are about to close your saving before its maturity day. You will benefit only non-term savings interest. Are you sure you want to proceed this?.
         /// </summary>
         internal static string ClosingSavingBeforeMaturityDayWarningString {
@@ -123,6 +133,16 @@ namespace GraphicalUserInterface.Properties {
         internal static string ConfirmationTitleString {
             get {
                 return ResourceManager.GetString("ConfirmationTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap email {
+            get {
+                object obj = ResourceManager.GetObject("email", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
