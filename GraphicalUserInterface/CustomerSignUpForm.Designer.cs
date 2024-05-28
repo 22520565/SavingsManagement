@@ -65,7 +65,7 @@
 			// 
 			txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			txtUsername.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			txtUsername.Location = new System.Drawing.Point(13, 46);
+			txtUsername.Location = new System.Drawing.Point(13, 36);
 			txtUsername.Margin = new System.Windows.Forms.Padding(2);
 			txtUsername.Name = "txtUsername";
 			txtUsername.Size = new System.Drawing.Size(387, 34);
@@ -75,7 +75,7 @@
 			// 
 			txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			txtPassword.Font = new System.Drawing.Font("Cambria", 13.8F);
-			txtPassword.Location = new System.Drawing.Point(13, 48);
+			txtPassword.Location = new System.Drawing.Point(13, 37);
 			txtPassword.Margin = new System.Windows.Forms.Padding(2);
 			txtPassword.Name = "txtPassword";
 			txtPassword.Size = new System.Drawing.Size(387, 34);
@@ -86,7 +86,7 @@
 			// 
 			txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			txtConfirmPassword.Font = new System.Drawing.Font("Cambria", 13.8F);
-			txtConfirmPassword.Location = new System.Drawing.Point(13, 49);
+			txtConfirmPassword.Location = new System.Drawing.Point(13, 37);
 			txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
 			txtConfirmPassword.Name = "txtConfirmPassword";
 			txtConfirmPassword.Size = new System.Drawing.Size(387, 34);
@@ -97,7 +97,7 @@
 			// 
 			txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			txtEmail.Font = new System.Drawing.Font("Cambria", 13.8F);
-			txtEmail.Location = new System.Drawing.Point(13, 49);
+			txtEmail.Location = new System.Drawing.Point(13, 36);
 			txtEmail.Margin = new System.Windows.Forms.Padding(2);
 			txtEmail.Name = "txtEmail";
 			txtEmail.Size = new System.Drawing.Size(387, 34);
@@ -110,7 +110,7 @@
 			btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnSignUp.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 			btnSignUp.ForeColor = System.Drawing.Color.White;
-			btnSignUp.Location = new System.Drawing.Point(152, 547);
+			btnSignUp.Location = new System.Drawing.Point(141, 503);
 			btnSignUp.Margin = new System.Windows.Forms.Padding(2);
 			btnSignUp.Name = "btnSignUp";
 			btnSignUp.Size = new System.Drawing.Size(246, 53);
@@ -126,7 +126,7 @@
 			btnExit.BackColor = System.Drawing.Color.Transparent;
 			btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnExit.Image = Properties.Resources.close;
-			btnExit.Location = new System.Drawing.Point(527, 23);
+			btnExit.Location = new System.Drawing.Point(504, 20);
 			btnExit.Name = "btnExit";
 			btnExit.Size = new System.Drawing.Size(24, 24);
 			btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -140,7 +140,7 @@
 			// 
 			label5.AutoSize = true;
 			label5.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-			label5.Location = new System.Drawing.Point(196, 12);
+			label5.Location = new System.Drawing.Point(208, 12);
 			label5.Name = "label5";
 			label5.Size = new System.Drawing.Size(134, 40);
 			label5.TabIndex = 15;
@@ -153,7 +153,7 @@
 			panel1.Controls.Add(txtUsername);
 			panel1.Location = new System.Drawing.Point(70, 116);
 			panel1.Name = "panel1";
-			panel1.Size = new System.Drawing.Size(417, 96);
+			panel1.Size = new System.Drawing.Size(417, 83);
 			panel1.TabIndex = 35;
 			// 
 			// pictureBox2
@@ -185,9 +185,9 @@
 			panel2.Controls.Add(pictureBox1);
 			panel2.Controls.Add(label1);
 			panel2.Controls.Add(txtPassword);
-			panel2.Location = new System.Drawing.Point(70, 320);
+			panel2.Location = new System.Drawing.Point(70, 294);
 			panel2.Name = "panel2";
-			panel2.Size = new System.Drawing.Size(417, 96);
+			panel2.Size = new System.Drawing.Size(417, 83);
 			panel2.TabIndex = 36;
 			// 
 			// cbShowPassword
@@ -233,9 +233,9 @@
 			panel3.Controls.Add(pictureBox3);
 			panel3.Controls.Add(label2);
 			panel3.Controls.Add(txtConfirmPassword);
-			panel3.Location = new System.Drawing.Point(70, 422);
+			panel3.Location = new System.Drawing.Point(70, 383);
 			panel3.Name = "panel3";
-			panel3.Size = new System.Drawing.Size(417, 96);
+			panel3.Size = new System.Drawing.Size(417, 83);
 			panel3.TabIndex = 37;
 			// 
 			// cbShowConfirmPassword
@@ -280,9 +280,9 @@
 			panel4.Controls.Add(pictureBox4);
 			panel4.Controls.Add(label3);
 			panel4.Controls.Add(txtEmail);
-			panel4.Location = new System.Drawing.Point(70, 218);
+			panel4.Location = new System.Drawing.Point(70, 205);
 			panel4.Name = "panel4";
-			panel4.Size = new System.Drawing.Size(417, 96);
+			panel4.Size = new System.Drawing.Size(417, 83);
 			panel4.TabIndex = 36;
 			// 
 			// pictureBox4
@@ -311,21 +311,21 @@
 			// label4
 			// 
 			label4.AutoSize = true;
-			label4.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			label4.Location = new System.Drawing.Point(103, 657);
+			label4.Font = new System.Drawing.Font("Cambria", 12F);
+			label4.Location = new System.Drawing.Point(113, 617);
 			label4.Name = "label4";
-			label4.Size = new System.Drawing.Size(262, 27);
+			label4.Size = new System.Drawing.Size(226, 23);
 			label4.TabIndex = 38;
 			label4.Text = "Already have an account?";
 			// 
 			// linkLabel_Login
 			// 
 			linkLabel_Login.AutoSize = true;
-			linkLabel_Login.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			linkLabel_Login.Font = new System.Drawing.Font("Cambria", 12F);
 			linkLabel_Login.LinkColor = System.Drawing.Color.Blue;
-			linkLabel_Login.Location = new System.Drawing.Point(371, 657);
+			linkLabel_Login.Location = new System.Drawing.Point(345, 617);
 			linkLabel_Login.Name = "linkLabel_Login";
-			linkLabel_Login.Size = new System.Drawing.Size(71, 27);
+			linkLabel_Login.Size = new System.Drawing.Size(63, 23);
 			linkLabel_Login.TabIndex = 39;
 			linkLabel_Login.TabStop = true;
 			linkLabel_Login.Text = "Log in";
@@ -337,7 +337,7 @@
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			BackColor = System.Drawing.Color.White;
-			ClientSize = new System.Drawing.Size(567, 700);
+			ClientSize = new System.Drawing.Size(555, 655);
 			ControlBox = false;
 			Controls.Add(linkLabel_Login);
 			Controls.Add(label4);

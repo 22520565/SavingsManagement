@@ -36,8 +36,8 @@ public partial class LoginForm : Form {
 	}
 
 	private void btnExit_MouseLeave(object sender, EventArgs e) {
-		btnExit.BackColor = Color.Black;
-		btnExit.ForeColor = Color.White;
+		btnExit.BackColor = SystemColors.Control;
+		btnExit.ForeColor = Color.Black;
 	}
 
 	private void cbCustomerShowPassword_CheckedChanged(object sender, EventArgs e) {
@@ -110,8 +110,6 @@ public partial class LoginForm : Form {
 	private void LoginForm_Load(object sender, EventArgs e) {
 		this.UserSuccessfullyAuthenticated = false;
 		CustomerAccounts.LogOut();
-		this.staffTabPage.BackColor = Color.FromArgb(225, 233, 254);
-		this.customerTabPage.BackColor = Color.FromArgb(238, 225, 255);
 		txtCustomerUsername.Text = Properties.Settings.Default.AcUsername;
 		txtCustomerPassword.Text = Properties.Settings.Default.AcPassword;
 		cbCustomerRememberInfo.Checked = !Properties.Settings.Default.AcUsername.IsNullOrEmpty();

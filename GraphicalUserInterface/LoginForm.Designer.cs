@@ -111,7 +111,7 @@
 			label6.AutoSize = true;
 			label6.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
 			label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-			label6.Location = new System.Drawing.Point(584, 39);
+			label6.Location = new System.Drawing.Point(569, 43);
 			label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label6.Name = "label6";
 			label6.Size = new System.Drawing.Size(345, 40);
@@ -121,20 +121,20 @@
 			// label7
 			// 
 			label7.AutoSize = true;
-			label7.Font = new System.Drawing.Font("Cambria", 12F);
-			label7.Location = new System.Drawing.Point(561, 501);
+			label7.Font = new System.Drawing.Font("Cambria", 10.8F);
+			label7.Location = new System.Drawing.Point(586, 501);
 			label7.Name = "label7";
-			label7.Size = new System.Drawing.Size(206, 23);
+			label7.Size = new System.Drawing.Size(188, 21);
 			label7.TabIndex = 45;
 			label7.Text = "Don't have an account?";
 			// 
 			// linkLabel_SignUp
 			// 
 			linkLabel_SignUp.AutoSize = true;
-			linkLabel_SignUp.Font = new System.Drawing.Font("Cambria", 12F);
-			linkLabel_SignUp.Location = new System.Drawing.Point(773, 501);
+			linkLabel_SignUp.Font = new System.Drawing.Font("Cambria", 10.8F);
+			linkLabel_SignUp.Location = new System.Drawing.Point(780, 501);
 			linkLabel_SignUp.Name = "linkLabel_SignUp";
-			linkLabel_SignUp.Size = new System.Drawing.Size(126, 23);
+			linkLabel_SignUp.Size = new System.Drawing.Size(114, 21);
 			linkLabel_SignUp.TabIndex = 44;
 			linkLabel_SignUp.TabStop = true;
 			linkLabel_SignUp.Text = "Register Now";
@@ -143,11 +143,11 @@
 			// btnExit
 			// 
 			btnExit.AutoSize = true;
-			btnExit.BackColor = System.Drawing.Color.Black;
+			btnExit.BackColor = System.Drawing.SystemColors.Control;
 			btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnExit.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			btnExit.ForeColor = System.Drawing.Color.White;
-			btnExit.Location = new System.Drawing.Point(754, 401);
+			btnExit.ForeColor = System.Drawing.Color.Black;
+			btnExit.Location = new System.Drawing.Point(764, 385);
 			btnExit.Margin = new System.Windows.Forms.Padding(2);
 			btnExit.Name = "btnExit";
 			btnExit.Padding = new System.Windows.Forms.Padding(5);
@@ -165,9 +165,9 @@
 			panel2.Controls.Add(label2);
 			panel2.Controls.Add(cbCustomerShowPassword);
 			panel2.Controls.Add(txtCustomerPassword);
-			panel2.Location = new System.Drawing.Point(529, 229);
+			panel2.Location = new System.Drawing.Point(561, 216);
 			panel2.Name = "panel2";
-			panel2.Size = new System.Drawing.Size(417, 96);
+			panel2.Size = new System.Drawing.Size(361, 83);
 			panel2.TabIndex = 35;
 			// 
 			// pictureBox3
@@ -199,7 +199,7 @@
 			cbCustomerShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			cbCustomerShowPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 			cbCustomerShowPassword.ForeColor = System.Drawing.Color.Transparent;
-			cbCustomerShowPassword.Location = new System.Drawing.Point(369, 49);
+			cbCustomerShowPassword.Location = new System.Drawing.Point(317, 43);
 			cbCustomerShowPassword.Margin = new System.Windows.Forms.Padding(2);
 			cbCustomerShowPassword.Name = "cbCustomerShowPassword";
 			cbCustomerShowPassword.Size = new System.Drawing.Size(24, 24);
@@ -211,10 +211,10 @@
 			// 
 			txtCustomerPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			txtCustomerPassword.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			txtCustomerPassword.Location = new System.Drawing.Point(13, 44);
+			txtCustomerPassword.Location = new System.Drawing.Point(13, 38);
 			txtCustomerPassword.Margin = new System.Windows.Forms.Padding(2);
 			txtCustomerPassword.Name = "txtCustomerPassword";
-			txtCustomerPassword.Size = new System.Drawing.Size(386, 34);
+			txtCustomerPassword.Size = new System.Drawing.Size(335, 34);
 			txtCustomerPassword.TabIndex = 2;
 			txtCustomerPassword.UseSystemPasswordChar = true;
 			// 
@@ -223,19 +223,19 @@
 			panel1.Controls.Add(txtCustomerUsername);
 			panel1.Controls.Add(pictureBox2);
 			panel1.Controls.Add(label1);
-			panel1.Location = new System.Drawing.Point(529, 127);
+			panel1.Location = new System.Drawing.Point(561, 127);
 			panel1.Name = "panel1";
-			panel1.Size = new System.Drawing.Size(417, 96);
+			panel1.Size = new System.Drawing.Size(361, 83);
 			panel1.TabIndex = 34;
 			// 
 			// txtCustomerUsername
 			// 
 			txtCustomerUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			txtCustomerUsername.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			txtCustomerUsername.Location = new System.Drawing.Point(13, 43);
+			txtCustomerUsername.Location = new System.Drawing.Point(13, 38);
 			txtCustomerUsername.Margin = new System.Windows.Forms.Padding(2);
 			txtCustomerUsername.Name = "txtCustomerUsername";
-			txtCustomerUsername.Size = new System.Drawing.Size(386, 34);
+			txtCustomerUsername.Size = new System.Drawing.Size(335, 34);
 			txtCustomerUsername.TabIndex = 1;
 			// 
 			// pictureBox2
@@ -265,7 +265,7 @@
 			// 
 			cbCustomerRememberInfo.AutoSize = true;
 			cbCustomerRememberInfo.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			cbCustomerRememberInfo.Location = new System.Drawing.Point(542, 330);
+			cbCustomerRememberInfo.Location = new System.Drawing.Point(574, 304);
 			cbCustomerRememberInfo.Margin = new System.Windows.Forms.Padding(2);
 			cbCustomerRememberInfo.Name = "cbCustomerRememberInfo";
 			cbCustomerRememberInfo.Size = new System.Drawing.Size(158, 27);
@@ -281,7 +281,7 @@
 			btnCustomerLogin.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnCustomerLogin.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 			btnCustomerLogin.ForeColor = System.Drawing.Color.White;
-			btnCustomerLogin.Location = new System.Drawing.Point(586, 401);
+			btnCustomerLogin.Location = new System.Drawing.Point(602, 385);
 			btnCustomerLogin.Margin = new System.Windows.Forms.Padding(2);
 			btnCustomerLogin.Name = "btnCustomerLogin";
 			btnCustomerLogin.Padding = new System.Windows.Forms.Padding(5);
