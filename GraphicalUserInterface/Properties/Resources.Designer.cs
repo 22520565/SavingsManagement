@@ -70,6 +70,36 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg1 {
+            get {
+                object obj = ResourceManager.GetObject("bg1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg2 {
+            get {
+                object obj = ResourceManager.GetObject("bg2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close {
+            get {
+                object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are about to close your saving before its maturity day. You will benefit only non-term savings interest. Are you sure you want to proceed this?.
         /// </summary>
         internal static string ClosingSavingBeforeMaturityDayWarningString {
@@ -107,6 +137,34 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap email {
+            get {
+                object obj = ResourceManager.GetObject("email", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to $ #,##0.00##;-$ #,##0.00##.
+        /// </summary>
+        internal static string CurrencyStringFormat {
+            get {
+                return ResourceManager.GetString("CurrencyStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hh:mm:ss tt dd/MM/yyyy.
+        /// </summary>
+        internal static string DateTimeStringFormat {
+            get {
+                return ResourceManager.GetString("DateTimeStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string ErrorTitleString {
@@ -131,6 +189,24 @@ namespace GraphicalUserInterface.Properties {
             get {
                 object obj = ResourceManager.GetObject("expenses", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to export file!.
+        /// </summary>
+        internal static string ExportingFileFailedString {
+            get {
+                return ResourceManager.GetString("ExportingFileFailedString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export file successfully!.
+        /// </summary>
+        internal static string ExportingFileSuccessfullyString {
+            get {
+                return ResourceManager.GetString("ExportingFileSuccessfullyString", resourceCulture);
             }
         }
         
@@ -193,6 +269,15 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No customer is currently logged in!.
+        /// </summary>
+        internal static string NoCustomerLoggingInString {
+            get {
+                return ResourceManager.GetString("NoCustomerLoggingInString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Notification.
         /// </summary>
         internal static string NotificationTitleString {
@@ -219,6 +304,16 @@ namespace GraphicalUserInterface.Properties {
         internal static string OpeningSavingSuccessfullyString {
             get {
                 return ResourceManager.GetString("OpeningSavingSuccessfullyString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap padlock {
+            get {
+                object obj = ResourceManager.GetObject("padlock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -253,6 +348,25 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap saving {
+            get {
+                object obj = ResourceManager.GetObject("saving", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Excel Files (*.xlsx)|*.xlsx;*.xls.
+        /// </summary>
+        internal static string SavingExcelFileFilter {
+            get {
+                return ResourceManager.GetString("SavingExcelFileFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap savings1 {
             get {
                 object obj = ResourceManager.GetObject("savings1", resourceCulture);
@@ -266,6 +380,16 @@ namespace GraphicalUserInterface.Properties {
         internal static System.Drawing.Bitmap savingsImage {
             get {
                 object obj = ResourceManager.GetObject("savingsImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap show {
+            get {
+                object obj = ResourceManager.GetObject("show", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -300,6 +424,16 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user1 {
+            get {
+                object obj = ResourceManager.GetObject("user1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username cannot be blank!.
         /// </summary>
         internal static string UsernameBlankWarningString {
@@ -323,6 +457,16 @@ namespace GraphicalUserInterface.Properties {
         internal static System.Drawing.Bitmap Users {
             get {
                 object obj = ResourceManager.GetObject("Users", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap warning {
+            get {
+                object obj = ResourceManager.GetObject("warning", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -20,215 +20,377 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            label1 = new System.Windows.Forms.Label();
-            txtUsername = new System.Windows.Forms.TextBox();
-            label2 = new System.Windows.Forms.Label();
-            txtPassword = new System.Windows.Forms.TextBox();
-            label3 = new System.Windows.Forms.Label();
-            txtConfirmPassword = new System.Windows.Forms.TextBox();
-            label4 = new System.Windows.Forms.Label();
-            txtEmail = new System.Windows.Forms.TextBox();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            btnSignUp = new System.Windows.Forms.Button();
-            btnExit = new System.Windows.Forms.Button();
-            cbShowPassword = new System.Windows.Forms.CheckBox();
-            pictureBox4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Segoe UI", 14F);
-            label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            label1.Location = new System.Drawing.Point(52, 342);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(148, 38);
-            label1.TabIndex = 4;
-            label1.Text = "Username:";
-            // 
-            // txtUsername
-            // 
-            txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtUsername.Font = new System.Drawing.Font("Segoe UI", 14F);
-            txtUsername.Location = new System.Drawing.Point(327, 340);
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new System.Drawing.Size(483, 45);
-            txtUsername.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Segoe UI", 14F);
-            label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            label2.Location = new System.Drawing.Point(52, 442);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(138, 38);
-            label2.TabIndex = 6;
-            label2.Text = "Password:";
-            // 
-            // txtPassword
-            // 
-            txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
-            txtPassword.Location = new System.Drawing.Point(327, 440);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new System.Drawing.Size(483, 45);
-            txtPassword.TabIndex = 5;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Segoe UI", 14F);
-            label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            label3.Location = new System.Drawing.Point(52, 542);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(246, 38);
-            label3.TabIndex = 8;
-            label3.Text = "Confirm password:";
-            // 
-            // txtConfirmPassword
-            // 
-            txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtConfirmPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
-            txtConfirmPassword.Location = new System.Drawing.Point(327, 540);
-            txtConfirmPassword.Name = "txtConfirmPassword";
-            txtConfirmPassword.Size = new System.Drawing.Size(483, 45);
-            txtConfirmPassword.TabIndex = 7;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Segoe UI", 14F);
-            label4.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            label4.Location = new System.Drawing.Point(52, 642);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(89, 38);
-            label4.TabIndex = 10;
-            label4.Text = "Email:";
-            // 
-            // txtEmail
-            // 
-            txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            txtEmail.Font = new System.Drawing.Font("Segoe UI", 14F);
-            txtEmail.Location = new System.Drawing.Point(327, 640);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new System.Drawing.Size(483, 45);
-            txtEmail.TabIndex = 9;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.FrustratedHeadGifImage;
-            pictureBox1.Location = new System.Drawing.Point(276, 20);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(348, 300);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 11;
-            pictureBox1.TabStop = false;
-            // 
-            // btnSignUp
-            // 
-            btnSignUp.AutoSize = true;
-            btnSignUp.BackColor = System.Drawing.SystemColors.Control;
-            btnSignUp.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            btnSignUp.Location = new System.Drawing.Point(385, 765);
-            btnSignUp.Name = "btnSignUp";
-            btnSignUp.Size = new System.Drawing.Size(130, 48);
-            btnSignUp.TabIndex = 12;
-            btnSignUp.Text = "Sign Up";
-            btnSignUp.UseVisualStyleBackColor = false;
-            btnSignUp.Click += btnSignUp_Click;
-            btnSignUp.MouseEnter += btnSignUp_MouseEnter;
-            btnSignUp.MouseLeave += btnSignUp_MouseLeave;
-            // 
-            // btnExit
-            // 
-            btnExit.BackColor = System.Drawing.SystemColors.Control;
-            btnExit.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            btnExit.Location = new System.Drawing.Point(816, 12);
-            btnExit.Name = "btnExit";
-            btnExit.Size = new System.Drawing.Size(50, 50);
-            btnExit.TabIndex = 13;
-            btnExit.Text = "X";
-            btnExit.UseVisualStyleBackColor = false;
-            btnExit.Click += btnExit_Click;
-            btnExit.MouseEnter += btnExit_MouseEnter;
-            btnExit.MouseLeave += btnExit_MouseLeave;
-            // 
-            // cbShowPassword
-            // 
-            cbShowPassword.AutoSize = true;
-            cbShowPassword.Location = new System.Drawing.Point(327, 714);
-            cbShowPassword.Name = "cbShowPassword";
-            cbShowPassword.Size = new System.Drawing.Size(164, 29);
-            cbShowPassword.TabIndex = 14;
-            cbShowPassword.Text = "Show password";
-            cbShowPassword.UseVisualStyleBackColor = true;
-            cbShowPassword.CheckedChanged += cbShowPassword_CheckedChanged;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = Properties.Resources.SignupImage;
-            pictureBox4.Location = new System.Drawing.Point(0, 0);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(100, 100);
-            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 15;
-            pictureBox4.TabStop = false;
-            // 
-            // Form_SignUp
-            // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            BackColor = System.Drawing.Color.White;
-            ClientSize = new System.Drawing.Size(878, 844);
-            ControlBox = false;
-            Controls.Add(pictureBox4);
-            Controls.Add(cbShowPassword);
-            Controls.Add(btnExit);
-            Controls.Add(btnSignUp);
-            Controls.Add(pictureBox1);
-            Controls.Add(label4);
-            Controls.Add(txtEmail);
-            Controls.Add(label3);
-            Controls.Add(txtConfirmPassword);
-            Controls.Add(label2);
-            Controls.Add(txtPassword);
-            Controls.Add(label1);
-            Controls.Add(txtUsername);
-            Name = "Form_SignUp";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Form_SignUp";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
-        }
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent() {
+			txtUsername = new System.Windows.Forms.TextBox();
+			txtPassword = new System.Windows.Forms.TextBox();
+			txtConfirmPassword = new System.Windows.Forms.TextBox();
+			txtEmail = new System.Windows.Forms.TextBox();
+			btnSignUp = new System.Windows.Forms.Button();
+			btnExit = new System.Windows.Forms.PictureBox();
+			label5 = new System.Windows.Forms.Label();
+			panel1 = new System.Windows.Forms.Panel();
+			pictureBox2 = new System.Windows.Forms.PictureBox();
+			label6 = new System.Windows.Forms.Label();
+			panel2 = new System.Windows.Forms.Panel();
+			cbShowPassword = new System.Windows.Forms.CheckBox();
+			pictureBox1 = new System.Windows.Forms.PictureBox();
+			label1 = new System.Windows.Forms.Label();
+			panel3 = new System.Windows.Forms.Panel();
+			cbShowConfirmPassword = new System.Windows.Forms.CheckBox();
+			pictureBox3 = new System.Windows.Forms.PictureBox();
+			label2 = new System.Windows.Forms.Label();
+			panel4 = new System.Windows.Forms.Panel();
+			pictureBox4 = new System.Windows.Forms.PictureBox();
+			label3 = new System.Windows.Forms.Label();
+			label4 = new System.Windows.Forms.Label();
+			linkLabel_Login = new System.Windows.Forms.LinkLabel();
+			((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
+			panel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+			panel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+			panel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+			panel4.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+			SuspendLayout();
+			// 
+			// txtUsername
+			// 
+			txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			txtUsername.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			txtUsername.Location = new System.Drawing.Point(13, 36);
+			txtUsername.Margin = new System.Windows.Forms.Padding(2);
+			txtUsername.Name = "txtUsername";
+			txtUsername.Size = new System.Drawing.Size(387, 34);
+			txtUsername.TabIndex = 3;
+			// 
+			// txtPassword
+			// 
+			txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			txtPassword.Font = new System.Drawing.Font("Cambria", 13.8F);
+			txtPassword.Location = new System.Drawing.Point(13, 37);
+			txtPassword.Margin = new System.Windows.Forms.Padding(2);
+			txtPassword.Name = "txtPassword";
+			txtPassword.Size = new System.Drawing.Size(387, 34);
+			txtPassword.TabIndex = 5;
+			txtPassword.UseSystemPasswordChar = true;
+			// 
+			// txtConfirmPassword
+			// 
+			txtConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			txtConfirmPassword.Font = new System.Drawing.Font("Cambria", 13.8F);
+			txtConfirmPassword.Location = new System.Drawing.Point(13, 37);
+			txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
+			txtConfirmPassword.Name = "txtConfirmPassword";
+			txtConfirmPassword.Size = new System.Drawing.Size(387, 34);
+			txtConfirmPassword.TabIndex = 7;
+			txtConfirmPassword.UseSystemPasswordChar = true;
+			// 
+			// txtEmail
+			// 
+			txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			txtEmail.Font = new System.Drawing.Font("Cambria", 13.8F);
+			txtEmail.Location = new System.Drawing.Point(13, 36);
+			txtEmail.Margin = new System.Windows.Forms.Padding(2);
+			txtEmail.Name = "txtEmail";
+			txtEmail.Size = new System.Drawing.Size(387, 34);
+			txtEmail.TabIndex = 9;
+			// 
+			// btnSignUp
+			// 
+			btnSignUp.AutoSize = true;
+			btnSignUp.BackColor = System.Drawing.Color.Black;
+			btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
+			btnSignUp.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			btnSignUp.ForeColor = System.Drawing.Color.White;
+			btnSignUp.Location = new System.Drawing.Point(141, 503);
+			btnSignUp.Margin = new System.Windows.Forms.Padding(2);
+			btnSignUp.Name = "btnSignUp";
+			btnSignUp.Size = new System.Drawing.Size(246, 53);
+			btnSignUp.TabIndex = 12;
+			btnSignUp.Text = "Create Account";
+			btnSignUp.UseVisualStyleBackColor = false;
+			btnSignUp.Click += btnSignUp_Click;
+			btnSignUp.MouseEnter += btnSignUp_MouseEnter;
+			btnSignUp.MouseLeave += btnSignUp_MouseLeave;
+			// 
+			// btnExit
+			// 
+			btnExit.BackColor = System.Drawing.Color.Transparent;
+			btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+			btnExit.Image = Properties.Resources.close;
+			btnExit.Location = new System.Drawing.Point(504, 20);
+			btnExit.Name = "btnExit";
+			btnExit.Size = new System.Drawing.Size(24, 24);
+			btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			btnExit.TabIndex = 0;
+			btnExit.TabStop = false;
+			btnExit.Click += btnExit_Click;
+			btnExit.MouseEnter += btnExit_MouseEnter;
+			btnExit.MouseLeave += btnExit_MouseLeave;
+			// 
+			// label5
+			// 
+			label5.AutoSize = true;
+			label5.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+			label5.Location = new System.Drawing.Point(208, 12);
+			label5.Name = "label5";
+			label5.Size = new System.Drawing.Size(134, 40);
+			label5.TabIndex = 15;
+			label5.Text = "Sign Up";
+			// 
+			// panel1
+			// 
+			panel1.Controls.Add(pictureBox2);
+			panel1.Controls.Add(label6);
+			panel1.Controls.Add(txtUsername);
+			panel1.Location = new System.Drawing.Point(70, 116);
+			panel1.Name = "panel1";
+			panel1.Size = new System.Drawing.Size(417, 83);
+			panel1.TabIndex = 35;
+			// 
+			// pictureBox2
+			// 
+			pictureBox2.Image = Properties.Resources.user1;
+			pictureBox2.Location = new System.Drawing.Point(13, 11);
+			pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+			pictureBox2.Name = "pictureBox2";
+			pictureBox2.Size = new System.Drawing.Size(16, 16);
+			pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			pictureBox2.TabIndex = 29;
+			pictureBox2.TabStop = false;
+			// 
+			// label6
+			// 
+			label6.AutoSize = true;
+			label6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label6.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+			label6.Location = new System.Drawing.Point(42, 8);
+			label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			label6.Name = "label6";
+			label6.Size = new System.Drawing.Size(98, 23);
+			label6.TabIndex = 26;
+			label6.Text = "Username";
+			// 
+			// panel2
+			// 
+			panel2.Controls.Add(cbShowPassword);
+			panel2.Controls.Add(pictureBox1);
+			panel2.Controls.Add(label1);
+			panel2.Controls.Add(txtPassword);
+			panel2.Location = new System.Drawing.Point(70, 294);
+			panel2.Name = "panel2";
+			panel2.Size = new System.Drawing.Size(417, 83);
+			panel2.TabIndex = 36;
+			// 
+			// cbShowPassword
+			// 
+			cbShowPassword.BackgroundImage = Properties.Resources.show;
+			cbShowPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			cbShowPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			cbShowPassword.ForeColor = System.Drawing.Color.Transparent;
+			cbShowPassword.Location = new System.Drawing.Point(370, 53);
+			cbShowPassword.Margin = new System.Windows.Forms.Padding(2);
+			cbShowPassword.Name = "cbShowPassword";
+			cbShowPassword.Size = new System.Drawing.Size(24, 24);
+			cbShowPassword.TabIndex = 38;
+			cbShowPassword.UseVisualStyleBackColor = true;
+			cbShowPassword.CheckedChanged += cbShowPassword_CheckedChanged;
+			// 
+			// pictureBox1
+			// 
+			pictureBox1.Image = Properties.Resources.padlock;
+			pictureBox1.Location = new System.Drawing.Point(13, 11);
+			pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new System.Drawing.Size(16, 16);
+			pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			pictureBox1.TabIndex = 29;
+			pictureBox1.TabStop = false;
+			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+			label1.Location = new System.Drawing.Point(42, 8);
+			label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			label1.Name = "label1";
+			label1.Size = new System.Drawing.Size(94, 23);
+			label1.TabIndex = 26;
+			label1.Text = "Password";
+			// 
+			// panel3
+			// 
+			panel3.Controls.Add(cbShowConfirmPassword);
+			panel3.Controls.Add(pictureBox3);
+			panel3.Controls.Add(label2);
+			panel3.Controls.Add(txtConfirmPassword);
+			panel3.Location = new System.Drawing.Point(70, 383);
+			panel3.Name = "panel3";
+			panel3.Size = new System.Drawing.Size(417, 83);
+			panel3.TabIndex = 37;
+			// 
+			// cbShowConfirmPassword
+			// 
+			cbShowConfirmPassword.BackgroundImage = Properties.Resources.show;
+			cbShowConfirmPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			cbShowConfirmPassword.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			cbShowConfirmPassword.ForeColor = System.Drawing.Color.Transparent;
+			cbShowConfirmPassword.Location = new System.Drawing.Point(370, 54);
+			cbShowConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
+			cbShowConfirmPassword.Name = "cbShowConfirmPassword";
+			cbShowConfirmPassword.Size = new System.Drawing.Size(24, 24);
+			cbShowConfirmPassword.TabIndex = 39;
+			cbShowConfirmPassword.UseVisualStyleBackColor = true;
+			cbShowConfirmPassword.CheckedChanged += cbShowConfirmPassword_CheckedChanged;
+			// 
+			// pictureBox3
+			// 
+			pictureBox3.Image = Properties.Resources.padlock;
+			pictureBox3.Location = new System.Drawing.Point(13, 11);
+			pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+			pictureBox3.Name = "pictureBox3";
+			pictureBox3.Size = new System.Drawing.Size(16, 16);
+			pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			pictureBox3.TabIndex = 29;
+			pictureBox3.TabStop = false;
+			// 
+			// label2
+			// 
+			label2.AutoSize = true;
+			label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+			label2.Location = new System.Drawing.Point(42, 8);
+			label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			label2.Name = "label2";
+			label2.Size = new System.Drawing.Size(168, 23);
+			label2.TabIndex = 26;
+			label2.Text = "Confirm password";
+			// 
+			// panel4
+			// 
+			panel4.Controls.Add(pictureBox4);
+			panel4.Controls.Add(label3);
+			panel4.Controls.Add(txtEmail);
+			panel4.Location = new System.Drawing.Point(70, 205);
+			panel4.Name = "panel4";
+			panel4.Size = new System.Drawing.Size(417, 83);
+			panel4.TabIndex = 36;
+			// 
+			// pictureBox4
+			// 
+			pictureBox4.Image = Properties.Resources.email;
+			pictureBox4.Location = new System.Drawing.Point(13, 11);
+			pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+			pictureBox4.Name = "pictureBox4";
+			pictureBox4.Size = new System.Drawing.Size(16, 16);
+			pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			pictureBox4.TabIndex = 29;
+			pictureBox4.TabStop = false;
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+			label3.Location = new System.Drawing.Point(42, 8);
+			label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			label3.Name = "label3";
+			label3.Size = new System.Drawing.Size(60, 23);
+			label3.TabIndex = 26;
+			label3.Text = "Email";
+			// 
+			// label4
+			// 
+			label4.AutoSize = true;
+			label4.Font = new System.Drawing.Font("Cambria", 12F);
+			label4.Location = new System.Drawing.Point(113, 617);
+			label4.Name = "label4";
+			label4.Size = new System.Drawing.Size(226, 23);
+			label4.TabIndex = 38;
+			label4.Text = "Already have an account?";
+			// 
+			// linkLabel_Login
+			// 
+			linkLabel_Login.AutoSize = true;
+			linkLabel_Login.Font = new System.Drawing.Font("Cambria", 12F);
+			linkLabel_Login.LinkColor = System.Drawing.Color.Blue;
+			linkLabel_Login.Location = new System.Drawing.Point(345, 617);
+			linkLabel_Login.Name = "linkLabel_Login";
+			linkLabel_Login.Size = new System.Drawing.Size(63, 23);
+			linkLabel_Login.TabIndex = 39;
+			linkLabel_Login.TabStop = true;
+			linkLabel_Login.Text = "Log in";
+			linkLabel_Login.LinkClicked += linkLabel_Login_LinkClicked;
+			// 
+			// CustomerSignUpForm
+			// 
+			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			BackColor = System.Drawing.Color.White;
+			ClientSize = new System.Drawing.Size(555, 655);
+			ControlBox = false;
+			Controls.Add(linkLabel_Login);
+			Controls.Add(label4);
+			Controls.Add(panel4);
+			Controls.Add(panel3);
+			Controls.Add(panel2);
+			Controls.Add(panel1);
+			Controls.Add(label5);
+			Controls.Add(btnExit);
+			Controls.Add(btnSignUp);
+			Margin = new System.Windows.Forms.Padding(2);
+			Name = "CustomerSignUpForm";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
+			panel1.ResumeLayout(false);
+			panel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+			panel2.ResumeLayout(false);
+			panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+			panel3.ResumeLayout(false);
+			panel3.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+			panel4.ResumeLayout(false);
+			panel4.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+			ResumeLayout(false);
+			PerformLayout();
+		}
 
-        #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label label2;
+		#endregion
+		private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtConfirmPassword;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSignUp;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.CheckBox cbShowPassword;
-        private System.Windows.Forms.PictureBox pictureBox4;
-    }
+		private System.Windows.Forms.PictureBox btnExit;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.PictureBox pictureBox3;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Panel panel4;
+		private System.Windows.Forms.PictureBox pictureBox4;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.CheckBox cbShowPassword;
+		private System.Windows.Forms.CheckBox cbShowConfirmPassword;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.LinkLabel linkLabel_Login;
+	}
 }
