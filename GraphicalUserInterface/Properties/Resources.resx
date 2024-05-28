@@ -229,4 +229,22 @@
   <data name="show" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CurrencyStringFormat" xml:space="preserve">
+    <value>$ #,##0.00##;-$ #,##0.00##</value>
+  </data>
+  <data name="DateTimeStringFormat" xml:space="preserve">
+    <value>hh:mm:ss tt dd/MM/yyyy</value>
+  </data>
+  <data name="ExportingFileFailedString" xml:space="preserve">
+    <value>Failed to export file!</value>
+  </data>
+  <data name="ExportingFileSuccessfullyString" xml:space="preserve">
+    <value>Export file successfully!</value>
+  </data>
+  <data name="NoCustomerLoggingInString" xml:space="preserve">
+    <value>No customer is currently logged in!</value>
+  </data>
+  <data name="SavingExcelFileFilter" xml:space="preserve">
+    <value>Excel Files (*.xlsx)|*.xlsx;*.xls</value>
+  </data>
 </root>

@@ -127,6 +127,24 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to $ #,##0.00##;-$ #,##0.00##.
+        /// </summary>
+        internal static string CurrencyStringFormat {
+            get {
+                return ResourceManager.GetString("CurrencyStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hh:mm:ss tt dd/MM/yyyy.
+        /// </summary>
+        internal static string DateTimeStringFormat {
+            get {
+                return ResourceManager.GetString("DateTimeStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         internal static string ErrorTitleString {
@@ -151,6 +169,24 @@ namespace GraphicalUserInterface.Properties {
             get {
                 object obj = ResourceManager.GetObject("expenses", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to export file!.
+        /// </summary>
+        internal static string ExportingFileFailedString {
+            get {
+                return ResourceManager.GetString("ExportingFileFailedString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export file successfully!.
+        /// </summary>
+        internal static string ExportingFileSuccessfullyString {
+            get {
+                return ResourceManager.GetString("ExportingFileSuccessfullyString", resourceCulture);
             }
         }
         
@@ -209,6 +245,15 @@ namespace GraphicalUserInterface.Properties {
         internal static string LogOutConfirmationString {
             get {
                 return ResourceManager.GetString("LogOutConfirmationString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No customer is currently logged in!.
+        /// </summary>
+        internal static string NoCustomerLoggingInString {
+            get {
+                return ResourceManager.GetString("NoCustomerLoggingInString", resourceCulture);
             }
         }
         
@@ -287,6 +332,15 @@ namespace GraphicalUserInterface.Properties {
             get {
                 object obj = ResourceManager.GetObject("saving", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Excel Files (*.xlsx)|*.xlsx;*.xls.
+        /// </summary>
+        internal static string SavingExcelFileFilter {
+            get {
+                return ResourceManager.GetString("SavingExcelFileFilter", resourceCulture);
             }
         }
         
