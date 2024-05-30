@@ -29,7 +29,8 @@ public sealed partial class SavingsManagementContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=QUARK\\QUARK;Initial Catalog=SavingsManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True;Command Timeout=300");
+        => optionsBuilder.UseSqlServer("Data Source=LAPTOP-AE3MABFM\\SQLEXPRESS01;Initial Catalog=SavingsManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True;Command Timeout=300");
+    // => OPTIONSBUILDER.USESQLSERVER("DATA SOURCE=QUARK\\QUARK;INITIAL CATALOG=SAVINGSMANAGEMENT;INTEGRATED SECURITY=TRUE;ENCRYPT=TRUE;TRUST SERVER CERTIFICATE=TRUE;COMMAND TIMEOUT=300");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
