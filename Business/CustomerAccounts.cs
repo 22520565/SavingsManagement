@@ -27,9 +27,7 @@ public static class CustomerAccounts
         get
         {
             using var context = new SavingsManagementContext();
-            return CurrentCustomerId is not null
-                ? context.CustomerAccounts.Single(customerAccount => customerAccount.Id == CurrentCustomerId).Balance
-                : null;
+            return context.CustomerAccounts.Find(CurrentCustomerId)?.Balance;
         }
     }
 
@@ -74,7 +72,7 @@ public static class CustomerAccounts
     {
         ArgumentNullException.ThrowIfNull(loginInfo);
 
-        LoginResult loginResult = LoginResult.PasswordError;
+        LoginResult loginResult = LoginResult.UsernameError;
 
         using var context = new SavingsManagementContext();
         var listAccounts = context.CustomerAccounts.Where(customerAccount => customerAccount.Username == loginInfo.Username).AsEnumerable();
@@ -135,5 +133,6 @@ public static class CustomerAccounts
             Username = signUpInfo.Username,
             HashedPassword = PasswordHasher.HashPassword(null!, signUpInfo.Password),
         });
+        context.SaveChanges();
     }
 }

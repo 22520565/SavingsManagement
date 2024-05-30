@@ -12,7 +12,7 @@ using System.IO;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-public partial class MainMenuForm : Form {
+public partial class CustomerMenuForm : Form {
 	public bool GoingBackToLoginForm { get; private set; } = false;
 	DataTable dt;
 	private const string InterestTextFormat = "{0:#,0.00#%}/year";
@@ -20,7 +20,7 @@ public partial class MainMenuForm : Form {
 	private SavingOpeningInfo? savingDepositInfo = new SavingOpeningInfo();
 	private SavingWithdrawInfo? savingWithdrawInfo = new SavingWithdrawInfo();
 
-	public MainMenuForm() {
+	public CustomerMenuForm() {
 		InitializeComponent();
 		InitializeStatistical();
 		InitializeSavings();
