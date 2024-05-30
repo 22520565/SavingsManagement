@@ -1,4 +1,6 @@
-﻿namespace GraphicalUserInterface
+﻿using System.Windows.Forms;
+
+namespace GraphicalUserInterface
 {
     partial class CustomerMenuForm
     {
@@ -28,64 +30,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            tabControl1 = new System.Windows.Forms.TabControl();
-            tabPage1 = new System.Windows.Forms.TabPage();
-            tabPage2 = new System.Windows.Forms.TabPage();
-            savingTabControl = new System.Windows.Forms.TabControl();
-            detailsTabPage = new System.Windows.Forms.TabPage();
-            maturityDayDetailsTextBox = new System.Windows.Forms.TextBox();
-            label5 = new System.Windows.Forms.Label();
-            closeSavingDetailsButton = new System.Windows.Forms.Button();
-            openDayDetailsTextBox = new System.Windows.Forms.TextBox();
-            openDayDetailsLabel = new System.Windows.Forms.Label();
-            interestDetailsTextBox = new System.Windows.Forms.TextBox();
-            interestDetailsLabel = new System.Windows.Forms.Label();
-            periodDetailsTextBox = new System.Windows.Forms.TextBox();
-            periodDetailsLabel = new System.Windows.Forms.Label();
-            balanceDetailsTextBox = new System.Windows.Forms.TextBox();
-            balanceDetailsLabel = new System.Windows.Forms.Label();
-            savingDetailsComboBox = new System.Windows.Forms.ComboBox();
-            savingsDetailsLabel = new System.Windows.Forms.Label();
-            depositTabPage = new System.Windows.Forms.TabPage();
-            maturityDayOpeningTextBox = new System.Windows.Forms.TextBox();
-            maturityDayOpeningLabel = new System.Windows.Forms.Label();
-            interestOpeningTextBox = new System.Windows.Forms.TextBox();
-            interestOpeningLabel = new System.Windows.Forms.Label();
-            openingSavingOpeningButton = new System.Windows.Forms.Button();
-            balanceOpeningTextBox = new System.Windows.Forms.TextBox();
-            amountOpeningNumeric = new System.Windows.Forms.NumericUpDown();
-            amountOpeningLabel = new System.Windows.Forms.Label();
-            periodOpeningLabel = new System.Windows.Forms.Label();
-            periodOpeningComboBox = new System.Windows.Forms.ComboBox();
-            balanceOpeningLabel = new System.Windows.Forms.Label();
-            withdrawTabPage = new System.Windows.Forms.TabPage();
-            maturityDayClosingTextBox = new System.Windows.Forms.TextBox();
-            maturityDayClosingLabel = new System.Windows.Forms.Label();
-            closingSavingClosingButton = new System.Windows.Forms.Button();
-            amountToGetClosingTextBox = new System.Windows.Forms.TextBox();
-            amountToGetClosingLabel = new System.Windows.Forms.Label();
-            balanceClosingTextBox = new System.Windows.Forms.TextBox();
-            balanceClosingLabel = new System.Windows.Forms.Label();
-            savingClosingComboBox = new System.Windows.Forms.ComboBox();
-            savingClosingLabel = new System.Windows.Forms.Label();
-            tabStatistical = new System.Windows.Forms.TabPage();
-            groupBoxFunction = new System.Windows.Forms.GroupBox();
-            btnExport = new System.Windows.Forms.Button();
-            groupBoxTransactionList = new System.Windows.Forms.GroupBox();
-            data_Transactions = new System.Windows.Forms.DataGridView();
-            groupBoxStats = new System.Windows.Forms.GroupBox();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            tabControl2 = new TabControl();
+            tabPage3 = new TabPage();
+            btnchange = new Button();
+            txtbalance = new TextBox();
+            txtAddress = new TextBox();
+            txtEmail = new TextBox();
+            label11 = new Label();
+            label10 = new Label();
+            txtBirth = new TextBox();
+            label1 = new Label();
+            txtPhone = new TextBox();
+            label3 = new Label();
+            txtCicnum = new TextBox();
+            label4 = new Label();
+            txtsex = new TextBox();
+            label6 = new Label();
+            txtname = new TextBox();
+            label7 = new Label();
+            label9 = new Label();
+            tabPage2 = new TabPage();
+            savingTabControl = new TabControl();
+            detailsTabPage = new TabPage();
+            maturityDayDetailsTextBox = new TextBox();
+            label5 = new Label();
+            closeSavingDetailsButton = new Button();
+            openDayDetailsTextBox = new TextBox();
+            openDayDetailsLabel = new Label();
+            interestDetailsTextBox = new TextBox();
+            interestDetailsLabel = new Label();
+            periodDetailsTextBox = new TextBox();
+            periodDetailsLabel = new Label();
+            balanceDetailsTextBox = new TextBox();
+            balanceDetailsLabel = new Label();
+            savingDetailsComboBox = new ComboBox();
+            savingsDetailsLabel = new Label();
+            depositTabPage = new TabPage();
+            maturityDayOpeningTextBox = new TextBox();
+            maturityDayOpeningLabel = new Label();
+            interestOpeningTextBox = new TextBox();
+            interestOpeningLabel = new Label();
+            openingSavingOpeningButton = new Button();
+            balanceOpeningTextBox = new TextBox();
+            amountOpeningNumeric = new NumericUpDown();
+            amountOpeningLabel = new Label();
+            periodOpeningLabel = new Label();
+            periodOpeningComboBox = new ComboBox();
+            balanceOpeningLabel = new Label();
+            withdrawTabPage = new TabPage();
+            maturityDayClosingTextBox = new TextBox();
+            maturityDayClosingLabel = new Label();
+            closingSavingClosingButton = new Button();
+            amountToGetClosingTextBox = new TextBox();
+            amountToGetClosingLabel = new Label();
+            balanceClosingTextBox = new TextBox();
+            balanceClosingLabel = new Label();
+            savingClosingComboBox = new ComboBox();
+            savingClosingLabel = new Label();
+            tabStatistical = new TabPage();
+            groupBoxFunction = new GroupBox();
+            btnExport = new Button();
+            groupBoxTransactionList = new GroupBox();
+            data_Transactions = new DataGridView();
+            groupBoxStats = new GroupBox();
             panelSavings = new GradientPanel();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            lbSavings = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
+            pictureBox1 = new PictureBox();
+            lbSavings = new Label();
+            label2 = new Label();
             panelExpenses = new GradientPanel();
-            pictureBox2 = new System.Windows.Forms.PictureBox();
-            lbExpenses = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
+            pictureBox2 = new PictureBox();
+            lbExpenses = new Label();
+            label8 = new Label();
             tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tabControl2.SuspendLayout();
+            tabPage3.SuspendLayout();
             tabPage2.SuspendLayout();
             savingTabControl.SuspendLayout();
             detailsTabPage.SuspendLayout();
@@ -105,7 +129,7 @@
             // 
             // tabControl1
             // 
-            tabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons;
+            tabControl1.Appearance = TabAppearance.Buttons;
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabStatistical);
@@ -119,20 +143,206 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(tabControl2);
             tabPage1.Location = new System.Drawing.Point(4, 35);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            tabPage1.Padding = new Padding(3);
             tabPage1.Size = new System.Drawing.Size(1141, 722);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Information";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabControl2
+            // 
+            tabControl2.Controls.Add(tabPage3);
+            tabControl2.Dock = DockStyle.Fill;
+            tabControl2.Location = new System.Drawing.Point(3, 3);
+            tabControl2.Name = "tabControl2";
+            tabControl2.SelectedIndex = 0;
+            tabControl2.Size = new System.Drawing.Size(1135, 716);
+            tabControl2.TabIndex = 2;
+            // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(btnchange);
+            tabPage3.Controls.Add(txtbalance);
+            tabPage3.Controls.Add(txtAddress);
+            tabPage3.Controls.Add(txtEmail);
+            tabPage3.Controls.Add(label11);
+            tabPage3.Controls.Add(label10);
+            tabPage3.Controls.Add(txtBirth);
+            tabPage3.Controls.Add(label1);
+            tabPage3.Controls.Add(txtPhone);
+            tabPage3.Controls.Add(label3);
+            tabPage3.Controls.Add(txtCicnum);
+            tabPage3.Controls.Add(label4);
+            tabPage3.Controls.Add(txtsex);
+            tabPage3.Controls.Add(label6);
+            tabPage3.Controls.Add(txtname);
+            tabPage3.Controls.Add(label7);
+            tabPage3.Controls.Add(label9);
+            tabPage3.Location = new System.Drawing.Point(4, 32);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new System.Drawing.Size(1127, 680);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Details";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnchange
+            // 
+            btnchange.AutoSize = true;
+            btnchange.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnchange.Location = new System.Drawing.Point(462, 420);
+            btnchange.Name = "btnchange";
+            btnchange.Size = new System.Drawing.Size(171, 33);
+            btnchange.TabIndex = 13;
+            btnchange.Text = "Change Password";
+            btnchange.UseVisualStyleBackColor = true;
+            btnchange.Click += btnchange_Click;
+            // 
+            // txtbalance
+            // 
+            txtbalance.Location = new System.Drawing.Point(819, 285);
+            txtbalance.Name = "txtbalance";
+            txtbalance.ReadOnly = true;
+            txtbalance.Size = new System.Drawing.Size(242, 31);
+            txtbalance.TabIndex = 12;
+            // 
+            // txtAddress
+            // 
+            txtAddress.Location = new System.Drawing.Point(819, 108);
+            txtAddress.Name = "txtAddress";
+            txtAddress.ReadOnly = true;
+            txtAddress.Size = new System.Drawing.Size(242, 31);
+            txtAddress.TabIndex = 11;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new System.Drawing.Point(819, 187);
+            txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
+            txtEmail.Size = new System.Drawing.Size(242, 31);
+            txtEmail.TabIndex = 10;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(614, 195);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(65, 23);
+            label11.TabIndex = 9;
+            label11.Text = "Email:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(614, 44);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(144, 23);
+            label10.TabIndex = 8;
+            label10.Text = "Phone Number:";
+            // 
+            // txtBirth
+            // 
+            txtBirth.Location = new System.Drawing.Point(226, 290);
+            txtBirth.Name = "txtBirth";
+            txtBirth.ReadOnly = true;
+            txtBirth.Size = new System.Drawing.Size(239, 31);
+            txtBirth.TabIndex = 7;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(614, 119);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(85, 23);
+            label1.TabIndex = 6;
+            label1.Text = "Address:";
+            // 
+            // txtPhone
+            // 
+            txtPhone.Location = new System.Drawing.Point(819, 36);
+            txtPhone.Name = "txtPhone";
+            txtPhone.ReadOnly = true;
+            txtPhone.Size = new System.Drawing.Size(242, 31);
+            txtPhone.TabIndex = 4;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(65, 293);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(90, 23);
+            label3.TabIndex = 4;
+            label3.Text = "Birthday:";
+            // 
+            // txtCicnum
+            // 
+            txtCicnum.Location = new System.Drawing.Point(226, 192);
+            txtCicnum.Name = "txtCicnum";
+            txtCicnum.ReadOnly = true;
+            txtCicnum.Size = new System.Drawing.Size(239, 31);
+            txtCicnum.TabIndex = 3;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(65, 192);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(116, 23);
+            label4.TabIndex = 3;
+            label4.Text = "Cic Number:";
+            // 
+            // txtsex
+            // 
+            txtsex.Location = new System.Drawing.Point(226, 111);
+            txtsex.Name = "txtsex";
+            txtsex.ReadOnly = true;
+            txtsex.Size = new System.Drawing.Size(239, 31);
+            txtsex.TabIndex = 2;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(65, 111);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(45, 23);
+            label6.TabIndex = 2;
+            label6.Text = "Sex:";
+            // 
+            // txtname
+            // 
+            txtname.Location = new System.Drawing.Point(226, 36);
+            txtname.Name = "txtname";
+            txtname.ReadOnly = true;
+            txtname.Size = new System.Drawing.Size(239, 31);
+            txtname.TabIndex = 1;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(614, 293);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(82, 23);
+            label7.TabIndex = 1;
+            label7.Text = "Balance:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(65, 44);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(66, 23);
+            label9.TabIndex = 0;
+            label9.Text = "Name:";
             // 
             // tabPage2
             // 
             tabPage2.Controls.Add(savingTabControl);
             tabPage2.Location = new System.Drawing.Point(4, 35);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            tabPage2.Padding = new Padding(3);
             tabPage2.Size = new System.Drawing.Size(1141, 722);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Savings";
@@ -143,7 +353,7 @@
             savingTabControl.Controls.Add(detailsTabPage);
             savingTabControl.Controls.Add(depositTabPage);
             savingTabControl.Controls.Add(withdrawTabPage);
-            savingTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            savingTabControl.Dock = DockStyle.Fill;
             savingTabControl.Location = new System.Drawing.Point(3, 3);
             savingTabControl.Name = "savingTabControl";
             savingTabControl.SelectedIndex = 0;
@@ -167,7 +377,7 @@
             detailsTabPage.Controls.Add(savingsDetailsLabel);
             detailsTabPage.Location = new System.Drawing.Point(4, 32);
             detailsTabPage.Name = "detailsTabPage";
-            detailsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            detailsTabPage.Padding = new Padding(3);
             detailsTabPage.Size = new System.Drawing.Size(1127, 680);
             detailsTabPage.TabIndex = 2;
             detailsTabPage.Text = "Details";
@@ -193,7 +403,7 @@
             // closeSavingDetailsButton
             // 
             closeSavingDetailsButton.AutoSize = true;
-            closeSavingDetailsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            closeSavingDetailsButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             closeSavingDetailsButton.Enabled = false;
             closeSavingDetailsButton.Location = new System.Drawing.Point(407, 304);
             closeSavingDetailsButton.Name = "closeSavingDetailsButton";
@@ -302,10 +512,10 @@
             depositTabPage.Controls.Add(periodOpeningLabel);
             depositTabPage.Controls.Add(periodOpeningComboBox);
             depositTabPage.Controls.Add(balanceOpeningLabel);
-            depositTabPage.Location = new System.Drawing.Point(4, 32);
+            depositTabPage.Location = new System.Drawing.Point(4, 29);
             depositTabPage.Name = "depositTabPage";
-            depositTabPage.Padding = new System.Windows.Forms.Padding(3);
-            depositTabPage.Size = new System.Drawing.Size(1127, 680);
+            depositTabPage.Padding = new Padding(3);
+            depositTabPage.Size = new System.Drawing.Size(1127, 683);
             depositTabPage.TabIndex = 0;
             depositTabPage.Text = "Opening";
             depositTabPage.UseVisualStyleBackColor = true;
@@ -348,7 +558,7 @@
             // openingSavingOpeningButton
             // 
             openingSavingOpeningButton.AutoSize = true;
-            openingSavingOpeningButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            openingSavingOpeningButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             openingSavingOpeningButton.Enabled = false;
             openingSavingOpeningButton.Location = new System.Drawing.Point(405, 269);
             openingSavingOpeningButton.Name = "openingSavingOpeningButton";
@@ -422,10 +632,10 @@
             withdrawTabPage.Controls.Add(balanceClosingLabel);
             withdrawTabPage.Controls.Add(savingClosingComboBox);
             withdrawTabPage.Controls.Add(savingClosingLabel);
-            withdrawTabPage.Location = new System.Drawing.Point(4, 32);
+            withdrawTabPage.Location = new System.Drawing.Point(4, 29);
             withdrawTabPage.Name = "withdrawTabPage";
-            withdrawTabPage.Padding = new System.Windows.Forms.Padding(3);
-            withdrawTabPage.Size = new System.Drawing.Size(1127, 680);
+            withdrawTabPage.Padding = new Padding(3);
+            withdrawTabPage.Size = new System.Drawing.Size(1127, 683);
             withdrawTabPage.TabIndex = 1;
             withdrawTabPage.Text = "Closing";
             withdrawTabPage.UseVisualStyleBackColor = true;
@@ -450,7 +660,7 @@
             // closingSavingClosingButton
             // 
             closingSavingClosingButton.AutoSize = true;
-            closingSavingClosingButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            closingSavingClosingButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             closingSavingClosingButton.Enabled = false;
             closingSavingClosingButton.Location = new System.Drawing.Point(372, 277);
             closingSavingClosingButton.Name = "closingSavingClosingButton";
@@ -521,7 +731,7 @@
             tabStatistical.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             tabStatistical.Location = new System.Drawing.Point(4, 35);
             tabStatistical.Name = "tabStatistical";
-            tabStatistical.Padding = new System.Windows.Forms.Padding(3);
+            tabStatistical.Padding = new Padding(3);
             tabStatistical.Size = new System.Drawing.Size(1141, 722);
             tabStatistical.TabIndex = 2;
             tabStatistical.Text = "Statistical";
@@ -567,38 +777,38 @@
             data_Transactions.AllowUserToDeleteRows = false;
             data_Transactions.AllowUserToResizeColumns = false;
             data_Transactions.AllowUserToResizeRows = false;
-            data_Transactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            data_Transactions.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            data_Transactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            data_Transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            data_Transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            data_Transactions.DefaultCellStyle = dataGridViewCellStyle8;
-            data_Transactions.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
+            data_Transactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            data_Transactions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            data_Transactions.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            data_Transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            data_Transactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Padding = new Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            data_Transactions.DefaultCellStyle = dataGridViewCellStyle2;
+            data_Transactions.EditMode = DataGridViewEditMode.EditOnF2;
             data_Transactions.Location = new System.Drawing.Point(5, 38);
             data_Transactions.Name = "data_Transactions";
             data_Transactions.RowHeadersVisible = false;
             data_Transactions.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5);
-            data_Transactions.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            data_Transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Padding = new Padding(5);
+            data_Transactions.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            data_Transactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             data_Transactions.Size = new System.Drawing.Size(825, 645);
             data_Transactions.TabIndex = 4;
             // 
@@ -635,7 +845,7 @@
             pictureBox1.Location = new System.Drawing.Point(16, 20);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(40, 40);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
@@ -683,7 +893,7 @@
             pictureBox2.Location = new System.Drawing.Point(16, 20);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new System.Drawing.Size(40, 40);
-            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox2.TabIndex = 4;
             pictureBox2.TabStop = false;
             // 
@@ -714,17 +924,21 @@
             // CustomerMenuForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1150, 763);
             Controls.Add(tabControl1);
             Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "CustomerMenuForm";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Customer";
             FormClosing += MainMenuForm_FormClosing;
             Load += Form_MainMenu_Load;
             tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabControl2.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
             tabPage2.ResumeLayout(false);
             savingTabControl.ResumeLayout(false);
             detailsTabPage.ResumeLayout(false);
@@ -803,5 +1017,24 @@
 		private System.Windows.Forms.GroupBox groupBoxTransactionList;
 		private System.Windows.Forms.DataGridView data_Transactions;
 		private System.Windows.Forms.GroupBox groupBoxFunction;
-	}
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox txtBirth;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCicnum;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtsex;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtname;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtbalance;
+        private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button btnchange;
+    }
 }
