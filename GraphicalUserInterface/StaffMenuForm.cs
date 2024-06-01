@@ -1,11 +1,9 @@
-
-﻿using Business;
-using DataAccess;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using System;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using Business;
+using DataAccess;
 
 namespace GraphicalUserInterface
 {
@@ -59,8 +57,8 @@ namespace GraphicalUserInterface
                 default:
                     MessageBox.Show("No permission found for your staff account.");
                     break;
+
             }
         }
     }
-       
 }
