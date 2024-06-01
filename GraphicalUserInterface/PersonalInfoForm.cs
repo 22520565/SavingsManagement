@@ -8,4 +8,9 @@ public partial class PersonalInfoForm : Form
     {
         InitializeComponent();
     }
+
+    private void PersonalInfoForm_Load(object sender, System.EventArgs e)
+    {
+
+    }
 }

@@ -1,10 +1,7 @@
 ﻿namespace Business;
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DataAccess;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
@@ -64,4 +61,3 @@ public static class StaffAccounts
         CurrentStaffId = null;
     }
 }
-
