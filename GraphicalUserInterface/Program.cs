@@ -19,19 +19,31 @@ internal static class Program
         {
             using var loginForm = new LoginForm();
             Application.Run(loginForm);
-            if (!loginForm.UserSuccessfullyAuthenticated)
+            if (!loginForm.UserSuccessfullyAuthenticated && !loginForm.StaffSuccessfullyAuthenticated)
             {
                 break;
             }
-
-            using var customerMenuForm = new CustomerMenuForm();
-            Application.Run(customerMenuForm);
-            if (!customerMenuForm.GoingBackToLoginForm)
+            else
             {
-                break;
-            }
-
-
+                if (loginForm.UserSuccessfullyAuthenticated)
+                {
+                    using var customerMenuForm = new CustomerMenuForm();
+                    Application.Run(customerMenuForm);
+                    if (!customerMenuForm.GoingBackToLoginForm)
+                    {
+                        break;
+                    }
+                }
+                if (loginForm.StaffSuccessfullyAuthenticated)
+                {
+                    using var staffMenuForm = new StaffMenuForm();
+                    Application.Run(staffMenuForm);
+                    if (!staffMenuForm.GoingBackToLoginForm)
+                    {
+                        break;
+                    }
+                }
+            }  
         } while (true);
     }
 }

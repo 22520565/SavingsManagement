@@ -10,6 +10,8 @@ public partial class LoginForm : Form
 {
     public bool UserSuccessfullyAuthenticated { get; private set; } = false;
 
+    public bool StaffSuccessfullyAuthenticated { get; private set; } = false;
+
     public LoginForm()
     {
         InitializeComponent();
@@ -128,7 +130,9 @@ public partial class LoginForm : Form
             }
             else
             {
-                Properties.Settings.Default.Reset();
+                Properties.Settings.Default.AcUsername = string.Empty;
+                Properties.Settings.Default.AcPassword = string.Empty;
+                Properties.Settings.Default.Save();
             }
         }
     }
@@ -147,9 +151,104 @@ public partial class LoginForm : Form
         cbCustomerShowPassword.FlatAppearance.BorderSize = 0;
         cbCustomerShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
 
+        this.StaffSuccessfullyAuthenticated = false;
+        StaffAccounts.LogOut();
+        txtStaffUsername.Text = Properties.Settings.Default.StaffUsername;
+        txtStaffPassword.Text = Properties.Settings.Default.StaffPassword;
+        cbStaffRemeberInfo.Checked = !Properties.Settings.Default.StaffUsername.IsNullOrEmpty();
+
+        // Show password checkbox custom
+        cbStaffShowPassword.Appearance = Appearance.Button;
+        cbStaffShowPassword.FlatStyle = FlatStyle.Flat;
+        cbStaffShowPassword.FlatAppearance.BorderSize = 0;
+        cbStaffShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
     }
 
     private void btnExit_Click(object sender, EventArgs e)
+    {
+        Form bg = new Form();
+        CloseWindow logOut = new CloseWindow();
+        logOut.Text = "Exit";
+        logOut.Confirm.Text = "Exit";
+        logOut.Notification.Text = "Do you want to exit?";
+        using (logOut)
+        {
+            bg.StartPosition = FormStartPosition.Manual;
+            bg.FormBorderStyle = FormBorderStyle.None;
+            bg.BackColor = Color.Black;
+            bg.Opacity = 0.7d;
+            bg.Size = this.Size;
+            bg.Location = this.Location;
+            bg.ShowInTaskbar = false;
+            bg.Show(this);
+            logOut.Owner = bg;
+            logOut.ShowDialog(bg);
+            bg.Dispose();
+        }
+        if (logOut.IsNotClosed == false)
+        {
+            Application.Exit();
+        }
+    }
+
+    private void cbStaffShowPassword_CheckedChanged(object sender, EventArgs e)
+    {
+        if (!cbStaffShowPassword.Checked)
+        {
+            txtStaffPassword.UseSystemPasswordChar = true;
+            cbStaffShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
+        }
+        else
+        {
+            txtStaffPassword.UseSystemPasswordChar = false;
+            cbStaffShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\show.png");
+        }
+    }
+
+    private void cbStaffRemeberInfo_CheckedChanged(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(txtStaffUsername.Text) && !string.IsNullOrEmpty(txtStaffPassword.Text))
+        {
+            if (cbStaffRemeberInfo.Checked)
+            {
+                Properties.Settings.Default.StaffUsername = txtStaffUsername.Text;
+                Properties.Settings.Default.StaffPassword = txtStaffPassword.Text;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.StaffUsername = string.Empty;
+                Properties.Settings.Default.StaffPassword = string.Empty;
+                Properties.Settings.Default.Save();
+            }
+        }
+    }
+
+    private void btnStaffLogin_MouseEnter(object sender, EventArgs e)
+    {
+        btnStaffLogin.BackColor = Color.FromArgb(11, 9, 120);
+        btnStaffLogin.ForeColor = Color.White;
+    }
+
+    private void btnStaffLogin_MouseLeave(object sender, EventArgs e)
+    {
+        btnStaffLogin.BackColor = Color.Black;
+        btnStaffLogin.ForeColor = Color.White;
+    }
+
+    private void btnStaffExit_MouseEnter(object sender, EventArgs e)
+    {
+        btnStaffExit.BackColor = Color.FromArgb(11, 9, 120);
+        btnStaffExit.ForeColor = Color.White;
+    }
+
+    private void btnStaffExit_MouseLeave(object sender, EventArgs e)
+    {
+        btnStaffExit.BackColor = SystemColors.Control;
+        btnStaffExit.ForeColor = Color.Black;
+    }
+
+    private void btnStaffExit_Click(object sender, EventArgs e)
     {
         Form bg = new Form();
         CloseWindow logOut = new CloseWindow();
@@ -199,10 +298,8 @@ public partial class LoginForm : Form
                 }))
                 {
                     case StaffAccounts.LoginResult.Success:
-                        this.UserSuccessfullyAuthenticated = true;
+                        this.StaffSuccessfullyAuthenticated = true;
                         this.Close();
-                        StaffMenuForm staffMenuForm = new StaffMenuForm();
-                        staffMenuForm.ShowDialog();
                         break;
 
                     case StaffAccounts.LoginResult.PasswordError:
