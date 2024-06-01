@@ -5,6 +5,7 @@ using System.Linq;
 using DataAccess;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using static Business.CustomerAccounts;
 
 public static class CustomerAccounts
 {
@@ -26,17 +27,52 @@ public static class CustomerAccounts
         get
         {
             using var context = new SavingsManagementContext();
+            return context.CustomerAccounts.Find(CurrentCustomerId)?.Balance;
+        }
+    }
+
+    public static CustomerAccount? GetCustomerAccount
+    {
+        get
+        {
+            using var context = new SavingsManagementContext();
             return CurrentCustomerId is not null
-                ? context.CustomerAccounts.Single(customerAccount => customerAccount.Id == CurrentCustomerId).Balance
+                ? context.CustomerAccounts.First(customerAccount => customerAccount.Id == CurrentCustomerId)
                 : null;
         }
+    }
+
+    public static bool checkPass(string password)
+    {
+        using var context = new SavingsManagementContext();
+        var customerAccount = context.CustomerAccounts.Find(CurrentCustomerId);
+        if (customerAccount is not null) {
+            switch (PasswordHasher.VerifyHashedPassword(null!, customerAccount.HashedPassword, password))
+            {
+                case PasswordVerificationResult.Success:
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    public static void updatePass(string newpass)
+    {
+        using var context = new SavingsManagementContext();
+        var customerAccount = context.CustomerAccounts.Find(CurrentCustomerId);
+        if (customerAccount is not null)
+        {
+            customerAccount.HashedPassword = PasswordHasher.HashPassword(null!,newpass);
+            context.SaveChanges();
+        }
+        else { }
     }
 
     public static LoginResult Login(LoginInfo loginInfo)
     {
         ArgumentNullException.ThrowIfNull(loginInfo);
 
-        LoginResult loginResult = LoginResult.PasswordError;
+        LoginResult loginResult = LoginResult.UsernameError;
 
         using var context = new SavingsManagementContext();
         var listAccounts = context.CustomerAccounts.Where(customerAccount => customerAccount.Username == loginInfo.Username).AsEnumerable();
@@ -97,5 +133,6 @@ public static class CustomerAccounts
             Username = signUpInfo.Username,
             HashedPassword = PasswordHasher.HashPassword(null!, signUpInfo.Password),
         });
+        context.SaveChanges();
     }
 }
