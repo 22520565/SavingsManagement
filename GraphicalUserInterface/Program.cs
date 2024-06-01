@@ -23,7 +23,14 @@ internal static class Program
             {
                 break;
             }
+<<<<<<< HEAD
             else
+=======
+
+            using var customerMenuForm = new StaffMenuForm();
+            Application.Run(customerMenuForm);
+            if (!customerMenuForm.GoingBackToLoginForm)
+>>>>>>> aee0c809424f826efa4c7b1048c274324873b815
             {
                 if (loginForm.UserSuccessfullyAuthenticated)
                 {

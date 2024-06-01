@@ -1,3 +1,4 @@
+
 ﻿using Business;
 using DataAccess;
 using Microsoft.Data.SqlClient;
@@ -58,8 +59,8 @@ namespace GraphicalUserInterface
                 default:
                     MessageBox.Show("No permission found for your staff account.");
                     break;
-
             }
         }
     }
+       
 }

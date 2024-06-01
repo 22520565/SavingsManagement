@@ -25,7 +25,7 @@ public sealed class StaffAccount
     [Unicode(false)]
     public string Username { get; set; } = null!;
 
-    [StringLength(50)]
+    [StringLength(84)]
     [Unicode(false)]
     public string HashedPassword { get; set; } = null!;
 
