@@ -24,7 +24,7 @@ internal static class Program
                 break;
             }
 
-            using var customerMenuForm = new CustomerMenuForm();
+            using var customerMenuForm = new StaffMenuForm();
             Application.Run(customerMenuForm);
             if (!customerMenuForm.GoingBackToLoginForm)
             {

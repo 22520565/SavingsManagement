@@ -1,8 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Data;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Business;
+using DataAccess;
 
 namespace GraphicalUserInterface
 {
@@ -42,52 +42,33 @@ namespace GraphicalUserInterface
 
         private void StaffMenuForm_Load(object sender, EventArgs e)
         {
-            this.GoingBackToLoginForm = false;
-
-            using (SqlConnection connection = new SqlConnection(@"Data Source=DESKTOP-O6AO007\\SQLEXPRESS;Initial Catalog=SavingsManagement;Integrated Security=True;Trust Server Certificate=True"))
+            try
             {
-                try
+                this.GoingBackToLoginForm = false;
+
+                using var context = new SavingsManagementContext();
+                switch (context.StaffAccounts.Find(StaffAccounts.CurrentStaffId)?.PermissionId)
                 {
-                    connection.Open();
-                    string query = "SELECT PermissionId FROM StaffAccounts WHERE StaffId = @StaffId";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@StaffId", CurrentUser.StaffId);
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read()) // Check if there's a result
-                            {
-                                int permissionId = reader.GetInt32(0);
-                                switch (permissionId)
-                                {
-                                    case 1:
-                                        tabControl1.TabPages.Add(tabPageManageAccounts); // Use descriptive names
-                                        tabControl1.TabPages.Add(tabPageChangeRegulations);
-                                        break;
-                                    case 2:
-                                        tabControl1.TabPages.Remove(tabPageManageAccounts);
-                                        tabControl1.TabPages.Remove(tabPageChangeRegulations);
-                                        break;
-                                    default:
-                                        // Handle other permission cases if any
-                                        break;
-                                }
-                            }
-                            else
-                            {
-                                // No permission found for the staff
-                                MessageBox.Show("No permission found for your staff account.");
-                            }
-                        }
-                    }
-                }
-                catch (SqlException sqlEx)
-                {
-                    MessageBox.Show($"Database error: {sqlEx.Message}"); // More informative message
+                    case 0:
+                        tabControl1.TabPages.Add(tabPageManageAccounts); // Use descriptive names
+                        tabControl1.TabPages.Add(tabPageChangeRegulations);
+                        break;
+
+                    case 1:
+                        tabControl1.TabPages.Remove(tabPageManageAccounts);
+                        tabControl1.TabPages.Remove(tabPageChangeRegulations);
+                        break;
+
+                    default:
+                        MessageBox.Show("No permission found for your staff account.");
+                        break;
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
-
 
         private void StaffMenuForm_FormClosed(object sender, FormClosedEventArgs e)
         {
