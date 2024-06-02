@@ -253,4 +253,22 @@
   <data name="SavingExcelFileFilter" xml:space="preserve">
     <value>Excel Files (*.xlsx)|*.xlsx;*.xls</value>
   </data>
+  <data name="DateOnlyStringFormat" xml:space="preserve">
+    <value>dd/MM/yyyy</value>
+  </data>
+  <data name="FailedLoadingCustomerInfoString" xml:space="preserve">
+    <value>Failed to loading your info! Please try again later!</value>
+  </data>
+  <data name="FemaleString" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="InterestTextFormatString" xml:space="preserve">
+    <value>#,0.00#%/year</value>
+  </data>
+  <data name="LogOutString" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="MaleString" xml:space="preserve">
+    <value>Male</value>
+  </data>
 </root>

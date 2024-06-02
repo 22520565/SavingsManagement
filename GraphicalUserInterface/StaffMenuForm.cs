@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Business;

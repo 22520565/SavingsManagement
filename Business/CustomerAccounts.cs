@@ -5,7 +5,6 @@ using System.Linq;
 using DataAccess;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using static Business.CustomerAccounts;
 
 public static class CustomerAccounts
 {
@@ -26,8 +25,7 @@ public static class CustomerAccounts
     {
         get
         {
-            using var context = new SavingsManagementContext();
-            return context.CustomerAccounts.Find(CurrentCustomerId)?.Balance;
+            return GetCustomerAccount?.Balance;
         }
     }
 
@@ -36,9 +34,7 @@ public static class CustomerAccounts
         get
         {
             using var context = new SavingsManagementContext();
-            return CurrentCustomerId is not null
-                ? context.CustomerAccounts.First(customerAccount => customerAccount.Id == CurrentCustomerId)
-                : null;
+            return context.CustomerAccounts.Find(CurrentCustomerId);
         }
     }
 
@@ -46,7 +42,8 @@ public static class CustomerAccounts
     {
         using var context = new SavingsManagementContext();
         var customerAccount = context.CustomerAccounts.Find(CurrentCustomerId);
-        if (customerAccount is not null) {
+        if (customerAccount is not null)
+        {
             switch (PasswordHasher.VerifyHashedPassword(null!, customerAccount.HashedPassword, password))
             {
                 case PasswordVerificationResult.Success:
@@ -62,7 +59,7 @@ public static class CustomerAccounts
         var customerAccount = context.CustomerAccounts.Find(CurrentCustomerId);
         if (customerAccount is not null)
         {
-            customerAccount.HashedPassword = PasswordHasher.HashPassword(null!,newpass);
+            customerAccount.HashedPassword = PasswordHasher.HashPassword(null!, newpass);
             context.SaveChanges();
         }
         else { }

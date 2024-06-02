@@ -1,29 +1,28 @@
 ﻿namespace GraphicalUserInterface;
 
-using Business;
-using DataAccess;
-using GraphicalUserInterface.Properties;
-using OfficeOpenXml;
 using System;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using Business;
+using DataAccess;
+using GraphicalUserInterface.Properties;
+using OfficeOpenXml;
 
-public partial class CustomerMenuForm : Form {
-	public bool GoingBackToLoginForm { get; private set; } = false;
-	DataTable dt;
-	private const string InterestTextFormat = "{0:#,0.00#%}/year";
-	private const string BalanceTextFormat = "{0:#,0.00##}";
-	private SavingOpeningInfo? savingDepositInfo = new SavingOpeningInfo();
-	private SavingWithdrawInfo? savingWithdrawInfo = new SavingWithdrawInfo();
+public partial class CustomerMenuForm : Form
+{
+    public bool GoingBackToLoginForm { get; private set; } = false;
+    DataTable dt;
+    private SavingOpeningInfo? savingDepositInfo = new SavingOpeningInfo();
+    private SavingWithdrawInfo? savingWithdrawInfo = new SavingWithdrawInfo();
 
-	public CustomerMenuForm() {
-		InitializeComponent();
-		InitializeStatistical();
-		InitializeSavings();
+    public CustomerMenuForm()
+    {
+        InitializeComponent();
+        InitializeStatistical();
+        InitializeSavings();
         InitializeSystem();
     }
 
@@ -31,220 +30,273 @@ public partial class CustomerMenuForm : Form {
     private void InitializeSystem()
     {
         LoadingAccountInfo();
-
     }
 
     public void LoadingAccountInfo()
     {
         try
         {
-            CustomerAccount info = CustomerAccounts.GetCustomerAccount;
-            this.txtname.Text = info.Name;
-            if (info.IsMale)
+            CustomerAccount? customerAccount = CustomerAccounts.GetCustomerAccount;
+            if (customerAccount is not null)
             {
-                this.txtsex.Text = "male";
+                this.customerIdTextBox.Text = customerAccount.Id.ToString(CultureInfo.CurrentCulture);
+                this.customerNameTextBox.Text = customerAccount.Name;
+                this.customerGenderTextBox.Text = customerAccount.IsMale ? Resources.MaleString : Resources.FemaleString;
+                this.customerCicNumberTextBox.Text = customerAccount.CicNumber;
+                this.customerBirthdayTextBox.Text = customerAccount.BirthDate.ToString(CultureInfo.CurrentCulture);
+                this.customerPhoneNumberTextBox.Text = customerAccount.PhoneNumber;
+                this.customerEmailTextBox.Text = customerAccount.Email;
+                this.customerAddressTextBox.Text = customerAccount.Address;
+                this.customerUsernameTextBox.Text = customerAccount.Username;
+                this.customerBalanceTextBox.Text = customerAccount.Balance.ToString(Resources.CurrencyStringFormat, CultureInfo.CurrentCulture);
             }
-            else { this.txtsex.Text = "female"; }
-
-            this.txtCicnum.Text = info.CicNumber;
-            this.txtBirth.Text = info.BirthDate.ToString();
-            this.txtPhone.Text = info.PhoneNumber;
-            this.txtAddress.Text = info.Address;
-            this.txtEmail.Text = info.Email;
-            this.txtbalance.Text = string.Format(
-                    CultureInfo.CurrentCulture, BalanceTextFormat, info.Balance);
+            else
+            {
+                MessageBox.Show(this, Resources.FailedLoadingCustomerInfoString, Resources.ErrorTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
         catch (Exception ex)
         {
             MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-    private void btnchange_Click(object sender, EventArgs e)
+    private void customerChangePasswordButton_Click(object sender, EventArgs e)
     {
-        changePass form = new changePass();
+        using var form = new changePass();
         form.ShowDialog();
     }
 
     #endregion
     #region Savings
-    private void InitializeSavings() {
-		this.LoadForm();
-	}
+    private void InitializeSavings()
+    {
+        this.LoadForm();
+    }
 
-	private void LoadForm() {
-		try {
-			var customerBalance = CustomerAccounts.CurrentCustomerBalance;
-			this.balanceOpeningTextBox.Text = string.Format(
-				CultureInfo.CurrentCulture, BalanceTextFormat, customerBalance);
-			this.amountOpeningNumeric.Maximum = customerBalance is decimal balance ? balance : decimal.Zero;
+    private void LoadForm()
+    {
+        try
+        {
+            var customerBalance = CustomerAccounts.CurrentCustomerBalance;
+            this.balanceOpeningTextBox.Text = customerBalance?.ToString(
+                Resources.CurrencyStringFormat, CultureInfo.InvariantCulture)
+                ?? decimal.Zero.ToString(
+                Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
+            this.amountOpeningNumeric.Maximum = customerBalance is decimal balance
+                ? Math.Round(balance, this.amountOpeningNumeric.DecimalPlaces, MidpointRounding.ToZero)
+                : decimal.Zero;
 
-			this.savingDetailsComboBox.SelectedItem = null;
-			this.savingClosingComboBox.SelectedItem = null;
-			this.periodOpeningComboBox.SelectedItem = null;
+            this.savingDetailsComboBox.SelectedItem = null;
+            this.savingClosingComboBox.SelectedItem = null;
+            this.periodOpeningComboBox.SelectedItem = null;
 
-			this.savingDetailsComboBox.Items.Clear();
-			this.savingClosingComboBox.Items.Clear();
-			foreach (object id in Savings.SavingsId) {
-				this.savingDetailsComboBox.Items.Add(id);
-				this.savingClosingComboBox.Items.Add(id);
-			}
+            this.savingDetailsComboBox.Items.Clear();
+            this.savingClosingComboBox.Items.Clear();
+            foreach (object id in Savings.SavingsId)
+            {
+                this.savingDetailsComboBox.Items.Add(id);
+                this.savingClosingComboBox.Items.Add(id);
+            }
 
-			this.periodOpeningComboBox.Items.Clear();
-			foreach (var period in SavingInterestRates.Periods) {
-				this.periodOpeningComboBox.Items.Add(period);
-			}
+            this.periodOpeningComboBox.Items.Clear();
+            foreach (var period in SavingInterestRates.Periods)
+            {
+                this.periodOpeningComboBox.Items.Add(period);
+            }
 
-			this.savingTabControl.SelectedTab = this.detailsTabPage;
-		} catch (Exception ex) {
-			MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			this.Close();
-		}
-	}
+            this.savingTabControl.SelectedTab = this.detailsTabPage;
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.Close();
+        }
+    }
 
-	private void savingDetailsComboBox_SelectedValueChanged(object sender, EventArgs e) {
-		if (this.savingDetailsComboBox.SelectedItem is null) {
-			this.balanceDetailsTextBox.Text = string.Empty;
-			this.periodDetailsTextBox.Text = string.Empty;
-			this.interestDetailsTextBox.Text = string.Empty;
-			this.openDayDetailsTextBox.Text = string.Empty;
-			this.maturityDayDetailsTextBox.Text = string.Empty;
+    private void savingDetailsComboBox_SelectedValueChanged(object sender, EventArgs e)
+    {
+        if (this.savingDetailsComboBox.SelectedItem is null)
+        {
+            this.balanceDetailsTextBox.Text = string.Empty;
+            this.periodDetailsTextBox.Text = string.Empty;
+            this.interestDetailsTextBox.Text = string.Empty;
+            this.openDayDetailsTextBox.Text = string.Empty;
+            this.maturityDayDetailsTextBox.Text = string.Empty;
 
-			this.closeSavingDetailsButton.Enabled = false;
-		} else if (this.savingDetailsComboBox.SelectedItem is int savingId) {
-			try {
-				Saving saving = Savings.GetSaving(savingId);
-				this.balanceDetailsTextBox.Text = string.Format(
-					CultureInfo.CurrentCulture, BalanceTextFormat, saving.Balance);
-				this.periodDetailsTextBox.Text = saving.PeriodInMonths.ToString(CultureInfo.CurrentCulture);
-				this.interestDetailsTextBox.Text = string.Format(
-					CultureInfo.InvariantCulture, InterestTextFormat, saving.AnnualInterestRate);
-				this.openDayDetailsTextBox.Text = DateOnly.FromDateTime(saving.OpeningDateTime.LocalDateTime)
-					.ToString(CultureInfo.CurrentCulture);
-				this.maturityDayDetailsTextBox.Text = Savings.GetMaturityDate(saving.OpeningDateTime, saving.PeriodInMonths)
-					.ToString(CultureInfo.CurrentCulture);
+            this.closeSavingDetailsButton.Enabled = false;
+        }
+        else if (this.savingDetailsComboBox.SelectedItem is int savingId)
+        {
+            try
+            {
+                Saving saving = Savings.GetSaving(savingId);
+                this.balanceDetailsTextBox.Text = saving.Balance.ToString(
+                    Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
+                this.periodDetailsTextBox.Text = saving.PeriodInMonths.ToString(CultureInfo.CurrentCulture);
+                this.interestDetailsTextBox.Text = saving.AnnualInterestRate.ToString(
+                    Resources.InterestTextFormatString, CultureInfo.InvariantCulture);
+                this.openDayDetailsTextBox.Text = DateOnly.FromDateTime(saving.OpeningDateTime.LocalDateTime)
+                    .ToString(CultureInfo.CurrentCulture);
+                this.maturityDayDetailsTextBox.Text = Savings.GetMaturityDate(saving.OpeningDateTime, saving.PeriodInMonths)
+                    .ToString(CultureInfo.CurrentCulture);
 
-				this.closeSavingDetailsButton.Enabled = true;
-			} catch (Exception ex) {
-				MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				this.LoadForm();
-			}
-		} else {
-			MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
-				MessageBoxButtons.OK, MessageBoxIcon.Error);
-			this.LoadForm();
-		}
-	}
+                this.closeSavingDetailsButton.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.LoadForm();
+            }
+        }
+        else
+        {
+            MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.LoadForm();
+        }
+    }
 
-	private void periodDepositComboBox_SelectedValueChanged(object sender, EventArgs e) {
-		if (this.periodOpeningComboBox.SelectedItem is null) {
-			this.savingDepositInfo = null;
+    private void periodDepositComboBox_SelectedValueChanged(object sender, EventArgs e)
+    {
+        if (this.periodOpeningComboBox.SelectedItem is null)
+        {
+            this.savingDepositInfo = null;
 
-			this.interestOpeningTextBox.Text = string.Empty;
-			this.maturityDayOpeningTextBox.Text = string.Empty;
-			this.amountOpeningNumeric.Value = this.amountOpeningNumeric.Minimum;
+            this.interestOpeningTextBox.Text = string.Empty;
+            this.maturityDayOpeningTextBox.Text = string.Empty;
+            this.amountOpeningNumeric.Value = this.amountOpeningNumeric.Minimum;
 
-			this.openingSavingOpeningButton.Enabled = false;
-		} else if (this.periodOpeningComboBox.SelectedItem is int period) {
-			try {
-				this.savingDepositInfo = new SavingOpeningInfo {
-					PeriodInMonths = period,
-					AnnualInterestRate = SavingInterestRates.GetInterest(period),
-				};
+            this.openingSavingOpeningButton.Enabled = false;
+        }
+        else if (this.periodOpeningComboBox.SelectedItem is int period)
+        {
+            try
+            {
+                this.savingDepositInfo = new SavingOpeningInfo
+                {
+                    PeriodInMonths = period,
+                    AnnualInterestRate = SavingInterestRates.GetInterest(period),
+                };
 
-				this.interestOpeningTextBox.Text = string.Format(
-					CultureInfo.InvariantCulture, InterestTextFormat, this.savingDepositInfo.AnnualInterestRate);
-				this.maturityDayOpeningTextBox.Text = DateOnly.FromDateTime(DateTimeOffset.Now.LocalDateTime)
-														.AddMonths(this.savingDepositInfo.PeriodInMonths)
-														.ToString(CultureInfo.CurrentCulture);
+                this.interestOpeningTextBox.Text = this.savingDepositInfo.AnnualInterestRate.ToString(
+                    Resources.InterestTextFormatString, CultureInfo.InvariantCulture);
+                this.maturityDayOpeningTextBox.Text = DateOnly.FromDateTime(DateTimeOffset.Now.LocalDateTime)
+                                                        .AddMonths(this.savingDepositInfo.PeriodInMonths)
+                                                        .ToString(CultureInfo.CurrentCulture);
 
-				this.openingSavingOpeningButton.Enabled = true;
-			} catch (Exception ex) {
-				MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				this.LoadForm();
-			}
-		} else {
-			MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
-				MessageBoxButtons.OK, MessageBoxIcon.Error);
-			this.LoadForm();
-		}
-	}
+                this.openingSavingOpeningButton.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.LoadForm();
+            }
+        }
+        else
+        {
+            MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.LoadForm();
+        }
+    }
 
-	private void openingSavingOpeningButton_Click(object sender, EventArgs e) {
-		try {
-			ArgumentNullException.ThrowIfNull(this.savingDepositInfo);
+    private void openingSavingOpeningButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            ArgumentNullException.ThrowIfNull(this.savingDepositInfo);
 
-			this.savingDepositInfo.Balance = this.amountOpeningNumeric.Value;
+            this.savingDepositInfo.Balance = this.amountOpeningNumeric.Value;
 
-			if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, Properties.Resources.OpeningSavingConfirmationStringFormat,
-				this.savingDepositInfo.PeriodInMonths, this.savingDepositInfo.AnnualInterestRate, this.savingDepositInfo.Balance),
-				Properties.Resources.ConfirmationTitleString, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-				== DialogResult.Yes) {
-				Savings.Open(this.savingDepositInfo);
-				MessageBox.Show(this, Properties.Resources.OpeningSavingSuccessfullyString, Properties.Resources.InformationTitleString,
-					MessageBoxButtons.OK, MessageBoxIcon.Information);
-				this.LoadForm();
-			}
+            if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, Properties.Resources.OpeningSavingConfirmationStringFormat,
+                this.savingDepositInfo.PeriodInMonths, this.savingDepositInfo.AnnualInterestRate, this.savingDepositInfo.Balance),
+                Properties.Resources.ConfirmationTitleString, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+                == DialogResult.Yes)
+            {
+                Savings.Open(this.savingDepositInfo);
+                MessageBox.Show(this, Properties.Resources.OpeningSavingSuccessfullyString, Properties.Resources.InformationTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.LoadForm();
+            }
 
-		} catch (Exception ex) {
-			MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-			this.LoadForm();
-		}
-	}
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.LoadForm();
+        }
+    }
 
-	private void closingSavingDetailsButton_Click(object sender, EventArgs e) {
-		this.savingClosingComboBox.SelectedItem = this.savingDetailsComboBox.SelectedItem;
-		this.savingTabControl.SelectedTab = this.withdrawTabPage;
-	}
+    private void closingSavingDetailsButton_Click(object sender, EventArgs e)
+    {
+        this.savingClosingComboBox.SelectedItem = this.savingDetailsComboBox.SelectedItem;
+        this.savingTabControl.SelectedTab = this.withdrawTabPage;
+    }
 
-	private void savingClosingComboBox_SelectedValueChanged(object sender, EventArgs e) {
-		if (this.savingClosingComboBox.SelectedItem is null) {
-			this.savingWithdrawInfo = null;
+    private void savingClosingComboBox_SelectedValueChanged(object sender, EventArgs e)
+    {
+        if (this.savingClosingComboBox.SelectedItem is null)
+        {
+            this.savingWithdrawInfo = null;
 
-			this.balanceClosingTextBox.Text = string.Empty;
-			this.maturityDayClosingTextBox.Text = string.Empty;
-			this.amountToGetClosingTextBox.Text = string.Empty;
+            this.balanceClosingTextBox.Text = string.Empty;
+            this.maturityDayClosingTextBox.Text = string.Empty;
+            this.amountToGetClosingTextBox.Text = string.Empty;
 
-			this.closingSavingClosingButton.Enabled = false;
-		} else if (this.savingClosingComboBox.SelectedItem is int savingId) {
-			try {
-				this.savingWithdrawInfo = Savings.GetWithdrawInfo(savingId);
-				this.balanceClosingTextBox.Text = string.Format(
-					CultureInfo.CurrentCulture, BalanceTextFormat, savingWithdrawInfo.Balance);
-				this.maturityDayClosingTextBox.Text = savingWithdrawInfo.MaturityDate.ToString(CultureInfo.CurrentCulture);
-				this.amountToGetClosingTextBox.Text = string.Format(
-					CultureInfo.CurrentCulture, BalanceTextFormat, savingWithdrawInfo.AmountToGet);
+            this.closingSavingClosingButton.Enabled = false;
+        }
+        else if (this.savingClosingComboBox.SelectedItem is int savingId)
+        {
+            try
+            {
+                this.savingWithdrawInfo = Savings.GetWithdrawInfo(savingId);
+                this.balanceClosingTextBox.Text = savingWithdrawInfo.Balance.ToString(
+                    Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
+                this.maturityDayClosingTextBox.Text = savingWithdrawInfo.MaturityDate.ToString(CultureInfo.CurrentCulture);
+                this.amountToGetClosingTextBox.Text = savingWithdrawInfo.AmountToGet.ToString(
+                    Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
 
-				this.closingSavingClosingButton.Enabled = true;
-			} catch (Exception ex) {
-				MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-				this.LoadForm();
-			}
-		} else {
-			MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
-				MessageBoxButtons.OK, MessageBoxIcon.Error);
-			this.LoadForm();
-		}
-	}
+                this.closingSavingClosingButton.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.LoadForm();
+            }
+        }
+        else
+        {
+            MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.LoadForm();
+        }
+    }
 
-	private void closingSavingClosingButton_Click(object sender, EventArgs e) {
-		try {
-			ArgumentNullException.ThrowIfNull(this.savingWithdrawInfo);
+    private void closingSavingClosingButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            ArgumentNullException.ThrowIfNull(this.savingWithdrawInfo);
 
-			if (this.savingWithdrawInfo.MaturityDate <= DateOnly.FromDateTime(DateTime.Now) ||
-				(MessageBox.Show(this, Properties.Resources.ClosingSavingBeforeMaturityDayWarningString, Properties.Resources.WarningTitleString,
-				MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
-				== DialogResult.Yes)) {
-				Savings.Close(this.savingWithdrawInfo.Id);
-				MessageBox.Show(this, Properties.Resources.ClosingSavingSuccessfullyString, Properties.Resources.InformationTitleString,
-					MessageBoxButtons.OK, MessageBoxIcon.Information);
-			}
-		} catch (Exception ex) {
-			MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-		}
-		this.LoadForm();
-	}
-	#endregion
-	#region Statistical
+            if (this.savingWithdrawInfo.MaturityDate <= DateOnly.FromDateTime(DateTime.Now) ||
+                (MessageBox.Show(this, Properties.Resources.ClosingSavingBeforeMaturityDayWarningString, Properties.Resources.WarningTitleString,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                == DialogResult.Yes))
+            {
+                Savings.Close(this.savingWithdrawInfo.Id);
+                MessageBox.Show(this, Properties.Resources.ClosingSavingSuccessfullyString, Properties.Resources.InformationTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        this.LoadForm();
+    }
+    #endregion
+    #region Statistical
 
     private void InitializeStatistical()
     {
@@ -252,16 +304,17 @@ public partial class CustomerMenuForm : Form {
         LoadingTransactionList();
     }
 
-	public void LoadingScene() {
-		panelSavings.LeftColor = Color.FromArgb(0, 221, 176);
-		panelSavings.RightColor = Color.FromArgb(0, 221, 176);
-		panelExpenses.LeftColor = Color.FromArgb(244, 132, 132);
-		panelExpenses.RightColor = Color.FromArgb(244, 132, 132);
+    public void LoadingScene()
+    {
+        panelSavings.LeftColor = Color.FromArgb(0, 221, 176);
+        panelSavings.RightColor = Color.FromArgb(0, 221, 176);
+        panelExpenses.LeftColor = Color.FromArgb(244, 132, 132);
+        panelExpenses.RightColor = Color.FromArgb(244, 132, 132);
 
-		groupBoxTransactionList.BackColor = Color.FromArgb(1, 242, 240, 245);
-		groupBoxStats.BackColor = Color.FromArgb(1, 242, 240, 245);
-		groupBoxFunction.BackColor = Color.FromArgb(1, 242, 240, 245);
-	}
+        groupBoxTransactionList.BackColor = Color.FromArgb(1, 242, 240, 245);
+        groupBoxStats.BackColor = Color.FromArgb(1, 242, 240, 245);
+        groupBoxFunction.BackColor = Color.FromArgb(1, 242, 240, 245);
+    }
 
     public void LoadingTransactionList()
     {
@@ -356,24 +409,6 @@ public partial class CustomerMenuForm : Form {
     private void Form_MainMenu_Load(object sender, EventArgs e)
     {
         this.GoingBackToLoginForm = false;
-
-        switch (string.Empty)
-        {
-            case "error":
-                MessageBox.Show("User authorization error!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            case "admin":
-                break;
-            case "staff":
-                //accountManagementToolStripMenuItem.Enabled = false;
-                //changeRegulationsToolStripMenuItem.Enabled = false;
-                break;
-            case "customer":
-                //accountManagementToolStripMenuItem.Enabled = false;
-                //statisticalToolStripMenuItem.Enabled = false;
-                //changeRegulationsToolStripMenuItem.Enabled = false;
-                break;
-        }
     }
 
     private void accountInformationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -394,26 +429,28 @@ public partial class CustomerMenuForm : Form {
         personalInfoForm.ShowDialog(this);
     }
 
-	private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e) {
-		Form bg = new Form();
-		CloseWindow logOut = new CloseWindow();
-		using (logOut) {
-			logOut.Notification.Text = "Do you want to log out?";
-			logOut.Text = "Log out";
-			logOut.Confirm.Text = "Log out";
-			bg.StartPosition = FormStartPosition.Manual;
-			bg.FormBorderStyle = FormBorderStyle.None;
-			bg.BackColor = Color.Black;
-			bg.Opacity = 0.7d;
-			bg.Size = this.Size;
-			bg.Location = this.Location;
-			bg.ShowInTaskbar = false;
-			bg.Show(this);
-			logOut.Owner = bg;
-			logOut.ShowDialog(bg);
-			bg.Dispose();
-		}
-		this.GoingBackToLoginForm = !logOut.IsNotClosed;
-		e.Cancel = logOut.IsNotClosed;
-	}
+    private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        Form bg = new Form();
+        CloseWindow logOut = new CloseWindow();
+        using (logOut)
+        {
+            logOut.Notification.Text = Resources.LogOutConfirmationString;
+            logOut.Text = Resources.LogOutString;
+            logOut.Confirm.Text = Resources.LogOutString;
+            bg.StartPosition = FormStartPosition.Manual;
+            bg.FormBorderStyle = FormBorderStyle.None;
+            bg.BackColor = Color.Black;
+            bg.Opacity = 0.7d;
+            bg.Size = this.Size;
+            bg.Location = this.Location;
+            bg.ShowInTaskbar = false;
+            bg.Show(this);
+            logOut.Owner = bg;
+            logOut.ShowDialog(bg);
+            bg.Dispose();
+        }
+        this.GoingBackToLoginForm = !logOut.IsNotClosed;
+        e.Cancel = logOut.IsNotClosed;
+    }
 }

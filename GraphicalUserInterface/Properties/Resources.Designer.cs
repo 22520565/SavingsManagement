@@ -137,16 +137,6 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap email {
-            get {
-                object obj = ResourceManager.GetObject("email", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to $ #,##0.00##;-$ #,##0.00##.
         /// </summary>
         internal static string CurrencyStringFormat {
@@ -156,11 +146,30 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dd/MM/yyyy.
+        /// </summary>
+        internal static string DateOnlyStringFormat {
+            get {
+                return ResourceManager.GetString("DateOnlyStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to hh:mm:ss tt dd/MM/yyyy.
         /// </summary>
         internal static string DateTimeStringFormat {
             get {
                 return ResourceManager.GetString("DateTimeStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap email {
+            get {
+                object obj = ResourceManager.GetObject("email", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -211,6 +220,24 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to loading your info! Please try again later!.
+        /// </summary>
+        internal static string FailedLoadingCustomerInfoString {
+            get {
+                return ResourceManager.GetString("FailedLoadingCustomerInfoString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        internal static string FemaleString {
+            get {
+                return ResourceManager.GetString("FemaleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap FrustratedHeadGifImage {
@@ -250,6 +277,15 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #,0.00#%/year.
+        /// </summary>
+        internal static string InterestTextFormatString {
+            get {
+                return ResourceManager.GetString("InterestTextFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap LoginImage {
@@ -265,6 +301,24 @@ namespace GraphicalUserInterface.Properties {
         internal static string LogOutConfirmationString {
             get {
                 return ResourceManager.GetString("LogOutConfirmationString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log out.
+        /// </summary>
+        internal static string LogOutString {
+            get {
+                return ResourceManager.GetString("LogOutString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        internal static string MaleString {
+            get {
+                return ResourceManager.GetString("MaleString", resourceCulture);
             }
         }
         
