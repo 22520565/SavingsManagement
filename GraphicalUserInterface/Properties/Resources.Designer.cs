@@ -164,12 +164,30 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deposited successfully!.
+        /// </summary>
+        internal static string DepositSuccessfullyString {
+            get {
+                return ResourceManager.GetString("DepositSuccessfullyString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap email {
             get {
                 object obj = ResourceManager.GetObject("email", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The content shall not be empty. Please type the content and try again..
+        /// </summary>
+        internal static string ErrorEmptyContentString {
+            get {
+                return ResourceManager.GetString("ErrorEmptyContentString", resourceCulture);
             }
         }
         
@@ -282,6 +300,15 @@ namespace GraphicalUserInterface.Properties {
         internal static string InterestTextFormatString {
             get {
                 return ResourceManager.GetString("InterestTextFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid customer ID. Please check and try again..
+        /// </summary>
+        internal static string InvalidCustomerIdString {
+            get {
+                return ResourceManager.GetString("InvalidCustomerIdString", resourceCulture);
             }
         }
         

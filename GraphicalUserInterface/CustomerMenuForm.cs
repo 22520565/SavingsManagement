@@ -36,7 +36,7 @@ public partial class CustomerMenuForm : Form
     {
         try
         {
-            CustomerAccount? customerAccount = CustomerAccounts.GetCustomerAccount;
+            CustomerAccount? customerAccount = CustomerAccounts.CurrentCustomerAccount;
             if (customerAccount is not null)
             {
                 this.customerIdTextBox.Text = customerAccount.Id.ToString(CultureInfo.CurrentCulture);

@@ -271,4 +271,13 @@
   <data name="MaleString" xml:space="preserve">
     <value>Male</value>
   </data>
+  <data name="ErrorEmptyContentString" xml:space="preserve">
+    <value>The content shall not be empty. Please type the content and try again.</value>
+  </data>
+  <data name="InvalidCustomerIdString" xml:space="preserve">
+    <value>Invalid customer ID. Please check and try again.</value>
+  </data>
+  <data name="DepositSuccessfullyString" xml:space="preserve">
+    <value>Deposited successfully!</value>
+  </data>
 </root>

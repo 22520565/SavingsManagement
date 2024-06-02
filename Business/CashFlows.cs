@@ -7,7 +7,40 @@ using DataAccess;
 
 public static class CashFlows
 {
-    public static void AddCashFlow(int customerId, decimal balanceChanging, string content)
+    public static void Deposit(int customerId, decimal amount, string content)
+    {
+        if (amount <= 0)
+        {
+            throw new ArgumentException("Amount to deposit must be positive.");
+        }
+        else
+        {
+            AddCashFlow(customerId, amount, content);
+        }
+    }
+
+    public static void Withdraw(int customerId, decimal amount, string content)
+    {
+        if (amount > 0)
+        {
+            AddCashFlow(customerId, -amount, content);
+        }
+        else
+        {
+            throw new ArgumentException("Amount to deposit must be positive.");
+        }
+    }
+
+    public static IEnumerable<CashFlow> GetCashFlowsByCustomerId(int customerId)
+    {
+        using var context = new SavingsManagementContext();
+        return context.CashFlows
+                        .Where(cf => cf.CustomerId == customerId)
+                        .OrderByDescending(cf => cf.Time)
+                        .ToList();
+    }
+
+    private static void AddCashFlow(int customerId, decimal balanceChanging, string content)
     {
         using var context = new SavingsManagementContext();
         var cashFlow = new CashFlow
@@ -21,41 +54,4 @@ public static class CashFlows
         context.SaveChanges();
     }
 
-    public static IEnumerable<CashFlow> GetCashFlowsByCustomerId(int customerId)
-    {
-        using var context = new SavingsManagementContext();
-        return context.CashFlows
-                        .Where(cf => cf.CustomerId == customerId)
-                        .OrderByDescending(cf => cf.Time)
-                        .ToList();
-    }
-
-    public static CashFlow? GetCashFlowById(int id)
-    {
-        using var context = new SavingsManagementContext();
-        return context.CashFlows.SingleOrDefault(cf => cf.Id == id);
-    }
-
-    public static void UpdateCashFlow(int id, decimal newBalanceChanging, string newContent)
-    {
-        using var context = new SavingsManagementContext();
-        var cashFlow = context.CashFlows.SingleOrDefault(cf => cf.Id == id);
-        if (cashFlow is not null)
-        {
-            cashFlow.BalanceChanging = newBalanceChanging;
-            cashFlow.Content = newContent;
-            context.SaveChanges();
-        }
-    }
-
-    public static void DeleteCashFlow(int id)
-    {
-        using var context = new SavingsManagementContext();
-        var cashFlow = context.CashFlows.SingleOrDefault(cf => cf.Id == id);
-        if (cashFlow is not null)
-        {
-            context.CashFlows.Remove(cashFlow);
-            context.SaveChanges();
-        }
-    }
 }

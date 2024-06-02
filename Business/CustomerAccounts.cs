@@ -21,21 +21,14 @@ public static class CustomerAccounts
 
     public static int? CurrentCustomerId { get; private set; } = null;
 
-    public static decimal? CurrentCustomerBalance
-    {
-        get
-        {
-            return GetCustomerAccount?.Balance;
-        }
-    }
+    public static decimal? CurrentCustomerBalance => CurrentCustomerAccount?.Balance;
 
-    public static CustomerAccount? GetCustomerAccount
+    public static CustomerAccount? CurrentCustomerAccount => GetCustomerAccount(CurrentCustomerId);
+
+    public static CustomerAccount? GetCustomerAccount(int? customerId)
     {
-        get
-        {
-            using var context = new SavingsManagementContext();
-            return context.CustomerAccounts.Find(CurrentCustomerId);
-        }
+        using var context = new SavingsManagementContext();
+        return context.CustomerAccounts.Find(customerId);
     }
 
     public static bool checkPass(string password)
@@ -62,7 +55,6 @@ public static class CustomerAccounts
             customerAccount.HashedPassword = PasswordHasher.HashPassword(null!, newpass);
             context.SaveChanges();
         }
-        else { }
     }
 
     public static LoginResult Login(LoginInfo loginInfo)
