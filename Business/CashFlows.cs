@@ -21,13 +21,25 @@ public static class CashFlows
 
     public static void Withdraw(int customerId, decimal amount, string content)
     {
-        if (amount > 0)
+        if (amount <= 0)
         {
-            AddCashFlow(customerId, -amount, content);
+            throw new ArgumentException("Amount to withdraw must be positive.");
         }
         else
         {
-            throw new ArgumentException("Amount to deposit must be positive.");
+            var customerBalance = CustomerAccounts.GetCustomerAccount(customerId)?.Balance;
+            if (customerBalance is null)
+            {
+                throw new ArgumentException("Customer does not exist.");
+            }
+            else if (amount > customerBalance)
+            {
+                throw new ArgumentException("Amount to withdraw is greater than current balance.");
+            }
+            else
+            {
+                AddCashFlow(customerId, -amount, content);
+            }
         }
     }
 

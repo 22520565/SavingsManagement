@@ -295,4 +295,7 @@
   <data name="PasswordChangingSuccessfullyString" xml:space="preserve">
     <value>Password has been changed successfully!</value>
   </data>
+  <data name="WithdrawSuccessfullyString" xml:space="preserve">
+    <value>Withdrew successfully!</value>
+  </data>
 </root>

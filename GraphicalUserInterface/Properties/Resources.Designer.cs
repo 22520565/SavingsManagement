@@ -605,5 +605,14 @@ namespace GraphicalUserInterface.Properties {
                 return ResourceManager.GetString("WarningTitleString", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Withdrew successfully!.
+        /// </summary>
+        internal static string WithdrawSuccessfullyString {
+            get {
+                return ResourceManager.GetString("WithdrawSuccessfullyString", resourceCulture);
+            }
+        }
     }
 }

@@ -31,6 +31,12 @@ namespace GraphicalUserInterface
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label customerWithdrawContentLabel;
+            System.Windows.Forms.Label customerWithdrawAmountLabel;
+            System.Windows.Forms.Label customerWithdrawCicNumberLabel;
+            System.Windows.Forms.Label customerWithdrawNameLabel;
+            System.Windows.Forms.Label customerWithdrawIdLabel;
+            System.Windows.Forms.Label customerWithdrawBalanceLabel;
             tabControl1 = new System.Windows.Forms.TabControl();
             tabPage1 = new System.Windows.Forms.TabPage();
             tabPage2 = new System.Windows.Forms.TabPage();
@@ -46,13 +52,88 @@ namespace GraphicalUserInterface
             customerDepositNameLabel = new System.Windows.Forms.Label();
             customerDepositIdLabel = new System.Windows.Forms.Label();
             tabPage3 = new System.Windows.Forms.TabPage();
+            customerWithdrawBalanceTextBox = new System.Windows.Forms.TextBox();
+            customerWithdrawAmountNumeric = new System.Windows.Forms.NumericUpDown();
+            customerWithdrawIdTextBox = new System.Windows.Forms.TextBox();
+            customerWithdrawButton = new System.Windows.Forms.Button();
+            customerWithdrawContentTextBox = new System.Windows.Forms.TextBox();
+            customerWithdrawCicNumberTextBox = new System.Windows.Forms.TextBox();
+            customerWithdrawNameTextBox = new System.Windows.Forms.TextBox();
             tabPage4 = new System.Windows.Forms.TabPage();
             tabPageManageStaffs = new System.Windows.Forms.TabPage();
             tabPageChangeRegulations = new System.Windows.Forms.TabPage();
+            customerWithdrawContentLabel = new System.Windows.Forms.Label();
+            customerWithdrawAmountLabel = new System.Windows.Forms.Label();
+            customerWithdrawCicNumberLabel = new System.Windows.Forms.Label();
+            customerWithdrawNameLabel = new System.Windows.Forms.Label();
+            customerWithdrawIdLabel = new System.Windows.Forms.Label();
+            customerWithdrawBalanceLabel = new System.Windows.Forms.Label();
             tabControl1.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).BeginInit();
+            tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).BeginInit();
             SuspendLayout();
+            // 
+            // customerWithdrawContentLabel
+            // 
+            customerWithdrawContentLabel.AutoSize = true;
+            customerWithdrawContentLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawContentLabel.Location = new System.Drawing.Point(84, 256);
+            customerWithdrawContentLabel.Name = "customerWithdrawContentLabel";
+            customerWithdrawContentLabel.Size = new System.Drawing.Size(91, 26);
+            customerWithdrawContentLabel.TabIndex = 5;
+            customerWithdrawContentLabel.Text = "Content:";
+            // 
+            // customerWithdrawAmountLabel
+            // 
+            customerWithdrawAmountLabel.AutoSize = true;
+            customerWithdrawAmountLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawAmountLabel.Location = new System.Drawing.Point(84, 210);
+            customerWithdrawAmountLabel.Name = "customerWithdrawAmountLabel";
+            customerWithdrawAmountLabel.Size = new System.Drawing.Size(185, 26);
+            customerWithdrawAmountLabel.TabIndex = 4;
+            customerWithdrawAmountLabel.Text = "Withdraw amount:";
+            // 
+            // customerWithdrawCicNumberLabel
+            // 
+            customerWithdrawCicNumberLabel.AutoSize = true;
+            customerWithdrawCicNumberLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawCicNumberLabel.Location = new System.Drawing.Point(84, 128);
+            customerWithdrawCicNumberLabel.Name = "customerWithdrawCicNumberLabel";
+            customerWithdrawCicNumberLabel.Size = new System.Drawing.Size(138, 26);
+            customerWithdrawCicNumberLabel.TabIndex = 2;
+            customerWithdrawCicNumberLabel.Text = "CIC Number:";
+            // 
+            // customerWithdrawNameLabel
+            // 
+            customerWithdrawNameLabel.AutoSize = true;
+            customerWithdrawNameLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawNameLabel.Location = new System.Drawing.Point(84, 86);
+            customerWithdrawNameLabel.Name = "customerWithdrawNameLabel";
+            customerWithdrawNameLabel.Size = new System.Drawing.Size(72, 26);
+            customerWithdrawNameLabel.TabIndex = 1;
+            customerWithdrawNameLabel.Text = "Name:";
+            // 
+            // customerWithdrawIdLabel
+            // 
+            customerWithdrawIdLabel.AutoSize = true;
+            customerWithdrawIdLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawIdLabel.Location = new System.Drawing.Point(84, 40);
+            customerWithdrawIdLabel.Name = "customerWithdrawIdLabel";
+            customerWithdrawIdLabel.Size = new System.Drawing.Size(138, 26);
+            customerWithdrawIdLabel.TabIndex = 0;
+            customerWithdrawIdLabel.Text = "Customer ID:";
+            // 
+            // customerWithdrawBalanceLabel
+            // 
+            customerWithdrawBalanceLabel.AutoSize = true;
+            customerWithdrawBalanceLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawBalanceLabel.Location = new System.Drawing.Point(84, 167);
+            customerWithdrawBalanceLabel.Name = "customerWithdrawBalanceLabel";
+            customerWithdrawBalanceLabel.Size = new System.Drawing.Size(90, 26);
+            customerWithdrawBalanceLabel.TabIndex = 3;
+            customerWithdrawBalanceLabel.Text = "Balance:";
             // 
             // tabControl1
             // 
@@ -217,6 +298,19 @@ namespace GraphicalUserInterface
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(customerWithdrawBalanceTextBox);
+            tabPage3.Controls.Add(customerWithdrawBalanceLabel);
+            tabPage3.Controls.Add(customerWithdrawAmountNumeric);
+            tabPage3.Controls.Add(customerWithdrawIdTextBox);
+            tabPage3.Controls.Add(customerWithdrawButton);
+            tabPage3.Controls.Add(customerWithdrawContentTextBox);
+            tabPage3.Controls.Add(customerWithdrawContentLabel);
+            tabPage3.Controls.Add(customerWithdrawAmountLabel);
+            tabPage3.Controls.Add(customerWithdrawCicNumberTextBox);
+            tabPage3.Controls.Add(customerWithdrawCicNumberLabel);
+            tabPage3.Controls.Add(customerWithdrawNameTextBox);
+            tabPage3.Controls.Add(customerWithdrawNameLabel);
+            tabPage3.Controls.Add(customerWithdrawIdLabel);
             tabPage3.Location = new System.Drawing.Point(4, 35);
             tabPage3.Margin = new System.Windows.Forms.Padding(2);
             tabPage3.Name = "tabPage3";
@@ -224,6 +318,73 @@ namespace GraphicalUserInterface
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Withdraw";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // customerWithdrawBalanceTextBox
+            // 
+            customerWithdrawBalanceTextBox.Location = new System.Drawing.Point(379, 164);
+            customerWithdrawBalanceTextBox.Name = "customerWithdrawBalanceTextBox";
+            customerWithdrawBalanceTextBox.ReadOnly = true;
+            customerWithdrawBalanceTextBox.Size = new System.Drawing.Size(303, 34);
+            customerWithdrawBalanceTextBox.TabIndex = 3;
+            // 
+            // customerWithdrawAmountNumeric
+            // 
+            customerWithdrawAmountNumeric.DecimalPlaces = 2;
+            customerWithdrawAmountNumeric.Enabled = false;
+            customerWithdrawAmountNumeric.Location = new System.Drawing.Point(379, 208);
+            customerWithdrawAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
+            customerWithdrawAmountNumeric.Name = "customerWithdrawAmountNumeric";
+            customerWithdrawAmountNumeric.Size = new System.Drawing.Size(303, 34);
+            customerWithdrawAmountNumeric.TabIndex = 4;
+            // 
+            // customerWithdrawIdTextBox
+            // 
+            customerWithdrawIdTextBox.Location = new System.Drawing.Point(379, 37);
+            customerWithdrawIdTextBox.MaxLength = 0;
+            customerWithdrawIdTextBox.Name = "customerWithdrawIdTextBox";
+            customerWithdrawIdTextBox.Size = new System.Drawing.Size(303, 34);
+            customerWithdrawIdTextBox.TabIndex = 7;
+            customerWithdrawIdTextBox.Enter += customerWithdrawIdTextBox_Enter;
+            customerWithdrawIdTextBox.Leave += customerWithdrawIdTextBox_Leave;
+            // 
+            // customerWithdrawButton
+            // 
+            customerWithdrawButton.AutoSize = true;
+            customerWithdrawButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            customerWithdrawButton.Enabled = false;
+            customerWithdrawButton.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawButton.Location = new System.Drawing.Point(617, 359);
+            customerWithdrawButton.Name = "customerWithdrawButton";
+            customerWithdrawButton.Size = new System.Drawing.Size(113, 36);
+            customerWithdrawButton.TabIndex = 6;
+            customerWithdrawButton.Text = "Withdraw";
+            customerWithdrawButton.UseVisualStyleBackColor = true;
+            customerWithdrawButton.Click += customerWithdrawButton_Click;
+            // 
+            // customerWithdrawContentTextBox
+            // 
+            customerWithdrawContentTextBox.Enabled = false;
+            customerWithdrawContentTextBox.Location = new System.Drawing.Point(84, 296);
+            customerWithdrawContentTextBox.Name = "customerWithdrawContentTextBox";
+            customerWithdrawContentTextBox.Size = new System.Drawing.Size(598, 34);
+            customerWithdrawContentTextBox.TabIndex = 5;
+            customerWithdrawContentTextBox.TextChanged += customerWithdrawContentTextBox_TextChanged;
+            // 
+            // customerWithdrawCicNumberTextBox
+            // 
+            customerWithdrawCicNumberTextBox.Location = new System.Drawing.Point(379, 124);
+            customerWithdrawCicNumberTextBox.Name = "customerWithdrawCicNumberTextBox";
+            customerWithdrawCicNumberTextBox.ReadOnly = true;
+            customerWithdrawCicNumberTextBox.Size = new System.Drawing.Size(303, 34);
+            customerWithdrawCicNumberTextBox.TabIndex = 2;
+            // 
+            // customerWithdrawNameTextBox
+            // 
+            customerWithdrawNameTextBox.Location = new System.Drawing.Point(379, 82);
+            customerWithdrawNameTextBox.Name = "customerWithdrawNameTextBox";
+            customerWithdrawNameTextBox.ReadOnly = true;
+            customerWithdrawNameTextBox.Size = new System.Drawing.Size(303, 34);
+            customerWithdrawNameTextBox.TabIndex = 1;
             // 
             // tabPage4
             // 
@@ -271,6 +432,9 @@ namespace GraphicalUserInterface
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).EndInit();
             ResumeLayout(false);
         }
 
@@ -295,5 +459,17 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.Label customerDepositIdLabel;
         private System.Windows.Forms.TextBox customerDepositIdTextBox;
         private System.Windows.Forms.NumericUpDown customerDepositAmountNumeric;
+        private System.Windows.Forms.NumericUpDown customerWithdrawAmountNumeric;
+        private System.Windows.Forms.TextBox customerWithdrawIdTextBox;
+        private System.Windows.Forms.Button customerWithdrawButton;
+        private System.Windows.Forms.TextBox customerWithdrawContentTextBox;
+        private System.Windows.Forms.Label customerWithdrawContentLabel;
+        private System.Windows.Forms.Label customerWithdrawAmountLabel;
+        private System.Windows.Forms.TextBox customerWithdrawCicNumberTextBox;
+        private System.Windows.Forms.Label customerWithdrawCicNumberLabel;
+        private System.Windows.Forms.TextBox customerWithdrawNameTextBox;
+        private System.Windows.Forms.Label customerWithdrawNameLabel;
+        private System.Windows.Forms.Label customerWithdrawIdLabel;
+        private System.Windows.Forms.TextBox customerWithdrawBalanceTextBox;
     }
 }

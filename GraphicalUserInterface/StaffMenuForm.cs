@@ -141,4 +141,89 @@ public partial class StaffMenuForm : Form
                 MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
     }
+
+    private void customerWithdrawIdTextBox_Enter(object sender, EventArgs e)
+    {
+        this.customerWithdrawNameTextBox.Text = string.Empty;
+        this.customerWithdrawCicNumberTextBox.Text = string.Empty;
+        this.customerWithdrawBalanceTextBox.Text = string.Empty;
+        this.customerWithdrawAmountNumeric.Enabled = false;
+        this.customerWithdrawContentTextBox.Enabled = false;
+        this.customerWithdrawAmountNumeric.Maximum = decimal.Zero;
+        this.customerWithdrawButton.Enabled = false;
+    }
+
+    private void customerWithdrawIdTextBox_Leave(object sender, EventArgs e)
+    {
+        CustomerAccount? customerAccount = null;
+
+        if (!this.customerWithdrawIdTextBox.Text.IsNullOrEmpty() &&
+            int.TryParse(this.customerWithdrawIdTextBox.Text, CultureInfo.CurrentCulture, out var customerWithdrawId))
+        {
+            customerAccount = CustomerAccounts.GetCustomerAccount(customerWithdrawId);
+        }
+
+        if (customerAccount is null)
+        {
+            this.customerWithdrawNameTextBox.Text = string.Empty;
+            this.customerWithdrawCicNumberTextBox.Text = string.Empty;
+            this.customerWithdrawBalanceTextBox.Text = string.Empty;
+            this.customerWithdrawAmountNumeric.Enabled = false;
+            this.customerWithdrawAmountNumeric.Maximum = decimal.Zero;
+            this.customerWithdrawContentTextBox.Enabled = false;
+            this.customerWithdrawButton.Enabled = false;
+        }
+        else
+        {
+            this.customerWithdrawNameTextBox.Text = customerAccount.Name;
+            this.customerWithdrawCicNumberTextBox.Text = customerAccount.CicNumber;
+            this.customerWithdrawBalanceTextBox.Text = customerAccount.Balance.ToString(
+                Resources.CurrencyStringFormat, CultureInfo.CurrentCulture);
+            this.customerWithdrawAmountNumeric.Enabled = true;
+            this.customerWithdrawAmountNumeric.Maximum = Math.Round(customerAccount.Balance, this.customerWithdrawAmountNumeric.DecimalPlaces, MidpointRounding.ToZero);
+            this.customerWithdrawContentTextBox.Enabled = true;
+            this.customerWithdrawButton.Enabled = !this.customerWithdrawContentTextBox.Text.IsNullOrEmpty();
+        }
+    }
+
+    private void customerWithdrawContentTextBox_TextChanged(object sender, EventArgs e)
+    {
+        this.customerWithdrawButton.Enabled = !this.customerWithdrawContentTextBox.Text.IsNullOrEmpty()
+            && !this.customerWithdrawIdTextBox.Text.IsNullOrEmpty();
+    }
+
+    private void customerWithdrawButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (!int.TryParse(this.customerWithdrawIdTextBox.Text, CultureInfo.CurrentCulture, out var customerWithdrawId))
+            {
+                MessageBox.Show(this, Resources.InvalidCustomerIdString, Resources.ErrorTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            else if (this.customerWithdrawContentTextBox.Text.Length <= 0)
+            {
+                MessageBox.Show(this, Resources.ErrorEmptyContentString, Resources.ErrorTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+            else
+            {
+                CashFlows.Withdraw(customerWithdrawId, this.customerWithdrawAmountNumeric.Value, this.customerWithdrawContentTextBox.Text);
+                MessageBox.Show(this, Resources.WithdrawSuccessfullyString, Resources.InformationTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                if (this.customerWithdrawIdTextBox.Focus())
+                {
+                    this.customerWithdrawIdTextBox.Text = string.Empty;
+                }
+                this.customerWithdrawIdTextBox.Text = string.Empty;
+                this.customerWithdrawAmountNumeric.Value = this.customerWithdrawAmountNumeric.Minimum;
+                this.customerWithdrawContentTextBox.Text = string.Empty;
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(this, ex.Message, ex.Source,
+                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+        }
+    }
 }
