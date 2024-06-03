@@ -128,6 +128,15 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wrong confirm password, Please retry!.
+        /// </summary>
+        internal static string ConfirmationPasswordNotMatchedString {
+            get {
+                return ResourceManager.GetString("ConfirmationPasswordNotMatchedString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirmation.
         /// </summary>
         internal static string ConfirmationTitleString {
@@ -350,6 +359,15 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New password is invalid. Please try again..
+        /// </summary>
+        internal static string NewPasswordInvalidString {
+            get {
+                return ResourceManager.GetString("NewPasswordInvalidString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No customer is currently logged in!.
         /// </summary>
         internal static string NoCustomerLoggingInString {
@@ -364,6 +382,24 @@ namespace GraphicalUserInterface.Properties {
         internal static string NotificationTitleString {
             get {
                 return ResourceManager.GetString("NotificationTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old password cannot be left empty..
+        /// </summary>
+        internal static string OldPasswordEmptyString {
+            get {
+                return ResourceManager.GetString("OldPasswordEmptyString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old password is not correct. Please try again..
+        /// </summary>
+        internal static string OldPasswordIncorrectString {
+            get {
+                return ResourceManager.GetString("OldPasswordIncorrectString", resourceCulture);
             }
         }
         
@@ -414,6 +450,15 @@ namespace GraphicalUserInterface.Properties {
         internal static string PasswordBlankWarningString {
             get {
                 return ResourceManager.GetString("PasswordBlankWarningString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password has been changed successfully!.
+        /// </summary>
+        internal static string PasswordChangingSuccessfullyString {
+            get {
+                return ResourceManager.GetString("PasswordChangingSuccessfullyString", resourceCulture);
             }
         }
         

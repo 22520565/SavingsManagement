@@ -31,30 +31,71 @@ public static class CustomerAccounts
         return context.CustomerAccounts.Find(customerId);
     }
 
-    public static bool checkPass(string password)
+    public static bool IsPasswordCorrect(string password)
     {
+        bool passwordCorrect = false;
+
         using var context = new SavingsManagementContext();
+
         var customerAccount = context.CustomerAccounts.Find(CurrentCustomerId);
         if (customerAccount is not null)
         {
             switch (PasswordHasher.VerifyHashedPassword(null!, customerAccount.HashedPassword, password))
             {
                 case PasswordVerificationResult.Success:
-                    return true;
+                case PasswordVerificationResult.SuccessRehashNeeded:
+                    passwordCorrect = true;
+                    break;
+
+                default:
+                    break;
             }
         }
-        return false;
+
+        return passwordCorrect;
     }
 
-    public static void updatePass(string newpass)
+    public enum PasswordChangingResult
     {
+        Success,
+        AccountNotFound,
+        EmptyOldPassword,
+        InvalidNewPassword,
+        WrongOldPassword,
+    }
+
+    public static PasswordChangingResult ChangePassword(string oldPassword, string newPassword)
+    {
+        PasswordChangingResult passwordChangingResult = PasswordChangingResult.WrongOldPassword;
+
         using var context = new SavingsManagementContext();
         var customerAccount = context.CustomerAccounts.Find(CurrentCustomerId);
-        if (customerAccount is not null)
+
+        if (oldPassword.IsNullOrEmpty())
         {
-            customerAccount.HashedPassword = PasswordHasher.HashPassword(null!, newpass);
-            context.SaveChanges();
+            passwordChangingResult = PasswordChangingResult.EmptyOldPassword;
         }
+        else if (newPassword.IsNullOrEmpty())
+        {
+            passwordChangingResult = PasswordChangingResult.InvalidNewPassword;
+        }
+        else if (customerAccount is null)
+        {
+            passwordChangingResult = PasswordChangingResult.AccountNotFound;
+        }
+        else if (PasswordHasher.VerifyHashedPassword(null!, customerAccount.HashedPassword!, oldPassword)
+            == PasswordVerificationResult.Failed)
+        {
+            passwordChangingResult = PasswordChangingResult.WrongOldPassword;
+        }
+        else
+        {
+            customerAccount.HashedPassword = PasswordHasher.HashPassword(null!, newPassword);
+            context.SaveChanges();
+            passwordChangingResult = PasswordChangingResult.Success;
+        }
+
+        return passwordChangingResult;
     }
 
     public static LoginResult Login(LoginInfo loginInfo)
