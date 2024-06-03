@@ -37,23 +37,27 @@ namespace GraphicalUserInterface
             tabPage1 = new TabPage();
             tabControl2 = new TabControl();
             tabPage3 = new TabPage();
-            btnchange = new Button();
-            txtbalance = new TextBox();
-            txtAddress = new TextBox();
-            txtEmail = new TextBox();
-            label11 = new Label();
-            label10 = new Label();
-            txtBirth = new TextBox();
-            label1 = new Label();
-            txtPhone = new TextBox();
-            label3 = new Label();
-            txtCicnum = new TextBox();
-            label4 = new Label();
-            txtsex = new TextBox();
-            label6 = new Label();
-            txtname = new TextBox();
-            label7 = new Label();
-            label9 = new Label();
+            customerUsernameTextBox = new TextBox();
+            customerUsernameLabel = new Label();
+            customerIdTextBox = new TextBox();
+            customerIdLabel = new Label();
+            customerChangePasswordButton = new Button();
+            customerBalanceTextBox = new TextBox();
+            customerAddressTextBox = new TextBox();
+            customerEmailTextBox = new TextBox();
+            customerEmailLabel = new Label();
+            customerPhoneNumberLabel = new Label();
+            customerBirthdayTextBox = new TextBox();
+            customerAddressLabel = new Label();
+            customerPhoneNumberTextBox = new TextBox();
+            customerBirthdayLabel = new Label();
+            customerCicNumberTextBox = new TextBox();
+            customerCicNumberLabel = new Label();
+            customerGenderTextBox = new TextBox();
+            customerGenderLabel = new Label();
+            customerNameTextBox = new TextBox();
+            customerBalanceLabel = new Label();
+            customerNameLabel = new Label();
             tabPage2 = new TabPage();
             savingTabControl = new TabControl();
             detailsTabPage = new TabPage();
@@ -164,23 +168,27 @@ namespace GraphicalUserInterface
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(btnchange);
-            tabPage3.Controls.Add(txtbalance);
-            tabPage3.Controls.Add(txtAddress);
-            tabPage3.Controls.Add(txtEmail);
-            tabPage3.Controls.Add(label11);
-            tabPage3.Controls.Add(label10);
-            tabPage3.Controls.Add(txtBirth);
-            tabPage3.Controls.Add(label1);
-            tabPage3.Controls.Add(txtPhone);
-            tabPage3.Controls.Add(label3);
-            tabPage3.Controls.Add(txtCicnum);
-            tabPage3.Controls.Add(label4);
-            tabPage3.Controls.Add(txtsex);
-            tabPage3.Controls.Add(label6);
-            tabPage3.Controls.Add(txtname);
-            tabPage3.Controls.Add(label7);
-            tabPage3.Controls.Add(label9);
+            tabPage3.Controls.Add(customerUsernameTextBox);
+            tabPage3.Controls.Add(customerUsernameLabel);
+            tabPage3.Controls.Add(customerIdTextBox);
+            tabPage3.Controls.Add(customerIdLabel);
+            tabPage3.Controls.Add(customerChangePasswordButton);
+            tabPage3.Controls.Add(customerBalanceTextBox);
+            tabPage3.Controls.Add(customerAddressTextBox);
+            tabPage3.Controls.Add(customerEmailTextBox);
+            tabPage3.Controls.Add(customerEmailLabel);
+            tabPage3.Controls.Add(customerPhoneNumberLabel);
+            tabPage3.Controls.Add(customerBirthdayTextBox);
+            tabPage3.Controls.Add(customerAddressLabel);
+            tabPage3.Controls.Add(customerPhoneNumberTextBox);
+            tabPage3.Controls.Add(customerBirthdayLabel);
+            tabPage3.Controls.Add(customerCicNumberTextBox);
+            tabPage3.Controls.Add(customerCicNumberLabel);
+            tabPage3.Controls.Add(customerGenderTextBox);
+            tabPage3.Controls.Add(customerGenderLabel);
+            tabPage3.Controls.Add(customerNameTextBox);
+            tabPage3.Controls.Add(customerBalanceLabel);
+            tabPage3.Controls.Add(customerNameLabel);
             tabPage3.Location = new System.Drawing.Point(4, 32);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(3);
@@ -189,153 +197,187 @@ namespace GraphicalUserInterface
             tabPage3.Text = "Details";
             tabPage3.UseVisualStyleBackColor = true;
             // 
-            // btnchange
+            // customerUsernameTextBox
             // 
-            btnchange.AutoSize = true;
-            btnchange.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnchange.Location = new System.Drawing.Point(462, 420);
-            btnchange.Name = "btnchange";
-            btnchange.Size = new System.Drawing.Size(171, 33);
-            btnchange.TabIndex = 13;
-            btnchange.Text = "Change Password";
-            btnchange.UseVisualStyleBackColor = true;
-            btnchange.Click += btnchange_Click;
+            customerUsernameTextBox.Location = new System.Drawing.Point(194, 316);
+            customerUsernameTextBox.Name = "customerUsernameTextBox";
+            customerUsernameTextBox.ReadOnly = true;
+            customerUsernameTextBox.Size = new System.Drawing.Size(351, 31);
+            customerUsernameTextBox.TabIndex = 8;
             // 
-            // txtbalance
+            // customerUsernameLabel
             // 
-            txtbalance.Location = new System.Drawing.Point(819, 285);
-            txtbalance.Name = "txtbalance";
-            txtbalance.ReadOnly = true;
-            txtbalance.Size = new System.Drawing.Size(242, 31);
-            txtbalance.TabIndex = 12;
+            customerUsernameLabel.AutoSize = true;
+            customerUsernameLabel.Location = new System.Drawing.Point(85, 316);
+            customerUsernameLabel.Name = "customerUsernameLabel";
+            customerUsernameLabel.Size = new System.Drawing.Size(103, 23);
+            customerUsernameLabel.TabIndex = 8;
+            customerUsernameLabel.Text = "Username:";
             // 
-            // txtAddress
+            // customerIdTextBox
             // 
-            txtAddress.Location = new System.Drawing.Point(819, 108);
-            txtAddress.Name = "txtAddress";
-            txtAddress.ReadOnly = true;
-            txtAddress.Size = new System.Drawing.Size(242, 31);
-            txtAddress.TabIndex = 11;
+            customerIdTextBox.Location = new System.Drawing.Point(61, 41);
+            customerIdTextBox.Name = "customerIdTextBox";
+            customerIdTextBox.ReadOnly = true;
+            customerIdTextBox.Size = new System.Drawing.Size(365, 31);
+            customerIdTextBox.TabIndex = 0;
             // 
-            // txtEmail
+            // customerIdLabel
             // 
-            txtEmail.Location = new System.Drawing.Point(819, 187);
-            txtEmail.Name = "txtEmail";
-            txtEmail.ReadOnly = true;
-            txtEmail.Size = new System.Drawing.Size(242, 31);
-            txtEmail.TabIndex = 10;
+            customerIdLabel.AutoSize = true;
+            customerIdLabel.Location = new System.Drawing.Point(21, 44);
+            customerIdLabel.Name = "customerIdLabel";
+            customerIdLabel.Size = new System.Drawing.Size(34, 23);
+            customerIdLabel.TabIndex = 0;
+            customerIdLabel.Text = "ID:";
             // 
-            // label11
+            // customerChangePasswordButton
             // 
-            label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(614, 195);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(65, 23);
-            label11.TabIndex = 9;
-            label11.Text = "Email:";
+            customerChangePasswordButton.AutoSize = true;
+            customerChangePasswordButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            customerChangePasswordButton.Location = new System.Drawing.Point(907, 395);
+            customerChangePasswordButton.Name = "customerChangePasswordButton";
+            customerChangePasswordButton.Size = new System.Drawing.Size(171, 33);
+            customerChangePasswordButton.TabIndex = 10;
+            customerChangePasswordButton.Text = "Change Password";
+            customerChangePasswordButton.UseVisualStyleBackColor = true;
+            customerChangePasswordButton.Click += customerChangePasswordButton_Click;
             // 
-            // label10
+            // customerBalanceTextBox
             // 
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(614, 44);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(144, 23);
-            label10.TabIndex = 8;
-            label10.Text = "Phone Number:";
+            customerBalanceTextBox.Location = new System.Drawing.Point(708, 316);
+            customerBalanceTextBox.Name = "customerBalanceTextBox";
+            customerBalanceTextBox.ReadOnly = true;
+            customerBalanceTextBox.Size = new System.Drawing.Size(260, 31);
+            customerBalanceTextBox.TabIndex = 9;
             // 
-            // txtBirth
+            // customerAddressTextBox
             // 
-            txtBirth.Location = new System.Drawing.Point(226, 290);
-            txtBirth.Name = "txtBirth";
-            txtBirth.ReadOnly = true;
-            txtBirth.Size = new System.Drawing.Size(239, 31);
-            txtBirth.TabIndex = 7;
+            customerAddressTextBox.Location = new System.Drawing.Point(112, 241);
+            customerAddressTextBox.Name = "customerAddressTextBox";
+            customerAddressTextBox.ReadOnly = true;
+            customerAddressTextBox.Size = new System.Drawing.Size(997, 31);
+            customerAddressTextBox.TabIndex = 7;
             // 
-            // label1
+            // customerEmailTextBox
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(614, 119);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(85, 23);
-            label1.TabIndex = 6;
-            label1.Text = "Address:";
+            customerEmailTextBox.Location = new System.Drawing.Point(555, 168);
+            customerEmailTextBox.Name = "customerEmailTextBox";
+            customerEmailTextBox.ReadOnly = true;
+            customerEmailTextBox.Size = new System.Drawing.Size(554, 31);
+            customerEmailTextBox.TabIndex = 6;
             // 
-            // txtPhone
+            // customerEmailLabel
             // 
-            txtPhone.Location = new System.Drawing.Point(819, 36);
-            txtPhone.Name = "txtPhone";
-            txtPhone.ReadOnly = true;
-            txtPhone.Size = new System.Drawing.Size(242, 31);
-            txtPhone.TabIndex = 4;
+            customerEmailLabel.AutoSize = true;
+            customerEmailLabel.Location = new System.Drawing.Point(484, 171);
+            customerEmailLabel.Name = "customerEmailLabel";
+            customerEmailLabel.Size = new System.Drawing.Size(65, 23);
+            customerEmailLabel.TabIndex = 6;
+            customerEmailLabel.Text = "Email:";
             // 
-            // label3
+            // customerPhoneNumberLabel
             // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(65, 293);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(90, 23);
-            label3.TabIndex = 4;
-            label3.Text = "Birthday:";
+            customerPhoneNumberLabel.AutoSize = true;
+            customerPhoneNumberLabel.Location = new System.Drawing.Point(21, 171);
+            customerPhoneNumberLabel.Name = "customerPhoneNumberLabel";
+            customerPhoneNumberLabel.Size = new System.Drawing.Size(144, 23);
+            customerPhoneNumberLabel.TabIndex = 5;
+            customerPhoneNumberLabel.Text = "Phone Number:";
             // 
-            // txtCicnum
+            // customerBirthdayTextBox
             // 
-            txtCicnum.Location = new System.Drawing.Point(226, 192);
-            txtCicnum.Name = "txtCicnum";
-            txtCicnum.ReadOnly = true;
-            txtCicnum.Size = new System.Drawing.Size(239, 31);
-            txtCicnum.TabIndex = 3;
+            customerBirthdayTextBox.Location = new System.Drawing.Point(867, 108);
+            customerBirthdayTextBox.Name = "customerBirthdayTextBox";
+            customerBirthdayTextBox.ReadOnly = true;
+            customerBirthdayTextBox.Size = new System.Drawing.Size(242, 31);
+            customerBirthdayTextBox.TabIndex = 4;
             // 
-            // label4
+            // customerAddressLabel
             // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(65, 192);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(116, 23);
-            label4.TabIndex = 3;
-            label4.Text = "Cic Number:";
+            customerAddressLabel.AutoSize = true;
+            customerAddressLabel.Location = new System.Drawing.Point(21, 244);
+            customerAddressLabel.Name = "customerAddressLabel";
+            customerAddressLabel.Size = new System.Drawing.Size(85, 23);
+            customerAddressLabel.TabIndex = 7;
+            customerAddressLabel.Text = "Address:";
             // 
-            // txtsex
+            // customerPhoneNumberTextBox
             // 
-            txtsex.Location = new System.Drawing.Point(226, 111);
-            txtsex.Name = "txtsex";
-            txtsex.ReadOnly = true;
-            txtsex.Size = new System.Drawing.Size(239, 31);
-            txtsex.TabIndex = 2;
+            customerPhoneNumberTextBox.Location = new System.Drawing.Point(171, 168);
+            customerPhoneNumberTextBox.Name = "customerPhoneNumberTextBox";
+            customerPhoneNumberTextBox.ReadOnly = true;
+            customerPhoneNumberTextBox.Size = new System.Drawing.Size(271, 31);
+            customerPhoneNumberTextBox.TabIndex = 5;
             // 
-            // label6
+            // customerBirthdayLabel
             // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(65, 111);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(45, 23);
-            label6.TabIndex = 2;
-            label6.Text = "Sex:";
+            customerBirthdayLabel.AutoSize = true;
+            customerBirthdayLabel.Location = new System.Drawing.Point(771, 108);
+            customerBirthdayLabel.Name = "customerBirthdayLabel";
+            customerBirthdayLabel.Size = new System.Drawing.Size(90, 23);
+            customerBirthdayLabel.TabIndex = 4;
+            customerBirthdayLabel.Text = "Birthday:";
             // 
-            // txtname
+            // customerCicNumberTextBox
             // 
-            txtname.Location = new System.Drawing.Point(226, 36);
-            txtname.Name = "txtname";
-            txtname.ReadOnly = true;
-            txtname.Size = new System.Drawing.Size(239, 31);
-            txtname.TabIndex = 1;
+            customerCicNumberTextBox.Location = new System.Drawing.Point(432, 105);
+            customerCicNumberTextBox.Name = "customerCicNumberTextBox";
+            customerCicNumberTextBox.ReadOnly = true;
+            customerCicNumberTextBox.Size = new System.Drawing.Size(287, 31);
+            customerCicNumberTextBox.TabIndex = 3;
             // 
-            // label7
+            // customerCicNumberLabel
             // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(614, 293);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(82, 23);
-            label7.TabIndex = 1;
-            label7.Text = "Balance:";
+            customerCicNumberLabel.AutoSize = true;
+            customerCicNumberLabel.Location = new System.Drawing.Point(308, 108);
+            customerCicNumberLabel.Name = "customerCicNumberLabel";
+            customerCicNumberLabel.Size = new System.Drawing.Size(118, 23);
+            customerCicNumberLabel.TabIndex = 3;
+            customerCicNumberLabel.Text = "CIC Number:";
             // 
-            // label9
+            // customerGenderTextBox
             // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(65, 44);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(66, 23);
-            label9.TabIndex = 0;
-            label9.Text = "Name:";
+            customerGenderTextBox.Location = new System.Drawing.Point(104, 105);
+            customerGenderTextBox.Name = "customerGenderTextBox";
+            customerGenderTextBox.ReadOnly = true;
+            customerGenderTextBox.Size = new System.Drawing.Size(162, 31);
+            customerGenderTextBox.TabIndex = 2;
+            // 
+            // customerGenderLabel
+            // 
+            customerGenderLabel.AutoSize = true;
+            customerGenderLabel.Location = new System.Drawing.Point(21, 108);
+            customerGenderLabel.Name = "customerGenderLabel";
+            customerGenderLabel.Size = new System.Drawing.Size(77, 23);
+            customerGenderLabel.TabIndex = 2;
+            customerGenderLabel.Text = "Gender:";
+            // 
+            // customerNameTextBox
+            // 
+            customerNameTextBox.Location = new System.Drawing.Point(540, 41);
+            customerNameTextBox.Name = "customerNameTextBox";
+            customerNameTextBox.ReadOnly = true;
+            customerNameTextBox.Size = new System.Drawing.Size(569, 31);
+            customerNameTextBox.TabIndex = 1;
+            // 
+            // customerBalanceLabel
+            // 
+            customerBalanceLabel.AutoSize = true;
+            customerBalanceLabel.Location = new System.Drawing.Point(620, 319);
+            customerBalanceLabel.Name = "customerBalanceLabel";
+            customerBalanceLabel.Size = new System.Drawing.Size(82, 23);
+            customerBalanceLabel.TabIndex = 9;
+            customerBalanceLabel.Text = "Balance:";
+            // 
+            // customerNameLabel
+            // 
+            customerNameLabel.AutoSize = true;
+            customerNameLabel.Location = new System.Drawing.Point(468, 44);
+            customerNameLabel.Name = "customerNameLabel";
+            customerNameLabel.Size = new System.Drawing.Size(66, 23);
+            customerNameLabel.TabIndex = 1;
+            customerNameLabel.Text = "Name:";
             // 
             // tabPage2
             // 
@@ -389,7 +431,7 @@ namespace GraphicalUserInterface
             maturityDayDetailsTextBox.Name = "maturityDayDetailsTextBox";
             maturityDayDetailsTextBox.ReadOnly = true;
             maturityDayDetailsTextBox.Size = new System.Drawing.Size(213, 31);
-            maturityDayDetailsTextBox.TabIndex = 7;
+            maturityDayDetailsTextBox.TabIndex = 5;
             // 
             // label5
             // 
@@ -408,7 +450,7 @@ namespace GraphicalUserInterface
             closeSavingDetailsButton.Location = new System.Drawing.Point(407, 304);
             closeSavingDetailsButton.Name = "closeSavingDetailsButton";
             closeSavingDetailsButton.Size = new System.Drawing.Size(126, 33);
-            closeSavingDetailsButton.TabIndex = 5;
+            closeSavingDetailsButton.TabIndex = 6;
             closeSavingDetailsButton.Text = "Close saving";
             closeSavingDetailsButton.UseVisualStyleBackColor = true;
             closeSavingDetailsButton.Click += closingSavingDetailsButton_Click;
@@ -526,7 +568,7 @@ namespace GraphicalUserInterface
             maturityDayOpeningTextBox.Name = "maturityDayOpeningTextBox";
             maturityDayOpeningTextBox.ReadOnly = true;
             maturityDayOpeningTextBox.Size = new System.Drawing.Size(244, 31);
-            maturityDayOpeningTextBox.TabIndex = 9;
+            maturityDayOpeningTextBox.TabIndex = 3;
             // 
             // maturityDayOpeningLabel
             // 
@@ -563,7 +605,7 @@ namespace GraphicalUserInterface
             openingSavingOpeningButton.Location = new System.Drawing.Point(405, 269);
             openingSavingOpeningButton.Name = "openingSavingOpeningButton";
             openingSavingOpeningButton.Size = new System.Drawing.Size(125, 33);
-            openingSavingOpeningButton.TabIndex = 3;
+            openingSavingOpeningButton.TabIndex = 5;
             openingSavingOpeningButton.Text = "Open saving";
             openingSavingOpeningButton.UseVisualStyleBackColor = true;
             openingSavingOpeningButton.Click += openingSavingOpeningButton_Click;
@@ -583,7 +625,7 @@ namespace GraphicalUserInterface
             amountOpeningNumeric.Location = new System.Drawing.Point(311, 210);
             amountOpeningNumeric.Name = "amountOpeningNumeric";
             amountOpeningNumeric.Size = new System.Drawing.Size(244, 31);
-            amountOpeningNumeric.TabIndex = 3;
+            amountOpeningNumeric.TabIndex = 4;
             // 
             // amountOpeningLabel
             // 
@@ -1019,22 +1061,26 @@ namespace GraphicalUserInterface
 		private System.Windows.Forms.GroupBox groupBoxFunction;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TextBox txtBirth;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCicnum;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtsex;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtname;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtbalance;
-        private System.Windows.Forms.TextBox txtAddress;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Button btnchange;
+        private System.Windows.Forms.TextBox customerBirthdayTextBox;
+        private System.Windows.Forms.Label customerAddressLabel;
+        private System.Windows.Forms.TextBox customerPhoneNumberTextBox;
+        private System.Windows.Forms.Label customerBirthdayLabel;
+        private System.Windows.Forms.TextBox customerCicNumberTextBox;
+        private System.Windows.Forms.Label customerCicNumberLabel;
+        private System.Windows.Forms.TextBox customerGenderTextBox;
+        private System.Windows.Forms.Label customerGenderLabel;
+        private System.Windows.Forms.TextBox customerNameTextBox;
+        private System.Windows.Forms.Label customerBalanceLabel;
+        private System.Windows.Forms.Label customerNameLabel;
+        private System.Windows.Forms.Label customerEmailLabel;
+        private System.Windows.Forms.Label customerPhoneNumberLabel;
+        private System.Windows.Forms.TextBox customerBalanceTextBox;
+        private System.Windows.Forms.TextBox customerAddressTextBox;
+        private System.Windows.Forms.TextBox customerEmailTextBox;
+        private System.Windows.Forms.Button customerChangePasswordButton;
+        private Label customerIdLabel;
+        private TextBox customerIdTextBox;
+        private TextBox customerUsernameTextBox;
+        private Label customerUsernameLabel;
     }
 }

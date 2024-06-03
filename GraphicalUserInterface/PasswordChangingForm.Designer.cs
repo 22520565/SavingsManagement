@@ -1,6 +1,6 @@
 ﻿namespace GraphicalUserInterface
 {
-    partial class changePass
+    partial class PasswordChangingForm
     {
         /// <summary>
         /// Required designer variable.
