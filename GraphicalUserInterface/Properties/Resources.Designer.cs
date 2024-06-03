@@ -128,11 +128,56 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Wrong confirm password, Please retry!.
+        /// </summary>
+        internal static string ConfirmationPasswordNotMatchedString {
+            get {
+                return ResourceManager.GetString("ConfirmationPasswordNotMatchedString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirmation.
         /// </summary>
         internal static string ConfirmationTitleString {
             get {
                 return ResourceManager.GetString("ConfirmationTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to $ #,##0.00##;-$ #,##0.00##.
+        /// </summary>
+        internal static string CurrencyStringFormat {
+            get {
+                return ResourceManager.GetString("CurrencyStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dd/MM/yyyy.
+        /// </summary>
+        internal static string DateOnlyStringFormat {
+            get {
+                return ResourceManager.GetString("DateOnlyStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to hh:mm:ss tt dd/MM/yyyy.
+        /// </summary>
+        internal static string DateTimeStringFormat {
+            get {
+                return ResourceManager.GetString("DateTimeStringFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deposited successfully!.
+        /// </summary>
+        internal static string DepositSuccessfullyString {
+            get {
+                return ResourceManager.GetString("DepositSuccessfullyString", resourceCulture);
             }
         }
         
@@ -147,20 +192,11 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to $ #,##0.00##;-$ #,##0.00##.
+        ///   Looks up a localized string similar to The content shall not be empty. Please type the content and try again..
         /// </summary>
-        internal static string CurrencyStringFormat {
+        internal static string ErrorEmptyContentString {
             get {
-                return ResourceManager.GetString("CurrencyStringFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to hh:mm:ss tt dd/MM/yyyy.
-        /// </summary>
-        internal static string DateTimeStringFormat {
-            get {
-                return ResourceManager.GetString("DateTimeStringFormat", resourceCulture);
+                return ResourceManager.GetString("ErrorEmptyContentString", resourceCulture);
             }
         }
         
@@ -211,6 +247,24 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to loading your info! Please try again later!.
+        /// </summary>
+        internal static string FailedLoadingCustomerInfoString {
+            get {
+                return ResourceManager.GetString("FailedLoadingCustomerInfoString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        internal static string FemaleString {
+            get {
+                return ResourceManager.GetString("FemaleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap FrustratedHeadGifImage {
@@ -250,6 +304,24 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #,0.00#%/year.
+        /// </summary>
+        internal static string InterestTextFormatString {
+            get {
+                return ResourceManager.GetString("InterestTextFormatString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid customer ID. Please check and try again..
+        /// </summary>
+        internal static string InvalidCustomerIdString {
+            get {
+                return ResourceManager.GetString("InvalidCustomerIdString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap LoginImage {
@@ -269,6 +341,33 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log out.
+        /// </summary>
+        internal static string LogOutString {
+            get {
+                return ResourceManager.GetString("LogOutString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        internal static string MaleString {
+            get {
+                return ResourceManager.GetString("MaleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New password is invalid. Please try again..
+        /// </summary>
+        internal static string NewPasswordInvalidString {
+            get {
+                return ResourceManager.GetString("NewPasswordInvalidString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No customer is currently logged in!.
         /// </summary>
         internal static string NoCustomerLoggingInString {
@@ -283,6 +382,24 @@ namespace GraphicalUserInterface.Properties {
         internal static string NotificationTitleString {
             get {
                 return ResourceManager.GetString("NotificationTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old password cannot be left empty..
+        /// </summary>
+        internal static string OldPasswordEmptyString {
+            get {
+                return ResourceManager.GetString("OldPasswordEmptyString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old password is not correct. Please try again..
+        /// </summary>
+        internal static string OldPasswordIncorrectString {
+            get {
+                return ResourceManager.GetString("OldPasswordIncorrectString", resourceCulture);
             }
         }
         
@@ -333,6 +450,15 @@ namespace GraphicalUserInterface.Properties {
         internal static string PasswordBlankWarningString {
             get {
                 return ResourceManager.GetString("PasswordBlankWarningString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password has been changed successfully!.
+        /// </summary>
+        internal static string PasswordChangingSuccessfullyString {
+            get {
+                return ResourceManager.GetString("PasswordChangingSuccessfullyString", resourceCulture);
             }
         }
         
@@ -477,6 +603,15 @@ namespace GraphicalUserInterface.Properties {
         internal static string WarningTitleString {
             get {
                 return ResourceManager.GetString("WarningTitleString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Withdrew successfully!.
+        /// </summary>
+        internal static string WithdrawSuccessfullyString {
+            get {
+                return ResourceManager.GetString("WithdrawSuccessfullyString", resourceCulture);
             }
         }
     }
