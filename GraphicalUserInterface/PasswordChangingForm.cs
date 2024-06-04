@@ -7,9 +7,11 @@ namespace GraphicalUserInterface
 {
     public partial class PasswordChangingForm : Form
     {
-        public PasswordChangingForm()
+        private string accounttype;
+        public PasswordChangingForm(string accounttype)
         {
             InitializeComponent();
+            this.accounttype = accounttype;
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -26,33 +28,67 @@ namespace GraphicalUserInterface
                 }
                 else
                 {
-                    switch (CustomerAccounts.ChangePassword(oldPassword, newPassword))
+                    if (accounttype == "Customer")
                     {
-                        case CustomerAccounts.PasswordChangingResult.Success:
-                            MessageBox.Show(this, Resources.PasswordChangingSuccessfullyString, Resources.NotificationTitleString,
-                                MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                            this.Close();
-                            break;
+                        switch (CustomerAccounts.ChangePassword(oldPassword, newPassword))
+                        {
+                            case CustomerAccounts.PasswordChangingResult.Success:
+                                MessageBox.Show(this, Resources.PasswordChangingSuccessfullyString, Resources.NotificationTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                                this.Close();
+                                break;
 
-                        case CustomerAccounts.PasswordChangingResult.EmptyOldPassword:
-                            MessageBox.Show(this, Resources.OldPasswordEmptyString, Resources.NotificationTitleString,
-                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                            break;
+                            case CustomerAccounts.PasswordChangingResult.EmptyOldPassword:
+                                MessageBox.Show(this, Resources.OldPasswordEmptyString, Resources.NotificationTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                break;
 
-                        case CustomerAccounts.PasswordChangingResult.InvalidNewPassword:
-                            MessageBox.Show(this, Resources.NewPasswordInvalidString, Resources.NotificationTitleString,
-                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                            break;
+                            case CustomerAccounts.PasswordChangingResult.InvalidNewPassword:
+                                MessageBox.Show(this, Resources.NewPasswordInvalidString, Resources.NotificationTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                break;
 
-                        case CustomerAccounts.PasswordChangingResult.WrongOldPassword:
-                            MessageBox.Show(this, Resources.OldPasswordIncorrectString, Resources.NotificationTitleString,
-                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                            break;
+                            case CustomerAccounts.PasswordChangingResult.WrongOldPassword:
+                                MessageBox.Show(this, Resources.OldPasswordIncorrectString, Resources.NotificationTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                break;
 
-                        default:
-                            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
-                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                            break;
+                            default:
+                                MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                break;
+                        }
+                    }
+                    else if (accounttype == "Staff")
+                    {
+                        switch (StaffAccounts.ChangePassword(oldPassword, newPassword))
+                        {
+                            case StaffAccounts.PasswordChangingResult.Success:
+                                MessageBox.Show(this, Resources.PasswordChangingSuccessfullyString, Resources.NotificationTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                                this.Close();
+                                break;
+
+                            case StaffAccounts.PasswordChangingResult.EmptyOldPassword:
+                                MessageBox.Show(this, Resources.OldPasswordEmptyString, Resources.NotificationTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                break;
+
+                            case StaffAccounts.PasswordChangingResult.InvalidNewPassword:
+                                MessageBox.Show(this, Resources.NewPasswordInvalidString, Resources.NotificationTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                break;
+
+                            case StaffAccounts.PasswordChangingResult.WrongOldPassword:
+                                MessageBox.Show(this, Resources.OldPasswordIncorrectString, Resources.NotificationTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                break;
+
+                            default:
+                                MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                                break;
+                        }
                     }
                 }
             }
