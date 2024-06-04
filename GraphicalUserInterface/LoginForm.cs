@@ -4,63 +4,61 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Business;
-using GraphicalUserInterface.Properties;
 using Microsoft.IdentityModel.Tokens;
 
 public partial class LoginForm : Form
 {
-    public LoginForm()
-    {
-        this.InitializeComponent();
-    }
-
     public bool UserSuccessfullyAuthenticated { get; private set; } = false;
 
     public bool StaffSuccessfullyAuthenticated { get; private set; } = false;
 
+    public LoginForm()
+    {
+        InitializeComponent();
+    }
+
     private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         this.Hide();
-        using var customerSignUpForm = new CustomerSignUpForm();
-        customerSignUpForm.Show();
+        new CustomerSignUpForm().ShowDialog();
         this.Close();
     }
 
     private void btnCustomerLogin_MouseEnter(object sender, EventArgs e)
     {
-        this.btnCustomerLogin.BackColor = Color.FromArgb(11, 9, 120);
-        this.btnCustomerLogin.ForeColor = Color.White;
+        btnCustomerLogin.BackColor = Color.FromArgb(11, 9, 120);
+        btnCustomerLogin.ForeColor = Color.White;
     }
 
     private void btnCustomerLogin_MouseLeave(object sender, EventArgs e)
     {
-        this.btnCustomerLogin.BackColor = Color.Black;
-        this.btnCustomerLogin.ForeColor = Color.White;
+        btnCustomerLogin.BackColor = Color.Black;
+        btnCustomerLogin.ForeColor = Color.White;
     }
 
     private void btnExit_MouseEnter(object sender, EventArgs e)
     {
-        this.btnExit.BackColor = Color.FromArgb(11, 9, 120);
-        this.btnExit.ForeColor = Color.White;
+        btnExit.BackColor = Color.FromArgb(11, 9, 120);
+        btnExit.ForeColor = Color.White;
     }
 
     private void btnExit_MouseLeave(object sender, EventArgs e)
     {
-        this.btnExit.BackColor = SystemColors.Control;
-        this.btnExit.ForeColor = Color.Black;
+        btnExit.BackColor = SystemColors.Control;
+        btnExit.ForeColor = Color.Black;
     }
 
     private void cbCustomerShowPassword_CheckedChanged(object sender, EventArgs e)
     {
-        if (!this.cbCustomerShowPassword.Checked)
+        if (!cbCustomerShowPassword.Checked)
         {
-            this.txtCustomerPassword.UseSystemPasswordChar = true;
-            this.cbCustomerShowPassword.BackgroundImage = Resources.hide;
+            txtCustomerPassword.UseSystemPasswordChar = true;
+            cbCustomerShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
         }
         else
         {
-            this.txtCustomerPassword.UseSystemPasswordChar = false;
-            this.cbCustomerShowPassword.BackgroundImage = Resources.show;
+            txtCustomerPassword.UseSystemPasswordChar = false;
+            cbCustomerShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\show.png");
         }
 
     }
@@ -69,12 +67,12 @@ public partial class LoginForm : Form
     {
         try
         {
-            if (this.txtCustomerUsername.Text.IsNullOrEmpty())
+            if (txtCustomerUsername.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Properties.Resources.UsernameBlankWarningString, Properties.Resources.WarningTitleString,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (this.txtCustomerPassword.Text.IsNullOrEmpty())
+            else if (txtCustomerPassword.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Properties.Resources.PasswordBlankWarningString, Properties.Resources.WarningTitleString,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -83,8 +81,8 @@ public partial class LoginForm : Form
             {
                 switch (CustomerAccounts.Login(new LoginInfo
                 {
-                    Username = this.txtCustomerUsername.Text,
-                    Password = this.txtCustomerPassword.Text,
+                    Username = txtCustomerUsername.Text,
+                    Password = txtCustomerPassword.Text,
                 }))
                 {
                     case CustomerAccounts.LoginResult.Success:
@@ -122,19 +120,19 @@ public partial class LoginForm : Form
 
     private void cbCustomerRememberInfo_CheckedChanged(object sender, EventArgs e)
     {
-        if (!string.IsNullOrWhiteSpace(this.txtCustomerUsername.Text) && !string.IsNullOrEmpty(this.txtCustomerPassword.Text))
+        if (!string.IsNullOrEmpty(txtCustomerUsername.Text) && !string.IsNullOrEmpty(txtCustomerPassword.Text))
         {
-            if (this.cbCustomerRememberInfo.Checked)
+            if (cbCustomerRememberInfo.Checked)
             {
-                Settings.Default.AcUsername = this.txtCustomerUsername.Text;
-                Settings.Default.AcPassword = this.txtCustomerPassword.Text;
-                Settings.Default.Save();
+                Properties.Settings.Default.AcUsername = txtCustomerUsername.Text;
+                Properties.Settings.Default.AcPassword = txtCustomerPassword.Text;
+                Properties.Settings.Default.Save();
             }
             else
             {
-                Settings.Default.AcUsername = string.Empty;
-                Settings.Default.AcPassword = string.Empty;
-                Settings.Default.Save();
+                Properties.Settings.Default.AcUsername = string.Empty;
+                Properties.Settings.Default.AcPassword = string.Empty;
+                Properties.Settings.Default.Save();
             }
         }
     }
@@ -143,27 +141,27 @@ public partial class LoginForm : Form
     {
         this.UserSuccessfullyAuthenticated = false;
         CustomerAccounts.LogOut();
-        this.txtCustomerUsername.Text = Settings.Default.AcUsername;
-        this.txtCustomerPassword.Text = Settings.Default.AcPassword;
-        this.cbCustomerRememberInfo.Checked = !Settings.Default.AcUsername.IsNullOrEmpty();
+        txtCustomerUsername.Text = Properties.Settings.Default.AcUsername;
+        txtCustomerPassword.Text = Properties.Settings.Default.AcPassword;
+        cbCustomerRememberInfo.Checked = !Properties.Settings.Default.AcUsername.IsNullOrEmpty();
 
         // Show password checkbox custom
-        this.cbCustomerShowPassword.Appearance = Appearance.Button;
-        this.cbCustomerShowPassword.FlatStyle = FlatStyle.Flat;
-        this.cbCustomerShowPassword.FlatAppearance.BorderSize = 0;
-        this.cbCustomerShowPassword.BackgroundImage = Resources.hide;
+        cbCustomerShowPassword.Appearance = Appearance.Button;
+        cbCustomerShowPassword.FlatStyle = FlatStyle.Flat;
+        cbCustomerShowPassword.FlatAppearance.BorderSize = 0;
+        cbCustomerShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
 
         this.StaffSuccessfullyAuthenticated = false;
         StaffAccounts.LogOut();
-        this.txtStaffUsername.Text = Settings.Default.StaffUsername;
-        this.txtStaffPassword.Text = Settings.Default.StaffPassword;
-        this.cbStaffRemeberInfo.Checked = !Settings.Default.StaffUsername.IsNullOrEmpty();
+        txtStaffUsername.Text = Properties.Settings.Default.StaffUsername;
+        txtStaffPassword.Text = Properties.Settings.Default.StaffPassword;
+        cbStaffRemeberInfo.Checked = !Properties.Settings.Default.StaffUsername.IsNullOrEmpty();
 
         // Show password checkbox custom
-        this.cbStaffShowPassword.Appearance = Appearance.Button;
-        this.cbStaffShowPassword.FlatStyle = FlatStyle.Flat;
-        this.cbStaffShowPassword.FlatAppearance.BorderSize = 0;
-        this.cbStaffShowPassword.BackgroundImage = Resources.hide;
+        cbStaffShowPassword.Appearance = Appearance.Button;
+        cbStaffShowPassword.FlatStyle = FlatStyle.Flat;
+        cbStaffShowPassword.FlatAppearance.BorderSize = 0;
+        cbStaffShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
     }
 
     private void btnExit_Click(object sender, EventArgs e)
@@ -187,67 +185,67 @@ public partial class LoginForm : Form
             logOut.ShowDialog(bg);
             bg.Dispose();
         }
-        if (!logOut.IsNotClosed)
+        if (logOut.IsNotClosed == false)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 
     private void cbStaffShowPassword_CheckedChanged(object sender, EventArgs e)
     {
-        if (!this.cbStaffShowPassword.Checked)
+        if (!cbStaffShowPassword.Checked)
         {
-            this.txtStaffPassword.UseSystemPasswordChar = true;
-            this.cbStaffShowPassword.BackgroundImage = Resources.hide;
+            txtStaffPassword.UseSystemPasswordChar = true;
+            cbStaffShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
         }
         else
         {
-            this.txtStaffPassword.UseSystemPasswordChar = false;
-            this.cbStaffShowPassword.BackgroundImage = Resources.show;
+            txtStaffPassword.UseSystemPasswordChar = false;
+            cbStaffShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\show.png");
         }
     }
 
     private void cbStaffRemeberInfo_CheckedChanged(object sender, EventArgs e)
     {
-        if (!string.IsNullOrWhiteSpace(this.txtStaffUsername.Text) && !string.IsNullOrEmpty(this.txtStaffPassword.Text))
+        if (!string.IsNullOrEmpty(txtStaffUsername.Text) && !string.IsNullOrEmpty(txtStaffPassword.Text))
         {
-            if (this.cbStaffRemeberInfo.Checked)
+            if (cbStaffRemeberInfo.Checked)
             {
-                Settings.Default.StaffUsername = this.txtStaffUsername.Text;
-                Settings.Default.StaffPassword = this.txtStaffPassword.Text;
-                Settings.Default.Save();
+                Properties.Settings.Default.StaffUsername = txtStaffUsername.Text;
+                Properties.Settings.Default.StaffPassword = txtStaffPassword.Text;
+                Properties.Settings.Default.Save();
             }
             else
             {
-                Settings.Default.StaffUsername = string.Empty;
-                Settings.Default.StaffPassword = string.Empty;
-                Settings.Default.Save();
+                Properties.Settings.Default.StaffUsername = string.Empty;
+                Properties.Settings.Default.StaffPassword = string.Empty;
+                Properties.Settings.Default.Save();
             }
         }
     }
 
     private void btnStaffLogin_MouseEnter(object sender, EventArgs e)
     {
-        this.btnStaffLogin.BackColor = Color.FromArgb(11, 9, 120);
-        this.btnStaffLogin.ForeColor = Color.White;
+        btnStaffLogin.BackColor = Color.FromArgb(11, 9, 120);
+        btnStaffLogin.ForeColor = Color.White;
     }
 
     private void btnStaffLogin_MouseLeave(object sender, EventArgs e)
     {
-        this.btnStaffLogin.BackColor = Color.Black;
-        this.btnStaffLogin.ForeColor = Color.White;
+        btnStaffLogin.BackColor = Color.Black;
+        btnStaffLogin.ForeColor = Color.White;
     }
 
     private void btnStaffExit_MouseEnter(object sender, EventArgs e)
     {
-        this.btnStaffExit.BackColor = Color.FromArgb(11, 9, 120);
-        this.btnStaffExit.ForeColor = Color.White;
+        btnStaffExit.BackColor = Color.FromArgb(11, 9, 120);
+        btnStaffExit.ForeColor = Color.White;
     }
 
     private void btnStaffExit_MouseLeave(object sender, EventArgs e)
     {
-        this.btnStaffExit.BackColor = SystemColors.Control;
-        this.btnStaffExit.ForeColor = Color.Black;
+        btnStaffExit.BackColor = SystemColors.Control;
+        btnStaffExit.ForeColor = Color.Black;
     }
 
     private void btnStaffExit_Click(object sender, EventArgs e)
@@ -271,9 +269,9 @@ public partial class LoginForm : Form
             logOut.ShowDialog(bg);
             bg.Dispose();
         }
-        if (!logOut.IsNotClosed)
+        if (logOut.IsNotClosed == false)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 
@@ -281,12 +279,12 @@ public partial class LoginForm : Form
     {
         try
         {
-            if (this.txtStaffUsername.Text.IsNullOrEmpty())
+            if (txtStaffUsername.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Properties.Resources.UsernameBlankWarningString, Properties.Resources.WarningTitleString,
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (this.txtStaffPassword.Text.IsNullOrEmpty())
+            else if (txtStaffPassword.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Properties.Resources.PasswordBlankWarningString, Properties.Resources.WarningTitleString,
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -295,8 +293,8 @@ public partial class LoginForm : Form
             {
                 switch (StaffAccounts.Login(new LoginInfo
                 {
-                    Username = this.txtStaffUsername.Text,
-                    Password = this.txtStaffPassword.Text,
+                    Username = txtStaffUsername.Text,
+                    Password = txtStaffPassword.Text,
                 }))
                 {
                     case StaffAccounts.LoginResult.Success:

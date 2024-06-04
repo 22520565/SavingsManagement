@@ -65,4 +65,5 @@ public static class CashFlows
         context.CashFlows.Add(cashFlow);
         context.SaveChanges();
     }
+
 }
