@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess;
 
-[Serializable]
 public sealed class CashFlow
 {
     [Key]
