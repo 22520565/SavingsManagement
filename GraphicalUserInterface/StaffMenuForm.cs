@@ -9,6 +9,9 @@ using System.Data;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Cryptography;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GraphicalUserInterface
 {
@@ -18,26 +21,56 @@ namespace GraphicalUserInterface
 
         private static readonly PasswordHasher<String> PasswordHasher = new();
 
-        SqlConnection connection;
-        SqlCommand command;
-        String sql = @"Data Source=DESKTOP-O6AO007\SQLEXPRESS;Initial Catalog=SavingsManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
-        SqlDataAdapter adapter = new SqlDataAdapter();
-        DataTable tableCustomer = new DataTable();
-
         public void Connection()
         {
-            connection = new SqlConnection(sql);
-            connection.Open();
-            loadCustomer();
+            using (var context = new SavingsManagementContext())
+            {
+                loadCustomer();
+                loadStaff();
+            }
         }
 
         public StaffMenuForm()
         {
             InitializeComponent();
             Connection();
-            customerIdTextBox.Enabled = false;
-            customerBalanceTextBox.Enabled = false;
+            customerIdTextBox.ReadOnly = true;
+            customerBalanceTextBox.ReadOnly = true;
             dataGridViewCustomer.ReadOnly = true;
+            staffIdTextBox.ReadOnly = true;
+            dataGridViewStaff.ReadOnly = true;
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra tab đang được chọn là tabPageManageCustomers
+            if (tabControl1.SelectedTab == tabPageManageCustomers)
+            {
+                customerIdTextBox.Text = "";
+                customerNameTextBox.Text = "";
+                customerMaleCheckBox.Checked = false;
+                customerCicNumberTextBox.Text = "";
+                customerBirthDatePicker.Value = DateTime.Now.Date;
+                customerPhoneNumberTextBox.Text = "";
+                customerAddressTextBox.Text = "";
+                customerEmailTextBox.Text = "";
+                customerUsernameTextBox.Text = "";
+                customerHashedPasswordTextBox.Text = "";
+                customerBalanceTextBox.Text = "";
+                customerDisableCheckBox.Checked = false;
+            }
+            // Kiểm tra tab đang được chọn là tabPageManageStaffs
+            else if (tabControl1.SelectedTab == tabPageManageStaffs)
+            {
+                staffIdTextBox.Text = "";
+                staffNameTextBox.Text = "";
+                staffMaleCheckBox.Checked = false;
+                staffPositionTextBox.Text = "";
+                staffUsernameTextBox.Text = "";
+                staffHashedPasswordTextBox.Text = "";
+                staffPermissionIdComboBox.Text = "";
+                customerDisableCheckBox.Checked = false;
+            }
         }
 
         private void StaffMenuForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -88,13 +121,12 @@ namespace GraphicalUserInterface
         # region Custome Management
         private void loadCustomer()
         {
-            command = connection.CreateCommand();
-            command.CommandText = "SELECT * FROM CustomerAccounts";
-            adapter.SelectCommand = command;
-            tableCustomer.Clear();
-            adapter.Fill(tableCustomer);
-            dataGridViewCustomer.DataSource = tableCustomer;
-            dataGridViewCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            using (var context = new SavingsManagementContext())
+            {
+                var customers = context.CustomerAccounts.ToList();
+                dataGridViewCustomer.DataSource = customers;
+                dataGridViewCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
         }
 
         private void dataGridViewCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -118,25 +150,14 @@ namespace GraphicalUserInterface
             customerDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[11].Value);
         }
 
-        // Hàm kiểm tra xem một địa chỉ email đã tồn tại trong cơ sở dữ liệu hay chưa
         private bool IsEmailExists(string email)
         {
-            bool result = false;
-            // Tạo câu lệnh SQL để kiểm tra xem địa chỉ email đã tồn tại hay chưa
-            string query = "SELECT COUNT(*) FROM CustomerAccounts WHERE Email = @Email";
-            using (SqlCommand command = new SqlCommand(query, connection))
+            using (var context = new SavingsManagementContext())
             {
-                command.Parameters.AddWithValue("@Email", email);
-                int count = (int)command.ExecuteScalar();
-                if (count > 0)
-                {
-                    result = true;
-                }
+                return context.CustomerAccounts.Any(c => c.Email == email);
             }
-            return result;
         }
 
-        // Hàm tạo một địa chỉ email duy nhất
         private string GenerateUniqueEmail()
         {
             string email;
@@ -151,25 +172,14 @@ namespace GraphicalUserInterface
             return email;
         }
 
-        // Hàm kiểm tra xem một Username đã tồn tại trong cơ sở dữ liệu hay chưa
         private bool IsUsernameExists(string username)
         {
-            bool result = false;
-            // Tạo câu lệnh SQL để kiểm tra xem địa chỉ email đã tồn tại hay chưa
-            string query = "SELECT COUNT(*) FROM CustomerAccounts WHERE Username = @Username";
-            using (SqlCommand command = new SqlCommand(query, connection))
+            using (var context = new SavingsManagementContext())
             {
-                command.Parameters.AddWithValue("@Username", username);
-                int count = (int)command.ExecuteScalar();
-                if (count > 0)
-                {
-                    result = true;
-                }
+                return context.CustomerAccounts.Any(c => c.Username == username);
             }
-            return result;
         }
 
-        // Hàm tạo một Username duy nhất
         private string GenerateUniqueUsername()
         {
             string username;
@@ -189,22 +199,28 @@ namespace GraphicalUserInterface
             // Mã hóa mật khẩu "123"
             string hashedPassword = PasswordHasher.HashPassword(null!, "123");
 
-            command = connection.CreateCommand();
-            command.CommandText = "INSERT INTO CustomerAccounts VALUES(@Name, @IsMale, @CicNumber, @BirthDate, @PhoneNumber, @Address, @Email, @Username, @HashedPassword, @Balance, @IsDisabled)";
-            command.Parameters.AddWithValue("@Name", "Customer");
-            command.Parameters.AddWithValue("@IsMale", false);
-            command.Parameters.AddWithValue("@CicNumber", 0);
-            command.Parameters.AddWithValue("@BirthDate", DateTime.Now.Date); 
-            command.Parameters.AddWithValue("@PhoneNumber", 0);
-            command.Parameters.AddWithValue("@Address", "Việt Nam");
-            command.Parameters.AddWithValue("@Email", GenerateUniqueEmail());
-            command.Parameters.AddWithValue("@Username", GenerateUniqueUsername());
-            command.Parameters.AddWithValue("@HashedPassword", hashedPassword);
-            command.Parameters.AddWithValue("@Balance", 0.0);
-            command.Parameters.AddWithValue("@IsDisabled", false);
-            command.ExecuteNonQuery();
-            loadCustomer();
-            MessageBox.Show("New customer successfully added, please update information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            using (var context = new SavingsManagementContext())
+            {
+                var customer = new CustomerAccount
+                {
+                    Name = "Customer",
+                    IsMale = false,
+                    CicNumber = "0",
+                    BirthDate = new DateOnly(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
+                    PhoneNumber = "0",
+                    Address = "Việt Nam",
+                    Email = GenerateUniqueEmail(),
+                    Username = GenerateUniqueUsername(),
+                    HashedPassword = hashedPassword,
+                    Balance = Decimal.MinValue,
+                    IsDisabled = false
+                };
+
+                context.CustomerAccounts.Add(customer);
+                context.SaveChanges();
+                loadCustomer();
+                MessageBox.Show("New customer successfully added, please update information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -214,12 +230,19 @@ namespace GraphicalUserInterface
                 MessageBox.Show("Please select a customer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            command = connection.CreateCommand();
-            command.CommandText = "UPDATE CustomerAccounts SET IsDisabled = @IsDisabled WHERE Id = @CustomerId";
-            command.Parameters.AddWithValue("@IsDisabled", true);
-            command.Parameters.AddWithValue("@CustomerId", Int32.Parse(customerIdTextBox.Text));
-            command.ExecuteNonQuery();
-            loadCustomer();
+
+            int customerId = Convert.ToInt32(customerIdTextBox.Text);
+
+            using (var context = new SavingsManagementContext())
+            {
+                var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId);
+                if (customer != null)
+                {
+                    customer.IsDisabled = true;
+                    context.SaveChanges();
+                    loadCustomer();
+                }
+            }
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -229,6 +252,9 @@ namespace GraphicalUserInterface
                 MessageBox.Show("Please select a customer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            int customerId = Convert.ToInt32(customerIdTextBox.Text);
+
             if (customerNameTextBox.Text.IsNullOrEmpty() ||
                 customerCicNumberTextBox.Text.IsNullOrEmpty() ||
                 customerPhoneNumberTextBox.Text.IsNullOrEmpty() ||
@@ -241,26 +267,28 @@ namespace GraphicalUserInterface
                 MessageBox.Show("Please fill in all blanks!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else
+
+            using (var context = new SavingsManagementContext())
             {
-                command = connection.CreateCommand();
-                command.CommandText = "UPDATE CustomerAccounts SET Name = @Name, IsMale = @IsMale, CicNumber = @CicNumber, BirthDate = @BirthDate, " +
-                                  "PhoneNumber = @PhoneNumber, Address = @Address, Email = @Email, Username = @Username, HashedPassword = @HashedPassword, " +
-                                  "IsDisabled = @IsDisabled WHERE Id = @CustomerId";
-                command.Parameters.AddWithValue("@Name", customerNameTextBox.Text);
-                command.Parameters.AddWithValue("@IsMale", customerMaleCheckBox.Checked);
-                command.Parameters.AddWithValue("@CicNumber", customerCicNumberTextBox.Text);
-                command.Parameters.AddWithValue("@BirthDate", customerBirthDatePicker.Value);
-                command.Parameters.AddWithValue("@PhoneNumber", customerPhoneNumberTextBox.Text);
-                command.Parameters.AddWithValue("@Address", customerAddressTextBox.Text);
-                command.Parameters.AddWithValue("@Email", customerEmailTextBox.Text);
-                command.Parameters.AddWithValue("@Username", customerUsernameTextBox.Text);
-                command.Parameters.AddWithValue("@HashedPassword", customerHashedPasswordTextBox.Text);
-                command.Parameters.AddWithValue("@IsDisabled", customerDisableCheckBox.Checked);
-                command.Parameters.AddWithValue("@CustomerId", Int32.Parse(customerIdTextBox.Text));
-                command.ExecuteNonQuery();
-                loadCustomer();
-                MessageBox.Show("Updated customer information successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId);
+                if (customer != null)
+                {
+                    customer.Name = customerNameTextBox.Text;
+                    customer.IsMale = customerMaleCheckBox.Checked;
+                    customer.CicNumber = customerCicNumberTextBox.Text;
+                    customerBirthDatePicker.Value =  DateTime.Now.Date;
+                    customer.PhoneNumber = customerPhoneNumberTextBox.Text;
+                    customer.Address = customerAddressTextBox.Text;
+                    customer.Email = customerEmailTextBox.Text;
+                    customer.Username = customerUsernameTextBox.Text;
+                    customer.HashedPassword = customerHashedPasswordTextBox.Text;
+                    customer.Balance = Convert.ToDecimal(customerBalanceTextBox.Text);
+                    customer.IsDisabled = customerDisableCheckBox.Checked;
+
+                    context.SaveChanges();
+                    loadCustomer();
+                    MessageBox.Show("Updated customer information successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -285,6 +313,179 @@ namespace GraphicalUserInterface
             customerUsernameTextBox.Text = "";
             customerHashedPasswordTextBox.Text = "";
             customerBalanceTextBox.Text = "";
+            customerDisableCheckBox.Checked = false;
+            MessageBox.Show("Screen cleared successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        #endregion
+        #region Staff Management
+        private void loadStaff()
+        {
+            using (var context = new SavingsManagementContext())
+            {
+                var staffs = context.StaffAccounts.ToList();
+                dataGridViewStaff.DataSource = staffs;
+                dataGridViewStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+        }
+
+
+        private void dataGridViewStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            int i = dataGridViewStaff.CurrentRow.Index;
+            staffIdTextBox.Text = dataGridViewStaff.Rows[i].Cells[0].Value.ToString();
+            staffNameTextBox.Text = dataGridViewStaff.Rows[i].Cells[1].Value.ToString();
+            staffMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[2].Value);
+            staffPositionTextBox.Text = dataGridViewStaff.Rows[i].Cells[3].Value.ToString();
+            staffUsernameTextBox.Text = dataGridViewStaff.Rows[i].Cells[4].Value.ToString();
+            staffHashedPasswordTextBox.Text = dataGridViewStaff.Rows[i].Cells[5].Value.ToString();
+            switch (dataGridViewStaff.Rows[i].Cells[6].Value)
+            {
+                case 1:
+                    staffPermissionIdComboBox.Text = "1 - Admin";
+                    break;
+                case 2:
+                    staffPermissionIdComboBox.Text = "2 - Staff";
+                    break;
+                default:
+                    MessageBox.Show("Can not find type of staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+            staffDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[7].Value);
+        }
+
+        private bool IsStaffUsernameExists(string username)
+        {
+            using (var context = new SavingsManagementContext())
+            {
+                return context.StaffAccounts.Any(s => s.Username == username);
+            }
+        }
+
+        private string GenerateUniqueStaffUsername()
+        {
+            string username;
+            do
+            {
+                // Tạo một số ngẫu nhiên có độ dài 6
+                string randomNumber = new Random().Next(100000, 999999).ToString();
+                // Kết hợp số ngẫu nhiên với tên user cơ sở
+                username = $"staff{randomNumber}";
+            }
+            while (IsStaffUsernameExists(username)); // Kiểm tra xem Username đã tồn tại hay chưa
+            return username;
+        }
+
+        private void addStaff_Click(object sender, EventArgs e)
+        {
+            // Mã hóa mật khẩu "123"
+            string hashedPassword = PasswordHasher.HashPassword(null!, "123");
+
+            using (var context = new SavingsManagementContext())
+            {
+                var staff = new StaffAccount
+                {
+                    Name = "Staff",
+                    IsMale = false,
+                    Position = "Staff",
+                    Username = GenerateUniqueStaffUsername(),
+                    HashedPassword = hashedPassword,
+                    PermissionId = 2,
+                    IsDisabled = false
+                };
+
+                context.StaffAccounts.Add(staff);
+                context.SaveChanges();
+                loadStaff();
+                MessageBox.Show("New staff successfully added, please update information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void disableStaff_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewStaff.CurrentRow.Index.Equals(0))
+            {
+                MessageBox.Show("Please select a staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int staffId = Convert.ToInt32(staffIdTextBox.Text);
+
+            using (var context = new SavingsManagementContext())
+            {
+                var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
+                if (staff != null)
+                {
+                    staff.IsDisabled = true;
+                    context.SaveChanges();
+                    loadStaff();
+                }
+            }
+        }
+
+        private void saveStaff_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewStaff.CurrentRow.Index.Equals(0))
+            {
+                MessageBox.Show("Please select a staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int staffId = Convert.ToInt32(staffIdTextBox.Text);
+
+            if (staffNameTextBox.Text.IsNullOrEmpty() ||
+                staffPositionTextBox.Text.IsNullOrEmpty() ||
+                staffUsernameTextBox.Text.IsNullOrEmpty() ||
+                staffHashedPasswordTextBox.Text.IsNullOrEmpty())
+            {
+                MessageBox.Show("Please fill in all blanks!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int permissionId = 0;
+            int indexOfDash = staffPermissionIdComboBox.Text.IndexOf('-');
+            if (indexOfDash != -1)
+            {
+                permissionId = Int32.Parse(staffPermissionIdComboBox.Text.Substring(0, indexOfDash).Trim());
+            }
+
+            using (var context = new SavingsManagementContext())
+            {
+                var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
+                if (staff != null)
+                {
+                    staff.Name = staffNameTextBox.Text;
+                    staff.IsMale = staffMaleCheckBox.Checked;
+                    staff.Position = staffPositionTextBox.Text;
+                    staff.Username = staffUsernameTextBox.Text;
+                    staff.HashedPassword = staffHashedPasswordTextBox.Text;
+                    staff.PermissionId = permissionId;
+                    staff.IsDisabled = staffDisableCheckBox.Checked;
+
+                    context.SaveChanges();
+                    loadStaff();
+                    MessageBox.Show("Updated staff information successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void staffHashedPasswordTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                staffHashedPasswordTextBox.Text = PasswordHasher.HashPassword(null!, staffHashedPasswordTextBox.Text);
+            }
+        }
+
+        private void clearScreen_Click(object sender, EventArgs e)
+        {
+            staffIdTextBox.Text = "";
+            staffNameTextBox.Text = "";
+            staffMaleCheckBox.Checked = false;
+            staffPositionTextBox.Text = "";
+            staffUsernameTextBox.Text = "";
+            staffHashedPasswordTextBox.Text = "";
+            staffPermissionIdComboBox.Text = "";
             customerDisableCheckBox.Checked = false;
             MessageBox.Show("Screen cleared successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

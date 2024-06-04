@@ -16,6 +16,7 @@ public static class StaffAccounts
         UsernameError,
         MultiUsernameError,
         PasswordError,
+        Disabled,
     }
 
     public static int? CurrentStaffId { get; private set; } = null;
@@ -39,7 +40,10 @@ public static class StaffAccounts
         else
         {
             var staffAccount = listAccounts.ElementAt(Index.Start);
-
+            if (staffAccount.IsDisabled)
+            {
+                loginResult = LoginResult.Disabled;
+            }
             switch (PasswordHasher.VerifyHashedPassword(null!, staffAccount.HashedPassword, loginInfo.Password))
             {
                 case PasswordVerificationResult.Success:
