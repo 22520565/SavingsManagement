@@ -16,13 +16,13 @@ using GraphicalUserInterface.Properties;
 
 public partial class StaffMenuForm : Form
 {
+    public bool GoingBackToLoginForm { get; private set; } = false;
 
     public StaffMenuForm()
     {
-        this.InitializeComponent();
+        InitializeComponent();
     }
-    
-    public bool GoingBackToLoginForm { get; private set; } = false;
+
 
         private static readonly PasswordHasher<String> PasswordHasher = new();
 
@@ -72,7 +72,7 @@ public partial class StaffMenuForm : Form
         e.Cancel = logOut.IsNotClosed;
     }
 
-    // FIXME: Magic number shall not be used. Use enum or bool instead!
+    // FIXME
     private void StaffMenuForm_Load(object sender, EventArgs e)
     {
         this.GoingBackToLoginForm = false;
@@ -83,12 +83,13 @@ public partial class StaffMenuForm : Form
             case 1:
                 break;
             case 2:
-                this.tabControl1.TabPages.Remove(this.tabPageManageStaffs);
-                this.tabControl1.TabPages.Remove(this.tabPageChangeRegulations);
+                tabControl1.TabPages.Remove(tabPageManageStaffs);
+                tabControl1.TabPages.Remove(tabPageChangeRegulations);
                 break;
             default:
                 MessageBox.Show("No permission found for your staff account.");
                 break;
+
         }
     }
 
@@ -141,34 +142,19 @@ public partial class StaffMenuForm : Form
         {
             if (!int.TryParse(this.customerDepositIdTextBox.Text, CultureInfo.CurrentCulture, out var customerDepositId))
             {
-                MessageBox.Show(
-                    this,
-                    Resources.InvalidCustomerIdString,
-                    Resources.ErrorTitleString,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, Resources.InvalidCustomerIdString, Resources.ErrorTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else if (this.customerDepositContentTextBox.Text.Length <= 0)
             {
-                MessageBox.Show(
-                    this,
-                    Resources.ErrorEmptyContentString,
-                    Resources.ErrorTitleString,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, Resources.ErrorEmptyContentString, Resources.ErrorTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 CashFlows.Deposit(customerDepositId, this.customerDepositAmountNumeric.Value, this.customerDepositContentTextBox.Text);
-                MessageBox.Show(
-                    this,
-                    Resources.DepositSuccessfullyString,
-                    Resources.InformationTitleString,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, Resources.DepositSuccessfullyString, Resources.InformationTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 if (this.customerDepositIdTextBox.Focus())
                 {
                     this.customerDepositIdTextBox.Text = string.Empty;
@@ -180,12 +166,8 @@ public partial class StaffMenuForm : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show(this,
-                ex.Message,
-                ex.Source,
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1);
+            MessageBox.Show(this, ex.Message, ex.Source,
+                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
     }
 
@@ -245,34 +227,19 @@ public partial class StaffMenuForm : Form
         {
             if (!int.TryParse(this.customerWithdrawIdTextBox.Text, CultureInfo.CurrentCulture, out var customerWithdrawId))
             {
-                MessageBox.Show(
-                    this,
-                    Resources.InvalidCustomerIdString,
-                    Resources.ErrorTitleString,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, Resources.InvalidCustomerIdString, Resources.ErrorTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else if (this.customerWithdrawContentTextBox.Text.Length <= 0)
             {
-                MessageBox.Show(
-                    this,
-                    Resources.ErrorEmptyContentString,
-                    Resources.ErrorTitleString,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error,
-                    MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, Resources.ErrorEmptyContentString, Resources.ErrorTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
             else
             {
                 CashFlows.Withdraw(customerWithdrawId, this.customerWithdrawAmountNumeric.Value, this.customerWithdrawContentTextBox.Text);
-                MessageBox.Show(
-                    this,
-                    Resources.WithdrawSuccessfullyString,
-                    Resources.InformationTitleString,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1);
+                MessageBox.Show(this, Resources.WithdrawSuccessfullyString, Resources.InformationTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
                 if (this.customerWithdrawIdTextBox.Focus())
                 {
                     this.customerWithdrawIdTextBox.Text = string.Empty;
@@ -284,13 +251,8 @@ public partial class StaffMenuForm : Form
         }
         catch (Exception ex)
         {
-            MessageBox.Show(
-                this,
-                ex.Message,
-                ex.Source,
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1);
+            MessageBox.Show(this, ex.Message, ex.Source,
+                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
 
         # region Custome Management

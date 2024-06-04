@@ -1,65 +1,66 @@
-﻿namespace GraphicalUserInterface;
-
-using System;
+﻿using System;
 using System.Windows.Forms;
 using Business;
 using GraphicalUserInterface.Properties;
 
-public partial class PasswordChangingForm : Form
+namespace GraphicalUserInterface
 {
-    public PasswordChangingForm()
+    public partial class PasswordChangingForm : Form
     {
-        this.InitializeComponent();
-    }
-
-    private void btnConfirm_Click(object sender, EventArgs e)
-    {
-        try
+        public PasswordChangingForm()
         {
-            string oldPassword = this.txtOldPass.Text;
-            string newPassword = this.txtNewPass.Text;
-            string confirmPassword = this.txtConfrimNew.Text;
-            if (!confirmPassword.Equals(newPassword, StringComparison.Ordinal))
+            InitializeComponent();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            try
             {
-                MessageBox.Show(this, Resources.ConfirmationPasswordNotMatchedString, Resources.ErrorTitleString,
-                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-            }
-            else
-            {
-                switch (CustomerAccounts.ChangePassword(oldPassword, newPassword))
+                string oldPassword = this.txtOldPass.Text;
+                string newPassword = this.txtNewPass.Text;
+                string confirmPassword = this.txtConfrimNew.Text;
+                if (!confirmPassword.Equals(newPassword, StringComparison.Ordinal))
                 {
-                    case CustomerAccounts.PasswordChangingResult.Success:
-                        MessageBox.Show(this, Resources.PasswordChangingSuccessfullyString, Resources.NotificationTitleString,
-                            MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-                        this.Close();
-                        break;
+                    MessageBox.Show(this, Resources.ConfirmationPasswordNotMatchedString, Resources.ErrorTitleString,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    switch (CustomerAccounts.ChangePassword(oldPassword, newPassword))
+                    {
+                        case CustomerAccounts.PasswordChangingResult.Success:
+                            MessageBox.Show(this, Resources.PasswordChangingSuccessfullyString, Resources.NotificationTitleString,
+                                MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                            this.Close();
+                            break;
 
-                    case CustomerAccounts.PasswordChangingResult.EmptyOldPassword:
-                        MessageBox.Show(this, Resources.OldPasswordEmptyString, Resources.NotificationTitleString,
-                            MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                        break;
+                        case CustomerAccounts.PasswordChangingResult.EmptyOldPassword:
+                            MessageBox.Show(this, Resources.OldPasswordEmptyString, Resources.NotificationTitleString,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            break;
 
-                    case CustomerAccounts.PasswordChangingResult.InvalidNewPassword:
-                        MessageBox.Show(this, Resources.NewPasswordInvalidString, Resources.NotificationTitleString,
-                            MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                        break;
+                        case CustomerAccounts.PasswordChangingResult.InvalidNewPassword:
+                            MessageBox.Show(this, Resources.NewPasswordInvalidString, Resources.NotificationTitleString,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            break;
 
-                    case CustomerAccounts.PasswordChangingResult.WrongOldPassword:
-                        MessageBox.Show(this, Resources.OldPasswordIncorrectString, Resources.NotificationTitleString,
-                            MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                        break;
+                        case CustomerAccounts.PasswordChangingResult.WrongOldPassword:
+                            MessageBox.Show(this, Resources.OldPasswordIncorrectString, Resources.NotificationTitleString,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            break;
 
-                    default:
-                        MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
-                            MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
-                        break;
+                        default:
+                            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                            break;
+                    }
                 }
             }
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show(this, ex.Message, ex.Source,
-                MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, ex.Source,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
         }
     }
 }

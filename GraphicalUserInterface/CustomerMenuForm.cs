@@ -13,28 +13,26 @@ using OfficeOpenXml;
 
 public partial class CustomerMenuForm : Form
 {
-
-    private DataTable? dataTable = null;
+    public bool GoingBackToLoginForm { get; private set; } = false;
+    DataTable dt;
     private SavingOpeningInfo? savingDepositInfo = new SavingOpeningInfo();
     private SavingWithdrawInfo? savingWithdrawInfo = new SavingWithdrawInfo();
 
     public CustomerMenuForm()
     {
-        this.InitializeComponent();
-        this.InitializeStatistical();
-        this.InitializeSavings();
-        this.InitializeSystem();
+        InitializeComponent();
+        InitializeStatistical();
+        InitializeSavings();
+        InitializeSystem();
     }
-
-    public bool GoingBackToLoginForm { get; private set; } = false;
 
     #region System
     private void InitializeSystem()
     {
-        this.LoadingAccountInfo();
+        LoadingAccountInfo();
     }
 
-    private void LoadingAccountInfo()
+    public void LoadingAccountInfo()
     {
         try
         {
@@ -63,7 +61,6 @@ public partial class CustomerMenuForm : Form
             MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-
     private void customerChangePasswordButton_Click(object sender, EventArgs e)
     {
         using var form = new PasswordChangingForm();
@@ -74,10 +71,10 @@ public partial class CustomerMenuForm : Form
     #region Savings
     private void InitializeSavings()
     {
-        this.LoadSavingsTab();
+        this.LoadForm();
     }
 
-    private void LoadSavingsTab()
+    private void LoadForm()
     {
         try
         {
@@ -149,14 +146,14 @@ public partial class CustomerMenuForm : Form
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.LoadSavingsTab();
+                this.LoadForm();
             }
         }
         else
         {
-            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+            MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.LoadSavingsTab();
+            this.LoadForm();
         }
     }
 
@@ -193,13 +190,14 @@ public partial class CustomerMenuForm : Form
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.LoadSavingsTab();
+                this.LoadForm();
             }
         }
         else
         {
-            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.LoadSavingsTab();
+            MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            this.LoadForm();
         }
     }
 
@@ -211,22 +209,22 @@ public partial class CustomerMenuForm : Form
 
             this.savingDepositInfo.Balance = this.amountOpeningNumeric.Value;
 
-            if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, Resources.OpeningSavingConfirmationStringFormat,
+            if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, Properties.Resources.OpeningSavingConfirmationStringFormat,
                 this.savingDepositInfo.PeriodInMonths, this.savingDepositInfo.AnnualInterestRate, this.savingDepositInfo.Balance),
-                Resources.ConfirmationTitleString, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+                Properties.Resources.ConfirmationTitleString, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                 == DialogResult.Yes)
             {
                 Savings.Open(this.savingDepositInfo);
-                MessageBox.Show(this, Resources.OpeningSavingSuccessfullyString, Resources.InformationTitleString,
+                MessageBox.Show(this, Properties.Resources.OpeningSavingSuccessfullyString, Properties.Resources.InformationTitleString,
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.LoadSavingsTab();
+                this.LoadForm();
             }
 
         }
         catch (Exception ex)
         {
             MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.LoadSavingsTab();
+            this.LoadForm();
         }
     }
 
@@ -253,10 +251,10 @@ public partial class CustomerMenuForm : Form
             try
             {
                 this.savingWithdrawInfo = Savings.GetWithdrawInfo(savingId);
-                this.balanceClosingTextBox.Text = this.savingWithdrawInfo.Balance.ToString(
+                this.balanceClosingTextBox.Text = savingWithdrawInfo.Balance.ToString(
                     Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
-                this.maturityDayClosingTextBox.Text = this.savingWithdrawInfo.MaturityDate.ToString(CultureInfo.CurrentCulture);
-                this.amountToGetClosingTextBox.Text = this.savingWithdrawInfo.AmountToGet.ToString(
+                this.maturityDayClosingTextBox.Text = savingWithdrawInfo.MaturityDate.ToString(CultureInfo.CurrentCulture);
+                this.amountToGetClosingTextBox.Text = savingWithdrawInfo.AmountToGet.ToString(
                     Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
 
                 this.closingSavingClosingButton.Enabled = true;
@@ -264,14 +262,14 @@ public partial class CustomerMenuForm : Form
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.LoadSavingsTab();
+                this.LoadForm();
             }
         }
         else
         {
-            MessageBox.Show(this, Resources.UnknownErrorString, Resources.ErrorTitleString,
+            MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.LoadSavingsTab();
+            this.LoadForm();
         }
     }
 
@@ -282,12 +280,12 @@ public partial class CustomerMenuForm : Form
             ArgumentNullException.ThrowIfNull(this.savingWithdrawInfo);
 
             if (this.savingWithdrawInfo.MaturityDate <= DateOnly.FromDateTime(DateTime.Now) ||
-                (MessageBox.Show(this, Resources.ClosingSavingBeforeMaturityDayWarningString, Resources.WarningTitleString,
+                (MessageBox.Show(this, Properties.Resources.ClosingSavingBeforeMaturityDayWarningString, Properties.Resources.WarningTitleString,
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                 == DialogResult.Yes))
             {
                 Savings.Close(this.savingWithdrawInfo.Id);
-                MessageBox.Show(this, Resources.ClosingSavingSuccessfullyString, Resources.InformationTitleString,
+                MessageBox.Show(this, Properties.Resources.ClosingSavingSuccessfullyString, Properties.Resources.InformationTitleString,
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -295,37 +293,35 @@ public partial class CustomerMenuForm : Form
         {
             MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        this.LoadSavingsTab();
+        this.LoadForm();
     }
     #endregion
     #region Statistical
 
     private void InitializeStatistical()
     {
-        this.LoadingScene();
-        this.LoadingTransactionList();
+        LoadingScene();
+        LoadingTransactionList();
     }
 
-    private void LoadingScene()
+    public void LoadingScene()
     {
-        this.panelSavings.LeftColor = Color.FromArgb(0, 221, 176);
-        this.panelSavings.RightColor = Color.FromArgb(0, 221, 176);
-        this.panelExpenses.LeftColor = Color.FromArgb(244, 132, 132);
-        this.panelExpenses.RightColor = Color.FromArgb(244, 132, 132);
+        panelSavings.LeftColor = Color.FromArgb(0, 221, 176);
+        panelSavings.RightColor = Color.FromArgb(0, 221, 176);
+        panelExpenses.LeftColor = Color.FromArgb(244, 132, 132);
+        panelExpenses.RightColor = Color.FromArgb(244, 132, 132);
 
-        this.groupBoxTransactionList.BackColor = Color.FromArgb(1, 242, 240, 245);
-        this.groupBoxStats.BackColor = Color.FromArgb(1, 242, 240, 245);
-        this.groupBoxFunction.BackColor = Color.FromArgb(1, 242, 240, 245);
+        groupBoxTransactionList.BackColor = Color.FromArgb(1, 242, 240, 245);
+        groupBoxStats.BackColor = Color.FromArgb(1, 242, 240, 245);
+        groupBoxFunction.BackColor = Color.FromArgb(1, 242, 240, 245);
     }
 
     public void LoadingTransactionList()
     {
-        this.dataTable = new DataTable();
-        this.dataTable.Columns.AddRange(new[] {
-            new DataColumn("Amount", typeof(string)),
-            new DataColumn("Transaction Time", typeof(string)),
-            new DataColumn("Content", typeof(string)),
-        });
+        dt = new DataTable();
+        dt.Columns.AddRange(new[] { new DataColumn("Amount", typeof(string)),
+                        new DataColumn("Transaction Time", typeof(string)),
+            new DataColumn("Content", typeof(string))});
         int? currentCustomerId = CustomerAccounts.CurrentCustomerId;
         if (currentCustomerId.HasValue)
         {
@@ -334,7 +330,7 @@ public partial class CustomerMenuForm : Form
             var cashFlows = CashFlows.GetCashFlowsByCustomerId(currentCustomerId.Value);
             foreach (var cashFlow in cashFlows)
             {
-                this.AddCashFlowEntry(cashFlow);
+                AddCashFlowEntry(cashFlow);
                 if (cashFlow.BalanceChanging < decimal.Zero)
                 {
                     expenses -= cashFlow.BalanceChanging;
@@ -344,8 +340,8 @@ public partial class CustomerMenuForm : Form
                     savings += cashFlow.BalanceChanging;
                 }
             }
-            this.lbExpenses.Text = expenses.ToString(Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
-            this.lbSavings.Text = savings.ToString(Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
+            lbExpenses.Text = expenses.ToString(Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
+            lbSavings.Text = savings.ToString(Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
         }
         else
         {
@@ -356,16 +352,16 @@ public partial class CustomerMenuForm : Form
 
     private void AddCashFlowEntry(CashFlow cashFlow)
     {
-        this.dataTable.Rows.Add(cashFlow.BalanceChanging.ToString(Resources.CurrencyStringFormat, CultureInfo.InvariantCulture),
+        dt.Rows.Add(cashFlow.BalanceChanging.ToString(Resources.CurrencyStringFormat, CultureInfo.InvariantCulture),
             cashFlow.Time.ToString(Resources.DateTimeStringFormat, CultureInfo.CurrentCulture),
             cashFlow.Content);
-        this.dataTransactions.DataSource = this.dataTable;
-        this.dataTransactions.Columns[0].ReadOnly = false;
-        for (int k = 1; k < dataTransactions.Columns.Count; k++)
+        this.data_Transactions.DataSource = dt;
+        data_Transactions.Columns[0].ReadOnly = false;
+        for (int k = 1; k < data_Transactions.Columns.Count; k++)
         {
-            this.dataTransactions.Columns[k].ReadOnly = true;
+            data_Transactions.Columns[k].ReadOnly = true;
         }
-        this.dataTransactions.AllowUserToAddRows = false;
+        this.data_Transactions.AllowUserToAddRows = false;
     }
 
     private void btnExport_Click(object sender, EventArgs e)
@@ -374,7 +370,7 @@ public partial class CustomerMenuForm : Form
         {
             using SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.Filter = Resources.SavingExcelFileFilter;
-            if (this.dataTransactions.Rows.Count > 0 && saveFile.ShowDialog() == DialogResult.OK)
+            if (data_Transactions.Rows.Count > 0 && saveFile.ShowDialog() == DialogResult.OK)
             {
                 FileInfo fileInfo = new FileInfo(saveFile.FileName);
                 if (fileInfo.Exists)
@@ -384,12 +380,12 @@ public partial class CustomerMenuForm : Form
                 ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
                 using ExcelPackage pck = new ExcelPackage(fileInfo);
                 ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Sheet1");
-                for (int i = 0; i < this.dataTransactions.Columns.Count; i++)
+                for (int i = 0; i < data_Transactions.Columns.Count; i++)
                 {
-                    ws.Cells[1, i + 1].Value = this.dataTransactions.Columns[i].HeaderText.ToUpper(CultureInfo.InvariantCulture);
-                    for (int j = 0; j < this.dataTransactions.Columns.Count; j++)
+                    ws.Cells[1, i + 1].Value = data_Transactions.Columns[i].HeaderText.ToUpper(CultureInfo.InvariantCulture);
+                    for (int j = 0; j < data_Transactions.Columns.Count; j++)
                     {
-                        ws.Cells[i + 2, j + 1].Value = this.dataTransactions.Rows[i].Cells[j].Value;
+                        ws.Cells[i + 2, j + 1].Value = data_Transactions.Rows[i].Cells[j].Value;
                     }
                 }
                 pck.Save();
@@ -409,6 +405,7 @@ public partial class CustomerMenuForm : Form
 
     #endregion
 
+    // FIXME
     private void Form_MainMenu_Load(object sender, EventArgs e)
     {
         this.GoingBackToLoginForm = false;

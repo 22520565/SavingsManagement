@@ -7,11 +7,8 @@ using System.Windows.Forms;
 public class GradientPanel : Panel
 {
     public Color RightColor { get; set; }
-
     public Color LeftColor { get; set; }
-
     public float Angle { get; set; }
-
     protected override void OnPaint(PaintEventArgs e)
     {
         if (e is not null)
