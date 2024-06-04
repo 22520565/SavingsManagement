@@ -19,6 +19,15 @@ public static class CustomerAccounts
         Disabled,
     }
 
+    public enum PasswordChangingResult
+    {
+        Success,
+        AccountNotFound,
+        EmptyOldPassword,
+        InvalidNewPassword,
+        WrongOldPassword,
+    }
+
     public static int? CurrentCustomerId { get; private set; } = null;
 
     public static decimal? CurrentCustomerBalance => CurrentCustomerAccount?.Balance;
@@ -53,15 +62,6 @@ public static class CustomerAccounts
         }
 
         return passwordCorrect;
-    }
-
-    public enum PasswordChangingResult
-    {
-        Success,
-        AccountNotFound,
-        EmptyOldPassword,
-        InvalidNewPassword,
-        WrongOldPassword,
     }
 
     public static PasswordChangingResult ChangePassword(string oldPassword, string newPassword)

@@ -287,6 +287,16 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hide {
+            get {
+                object obj = ResourceManager.GetObject("hide", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap How_to_Password_Protect_Antivirus_Settings__Kaspersky_Daily {
             get {
                 object obj = ResourceManager.GetObject("How to Password Protect Antivirus Settings -Kaspersky Daily", resourceCulture);
