@@ -31,6 +31,32 @@ namespace GraphicalUserInterface
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
+            tabPageChangeRegulations = new System.Windows.Forms.TabPage();
+            tabPageManageStaffs = new System.Windows.Forms.TabPage();
+            dataGridViewStaff = new System.Windows.Forms.DataGridView();
+            panel3 = new System.Windows.Forms.Panel();
+            clearScreen = new System.Windows.Forms.Button();
+            disableStaff = new System.Windows.Forms.Button();
+            saveStaff = new System.Windows.Forms.Button();
+            addStaff = new System.Windows.Forms.Button();
+            panel4 = new System.Windows.Forms.Panel();
+            staffPermissionIdComboBox = new System.Windows.Forms.ComboBox();
+            staffDisableCheckBox = new System.Windows.Forms.CheckBox();
+            staffIdTextBox = new System.Windows.Forms.TextBox();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
+            staffHashedPasswordTextBox = new System.Windows.Forms.TextBox();
+            staffUsernameTextBox = new System.Windows.Forms.TextBox();
+            staffPositionTextBox = new System.Windows.Forms.TextBox();
+            staffMaleCheckBox = new System.Windows.Forms.CheckBox();
+            staffNameTextBox = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            tabPageManageCustomers = new System.Windows.Forms.TabPage();
+=======
             System.Windows.Forms.Label customerWithdrawContentLabel;
             System.Windows.Forms.Label customerWithdrawAmountLabel;
             System.Windows.Forms.Label customerWithdrawCicNumberLabel;
@@ -60,6 +86,7 @@ namespace GraphicalUserInterface
             customerWithdrawCicNumberTextBox = new System.Windows.Forms.TextBox();
             customerWithdrawNameTextBox = new System.Windows.Forms.TextBox();
             tabPage4 = new System.Windows.Forms.TabPage();
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
             dataGridViewCustomer = new System.Windows.Forms.DataGridView();
             panel2 = new System.Windows.Forms.Panel();
             clearButton = new System.Windows.Forms.Button();
@@ -89,6 +116,31 @@ namespace GraphicalUserInterface
             customerCicNumberLabel = new System.Windows.Forms.Label();
             customerNameLabel = new System.Windows.Forms.Label();
             customerIdLabel = new System.Windows.Forms.Label();
+<<<<<<< HEAD
+            tabPageWithdraw = new System.Windows.Forms.TabPage();
+            tabPageRecharge = new System.Windows.Forms.TabPage();
+            tabPageInformation = new System.Windows.Forms.TabPage();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            tabPageManageStaffs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewStaff).BeginInit();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            tabPageManageCustomers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
+            panel2.SuspendLayout();
+            panel1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // tabPageChangeRegulations
+            // 
+            tabPageChangeRegulations.Location = new System.Drawing.Point(4, 47);
+            tabPageChangeRegulations.Name = "tabPageChangeRegulations";
+            tabPageChangeRegulations.Size = new System.Drawing.Size(1570, 893);
+            tabPageChangeRegulations.TabIndex = 4;
+            tabPageChangeRegulations.Text = "Change regulations";
+            tabPageChangeRegulations.UseVisualStyleBackColor = true;
+=======
             tabPageManageStaffs = new System.Windows.Forms.TabPage();
             tabPageChangeRegulations = new System.Windows.Forms.TabPage();
             customerWithdrawContentLabel = new System.Windows.Forms.Label();
@@ -187,9 +239,21 @@ namespace GraphicalUserInterface
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new System.Drawing.Size(1262, 755);
             tabControl1.TabIndex = 0;
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
             // 
-            // tabPage1
+            // tabPageManageStaffs
             // 
+<<<<<<< HEAD
+            tabPageManageStaffs.Controls.Add(dataGridViewStaff);
+            tabPageManageStaffs.Controls.Add(panel3);
+            tabPageManageStaffs.Controls.Add(panel4);
+            tabPageManageStaffs.Location = new System.Drawing.Point(4, 47);
+            tabPageManageStaffs.Name = "tabPageManageStaffs";
+            tabPageManageStaffs.Size = new System.Drawing.Size(1570, 893);
+            tabPageManageStaffs.TabIndex = 3;
+            tabPageManageStaffs.Text = "Staff Management";
+            tabPageManageStaffs.UseVisualStyleBackColor = true;
+=======
             tabPage1.Location = new System.Drawing.Point(4, 35);
             tabPage1.Margin = new System.Windows.Forms.Padding(2);
             tabPage1.Name = "tabPage1";
@@ -198,9 +262,254 @@ namespace GraphicalUserInterface
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Information";
             tabPage1.UseVisualStyleBackColor = true;
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
             // 
-            // tabPage2
+            // dataGridViewStaff
             // 
+<<<<<<< HEAD
+            dataGridViewStaff.BackgroundColor = System.Drawing.SystemColors.Window;
+            dataGridViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewStaff.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridViewStaff.Location = new System.Drawing.Point(0, 394);
+            dataGridViewStaff.Name = "dataGridViewStaff";
+            dataGridViewStaff.RowHeadersWidth = 62;
+            dataGridViewStaff.Size = new System.Drawing.Size(1570, 499);
+            dataGridViewStaff.TabIndex = 6;
+            dataGridViewStaff.CellContentClick += dataGridViewStaff_CellContentClick;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(clearScreen);
+            panel3.Controls.Add(disableStaff);
+            panel3.Controls.Add(saveStaff);
+            panel3.Controls.Add(addStaff);
+            panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            panel3.Location = new System.Drawing.Point(0, 310);
+            panel3.Margin = new System.Windows.Forms.Padding(4);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(1570, 84);
+            panel3.TabIndex = 4;
+            // 
+            // clearScreen
+            // 
+            clearScreen.AutoSize = true;
+            clearScreen.Location = new System.Drawing.Point(496, 22);
+            clearScreen.Margin = new System.Windows.Forms.Padding(4);
+            clearScreen.Name = "clearScreen";
+            clearScreen.Size = new System.Drawing.Size(182, 48);
+            clearScreen.TabIndex = 14;
+            clearScreen.Text = "Clear Screen";
+            clearScreen.UseVisualStyleBackColor = true;
+            clearScreen.Click += clearScreen_Click;
+            // 
+            // disableStaff
+            // 
+            disableStaff.AutoSize = true;
+            disableStaff.Location = new System.Drawing.Point(170, 22);
+            disableStaff.Margin = new System.Windows.Forms.Padding(4);
+            disableStaff.Name = "disableStaff";
+            disableStaff.Size = new System.Drawing.Size(118, 48);
+            disableStaff.TabIndex = 13;
+            disableStaff.Text = "Disable";
+            disableStaff.UseVisualStyleBackColor = true;
+            disableStaff.Click += disableStaff_Click;
+            // 
+            // saveStaff
+            // 
+            saveStaff.AutoSize = true;
+            saveStaff.Location = new System.Drawing.Point(337, 22);
+            saveStaff.Margin = new System.Windows.Forms.Padding(4);
+            saveStaff.Name = "saveStaff";
+            saveStaff.Size = new System.Drawing.Size(118, 48);
+            saveStaff.TabIndex = 12;
+            saveStaff.Text = "Save";
+            saveStaff.UseVisualStyleBackColor = true;
+            saveStaff.Click += saveStaff_Click;
+            // 
+            // addStaff
+            // 
+            addStaff.AutoSize = true;
+            addStaff.Location = new System.Drawing.Point(15, 22);
+            addStaff.Margin = new System.Windows.Forms.Padding(4);
+            addStaff.Name = "addStaff";
+            addStaff.Size = new System.Drawing.Size(118, 48);
+            addStaff.TabIndex = 10;
+            addStaff.Text = "Add";
+            addStaff.UseVisualStyleBackColor = true;
+            addStaff.Click += addStaff_Click;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(staffPermissionIdComboBox);
+            panel4.Controls.Add(staffDisableCheckBox);
+            panel4.Controls.Add(staffIdTextBox);
+            panel4.Controls.Add(label3);
+            panel4.Controls.Add(label4);
+            panel4.Controls.Add(staffHashedPasswordTextBox);
+            panel4.Controls.Add(staffUsernameTextBox);
+            panel4.Controls.Add(staffPositionTextBox);
+            panel4.Controls.Add(staffMaleCheckBox);
+            panel4.Controls.Add(staffNameTextBox);
+            panel4.Controls.Add(label5);
+            panel4.Controls.Add(label9);
+            panel4.Controls.Add(label10);
+            panel4.Controls.Add(label11);
+            panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            panel4.Location = new System.Drawing.Point(0, 0);
+            panel4.Margin = new System.Windows.Forms.Padding(4);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(1570, 310);
+            panel4.TabIndex = 5;
+            // 
+            // staffPermissionIdComboBox
+            // 
+            staffPermissionIdComboBox.FormattingEnabled = true;
+            staffPermissionIdComboBox.Items.AddRange(new object[] { "1 - Admin", "2 - Staff" });
+            staffPermissionIdComboBox.Location = new System.Drawing.Point(777, 85);
+            staffPermissionIdComboBox.Name = "staffPermissionIdComboBox";
+            staffPermissionIdComboBox.Size = new System.Drawing.Size(182, 46);
+            staffPermissionIdComboBox.TabIndex = 12;
+            // 
+            // staffDisableCheckBox
+            // 
+            staffDisableCheckBox.AutoSize = true;
+            staffDisableCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            staffDisableCheckBox.Location = new System.Drawing.Point(1120, 159);
+            staffDisableCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            staffDisableCheckBox.Name = "staffDisableCheckBox";
+            staffDisableCheckBox.Size = new System.Drawing.Size(134, 42);
+            staffDisableCheckBox.TabIndex = 11;
+            staffDisableCheckBox.Text = "Disable";
+            staffDisableCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // staffIdTextBox
+            // 
+            staffIdTextBox.Location = new System.Drawing.Point(94, 13);
+            staffIdTextBox.Name = "staffIdTextBox";
+            staffIdTextBox.Size = new System.Drawing.Size(150, 45);
+            staffIdTextBox.TabIndex = 10;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(550, 85);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(180, 38);
+            label3.TabIndex = 9;
+            label3.Text = "PermissionId:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(438, 170);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(240, 38);
+            label4.TabIndex = 8;
+            label4.Text = "Hashed password:";
+            // 
+            // staffHashedPasswordTextBox
+            // 
+            staffHashedPasswordTextBox.BackColor = System.Drawing.Color.White;
+            staffHashedPasswordTextBox.Location = new System.Drawing.Point(722, 163);
+            staffHashedPasswordTextBox.Margin = new System.Windows.Forms.Padding(4);
+            staffHashedPasswordTextBox.Name = "staffHashedPasswordTextBox";
+            staffHashedPasswordTextBox.Size = new System.Drawing.Size(205, 45);
+            staffHashedPasswordTextBox.TabIndex = 8;
+            staffHashedPasswordTextBox.KeyPress += staffHashedPasswordTextBox_KeyPress;
+            // 
+            // staffUsernameTextBox
+            // 
+            staffUsernameTextBox.BackColor = System.Drawing.Color.White;
+            staffUsernameTextBox.Location = new System.Drawing.Point(179, 163);
+            staffUsernameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            staffUsernameTextBox.Name = "staffUsernameTextBox";
+            staffUsernameTextBox.Size = new System.Drawing.Size(218, 45);
+            staffUsernameTextBox.TabIndex = 7;
+            // 
+            // staffPositionTextBox
+            // 
+            staffPositionTextBox.BackColor = System.Drawing.Color.White;
+            staffPositionTextBox.Location = new System.Drawing.Point(179, 83);
+            staffPositionTextBox.Margin = new System.Windows.Forms.Padding(4);
+            staffPositionTextBox.Name = "staffPositionTextBox";
+            staffPositionTextBox.Size = new System.Drawing.Size(243, 45);
+            staffPositionTextBox.TabIndex = 3;
+            // 
+            // staffMaleCheckBox
+            // 
+            staffMaleCheckBox.AutoSize = true;
+            staffMaleCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            staffMaleCheckBox.Location = new System.Drawing.Point(1150, 16);
+            staffMaleCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            staffMaleCheckBox.Name = "staffMaleCheckBox";
+            staffMaleCheckBox.Size = new System.Drawing.Size(104, 42);
+            staffMaleCheckBox.TabIndex = 2;
+            staffMaleCheckBox.Text = "Male";
+            staffMaleCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // staffNameTextBox
+            // 
+            staffNameTextBox.BackColor = System.Drawing.Color.White;
+            staffNameTextBox.Location = new System.Drawing.Point(509, 12);
+            staffNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            staffNameTextBox.Name = "staffNameTextBox";
+            staffNameTextBox.Size = new System.Drawing.Size(515, 45);
+            staffNameTextBox.TabIndex = 1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(14, 163);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(148, 38);
+            label5.TabIndex = 7;
+            label5.Text = "Username:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(14, 85);
+            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(121, 38);
+            label9.TabIndex = 3;
+            label9.Text = "Position:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new System.Drawing.Point(387, 12);
+            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(97, 38);
+            label10.TabIndex = 1;
+            label10.Text = "Name:";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new System.Drawing.Point(15, 11);
+            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(50, 38);
+            label11.TabIndex = 0;
+            label11.Text = "ID:";
+            // 
+            // tabPageManageCustomers
+            // 
+            tabPageManageCustomers.Controls.Add(dataGridViewCustomer);
+            tabPageManageCustomers.Controls.Add(panel2);
+            tabPageManageCustomers.Controls.Add(panel1);
+            tabPageManageCustomers.Location = new System.Drawing.Point(4, 47);
+            tabPageManageCustomers.Name = "tabPageManageCustomers";
+            tabPageManageCustomers.Size = new System.Drawing.Size(1570, 893);
+            tabPageManageCustomers.TabIndex = 5;
+            tabPageManageCustomers.Text = "Customer Management";
+            tabPageManageCustomers.UseVisualStyleBackColor = true;
+=======
             tabPage2.Controls.Add(customerDepositAmountNumeric);
             tabPage2.Controls.Add(customerDepositIdTextBox);
             tabPage2.Controls.Add(customerDepositButton);
@@ -438,6 +747,7 @@ namespace GraphicalUserInterface
             tabPage4.TabIndex = 5;
             tabPage4.Text = "Customer Management";
             tabPage4.UseVisualStyleBackColor = true;
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
             // 
             // dataGridViewCustomer
             // 
@@ -755,8 +1065,16 @@ namespace GraphicalUserInterface
             customerIdLabel.TabIndex = 0;
             customerIdLabel.Text = "ID:";
             // 
-            // tabPageManageStaffs
+            // tabPageWithdraw
             // 
+<<<<<<< HEAD
+            tabPageWithdraw.Location = new System.Drawing.Point(4, 47);
+            tabPageWithdraw.Name = "tabPageWithdraw";
+            tabPageWithdraw.Size = new System.Drawing.Size(1570, 893);
+            tabPageWithdraw.TabIndex = 2;
+            tabPageWithdraw.Text = "Withdraw";
+            tabPageWithdraw.UseVisualStyleBackColor = true;
+=======
             tabPageManageStaffs.Location = new System.Drawing.Point(4, 35);
             tabPageManageStaffs.Margin = new System.Windows.Forms.Padding(2);
             tabPageManageStaffs.Name = "tabPageManageStaffs";
@@ -764,9 +1082,46 @@ namespace GraphicalUserInterface
             tabPageManageStaffs.TabIndex = 3;
             tabPageManageStaffs.Text = "Staff Management";
             tabPageManageStaffs.UseVisualStyleBackColor = true;
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
             // 
-            // tabPageChangeRegulations
+            // tabPageRecharge
             // 
+<<<<<<< HEAD
+            tabPageRecharge.Location = new System.Drawing.Point(4, 47);
+            tabPageRecharge.Name = "tabPageRecharge";
+            tabPageRecharge.Padding = new System.Windows.Forms.Padding(3);
+            tabPageRecharge.Size = new System.Drawing.Size(1570, 893);
+            tabPageRecharge.TabIndex = 1;
+            tabPageRecharge.Text = "Recharge";
+            tabPageRecharge.UseVisualStyleBackColor = true;
+            // 
+            // tabPageInformation
+            // 
+            tabPageInformation.Location = new System.Drawing.Point(4, 47);
+            tabPageInformation.Name = "tabPageInformation";
+            tabPageInformation.Padding = new System.Windows.Forms.Padding(3);
+            tabPageInformation.Size = new System.Drawing.Size(1570, 893);
+            tabPageInformation.TabIndex = 0;
+            tabPageInformation.Text = "Information";
+            tabPageInformation.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPageInformation);
+            tabControl1.Controls.Add(tabPageRecharge);
+            tabControl1.Controls.Add(tabPageWithdraw);
+            tabControl1.Controls.Add(tabPageManageCustomers);
+            tabControl1.Controls.Add(tabPageManageStaffs);
+            tabControl1.Controls.Add(tabPageChangeRegulations);
+            tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tabControl1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tabControl1.Location = new System.Drawing.Point(0, 0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(1578, 944);
+            tabControl1.TabIndex = 0;
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
+=======
             tabPageChangeRegulations.Location = new System.Drawing.Point(4, 35);
             tabPageChangeRegulations.Margin = new System.Windows.Forms.Padding(2);
             tabPageChangeRegulations.Name = "tabPageChangeRegulations";
@@ -774,6 +1129,7 @@ namespace GraphicalUserInterface
             tabPageChangeRegulations.TabIndex = 4;
             tabPageChangeRegulations.Text = "Change regulations";
             tabPageChangeRegulations.UseVisualStyleBackColor = true;
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
             // 
             // StaffMenuForm
             // 
@@ -787,14 +1143,27 @@ namespace GraphicalUserInterface
             Text = "StaffMenuForm";
             FormClosing += StaffMenuForm_FormClosing;
             Load += StaffMenuForm_Load;
+<<<<<<< HEAD
+            tabPageManageStaffs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewStaff).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            tabPageManageCustomers.ResumeLayout(false);
+=======
             tabControl1.ResumeLayout(false);
 <<<<<<< Dien
             tabPage4.ResumeLayout(false);
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
             ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+<<<<<<< HEAD
+            tabControl1.ResumeLayout(false);
+=======
 =======
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
@@ -803,24 +1172,48 @@ namespace GraphicalUserInterface
             tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).EndInit();
 >>>>>>> master
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
             ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPageManageStaffs;
         private System.Windows.Forms.TabPage tabPageChangeRegulations;
+<<<<<<< HEAD
+        private System.Windows.Forms.TabPage tabPageManageStaffs;
+        private System.Windows.Forms.DataGridView dataGridViewStaff;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button clearScreen;
+        private System.Windows.Forms.Button disableStaff;
+        private System.Windows.Forms.Button saveStaff;
+        private System.Windows.Forms.Button addStaff;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.CheckBox staffDisableCheckBox;
+        private System.Windows.Forms.TextBox staffIdTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox staffHashedPasswordTextBox;
+        private System.Windows.Forms.TextBox staffUsernameTextBox;
+        private System.Windows.Forms.TextBox staffNameTextBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TabPage tabPageManageCustomers;
+        private System.Windows.Forms.DataGridView dataGridViewCustomer;
+=======
         private System.Windows.Forms.TabPage tabPage4;
 <<<<<<< Dien
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox customerBalanceTextBox;
+        private System.Windows.Forms.TextBox customerEmailTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox customerDisableCheckBox;
+        private System.Windows.Forms.TextBox customerIdTextBox;
         private System.Windows.Forms.Label customerBalanceLabel;
         private System.Windows.Forms.Label customerHashedPasswordLabel;
         private System.Windows.Forms.TextBox customerHashedPasswordTextBox;
@@ -838,6 +1231,17 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.Label customerCicNumberLabel;
         private System.Windows.Forms.Label customerNameLabel;
         private System.Windows.Forms.Label customerIdLabel;
+<<<<<<< HEAD
+        private System.Windows.Forms.TabPage tabPageWithdraw;
+        private System.Windows.Forms.TabPage tabPageRecharge;
+        private System.Windows.Forms.TabPage tabPageInformation;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox staffMaleCheckBox;
+        private System.Windows.Forms.TextBox staffPositionTextBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox staffPermissionIdComboBox;
+=======
         private System.Windows.Forms.DataGridView dataGridViewCustomer;
         private System.Windows.Forms.TextBox customerIdTextBox;
         private System.Windows.Forms.CheckBox customerDisableCheckBox;
@@ -871,5 +1275,6 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.Label customerWithdrawIdLabel;
         private System.Windows.Forms.TextBox customerWithdrawBalanceTextBox;
 >>>>>>> master
+>>>>>>> 761f28668e4e3d928a34d62b37f47919fabdafbe
     }
 }

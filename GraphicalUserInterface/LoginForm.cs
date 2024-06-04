@@ -314,6 +314,11 @@ public partial class LoginForm : Form
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         break;
 
+                    case StaffAccounts.LoginResult.Disabled:
+                        MessageBox.Show(this, Properties.Resources.AccountDisabledErrorString, Properties.Resources.ErrorTitleString,
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+
                     default:
                         MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);

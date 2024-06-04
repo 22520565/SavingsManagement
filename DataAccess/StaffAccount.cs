@@ -31,6 +31,8 @@ public sealed class StaffAccount
 
     public int PermissionId { get; set; }
 
+    public bool IsDisabled { get; set; }
+
     [ForeignKey("PermissionId")]
     [InverseProperty("StaffAccounts")]
     public StaffPermission Permission { get; set; } = null!;
