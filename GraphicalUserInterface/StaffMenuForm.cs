@@ -7,7 +7,6 @@ using System.Windows.Forms;
 using Business;
 using DataAccess;
 using GraphicalUserInterface.Properties;
-using Microsoft.IdentityModel.Tokens;
 
 public partial class StaffMenuForm : Form
 {
@@ -77,7 +76,7 @@ public partial class StaffMenuForm : Form
     {
         CustomerAccount? customerAccount = null;
 
-        if (!this.customerDepositIdTextBox.Text.IsNullOrEmpty() &&
+        if (!string.IsNullOrWhiteSpace(this.customerDepositIdTextBox.Text) &&
             int.TryParse(this.customerDepositIdTextBox.Text, CultureInfo.CurrentCulture, out var customerDepositId))
         {
             customerAccount = CustomerAccounts.GetCustomerAccount(customerDepositId);
@@ -97,14 +96,14 @@ public partial class StaffMenuForm : Form
             this.customerDepositCicNumberTextBox.Text = customerAccount.CicNumber;
             this.customerDepositAmountNumeric.Enabled = true;
             this.customerDepositContentTextBox.Enabled = true;
-            this.customerDepositButton.Enabled = !this.customerDepositContentTextBox.Text.IsNullOrEmpty();
+            this.customerDepositButton.Enabled = !string.IsNullOrWhiteSpace(this.customerDepositContentTextBox.Text);
         }
     }
 
     private void customerDepositContentTextBox_TextChanged(object sender, EventArgs e)
     {
-        this.customerDepositButton.Enabled = !this.customerDepositContentTextBox.Text.IsNullOrEmpty()
-            && !this.customerDepositIdTextBox.Text.IsNullOrEmpty();
+        this.customerDepositButton.Enabled = !string.IsNullOrWhiteSpace(this.customerDepositContentTextBox.Text)
+            && !string.IsNullOrWhiteSpace(this.customerDepositIdTextBox.Text);
     }
 
     private void customerDepositButton_Click(object sender, EventArgs e)
@@ -157,7 +156,7 @@ public partial class StaffMenuForm : Form
     {
         CustomerAccount? customerAccount = null;
 
-        if (!this.customerWithdrawIdTextBox.Text.IsNullOrEmpty() &&
+        if (!string.IsNullOrWhiteSpace(this.customerWithdrawIdTextBox.Text) &&
             int.TryParse(this.customerWithdrawIdTextBox.Text, CultureInfo.CurrentCulture, out var customerWithdrawId))
         {
             customerAccount = CustomerAccounts.GetCustomerAccount(customerWithdrawId);
@@ -182,14 +181,14 @@ public partial class StaffMenuForm : Form
             this.customerWithdrawAmountNumeric.Enabled = true;
             this.customerWithdrawAmountNumeric.Maximum = Math.Round(customerAccount.Balance, this.customerWithdrawAmountNumeric.DecimalPlaces, MidpointRounding.ToZero);
             this.customerWithdrawContentTextBox.Enabled = true;
-            this.customerWithdrawButton.Enabled = !this.customerWithdrawContentTextBox.Text.IsNullOrEmpty();
+            this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text);
         }
     }
 
     private void customerWithdrawContentTextBox_TextChanged(object sender, EventArgs e)
     {
-        this.customerWithdrawButton.Enabled = !this.customerWithdrawContentTextBox.Text.IsNullOrEmpty()
-            && !this.customerWithdrawIdTextBox.Text.IsNullOrEmpty();
+        this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text)
+            && !string.IsNullOrWhiteSpace(this.customerWithdrawIdTextBox.Text);
     }
 
     private void customerWithdrawButton_Click(object sender, EventArgs e)
