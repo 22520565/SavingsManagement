@@ -30,4 +30,15 @@ public static class SavingInterestRates
         using var context = new SavingsManagementContext();
         return context.SavingInterestRates.Where(s => s.PeriodInMonths == period).Select(s => s.AnnualInterestRate).First();
     }
+
+    public static void SetInterest(int period, decimal rate)
+    {
+        using var context = new SavingsManagementContext();
+        var interest = context.SavingInterestRates.Where(s => s.PeriodInMonths == period).First();
+        if (interest != null)
+        {
+            interest.AnnualInterestRate = rate;
+            context.SaveChanges();
+        }
+    }
 }

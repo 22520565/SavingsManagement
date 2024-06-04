@@ -63,7 +63,7 @@ public partial class CustomerMenuForm : Form
     }
     private void customerChangePasswordButton_Click(object sender, EventArgs e)
     {
-        using var form = new PasswordChangingForm();
+        using var form = new PasswordChangingForm("Customer");
         form.ShowDialog();
     }
 

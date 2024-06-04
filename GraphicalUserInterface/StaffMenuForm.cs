@@ -1,6 +1,7 @@
 ﻿namespace GraphicalUserInterface;
 
 using System;
+using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -14,12 +15,14 @@ using Microsoft.IdentityModel.Tokens;
 public partial class StaffMenuForm : Form
 {
     public bool GoingBackToLoginForm { get; private set; } = false;
+    DataTable dt;
 
     private static readonly PasswordHasher<String> PasswordHasher = new();
 
     public StaffMenuForm()
     {
         InitializeComponent();
+        InitializeInfo();
         using (var context = new SavingsManagementContext())
         {
             loadCustomer();
@@ -31,6 +34,102 @@ public partial class StaffMenuForm : Form
         staffIdTextBox.ReadOnly = true;
         dataGridViewStaff.ReadOnly = true;
     }
+
+    #region Information
+    private void InitializeInfo()
+    {
+        LoadingAccountInfo();
+        LoadingRateList();
+    }
+
+    public void LoadingAccountInfo()
+    {
+        try
+        {
+            StaffAccount? staffAccount = StaffAccounts.CurrentStaffAccount;
+            if (staffAccount is not null)
+            {
+                this.staffIdtxt.Text = staffAccount.Id.ToString(CultureInfo.CurrentCulture);
+                this.staffnametxt.Text = staffAccount.Name;
+                this.staffgendertxt.Text = staffAccount.IsMale ? Resources.MaleString : Resources.FemaleString;
+                this.staffpositiontxt.Text = staffAccount.Position;
+                this.staffusernametxt.Text = staffAccount.Username;
+            }
+            else
+            {
+                MessageBox.Show(this, Resources.FailedLoadingCustomerInfoString, Resources.ErrorTitleString,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+
+    private void staffChangePasswordButton_Click(object sender, EventArgs e)
+    {
+        using var form = new PasswordChangingForm("Staff");
+        form.ShowDialog();
+    }
+
+    public void LoadingRateList()
+    {
+        dt = new DataTable();
+        dt.Columns.AddRange(new[] { new DataColumn("PeriodInMonths", typeof(string)),
+                        new DataColumn("AnnualInterestRate", typeof(string))});
+        int? currentStaffId = StaffAccounts.CurrentStaffId;
+        if (currentStaffId.HasValue)
+        {
+            var interestRates = SavingInterestRates.Collection;
+            foreach (var interestRate in interestRates)
+            {
+                AddRateEntry(interestRate);
+            }
+        }
+        else
+        {
+            MessageBox.Show(Resources.NoCustomerLoggingInString);
+        }
+
+    }
+
+    private void AddRateEntry(SavingInterestRate interestRate)
+    {
+        dt.Rows.Add(interestRate.PeriodInMonths.ToString(),
+            interestRate.AnnualInterestRate.ToString(Resources.InterestTextFormatString, CultureInfo.InvariantCulture));
+        this.data_rate.DataSource = dt;
+        data_rate.Columns[0].ReadOnly = false;
+        this.data_rate.AllowUserToAddRows = false;
+    }
+
+    private void data_rate_CellClick(object sender, DataGridViewCellEventArgs e)
+    {
+        if (e.RowIndex >= 0)
+        {
+            DataGridViewRow selectedRow = data_rate.Rows[e.RowIndex];
+            string months = selectedRow.Cells["PeriodInMonths"].Value.ToString();
+            string rates = selectedRow.Cells["AnnualInterestRate"].Value.ToString();
+
+            int month = int.Parse(months);
+            string[] rate = rates.Split("%");
+
+            this.monthtxt.Text = month.ToString();
+            this.ratetxt.Text = rate[0];
+        }
+    }
+
+    private void saveRate_Click(object sender, EventArgs e)
+    {
+        int month = int.Parse(this.monthtxt.Text);
+        decimal rate = decimal.Parse(this.ratetxt.Text);
+        rate = rate / 100;
+        SavingInterestRates.SetInterest(month,rate);
+        LoadingRateList();
+        MessageBox.Show("Successful","Save change successfully",MessageBoxButtons.OK);
+    }
+
+    #endregion
 
     private void StaffMenuForm_FormClosing(object sender, FormClosingEventArgs e)
     {
