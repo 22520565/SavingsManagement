@@ -4,97 +4,99 @@ using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using GraphicalUserInterface.Properties;
 
 public partial class CustomerSignUpForm : Form
 {
 
     public CustomerSignUpForm()
     {
-        InitializeComponent();
-        InitializeCbShowPassword();
-        InitializeCbShowConfirmPassword();
+        this.InitializeComponent();
+        this.InitializeCbShowPassword();
+        this.InitializeCbShowConfirmPassword();
     }
 
     private void InitializeCbShowPassword()
     {
-        cbShowPassword.Appearance = Appearance.Button;
-        cbShowPassword.FlatStyle = FlatStyle.Flat;
-        cbShowPassword.FlatAppearance.BorderSize = 0;
-        cbShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
+        this.cbShowPassword.Appearance = Appearance.Button;
+        this.cbShowPassword.FlatStyle = FlatStyle.Flat;
+        this.cbShowPassword.FlatAppearance.BorderSize = 0;
+        this.cbShowPassword.BackgroundImage = Resources.hide;
     }
 
     private void InitializeCbShowConfirmPassword()
     {
-        cbShowConfirmPassword.Appearance = Appearance.Button;
-        cbShowConfirmPassword.FlatStyle = FlatStyle.Flat;
-        cbShowConfirmPassword.FlatAppearance.BorderSize = 0;
-        cbShowConfirmPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
+        this.cbShowConfirmPassword.Appearance = Appearance.Button;
+        this.cbShowConfirmPassword.FlatStyle = FlatStyle.Flat;
+        this.cbShowConfirmPassword.FlatAppearance.BorderSize = 0;
+        this.cbShowConfirmPassword.BackgroundImage = Resources.hide;
     }
 
     private void btnExit_Click(object sender, EventArgs e)
     {
         this.Hide();
-        LoginForm login = new LoginForm();
+        using LoginForm login = new LoginForm();
         login.ShowDialog();
         this.Close();
     }
 
     private void btnExit_MouseEnter(object sender, EventArgs e)
     {
-        btnExit.BackColor = Color.Red;
-        btnExit.ForeColor = Color.White;
+        this.btnExit.BackColor = Color.Red;
+        this.btnExit.ForeColor = Color.White;
     }
 
     private void btnExit_MouseLeave(object sender, EventArgs e)
     {
-        btnExit.BackColor = Color.Transparent;
-        btnExit.ForeColor = Color.Black;
+        this.btnExit.BackColor = Color.Transparent;
+        this.btnExit.ForeColor = Color.Black;
     }
 
     private void btnSignUp_MouseEnter(object sender, EventArgs e)
     {
-        btnSignUp.BackColor = Color.FromArgb(11, 9, 120);
-        btnSignUp.ForeColor = Color.White;
+        this.btnSignUp.BackColor = Color.FromArgb(11, 9, 120);
+        this.btnSignUp.ForeColor = Color.White;
     }
 
     private void btnSignUp_MouseLeave(object sender, EventArgs e)
     {
-        btnSignUp.BackColor = Color.Black;
-        btnSignUp.ForeColor = Color.White;
+        this.btnSignUp.BackColor = Color.Black;
+        this.btnSignUp.ForeColor = Color.White;
     }
 
     private void cbShowPassword_CheckedChanged(object sender, EventArgs e)
     {
-        if (!cbShowPassword.Checked)
+        if (!this.cbShowPassword.Checked)
         {
-            txtPassword.UseSystemPasswordChar = true;
-            cbShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.cbShowPassword.BackgroundImage = Resources.hide;
         }
         else
         {
-            txtPassword.UseSystemPasswordChar = false;
-            cbShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\show.png");
+            this.txtPassword.UseSystemPasswordChar = false;
+            this.cbShowPassword.BackgroundImage = Resources.show;
         }
     }
 
     private void cbShowConfirmPassword_CheckedChanged(object sender, EventArgs e)
     {
-        if (!cbShowConfirmPassword.Checked)
+        if (!this.cbShowConfirmPassword.Checked)
         {
-            txtConfirmPassword.UseSystemPasswordChar = true;
-            cbShowConfirmPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
+            this.cbShowConfirmPassword.BackgroundImage = Resources.hide;
         }
         else
         {
-            txtConfirmPassword.UseSystemPasswordChar = false;
-            cbShowConfirmPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\show.png");
+            this.txtConfirmPassword.UseSystemPasswordChar = false;
+            this.cbShowConfirmPassword.BackgroundImage = Resources.show;
         }
     }
 
     private void linkLabel_Login_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         this.Hide();
-        new LoginForm().ShowDialog();
+        using var loginForm = new LoginForm();
+        loginForm.ShowDialog();
         this.Close();
     }
 

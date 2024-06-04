@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace GraphicalUserInterface;
+
 using System.Windows.Forms;
 
-namespace GraphicalUserInterface
+public partial class AccountManagementForm : Form
 {
-    public partial class AccountManagementForm : Form
+    public AccountManagementForm()
     {
-        public AccountManagementForm()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

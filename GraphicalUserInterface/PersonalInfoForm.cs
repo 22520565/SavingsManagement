@@ -6,7 +6,7 @@ public partial class PersonalInfoForm : Form
 {
     public PersonalInfoForm()
     {
-        InitializeComponent();
+        this.InitializeComponent();
     }
 
     private void PersonalInfoForm_Load(object sender, System.EventArgs e)

@@ -100,7 +100,7 @@ namespace GraphicalUserInterface
             groupBoxFunction = new GroupBox();
             btnExport = new Button();
             groupBoxTransactionList = new GroupBox();
-            data_Transactions = new DataGridView();
+            dataTransactions = new DataGridView();
             groupBoxStats = new GroupBox();
             panelSavings = new GradientPanel();
             pictureBox1 = new PictureBox();
@@ -123,7 +123,7 @@ namespace GraphicalUserInterface
             tabStatistical.SuspendLayout();
             groupBoxFunction.SuspendLayout();
             groupBoxTransactionList.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)data_Transactions).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataTransactions).BeginInit();
             groupBoxStats.SuspendLayout();
             panelSavings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -804,7 +804,7 @@ namespace GraphicalUserInterface
             // groupBoxTransactionList
             // 
             groupBoxTransactionList.BackColor = System.Drawing.SystemColors.Control;
-            groupBoxTransactionList.Controls.Add(data_Transactions);
+            groupBoxTransactionList.Controls.Add(dataTransactions);
             groupBoxTransactionList.ForeColor = System.Drawing.Color.Black;
             groupBoxTransactionList.Location = new System.Drawing.Point(297, 18);
             groupBoxTransactionList.Name = "groupBoxTransactionList";
@@ -815,13 +815,13 @@ namespace GraphicalUserInterface
             // 
             // data_Transactions
             // 
-            data_Transactions.AllowUserToAddRows = false;
-            data_Transactions.AllowUserToDeleteRows = false;
-            data_Transactions.AllowUserToResizeColumns = false;
-            data_Transactions.AllowUserToResizeRows = false;
-            data_Transactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            data_Transactions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            data_Transactions.BorderStyle = BorderStyle.None;
+            dataTransactions.AllowUserToAddRows = false;
+            dataTransactions.AllowUserToDeleteRows = false;
+            dataTransactions.AllowUserToResizeColumns = false;
+            dataTransactions.AllowUserToResizeRows = false;
+            dataTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataTransactions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataTransactions.BorderStyle = BorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
@@ -829,8 +829,8 @@ namespace GraphicalUserInterface
             dataGridViewCellStyle1.Padding = new Padding(5);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            data_Transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            data_Transactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataTransactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
@@ -839,20 +839,20 @@ namespace GraphicalUserInterface
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            data_Transactions.DefaultCellStyle = dataGridViewCellStyle2;
-            data_Transactions.EditMode = DataGridViewEditMode.EditOnF2;
-            data_Transactions.Location = new System.Drawing.Point(5, 38);
-            data_Transactions.Name = "data_Transactions";
-            data_Transactions.RowHeadersVisible = false;
-            data_Transactions.RowHeadersWidth = 51;
+            dataTransactions.DefaultCellStyle = dataGridViewCellStyle2;
+            dataTransactions.EditMode = DataGridViewEditMode.EditOnF2;
+            dataTransactions.Location = new System.Drawing.Point(5, 38);
+            dataTransactions.Name = "data_Transactions";
+            dataTransactions.RowHeadersVisible = false;
+            dataTransactions.RowHeadersWidth = 51;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Padding = new Padding(5);
-            data_Transactions.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            data_Transactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            data_Transactions.Size = new System.Drawing.Size(825, 645);
-            data_Transactions.TabIndex = 4;
+            dataTransactions.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataTransactions.Size = new System.Drawing.Size(825, 645);
+            dataTransactions.TabIndex = 4;
             // 
             // groupBoxStats
             // 
@@ -993,7 +993,7 @@ namespace GraphicalUserInterface
             tabStatistical.ResumeLayout(false);
             groupBoxFunction.ResumeLayout(false);
             groupBoxTransactionList.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)data_Transactions).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataTransactions).EndInit();
             groupBoxStats.ResumeLayout(false);
             panelSavings.ResumeLayout(false);
             panelSavings.PerformLayout();
@@ -1057,7 +1057,7 @@ namespace GraphicalUserInterface
 		private System.Windows.Forms.Button btnExport;
 		private System.Windows.Forms.GroupBox groupBoxStats;
 		private System.Windows.Forms.GroupBox groupBoxTransactionList;
-		private System.Windows.Forms.DataGridView data_Transactions;
+		private System.Windows.Forms.DataGridView dataTransactions;
 		private System.Windows.Forms.GroupBox groupBoxFunction;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage3;

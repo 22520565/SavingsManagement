@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace GraphicalUserInterface;
+
 using System.Windows.Forms;
 
-namespace GraphicalUserInterface
+public partial class AccountInfoForm : Form
 {
-    public partial class AccountInfoForm : Form
+    public AccountInfoForm()
     {
-        public AccountInfoForm()
-        {
-            InitializeComponent();
-        }
+        this.InitializeComponent();
     }
 }
