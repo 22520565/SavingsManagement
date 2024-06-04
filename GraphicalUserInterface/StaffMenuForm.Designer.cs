@@ -72,6 +72,8 @@ namespace GraphicalUserInterface
             customerWithdrawCicNumberTextBox = new System.Windows.Forms.TextBox();
             customerWithdrawNameTextBox = new System.Windows.Forms.TextBox();
             tabPageManageCustomers = new System.Windows.Forms.TabPage();
+            groupBox5 = new System.Windows.Forms.GroupBox();
+            customerSearchTextBox = new System.Windows.Forms.TextBox();
             dataGridViewCustomer = new System.Windows.Forms.DataGridView();
             groupBox2 = new System.Windows.Forms.GroupBox();
             enableCustomerBtn = new System.Windows.Forms.Button();
@@ -103,6 +105,8 @@ namespace GraphicalUserInterface
             customerIdTextBox = new System.Windows.Forms.TextBox();
             label1 = new System.Windows.Forms.Label();
             tabPageManageStaffs = new System.Windows.Forms.TabPage();
+            groupBox6 = new System.Windows.Forms.GroupBox();
+            staffSearchTextBox = new System.Windows.Forms.TextBox();
             dataGridViewStaff = new System.Windows.Forms.DataGridView();
             groupBox4 = new System.Windows.Forms.GroupBox();
             enableStaffBtn = new System.Windows.Forms.Button();
@@ -126,6 +130,7 @@ namespace GraphicalUserInterface
             staffIdTextBox = new System.Windows.Forms.TextBox();
             label11 = new System.Windows.Forms.Label();
             tabPageChangeRegulations = new System.Windows.Forms.TabPage();
+<<<<<<< Updated upstream
             label19 = new System.Windows.Forms.Label();
             saveRate = new System.Windows.Forms.Button();
             ratetxt = new System.Windows.Forms.TextBox();
@@ -134,6 +139,9 @@ namespace GraphicalUserInterface
             label18 = new System.Windows.Forms.Label();
             groupBox5 = new System.Windows.Forms.GroupBox();
             data_rate = new System.Windows.Forms.DataGridView();
+=======
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+>>>>>>> Stashed changes
             customerWithdrawContentLabel = new System.Windows.Forms.Label();
             customerWithdrawAmountLabel = new System.Windows.Forms.Label();
             customerWithdrawCicNumberLabel = new System.Windows.Forms.Label();
@@ -147,10 +155,12 @@ namespace GraphicalUserInterface
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).BeginInit();
             tabPageManageCustomers.SuspendLayout();
+            groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             tabPageManageStaffs.SuspendLayout();
+            groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewStaff).BeginInit();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -233,7 +243,11 @@ namespace GraphicalUserInterface
             tabControl1.Margin = new System.Windows.Forms.Padding(2);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
+<<<<<<< Updated upstream
             tabControl1.Size = new System.Drawing.Size(1262, 755);
+=======
+            tabControl1.Size = new System.Drawing.Size(1578, 1144);
+>>>>>>> Stashed changes
             tabControl1.TabIndex = 0;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
@@ -254,7 +268,11 @@ namespace GraphicalUserInterface
             tabPage1.Margin = new System.Windows.Forms.Padding(2);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new System.Windows.Forms.Padding(2);
+<<<<<<< Updated upstream
             tabPage1.Size = new System.Drawing.Size(1254, 716);
+=======
+            tabPage1.Size = new System.Drawing.Size(1570, 1098);
+>>>>>>> Stashed changes
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Information";
             tabPage1.UseVisualStyleBackColor = true;
@@ -373,7 +391,11 @@ namespace GraphicalUserInterface
             tabPage2.Margin = new System.Windows.Forms.Padding(2);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new System.Windows.Forms.Padding(2);
+<<<<<<< Updated upstream
             tabPage2.Size = new System.Drawing.Size(1254, 716);
+=======
+            tabPage2.Size = new System.Drawing.Size(1570, 1098);
+>>>>>>> Stashed changes
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Deposit";
             tabPage2.UseVisualStyleBackColor = true;
@@ -507,7 +529,11 @@ namespace GraphicalUserInterface
             tabPage3.Location = new System.Drawing.Point(4, 35);
             tabPage3.Margin = new System.Windows.Forms.Padding(2);
             tabPage3.Name = "tabPage3";
+<<<<<<< Updated upstream
             tabPage3.Size = new System.Drawing.Size(1254, 716);
+=======
+            tabPage3.Size = new System.Drawing.Size(1570, 1098);
+>>>>>>> Stashed changes
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Withdraw";
             tabPage3.UseVisualStyleBackColor = true;
@@ -581,27 +607,57 @@ namespace GraphicalUserInterface
             // 
             // tabPageManageCustomers
             // 
+            tabPageManageCustomers.Controls.Add(groupBox5);
             tabPageManageCustomers.Controls.Add(dataGridViewCustomer);
             tabPageManageCustomers.Controls.Add(groupBox2);
             tabPageManageCustomers.Controls.Add(groupBox1);
             tabPageManageCustomers.Location = new System.Drawing.Point(4, 35);
             tabPageManageCustomers.Margin = new System.Windows.Forms.Padding(2);
             tabPageManageCustomers.Name = "tabPageManageCustomers";
+<<<<<<< Updated upstream
             tabPageManageCustomers.Size = new System.Drawing.Size(1254, 716);
+=======
+            tabPageManageCustomers.Size = new System.Drawing.Size(1570, 1098);
+>>>>>>> Stashed changes
             tabPageManageCustomers.TabIndex = 5;
             tabPageManageCustomers.Text = "Customer Management";
             tabPageManageCustomers.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(customerSearchTextBox);
+            groupBox5.Location = new System.Drawing.Point(808, 357);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new System.Drawing.Size(754, 115);
+            groupBox5.TabIndex = 3;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Search";
+            // 
+            // customerSearchTextBox
+            // 
+            customerSearchTextBox.Location = new System.Drawing.Point(6, 52);
+            customerSearchTextBox.Name = "customerSearchTextBox";
+            customerSearchTextBox.Size = new System.Drawing.Size(742, 39);
+            customerSearchTextBox.TabIndex = 1;
+            customerSearchTextBox.TextChanged += customerSearchTextBox_TextChanged;
             // 
             // dataGridViewCustomer
             // 
             dataGridViewCustomer.BackgroundColor = System.Drawing.Color.White;
             dataGridViewCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+<<<<<<< Updated upstream
             dataGridViewCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridViewCustomer.Location = new System.Drawing.Point(0, 373);
             dataGridViewCustomer.Margin = new System.Windows.Forms.Padding(2);
             dataGridViewCustomer.Name = "dataGridViewCustomer";
             dataGridViewCustomer.RowHeadersWidth = 62;
             dataGridViewCustomer.Size = new System.Drawing.Size(1254, 343);
+=======
+            dataGridViewCustomer.Location = new System.Drawing.Point(0, 478);
+            dataGridViewCustomer.Name = "dataGridViewCustomer";
+            dataGridViewCustomer.RowHeadersWidth = 62;
+            dataGridViewCustomer.Size = new System.Drawing.Size(1570, 624);
+>>>>>>> Stashed changes
             dataGridViewCustomer.TabIndex = 2;
             dataGridViewCustomer.CellContentClick += customerDataGridView_CellContentClick;
             // 
@@ -612,12 +668,18 @@ namespace GraphicalUserInterface
             groupBox2.Controls.Add(disableCustomerBtn);
             groupBox2.Controls.Add(saveCustomerBtn);
             groupBox2.Controls.Add(addCustomerBtn);
+<<<<<<< Updated upstream
             groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             groupBox2.Location = new System.Drawing.Point(0, 281);
             groupBox2.Margin = new System.Windows.Forms.Padding(2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new System.Windows.Forms.Padding(2);
             groupBox2.Size = new System.Drawing.Size(1254, 92);
+=======
+            groupBox2.Location = new System.Drawing.Point(0, 357);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new System.Drawing.Size(802, 115);
+>>>>>>> Stashed changes
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Control button";
@@ -625,8 +687,12 @@ namespace GraphicalUserInterface
             // enableCustomerBtn
             // 
             enableCustomerBtn.AutoSize = true;
+<<<<<<< Updated upstream
             enableCustomerBtn.Location = new System.Drawing.Point(437, 45);
             enableCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            enableCustomerBtn.Location = new System.Drawing.Point(470, 50);
+>>>>>>> Stashed changes
             enableCustomerBtn.Name = "enableCustomerBtn";
             enableCustomerBtn.Size = new System.Drawing.Size(90, 36);
             enableCustomerBtn.TabIndex = 4;
@@ -637,8 +703,12 @@ namespace GraphicalUserInterface
             // clearScreenCustomerBtn
             // 
             clearScreenCustomerBtn.AutoSize = true;
+<<<<<<< Updated upstream
             clearScreenCustomerBtn.Location = new System.Drawing.Point(562, 45);
             clearScreenCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            clearScreenCustomerBtn.Location = new System.Drawing.Point(619, 50);
+>>>>>>> Stashed changes
             clearScreenCustomerBtn.Name = "clearScreenCustomerBtn";
             clearScreenCustomerBtn.Size = new System.Drawing.Size(140, 36);
             clearScreenCustomerBtn.TabIndex = 3;
@@ -649,8 +719,12 @@ namespace GraphicalUserInterface
             // disableCustomerBtn
             // 
             disableCustomerBtn.AutoSize = true;
+<<<<<<< Updated upstream
             disableCustomerBtn.Location = new System.Drawing.Point(308, 45);
             disableCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            disableCustomerBtn.Location = new System.Drawing.Point(324, 50);
+>>>>>>> Stashed changes
             disableCustomerBtn.Name = "disableCustomerBtn";
             disableCustomerBtn.Size = new System.Drawing.Size(91, 36);
             disableCustomerBtn.TabIndex = 2;
@@ -661,8 +735,12 @@ namespace GraphicalUserInterface
             // saveCustomerBtn
             // 
             saveCustomerBtn.AutoSize = true;
+<<<<<<< Updated upstream
             saveCustomerBtn.Location = new System.Drawing.Point(174, 45);
             saveCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            saveCustomerBtn.Location = new System.Drawing.Point(183, 50);
+>>>>>>> Stashed changes
             saveCustomerBtn.Name = "saveCustomerBtn";
             saveCustomerBtn.Size = new System.Drawing.Size(90, 36);
             saveCustomerBtn.TabIndex = 1;
@@ -673,8 +751,12 @@ namespace GraphicalUserInterface
             // addCustomerBtn
             // 
             addCustomerBtn.AutoSize = true;
+<<<<<<< Updated upstream
             addCustomerBtn.Location = new System.Drawing.Point(44, 45);
             addCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            addCustomerBtn.Location = new System.Drawing.Point(40, 50);
+>>>>>>> Stashed changes
             addCustomerBtn.Name = "addCustomerBtn";
             addCustomerBtn.Size = new System.Drawing.Size(90, 36);
             addCustomerBtn.TabIndex = 0;
@@ -923,27 +1005,57 @@ namespace GraphicalUserInterface
             // 
             // tabPageManageStaffs
             // 
+            tabPageManageStaffs.Controls.Add(groupBox6);
             tabPageManageStaffs.Controls.Add(dataGridViewStaff);
             tabPageManageStaffs.Controls.Add(groupBox4);
             tabPageManageStaffs.Controls.Add(groupBox3);
             tabPageManageStaffs.Location = new System.Drawing.Point(4, 35);
             tabPageManageStaffs.Margin = new System.Windows.Forms.Padding(2);
             tabPageManageStaffs.Name = "tabPageManageStaffs";
+<<<<<<< Updated upstream
             tabPageManageStaffs.Size = new System.Drawing.Size(1254, 716);
+=======
+            tabPageManageStaffs.Size = new System.Drawing.Size(1570, 1098);
+>>>>>>> Stashed changes
             tabPageManageStaffs.TabIndex = 3;
             tabPageManageStaffs.Text = "Staff Management";
             tabPageManageStaffs.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(staffSearchTextBox);
+            groupBox6.Location = new System.Drawing.Point(837, 302);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new System.Drawing.Size(725, 115);
+            groupBox6.TabIndex = 3;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Search";
+            // 
+            // staffSearchTextBox
+            // 
+            staffSearchTextBox.Location = new System.Drawing.Point(6, 55);
+            staffSearchTextBox.Name = "staffSearchTextBox";
+            staffSearchTextBox.Size = new System.Drawing.Size(713, 39);
+            staffSearchTextBox.TabIndex = 0;
+            staffSearchTextBox.TextChanged += staffSearchTextBox_TextChanged;
             // 
             // dataGridViewStaff
             // 
             dataGridViewStaff.BackgroundColor = System.Drawing.Color.White;
             dataGridViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+<<<<<<< Updated upstream
             dataGridViewStaff.Dock = System.Windows.Forms.DockStyle.Fill;
             dataGridViewStaff.Location = new System.Drawing.Point(0, 339);
             dataGridViewStaff.Margin = new System.Windows.Forms.Padding(2);
             dataGridViewStaff.Name = "dataGridViewStaff";
             dataGridViewStaff.RowHeadersWidth = 62;
             dataGridViewStaff.Size = new System.Drawing.Size(1254, 377);
+=======
+            dataGridViewStaff.Location = new System.Drawing.Point(0, 423);
+            dataGridViewStaff.Name = "dataGridViewStaff";
+            dataGridViewStaff.RowHeadersWidth = 62;
+            dataGridViewStaff.Size = new System.Drawing.Size(1570, 667);
+>>>>>>> Stashed changes
             dataGridViewStaff.TabIndex = 2;
             dataGridViewStaff.CellContentClick += dataGridViewStaff_CellContentClick;
             // 
@@ -954,12 +1066,18 @@ namespace GraphicalUserInterface
             groupBox4.Controls.Add(disableStaffBtn);
             groupBox4.Controls.Add(saveStaffBtn);
             groupBox4.Controls.Add(addStaffBtn);
+<<<<<<< Updated upstream
             groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             groupBox4.Location = new System.Drawing.Point(0, 237);
             groupBox4.Margin = new System.Windows.Forms.Padding(2);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new System.Windows.Forms.Padding(2);
             groupBox4.Size = new System.Drawing.Size(1254, 102);
+=======
+            groupBox4.Location = new System.Drawing.Point(0, 302);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new System.Drawing.Size(831, 115);
+>>>>>>> Stashed changes
             groupBox4.TabIndex = 1;
             groupBox4.TabStop = false;
             groupBox4.Text = "Control Button";
@@ -967,8 +1085,12 @@ namespace GraphicalUserInterface
             // enableStaffBtn
             // 
             enableStaffBtn.AutoSize = true;
+<<<<<<< Updated upstream
             enableStaffBtn.Location = new System.Drawing.Point(467, 44);
             enableStaffBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            enableStaffBtn.Location = new System.Drawing.Point(499, 55);
+>>>>>>> Stashed changes
             enableStaffBtn.Name = "enableStaffBtn";
             enableStaffBtn.Size = new System.Drawing.Size(90, 36);
             enableStaffBtn.TabIndex = 4;
@@ -979,8 +1101,12 @@ namespace GraphicalUserInterface
             // clearScreenStaffBtn
             // 
             clearScreenStaffBtn.AutoSize = true;
+<<<<<<< Updated upstream
             clearScreenStaffBtn.Location = new System.Drawing.Point(588, 44);
             clearScreenStaffBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            clearScreenStaffBtn.Location = new System.Drawing.Point(642, 55);
+>>>>>>> Stashed changes
             clearScreenStaffBtn.Name = "clearScreenStaffBtn";
             clearScreenStaffBtn.Size = new System.Drawing.Size(134, 36);
             clearScreenStaffBtn.TabIndex = 3;
@@ -991,8 +1117,12 @@ namespace GraphicalUserInterface
             // disableStaffBtn
             // 
             disableStaffBtn.AutoSize = true;
+<<<<<<< Updated upstream
             disableStaffBtn.Location = new System.Drawing.Point(338, 44);
             disableStaffBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            disableStaffBtn.Location = new System.Drawing.Point(344, 55);
+>>>>>>> Stashed changes
             disableStaffBtn.Name = "disableStaffBtn";
             disableStaffBtn.Size = new System.Drawing.Size(91, 36);
             disableStaffBtn.TabIndex = 2;
@@ -1003,8 +1133,12 @@ namespace GraphicalUserInterface
             // saveStaffBtn
             // 
             saveStaffBtn.AutoSize = true;
+<<<<<<< Updated upstream
             saveStaffBtn.Location = new System.Drawing.Point(196, 44);
             saveStaffBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            saveStaffBtn.Location = new System.Drawing.Point(197, 55);
+>>>>>>> Stashed changes
             saveStaffBtn.Name = "saveStaffBtn";
             saveStaffBtn.Size = new System.Drawing.Size(90, 36);
             saveStaffBtn.TabIndex = 1;
@@ -1015,8 +1149,12 @@ namespace GraphicalUserInterface
             // addStaffBtn
             // 
             addStaffBtn.AutoSize = true;
+<<<<<<< Updated upstream
             addStaffBtn.Location = new System.Drawing.Point(56, 44);
             addStaffBtn.Margin = new System.Windows.Forms.Padding(2);
+=======
+            addStaffBtn.Location = new System.Drawing.Point(54, 55);
+>>>>>>> Stashed changes
             addStaffBtn.Name = "addStaffBtn";
             addStaffBtn.Size = new System.Drawing.Size(90, 36);
             addStaffBtn.TabIndex = 0;
@@ -1197,7 +1335,11 @@ namespace GraphicalUserInterface
             tabPageChangeRegulations.Location = new System.Drawing.Point(4, 35);
             tabPageChangeRegulations.Margin = new System.Windows.Forms.Padding(2);
             tabPageChangeRegulations.Name = "tabPageChangeRegulations";
+<<<<<<< Updated upstream
             tabPageChangeRegulations.Size = new System.Drawing.Size(1254, 716);
+=======
+            tabPageChangeRegulations.Size = new System.Drawing.Size(1570, 1098);
+>>>>>>> Stashed changes
             tabPageChangeRegulations.TabIndex = 4;
             tabPageChangeRegulations.Text = "Change regulations";
             tabPageChangeRegulations.UseVisualStyleBackColor = true;
@@ -1291,7 +1433,11 @@ namespace GraphicalUserInterface
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< Updated upstream
             ClientSize = new System.Drawing.Size(1262, 755);
+=======
+            ClientSize = new System.Drawing.Size(1578, 1144);
+>>>>>>> Stashed changes
             Controls.Add(tabControl1);
             Margin = new System.Windows.Forms.Padding(2);
             Name = "StaffMenuForm";
@@ -1309,12 +1455,16 @@ namespace GraphicalUserInterface
             tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).EndInit();
             tabPageManageCustomers.ResumeLayout(false);
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabPageManageStaffs.ResumeLayout(false);
+            groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewStaff).EndInit();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
@@ -1412,6 +1562,7 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.Button addStaffBtn;
         private System.Windows.Forms.Button enableCustomerBtn;
         private System.Windows.Forms.Button enableStaffBtn;
+<<<<<<< Updated upstream
         private System.Windows.Forms.TextBox staffusernametxt;
         private System.Windows.Forms.Label customerUsernameLabel;
         private System.Windows.Forms.TextBox staffIdtxt;
@@ -1431,5 +1582,12 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.DataGridView data_rate;
         private System.Windows.Forms.Label label19;
+=======
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox customerSearchTextBox;
+        private System.Windows.Forms.TextBox staffSearchTextBox;
+>>>>>>> Stashed changes
     }
 }

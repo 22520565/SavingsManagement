@@ -358,6 +358,7 @@ public partial class StaffMenuForm : Form
             customerHashedPasswordTextBox.Text = "";
             customerBalanceTextBox.Text = "";
             customerDisableCheckBox.Checked = false;
+            customerSearchTextBox.Text = "";
         }
         // Kiểm tra tab đang được chọn là tabPageManageStaffs
         else if (tabControl1.SelectedTab == tabPageManageStaffs)
@@ -370,6 +371,7 @@ public partial class StaffMenuForm : Form
             staffHashedPasswordTextBox.Text = "";
             staffPermissionIdComboBox.SelectedItem = staffPermissionIdComboBox.Items[0];
             staffDisableCheckBox.Checked = false;
+            staffSearchTextBox.Text = "";
         }
     }
 
@@ -557,7 +559,7 @@ public partial class StaffMenuForm : Form
                 customer.Name = customerNameTextBox.Text;
                 customer.IsMale = customerMaleCheckBox.Checked;
                 customer.CicNumber = customerCicNumberTextBox.Text;
-                customerBirthDateTimePicker.Value = DateTime.Now.Date;
+                customer.BirthDate = new DateOnly(customerBirthDateTimePicker.Value.Year, customerBirthDateTimePicker.Value.Month, customerBirthDateTimePicker.Value.Day);
                 customer.PhoneNumber = customerPhoneNumberTextBox.Text;
                 customer.Address = customerAddressTextBox.Text;
                 customer.Email = customerEmailTextBox.Text;
@@ -586,6 +588,7 @@ public partial class StaffMenuForm : Form
         customerHashedPasswordTextBox.Text = "";
         customerBalanceTextBox.Text = "";
         customerDisableCheckBox.Checked = false;
+        customerSearchTextBox.Text = "";
         MessageBox.Show("Screen cleared successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
@@ -615,6 +618,55 @@ public partial class StaffMenuForm : Form
                 context.SaveChanges();
                 loadCustomer();
                 MessageBox.Show("Customer account has been successfully activated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+    }
+
+    private void customerSearchTextBox_TextChanged(object sender, EventArgs e)
+    {
+        string search = customerSearchTextBox.Text.Trim();
+        if (search == "")
+        {
+            loadCustomer();
+        }
+        else
+        {
+            using (var context = new SavingsManagementContext())
+            {
+                DateOnly searchDate;
+                bool isDate = DateOnly.TryParse(search, out searchDate);
+                var customers = context.CustomerAccounts
+                                       .Where(c =>
+                                           c.Id.ToString().Contains(search) ||
+                                           c.Name.Contains(search) ||
+                                           c.IsMale.ToString().Contains(search) ||
+                                           c.CicNumber.Contains(search) ||
+                                           c.PhoneNumber.Contains(search) ||
+                                           c.Address.Contains(search) ||
+                                           c.Email.Contains(search) ||
+                                           c.Username.Contains(search) ||
+                                           c.HashedPassword.Contains(search) ||
+                                           (isDate && c.BirthDate == searchDate) ||
+                                           c.Balance.ToString().Contains(search) ||
+                                           c.IsDisabled.ToString().Contains(search))
+                                       .Select(c => new
+                                       {
+                                           c.Id,
+                                           c.Name,
+                                           c.IsMale,
+                                           c.CicNumber,
+                                           c.BirthDate,
+                                           c.PhoneNumber,
+                                           c.Address,
+                                           c.Email,
+                                           c.Username,
+                                           c.HashedPassword,
+                                           c.Balance,
+                                           c.IsDisabled,
+                                       })
+                                       .ToList();
+                dataGridViewCustomer.DataSource = customers;
+                dataGridViewCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             }
         }
     }
@@ -807,6 +859,7 @@ public partial class StaffMenuForm : Form
         staffHashedPasswordTextBox.Text = "";
         staffPermissionIdComboBox.SelectedItem = staffPermissionIdComboBox.Items[0];
         staffDisableCheckBox.Checked = false;
+        staffSearchTextBox.Text = "";
         MessageBox.Show("Screen cleared successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
@@ -832,5 +885,44 @@ public partial class StaffMenuForm : Form
             }
         }
     }
-    #endregion  
+
+    private void staffSearchTextBox_TextChanged(object sender, EventArgs e)
+    {
+        string search = staffSearchTextBox.Text.Trim();
+        if (search == "")
+        {
+            loadStaff();
+        }
+        else
+        {
+            using (var context = new SavingsManagementContext())
+            {
+                var staffs = context.StaffAccounts
+                                   .Where(s =>
+                                       s.Id.ToString().Contains(search) ||
+                                       s.Name.Contains(search) ||
+                                       s.IsMale.ToString().Contains(search) ||
+                                       s.Position.Contains(search) ||
+                                       s.Username.Contains(search) ||
+                                       s.HashedPassword.Contains(search) ||
+                                       s.PermissionId.ToString().Contains(search) ||
+                                       s.IsDisabled.ToString().Contains(search))
+                                   .Select(s => new
+                                   {
+                                       s.Id,
+                                       s.Name,
+                                       s.IsMale,
+                                       s.Position,
+                                       s.Username,
+                                       s.HashedPassword,
+                                       s.PermissionId,
+                                       s.IsDisabled,
+                                   })
+                                   .ToList();
+                dataGridViewStaff.DataSource = staffs;
+                dataGridViewStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+        }
+    }
+    #endregion
 }
