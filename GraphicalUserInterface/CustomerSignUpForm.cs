@@ -5,7 +5,8 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-public partial class CustomerSignUpForm : Form {
+public partial class CustomerSignUpForm : Form 
+{
 
 	public CustomerSignUpForm() {
 		InitializeComponent();
@@ -146,7 +147,5 @@ public partial class CustomerSignUpForm : Form {
 		//		MessageBox.Show("Successfully registered account!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		//		break;
 		//}
-	}
-
-	
+	}	
 }

@@ -16,6 +16,7 @@ public static class StaffAccounts
         UsernameError,
         MultiUsernameError,
         PasswordError,
+        Disabled,
     }
 
     public static int? CurrentStaffId { get; private set; } = null;
@@ -24,7 +25,7 @@ public static class StaffAccounts
     {
         ArgumentNullException.ThrowIfNull(loginInfo);
 
-        LoginResult loginResult = LoginResult.PasswordError;
+        LoginResult loginResult = LoginResult.UsernameError;
 
         using var context = new SavingsManagementContext();
         var listAccounts = context.StaffAccounts.Where(staffAccount => staffAccount.Username == loginInfo.Username).AsEnumerable();
@@ -39,20 +40,27 @@ public static class StaffAccounts
         else
         {
             var staffAccount = listAccounts.ElementAt(Index.Start);
-
-            switch (PasswordHasher.VerifyHashedPassword(null!, staffAccount.HashedPassword, loginInfo.Password))
+            if (staffAccount.IsDisabled)
             {
-                case PasswordVerificationResult.Success:
-                case PasswordVerificationResult.SuccessRehashNeeded:
-                    loginResult = LoginResult.Success;
-                    CurrentStaffId = staffAccount.Id;
-                    break;
+                loginResult = LoginResult.Disabled;
+            }
+            else
+            {
+                switch (PasswordHasher.VerifyHashedPassword(null!, staffAccount.HashedPassword, loginInfo.Password))
+                {
+                    case PasswordVerificationResult.Success:
+                    case PasswordVerificationResult.SuccessRehashNeeded:
+                        loginResult = LoginResult.Success;
+                        CurrentStaffId = staffAccount.Id;
+                        break;
 
-                default:
-                    loginResult = LoginResult.PasswordError;
-                    break;
+                    default:
+                        loginResult = LoginResult.PasswordError;
+                        break;
+                }
             }
         }
+
         return loginResult;
     }
 
