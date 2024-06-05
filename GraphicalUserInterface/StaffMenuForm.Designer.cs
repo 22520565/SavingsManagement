@@ -695,6 +695,7 @@ namespace GraphicalUserInterface
             dataGridViewCustomer.RowHeadersWidth = 62;
             dataGridViewCustomer.Size = new System.Drawing.Size(1570, 334);
             dataGridViewCustomer.TabIndex = 3;
+            dataGridViewCustomer.CellContentClick += dataGridViewCustomer_CellContentClick;
             // 
             // groupBox6
             // 
@@ -1055,6 +1056,7 @@ namespace GraphicalUserInterface
             dataGridViewStaff.RowHeadersWidth = 62;
             dataGridViewStaff.Size = new System.Drawing.Size(1570, 372);
             dataGridViewStaff.TabIndex = 3;
+            dataGridViewStaff.CellContentClick += dataGridViewStaff_CellContentClick;
             // 
             // groupBox7
             // 

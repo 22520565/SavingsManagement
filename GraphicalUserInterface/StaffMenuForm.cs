@@ -455,7 +455,7 @@ public partial class StaffMenuForm : Form
         }
     }
 
-    private void customerDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    private void dataGridViewCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
         int i = dataGridViewCustomer.CurrentRow.Index;
         customerIdTextBox.Text = dataGridViewCustomer.Rows[i].Cells[0].Value.ToString();
@@ -907,6 +907,12 @@ public partial class StaffMenuForm : Form
         using (var context = new SavingsManagementContext())
         {
             var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
+            var staffPermission = context.StaffPermissions.FirstOrDefault(sp => sp.Id == staff.PermissionId);
+            if (staffPermission.Name.Equals("Admin"))
+            {
+                MessageBox.Show("Can't disable admin account!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (staff != null)
             {
                 staff.IsDisabled = true;
