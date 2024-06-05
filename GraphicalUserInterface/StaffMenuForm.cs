@@ -23,11 +23,10 @@ public partial class StaffMenuForm : Form
     {
         InitializeComponent();
         InitializeInfo();
-        using (var context = new SavingsManagementContext())
-        {
-            loadCustomer();
-            loadStaff();
-        }
+        loadCustomer();
+        loadStaff();
+        loadDeposit();
+        loadWithdraw();
         customerIdTextBox.ReadOnly = true;
         customerBalanceTextBox.ReadOnly = true;
         dataGridViewCustomer.ReadOnly = true;
@@ -131,6 +130,41 @@ public partial class StaffMenuForm : Form
 
     #endregion
 
+    private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+        // Kiểm tra tab đang được chọn là tabPageManageCustomers
+        if (tabControl1.SelectedTab == tabPageManageCustomers)
+        {
+            customerIdTextBox.Text = "";
+            customerNameTextBox.Text = "";
+            customerMaleCheckBox.Checked = false;
+            customerCicNumberTextBox.Text = "";
+            customerBirthDateTimePicker.Value = DateTime.Now.Date;
+            customerPhoneNumberTextBox.Text = "";
+            customerAddressTextBox.Text = "";
+            customerEmailTextBox.Text = "";
+            customerUsernameTextBox.Text = "";
+            customerHashedPasswordTextBox.Text = "";
+            customerBalanceTextBox.Text = "";
+            customerDisableCheckBox.Checked = false;
+            customerSearchTextBox.Text = "";
+        }
+        // Kiểm tra tab đang được chọn là tabPageManageStaffs
+        else if (tabControl1.SelectedTab == tabPageManageStaffs)
+        {
+            staffIdTextBox.Text = "";
+            staffNameTextBox.Text = "";
+            staffMaleCheckBox.Checked = false;
+            staffPositionTextBox.Text = "";
+            staffUsernameTextBox.Text = "";
+            staffHashedPasswordTextBox.Text = "";
+            staffPermissionIdComboBox.SelectedItem = staffPermissionIdComboBox.Items[0];
+            staffDisableCheckBox.Checked = false;
+            staffSearchTextBox.Text = "";
+        }
+    }
+
     private void StaffMenuForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         Form bg = new Form();
@@ -174,6 +208,33 @@ public partial class StaffMenuForm : Form
                 MessageBox.Show("No permission found for your staff account.");
                 break;
 
+        }
+    }
+
+    #region Deposit
+    public void loadDeposit()
+    {
+        using (var context = new SavingsManagementContext())
+        {
+            var deposits = context.CashFlows
+                                .Where(d => d.BalanceChanging > 0)
+                                .Select(d => new
+                                {
+                                    d.Id,
+                                    d.CustomerId,
+                                    CustomerName = context.CustomerAccounts
+                                                           .Where(c => c.Id == d.CustomerId)
+                                                           .Select(c => c.Name)
+                                                           .FirstOrDefault(),
+                                    d.Time,
+                                    d.BalanceChanging,
+                                    d.Content,
+                                })
+                                .ToList();
+
+            dataGridViewDeposit.DataSource = deposits;
+            dataGridViewDeposit.Columns["CustomerName"].HeaderText = "Customer Name";
+            dataGridViewDeposit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
     }
 
@@ -252,6 +313,34 @@ public partial class StaffMenuForm : Form
         {
             MessageBox.Show(this, ex.Message, ex.Source,
                 MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+        }
+    }
+    #endregion
+
+    #region Withdraw
+    public void loadWithdraw()
+    {
+        using (var context = new SavingsManagementContext())
+        {
+            var deposits = context.CashFlows
+                                .Where(d => d.BalanceChanging < 0)
+                                .Select(d => new
+                                {
+                                    d.Id,
+                                    d.CustomerId,
+                                    CustomerName = context.CustomerAccounts
+                                                           .Where(c => c.Id == d.CustomerId)
+                                                           .Select(c => c.Name)
+                                                           .FirstOrDefault(),
+                                    d.Time,
+                                    d.BalanceChanging,
+                                    d.Content,
+                                })
+                                .ToList();
+
+            dataGridViewWithdraw.DataSource = deposits;
+            dataGridViewWithdraw.Columns["CustomerName"].HeaderText = "Customer Name";
+            dataGridViewWithdraw.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
     }
 
@@ -339,41 +428,7 @@ public partial class StaffMenuForm : Form
                 MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
     }
-
-    private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
-        // Kiểm tra tab đang được chọn là tabPageManageCustomers
-        if (tabControl1.SelectedTab == tabPageManageCustomers)
-        {
-            customerIdTextBox.Text = "";
-            customerNameTextBox.Text = "";
-            customerMaleCheckBox.Checked = false;
-            customerCicNumberTextBox.Text = "";
-            customerBirthDateTimePicker.Value = DateTime.Now.Date;
-            customerPhoneNumberTextBox.Text = "";
-            customerAddressTextBox.Text = "";
-            customerEmailTextBox.Text = "";
-            customerUsernameTextBox.Text = "";
-            customerHashedPasswordTextBox.Text = "";
-            customerBalanceTextBox.Text = "";
-            customerDisableCheckBox.Checked = false;
-            customerSearchTextBox.Text = "";
-        }
-        // Kiểm tra tab đang được chọn là tabPageManageStaffs
-        else if (tabControl1.SelectedTab == tabPageManageStaffs)
-        {
-            staffIdTextBox.Text = "";
-            staffNameTextBox.Text = "";
-            staffMaleCheckBox.Checked = false;
-            staffPositionTextBox.Text = "";
-            staffUsernameTextBox.Text = "";
-            staffHashedPasswordTextBox.Text = "";
-            staffPermissionIdComboBox.SelectedItem = staffPermissionIdComboBox.Items[0];
-            staffDisableCheckBox.Checked = false;
-            staffSearchTextBox.Text = "";
-        }
-    }
+    #endregion
 
     #region Custome Management
     private void loadCustomer()
@@ -691,7 +746,20 @@ public partial class StaffMenuForm : Form
             dataGridViewStaff.DataSource = staffs;
             dataGridViewStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
+        using (var context = new SavingsManagementContext())
+        {
+            var staffPermissions = context.StaffPermissions.ToList();
+            var formattedPermissions = staffPermissions.Select(p => new
+            {
+                Display = $"{p.Id} - {p.Name}",
+                p.Id
+            }).ToList();
+            staffPermissionIdComboBox.DataSource = formattedPermissions;
+            staffPermissionIdComboBox.DisplayMember = "Display";
+            staffPermissionIdComboBox.ValueMember = "Id";
+        }
     }
+
     private void dataGridViewStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
         int i = dataGridViewStaff.CurrentRow.Index;
