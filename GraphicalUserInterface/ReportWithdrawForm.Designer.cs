@@ -1,6 +1,6 @@
 ﻿namespace GraphicalUserInterface
 {
-    partial class PersonalInfoForm
+    partial class ReportWithdrawForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            reportViewerWithdraw = new Microsoft.Reporting.WinForms.ReportViewer();
             SuspendLayout();
             // 
-            // PersonalInfoForm
+            // reportViewerWithdraw
+            // 
+            reportViewerWithdraw.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportViewerWithdraw.Location = new System.Drawing.Point(0, 0);
+            reportViewerWithdraw.Name = "reportViewerWithdraw";
+            reportViewerWithdraw.ServerReport.BearerToken = null;
+            reportViewerWithdraw.Size = new System.Drawing.Size(1378, 844);
+            reportViewerWithdraw.TabIndex = 0;
+            // 
+            // ReportWithdrawForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
-            Name = "PersonalInfoForm";
-            Text = "Form_PersonalInformation";
-            Load += PersonalInfoForm_Load;
+            ClientSize = new System.Drawing.Size(1378, 844);
+            Controls.Add(reportViewerWithdraw);
+            Name = "ReportWithdrawForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "ReportWithdrawForm";
+            Load += ReportWithdrawForm_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewerWithdraw;
     }
 }

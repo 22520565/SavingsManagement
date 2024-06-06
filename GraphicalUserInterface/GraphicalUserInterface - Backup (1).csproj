@@ -10,18 +10,17 @@
 
   <ItemGroup>
     <None Remove="ReportDeposit.rdlc" />
-    <None Remove="ReportWithdraw.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="ReportDeposit.rdlc" />
-    <EmbeddedResource Include="ReportWithdraw.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Corrected.Microsoft.ReportingServices.ReportViewerControl.Winforms" Version="150.1358.0" />
     <PackageReference Include="EPPlus" Version="7.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+    <PackageReference Include="MiniExcel" Version="1.32.1" />
     <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.20" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>

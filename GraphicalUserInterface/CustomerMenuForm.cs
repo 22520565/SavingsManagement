@@ -432,24 +432,6 @@ public partial class CustomerMenuForm : Form
         this.GoingBackToLoginForm = false;
     }
 
-    private void accountInformationToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        using var accountInfoForm = new AccountInfoForm();
-        accountInfoForm.ShowDialog(this);
-    }
-
-    private void accountManagementToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        using var accountManagementForm = new AccountManagementForm();
-        accountManagementForm.ShowDialog(this);
-    }
-
-    private void customerInformationToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        using var personalInfoForm = new PersonalInfoForm();
-        personalInfoForm.ShowDialog(this);
-    }
-
     private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         Form bg = new Form();
