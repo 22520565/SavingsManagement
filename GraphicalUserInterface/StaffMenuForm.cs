@@ -2,6 +2,8 @@
 
 using System;
 using System.Data;
+using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -11,10 +13,13 @@ using DataAccess;
 using GraphicalUserInterface.Properties;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using MiniExcelLibs;
+using MiniExcelLibs.OpenXml;
 
 public partial class StaffMenuForm : Form
 {
     public bool GoingBackToLoginForm { get; private set; } = false;
+
     DataTable dt;
 
     private static readonly PasswordHasher<String> PasswordHasher = new();
@@ -123,9 +128,9 @@ public partial class StaffMenuForm : Form
         int month = int.Parse(this.monthtxt.Text);
         decimal rate = decimal.Parse(this.ratetxt.Text);
         rate = rate / 100;
-        SavingInterestRates.SetInterest(month,rate);
+        SavingInterestRates.SetInterest(month, rate);
         LoadingRateList();
-        MessageBox.Show("Successful","Save change successfully",MessageBoxButtons.OK);
+        MessageBox.Show("Successful", "Save change successfully", MessageBoxButtons.OK);
     }
 
     #endregion
@@ -245,6 +250,7 @@ public partial class StaffMenuForm : Form
         this.customerDepositAmountNumeric.Enabled = false;
         this.customerDepositContentTextBox.Enabled = false;
         this.customerDepositButton.Enabled = false;
+        this.customerPrintButton.Enabled = false;
     }
 
     private void customerDepositIdTextBox_Leave(object sender, EventArgs e)
@@ -264,6 +270,7 @@ public partial class StaffMenuForm : Form
             this.customerDepositAmountNumeric.Enabled = false;
             this.customerDepositContentTextBox.Enabled = false;
             this.customerDepositButton.Enabled = false;
+            this.customerPrintButton.Enabled = false;
         }
         else
         {
@@ -272,12 +279,15 @@ public partial class StaffMenuForm : Form
             this.customerDepositAmountNumeric.Enabled = true;
             this.customerDepositContentTextBox.Enabled = true;
             this.customerDepositButton.Enabled = !string.IsNullOrWhiteSpace(this.customerDepositContentTextBox.Text);
+            this.customerPrintButton.Enabled = !string.IsNullOrWhiteSpace(this.customerDepositContentTextBox.Text);
         }
     }
 
     private void customerDepositContentTextBox_TextChanged(object sender, EventArgs e)
     {
         this.customerDepositButton.Enabled = !string.IsNullOrWhiteSpace(this.customerDepositContentTextBox.Text)
+            && !string.IsNullOrWhiteSpace(this.customerDepositIdTextBox.Text);
+        this.customerPrintButton.Enabled = !string.IsNullOrWhiteSpace(this.customerDepositContentTextBox.Text)
             && !string.IsNullOrWhiteSpace(this.customerDepositIdTextBox.Text);
     }
 
@@ -314,6 +324,27 @@ public partial class StaffMenuForm : Form
             MessageBox.Show(this, ex.Message, ex.Source,
                 MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
+    }
+
+    public string PATH_TEMPLATE = Application.StartupPath + "\\Certificate1.xlsx";
+    public string PATH_EXPORT = Application.StartupPath + "\\Certificate1Export.xlsx";
+
+    private async void customerPrintButton_Click(object sender, EventArgs e)
+    {
+        var config = new OpenXmlConfiguration()
+        {
+            IgnoreTemplateParameterMissing = false,
+        };
+
+        var value = new
+        {
+            name = customerDepositNameTextBox.Text,
+            money = customerDepositAmountNumeric.Text,
+            content = customerDepositContentTextBox.Text
+        };
+
+        await MiniExcel.SaveAsByTemplateAsync(PATH_EXPORT, PATH_TEMPLATE, value, config);
+        MessageBox.Show("Export successful");
     }
     #endregion
 
@@ -353,6 +384,7 @@ public partial class StaffMenuForm : Form
         this.customerWithdrawContentTextBox.Enabled = false;
         this.customerWithdrawAmountNumeric.Maximum = decimal.Zero;
         this.customerWithdrawButton.Enabled = false;
+        this.withdrawPrintButton.Enabled = false;
     }
 
     private void customerWithdrawIdTextBox_Leave(object sender, EventArgs e)
@@ -374,6 +406,7 @@ public partial class StaffMenuForm : Form
             this.customerWithdrawAmountNumeric.Maximum = decimal.Zero;
             this.customerWithdrawContentTextBox.Enabled = false;
             this.customerWithdrawButton.Enabled = false;
+            this.withdrawPrintButton.Enabled = false;
         }
         else
         {
@@ -385,12 +418,15 @@ public partial class StaffMenuForm : Form
             this.customerWithdrawAmountNumeric.Maximum = Math.Round(customerAccount.Balance, this.customerWithdrawAmountNumeric.DecimalPlaces, MidpointRounding.ToZero);
             this.customerWithdrawContentTextBox.Enabled = true;
             this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text);
+            this.withdrawPrintButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text);
         }
     }
 
     private void customerWithdrawContentTextBox_TextChanged(object sender, EventArgs e)
     {
         this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text)
+            && !string.IsNullOrWhiteSpace(this.customerWithdrawIdTextBox.Text);
+        this.withdrawPrintButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text)
             && !string.IsNullOrWhiteSpace(this.customerWithdrawIdTextBox.Text);
     }
 
@@ -427,6 +463,26 @@ public partial class StaffMenuForm : Form
             MessageBox.Show(this, ex.Message, ex.Source,
                 MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
+    }
+    
+    public string PATH_WITHDRAW = Application.StartupPath + "\\Certificate2.xlsx";
+    public string PATH_EXPORTWD = Application.StartupPath + "\\Certificate2Export.xlsx";
+    private async void withdrawPrintButton_Click(object sender, EventArgs e)
+    {
+        var config = new OpenXmlConfiguration()
+        {
+            IgnoreTemplateParameterMissing = false,
+        };
+
+        var value = new
+        {
+            name = customerWithdrawNameTextBox.Text,
+            money = customerWithdrawAmountNumeric.Text,
+            content = customerWithdrawContentTextBox.Text
+        };
+
+        await MiniExcel.SaveAsByTemplateAsync(PATH_EXPORTWD, PATH_WITHDRAW, value, config);
+        MessageBox.Show("Export successful");
     }
     #endregion
 
@@ -999,4 +1055,6 @@ public partial class StaffMenuForm : Form
         }
     }
     #endregion
+
+    
 }
