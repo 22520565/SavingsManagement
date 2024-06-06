@@ -3,7 +3,7 @@
 using System;
 
 [Serializable]
-public class SavingOpeningInfo
+public sealed class SavingOpeningInfo
 {
     public decimal Balance { get; set; } = decimal.Zero;
 
