@@ -39,6 +39,52 @@ public partial class StaffMenuForm : Form
         dataGridViewStaff.ReadOnly = true;
     }
 
+    private void StaffMenuForm_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        Form bg = new Form();
+        CloseWindow logOut = new CloseWindow();
+        using (logOut)
+        {
+            logOut.Notification.Text = Resources.LogOutConfirmationString;
+            logOut.Text = Resources.LogOutString;
+            logOut.Confirm.Text = Resources.LogOutString;
+            bg.StartPosition = FormStartPosition.Manual;
+            bg.FormBorderStyle = FormBorderStyle.None;
+            bg.BackColor = Color.Black;
+            bg.Opacity = 0.7d;
+            bg.Size = this.Size;
+            bg.Location = this.Location;
+            bg.ShowInTaskbar = false;
+            bg.Show(this);
+            logOut.Owner = bg;
+            logOut.ShowDialog(bg);
+            bg.Dispose();
+        }
+        this.GoingBackToLoginForm = !logOut.IsNotClosed;
+        e.Cancel = logOut.IsNotClosed;
+    }
+
+    // FIXME
+    private void StaffMenuForm_Load(object sender, EventArgs e)
+    {
+        this.GoingBackToLoginForm = false;
+
+        using var context = new SavingsManagementContext();
+        switch (context.StaffAccounts.Find(StaffAccounts.CurrentStaffId)?.PermissionId)
+        {
+            case 1:
+                break;
+            case 2:
+                tabControlStaffMenu.TabPages.Remove(tabPageManageStaffs);
+                tabControlStaffMenu.TabPages.Remove(tabPageChangeRegulations);
+                break;
+            default:
+                MessageBox.Show("No permission found for your staff account.");
+                break;
+
+        }
+    }
+
     #region Information
     private void InitializeInfo()
     {
@@ -135,111 +181,135 @@ public partial class StaffMenuForm : Form
 
     #endregion
 
+    #region Reload Screen
+    public void ReloadCustomerScreen()
+    {
+        customerIdTextBox.Text = "";
+        customerNameTextBox.Text = "";
+        customerMaleCheckBox.Checked = false;
+        customerCicNumberTextBox.Text = "";
+        customerBirthDateTimePicker.Value = DateTime.Now.Date;
+        customerPhoneNumberTextBox.Text = "";
+        customerAddressTextBox.Text = "";
+        customerEmailTextBox.Text = "";
+        customerUsernameTextBox.Text = "";
+        customerHashedPasswordTextBox.Text = "";
+        customerBalanceTextBox.Text = "";
+        customerDisableCheckBox.Checked = false;
+        customerSearchTextBox.Text = "";
+    }
+
+    public void ReloadStaffScreen()
+    {
+        staffIdTextBox.Text = "";
+        staffNameTextBox.Text = "";
+        staffMaleCheckBox.Checked = false;
+        staffPositionTextBox.Text = "";
+        staffUsernameTextBox.Text = "";
+        staffHashedPasswordTextBox.Text = "";
+        staffPermissionIdComboBox.SelectedItem = staffPermissionIdComboBox.Items[0];
+        staffDisableCheckBox.Checked = false;
+        staffSearchTextBox.Text = "";
+    }
+
+    public void ReloadDepositScreen()
+    {
+        customerDepositIdTextBox.Text = "";
+        customerDepositNameTextBox.Text = "";
+        customerDepositCicNumberTextBox.Text = "";
+        customerDepositAmountNumeric.Value = customerDepositAmountNumeric.Minimum;
+        customerDepositContentTextBox.Text = "";
+    }
+
+    public void ReloadWithdrawScreen()
+    {
+        customerWithdrawIdTextBox.Text = "";
+        customerWithdrawNameTextBox.Text = "";
+        customerWithdrawCicNumberTextBox.Text = "";
+        customerWithdrawBalanceTextBox.Text = "";
+        customerWithdrawAmountNumeric.Value = customerDepositAmountNumeric.Minimum;
+        customerWithdrawContentTextBox.Text = "";
+    }
+
     private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
     {
-
-        // Kiểm tra tab đang được chọn là tabPageManageCustomers
-        if (tabControl1.SelectedTab == tabPageManageCustomers)
+        if (tabControlStaffMenu.SelectedTab == tabPageManageCustomers)
         {
-            customerIdTextBox.Text = "";
-            customerNameTextBox.Text = "";
-            customerMaleCheckBox.Checked = false;
-            customerCicNumberTextBox.Text = "";
-            customerBirthDateTimePicker.Value = DateTime.Now.Date;
-            customerPhoneNumberTextBox.Text = "";
-            customerAddressTextBox.Text = "";
-            customerEmailTextBox.Text = "";
-            customerUsernameTextBox.Text = "";
-            customerHashedPasswordTextBox.Text = "";
-            customerBalanceTextBox.Text = "";
-            customerDisableCheckBox.Checked = false;
-            customerSearchTextBox.Text = "";
+            ReloadCustomerScreen();
         }
-        // Kiểm tra tab đang được chọn là tabPageManageStaffs
-        else if (tabControl1.SelectedTab == tabPageManageStaffs)
+        else if (tabControlStaffMenu.SelectedTab == tabPageManageStaffs)
         {
-            staffIdTextBox.Text = "";
-            staffNameTextBox.Text = "";
-            staffMaleCheckBox.Checked = false;
-            staffPositionTextBox.Text = "";
-            staffUsernameTextBox.Text = "";
-            staffHashedPasswordTextBox.Text = "";
-            staffPermissionIdComboBox.SelectedItem = staffPermissionIdComboBox.Items[0];
-            staffDisableCheckBox.Checked = false;
-            staffSearchTextBox.Text = "";
+            ReloadStaffScreen();
+        }
+        else if (tabControlStaffMenu.SelectedTab == tabPageDeposit)
+        {
+            ReloadDepositScreen();
+        }
+        else if (tabControlStaffMenu.SelectedTab == tabPageWithdraw)
+        {
+            ReloadWithdrawScreen();
         }
     }
-
-    private void StaffMenuForm_FormClosing(object sender, FormClosingEventArgs e)
-    {
-        Form bg = new Form();
-        CloseWindow logOut = new CloseWindow();
-        using (logOut)
-        {
-            logOut.Notification.Text = Resources.LogOutConfirmationString;
-            logOut.Text = Resources.LogOutString;
-            logOut.Confirm.Text = Resources.LogOutString;
-            bg.StartPosition = FormStartPosition.Manual;
-            bg.FormBorderStyle = FormBorderStyle.None;
-            bg.BackColor = Color.Black;
-            bg.Opacity = 0.7d;
-            bg.Size = this.Size;
-            bg.Location = this.Location;
-            bg.ShowInTaskbar = false;
-            bg.Show(this);
-            logOut.Owner = bg;
-            logOut.ShowDialog(bg);
-            bg.Dispose();
-        }
-        this.GoingBackToLoginForm = !logOut.IsNotClosed;
-        e.Cancel = logOut.IsNotClosed;
-    }
-
-    // FIXME
-    private void StaffMenuForm_Load(object sender, EventArgs e)
-    {
-        this.GoingBackToLoginForm = false;
-
-        using var context = new SavingsManagementContext();
-        switch (context.StaffAccounts.Find(StaffAccounts.CurrentStaffId)?.PermissionId)
-        {
-            case 1:
-                break;
-            case 2:
-                tabControl1.TabPages.Remove(tabPageManageStaffs);
-                tabControl1.TabPages.Remove(tabPageChangeRegulations);
-                break;
-            default:
-                MessageBox.Show("No permission found for your staff account.");
-                break;
-
-        }
-    }
+    #endregion
 
     #region Deposit
     public void loadDeposit()
     {
         using (var context = new SavingsManagementContext())
         {
-            var deposits = context.CashFlows
-                                .Where(d => d.BalanceChanging > 0)
-                                .Select(d => new
-                                {
-                                    d.Id,
-                                    d.CustomerId,
-                                    CustomerName = context.CustomerAccounts
-                                                           .Where(c => c.Id == d.CustomerId)
-                                                           .Select(c => c.Name)
-                                                           .FirstOrDefault(),
-                                    d.Time,
-                                    d.BalanceChanging,
-                                    d.Content,
-                                })
-                                .ToList();
+            var deposits = (from cf in context.CashFlows
+                            join ca in context.CustomerAccounts on cf.CustomerId equals ca.Id
+                            where cf.BalanceChanging > 0
+                            select new
+                            {
+                                cf.Id,
+                                cf.CustomerId,
+                                CustomerName = ca.Name,
+                                cf.Time,
+                                cf.BalanceChanging,
+                                cf.Content,
+                            }).ToList();
 
             dataGridViewDeposit.DataSource = deposits;
-            dataGridViewDeposit.Columns["CustomerName"].HeaderText = "Customer Name";
+            dataGridViewDeposit.Columns["BalanceChanging"].HeaderText = "Deposit Amount";
             dataGridViewDeposit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+    }
+
+    private void dataGridViewDeposit_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+        int i = e.RowIndex;
+        int customerId;
+        if (int.TryParse(dataGridViewDeposit.Rows[i].Cells[1].Value.ToString(), out customerId))
+        {
+            customerDepositIdTextBox.Text = customerId.ToString();
+        }
+        customerDepositNameTextBox.Text = dataGridViewDeposit.Rows[i].Cells[2].Value.ToString();
+        using (var context = new SavingsManagementContext())
+        {
+            var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId); // Use == for comparison
+            if (customer != null)
+            {
+                customerDepositCicNumberTextBox.Text = customer.CicNumber;
+            }
+        }
+        decimal amount;
+        if (decimal.TryParse(dataGridViewDeposit.Rows[i].Cells[4].Value.ToString(), out amount))
+        {
+            customerDepositAmountNumeric.Value = amount;
+        }
+        customerDepositContentTextBox.Text = dataGridViewDeposit.Rows[i].Cells[5].Value.ToString();
+    }
+
+
+    private void reportDepositBtn_Click(object sender, EventArgs e)
+    {
+        int depositId;
+        int i = dataGridViewDeposit.CurrentRow.Index;
+        if (int.TryParse(dataGridViewDeposit.Rows[i].Cells[0].Value.ToString(), out depositId))
+        {
+            ReportDepositForm reportDepositForm = new ReportDepositForm(depositId);
+            reportDepositForm.ShowDialog();
         }
     }
 
@@ -353,25 +423,59 @@ public partial class StaffMenuForm : Form
     {
         using (var context = new SavingsManagementContext())
         {
-            var deposits = context.CashFlows
-                                .Where(d => d.BalanceChanging < 0)
-                                .Select(d => new
-                                {
-                                    d.Id,
-                                    d.CustomerId,
-                                    CustomerName = context.CustomerAccounts
-                                                           .Where(c => c.Id == d.CustomerId)
-                                                           .Select(c => c.Name)
-                                                           .FirstOrDefault(),
-                                    d.Time,
-                                    d.BalanceChanging,
-                                    d.Content,
-                                })
-                                .ToList();
+            var deposits = (from cf in context.CashFlows
+                            join ca in context.CustomerAccounts on cf.CustomerId equals ca.Id
+                            where cf.BalanceChanging < 0
+                            select new
+                            {
+                                cf.Id,
+                                cf.CustomerId,
+                                CustomerName = ca.Name,
+                                cf.Time,
+                                cf.BalanceChanging,
+                                cf.Content,
+                            }).ToList();
 
             dataGridViewWithdraw.DataSource = deposits;
-            dataGridViewWithdraw.Columns["CustomerName"].HeaderText = "Customer Name";
+            dataGridViewWithdraw.Columns["BalanceChanging"].HeaderText = "Withdraw Amount";
             dataGridViewWithdraw.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+    }
+
+    private void dataGridViewWithdraw_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+        int i = e.RowIndex;
+        int customerId;
+        if (int.TryParse(dataGridViewWithdraw.Rows[i].Cells[1].Value.ToString(), out customerId))
+        {
+            customerWithdrawIdTextBox.Text = customerId.ToString();
+        }
+        customerWithdrawNameTextBox.Text = dataGridViewWithdraw.Rows[i].Cells[2].Value.ToString();
+        using (var context = new SavingsManagementContext())
+        {
+            var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId); // Use == for comparison
+            if (customer != null)
+            {
+                customerWithdrawCicNumberTextBox.Text = customer.CicNumber;
+                customerWithdrawBalanceTextBox.Text = customer.Balance.ToString();
+            }
+        }
+        decimal amount;
+        if (decimal.TryParse(dataGridViewWithdraw.Rows[i].Cells[4].Value.ToString(), out amount))
+        {
+            customerWithdrawAmountNumeric.Value = amount;
+        }
+        customerWithdrawContentTextBox.Text = dataGridViewWithdraw.Rows[i].Cells[5].Value.ToString();
+    }
+
+    private void reportWithdrawBtn_Click(object sender, EventArgs e)
+    {
+        int withdrawId;
+        int i = dataGridViewWithdraw.CurrentRow.Index;
+        if (int.TryParse(dataGridViewWithdraw.Rows[i].Cells[0].Value.ToString(), out withdrawId))
+        {
+            ReportWithdrawForm reportWithdrawForm = new ReportWithdrawForm(withdrawId);
+            reportWithdrawForm.ShowDialog();
         }
     }
 
@@ -464,7 +568,7 @@ public partial class StaffMenuForm : Form
                 MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
         }
     }
-    
+
     public string PATH_WITHDRAW = Application.StartupPath + "\\Certificate2.xlsx";
     public string PATH_EXPORTWD = Application.StartupPath + "\\Certificate2Export.xlsx";
     private async void withdrawPrintButton_Click(object sender, EventArgs e)
@@ -513,7 +617,7 @@ public partial class StaffMenuForm : Form
 
     private void dataGridViewCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        int i = dataGridViewCustomer.CurrentRow.Index;
+        int i = e.RowIndex;
         customerIdTextBox.Text = dataGridViewCustomer.Rows[i].Cells[0].Value.ToString();
         customerNameTextBox.Text = dataGridViewCustomer.Rows[i].Cells[1].Value.ToString();
         customerMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[2].Value);
@@ -607,36 +711,36 @@ public partial class StaffMenuForm : Form
 
     private void disableCustomerBtn_Click(object sender, EventArgs e)
     {
-        if (dataGridViewCustomer.CurrentRow.Index.Equals(null))
-        {
-            MessageBox.Show("Please select a customer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
         if (customerDisableCheckBox.Checked)
         {
             MessageBox.Show("Account has been disabled, please choose another account!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
         }
 
-        int customerId = Convert.ToInt32(customerIdTextBox.Text);
-
-        using (var context = new SavingsManagementContext())
+        int customerId;
+        if (int.TryParse(customerIdTextBox.Text, out customerId))
         {
-            var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId);
-            if (customer != null)
+            using (var context = new SavingsManagementContext())
             {
-                customer.IsDisabled = true;
-                context.SaveChanges();
-                loadCustomer();
-                MessageBox.Show("Customer account successfully deactivated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId);
+                if (customer != null)
+                {
+                    customer.IsDisabled = true;
+                    context.SaveChanges();
+                    loadCustomer();
+                    MessageBox.Show("Customer account successfully deactivated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+        }
+        else
+        {
+            MessageBox.Show("Please select a customer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 
     private void saveCustomerBtn_Click(object sender, EventArgs e)
     {
-        if (dataGridViewCustomer.CurrentRow.Index.Equals(null))
+        if (customerIdTextBox.Text.IsNullOrEmpty())
         {
             MessageBox.Show("Please select a customer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
@@ -655,51 +759,41 @@ public partial class StaffMenuForm : Form
             return;
         }
 
-        int customerId = Convert.ToInt32(customerIdTextBox.Text);
-
-        using (var context = new SavingsManagementContext())
+        int customerId;
+        if (int.TryParse(customerIdTextBox.Text, out customerId))
         {
-            var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId);
-            if (customer != null)
+            using (var context = new SavingsManagementContext())
             {
-                if (customer.IsDisabled)
+                var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId);
+                if (customer != null)
                 {
-                    MessageBox.Show("Please activate current account if you want to change information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (customer.IsDisabled)
+                    {
+                        MessageBox.Show("Please activate current account if you want to change information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    customer.Name = customerNameTextBox.Text;
+                    customer.IsMale = customerMaleCheckBox.Checked;
+                    customer.CicNumber = customerCicNumberTextBox.Text;
+                    customer.BirthDate = new DateOnly(customerBirthDateTimePicker.Value.Year, customerBirthDateTimePicker.Value.Month, customerBirthDateTimePicker.Value.Day);
+                    customer.PhoneNumber = customerPhoneNumberTextBox.Text;
+                    customer.Address = customerAddressTextBox.Text;
+                    customer.Email = customerEmailTextBox.Text;
+                    customer.Username = customerUsernameTextBox.Text;
+                    customer.HashedPassword = customerHashedPasswordTextBox.Text;
+                    customer.Balance = Convert.ToDecimal(customerBalanceTextBox.Text);
+                    customer.IsDisabled = customerDisableCheckBox.Checked;
+                    context.SaveChanges();
+                    loadCustomer();
+                    MessageBox.Show("Updated customer information successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                customer.Name = customerNameTextBox.Text;
-                customer.IsMale = customerMaleCheckBox.Checked;
-                customer.CicNumber = customerCicNumberTextBox.Text;
-                customer.BirthDate = new DateOnly(customerBirthDateTimePicker.Value.Year, customerBirthDateTimePicker.Value.Month, customerBirthDateTimePicker.Value.Day);
-                customer.PhoneNumber = customerPhoneNumberTextBox.Text;
-                customer.Address = customerAddressTextBox.Text;
-                customer.Email = customerEmailTextBox.Text;
-                customer.Username = customerUsernameTextBox.Text;
-                customer.HashedPassword = customerHashedPasswordTextBox.Text;
-                customer.Balance = Convert.ToDecimal(customerBalanceTextBox.Text);
-                customer.IsDisabled = customerDisableCheckBox.Checked;
-                context.SaveChanges();
-                loadCustomer();
-                MessageBox.Show("Updated customer information successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
 
     private void clearScreenCustomerBtn_Click(object sender, EventArgs e)
     {
-        customerIdTextBox.Text = "";
-        customerNameTextBox.Text = "";
-        customerMaleCheckBox.Checked = false;
-        customerCicNumberTextBox.Text = "";
-        customerBirthDateTimePicker.Value = DateTime.Now.Date;
-        customerPhoneNumberTextBox.Text = "";
-        customerAddressTextBox.Text = "";
-        customerEmailTextBox.Text = "";
-        customerUsernameTextBox.Text = "";
-        customerHashedPasswordTextBox.Text = "";
-        customerBalanceTextBox.Text = "";
-        customerDisableCheckBox.Checked = false;
-        customerSearchTextBox.Text = "";
+        ReloadCustomerScreen();
         MessageBox.Show("Screen cleared successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
@@ -712,24 +806,24 @@ public partial class StaffMenuForm : Form
     }
     private void enableCustomerBtn_Click(object sender, EventArgs e)
     {
-        if (dataGridViewCustomer.CurrentRow.Index.Equals(null))
+        int customerId;
+        if (int.TryParse(customerIdTextBox.Text, out customerId))
+        {
+            using (var context = new SavingsManagementContext())
+            {
+                var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId);
+                if (customer != null)
+                {
+                    customer.IsDisabled = false;
+                    context.SaveChanges();
+                    loadCustomer();
+                    MessageBox.Show("Customer account has been successfully activated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        else
         {
             MessageBox.Show("Please select a customer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        int customerId = Convert.ToInt32(customerIdTextBox.Text);
-
-        using (var context = new SavingsManagementContext())
-        {
-            var customer = context.CustomerAccounts.FirstOrDefault(c => c.Id == customerId);
-            if (customer != null)
-            {
-                customer.IsDisabled = false;
-                context.SaveChanges();
-                loadCustomer();
-                MessageBox.Show("Customer account has been successfully activated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
     }
 
@@ -818,7 +912,7 @@ public partial class StaffMenuForm : Form
 
     private void dataGridViewStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        int i = dataGridViewStaff.CurrentRow.Index;
+        int i = e.RowIndex;
         staffIdTextBox.Text = dataGridViewStaff.Rows[i].Cells[0].Value.ToString();
         staffNameTextBox.Text = dataGridViewStaff.Rows[i].Cells[1].Value.ToString();
         staffMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[2].Value);
@@ -895,7 +989,7 @@ public partial class StaffMenuForm : Form
 
     private void saveStaffBtn_Click(object sender, EventArgs e)
     {
-        if (dataGridViewStaff.CurrentRow.Index.Equals(null))
+        if (staffIdTextBox.Text.IsNullOrEmpty())
         {
             MessageBox.Show("Please select a staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
@@ -910,8 +1004,6 @@ public partial class StaffMenuForm : Form
             return;
         }
 
-        int staffId = Convert.ToInt32(staffIdTextBox.Text);
-
         int permissionId = 0;
         int indexOfDash = staffPermissionIdComboBox.Text.IndexOf('-');
         if (indexOfDash != -1)
@@ -919,100 +1011,96 @@ public partial class StaffMenuForm : Form
             permissionId = Int32.Parse(staffPermissionIdComboBox.Text.Substring(0, indexOfDash).Trim());
         }
 
-        using (var context = new SavingsManagementContext())
+        int staffId;
+        if (int.TryParse(staffIdTextBox.Text, out staffId))
         {
-            var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
-            if (staff != null)
+            using (var context = new SavingsManagementContext())
             {
-                if (staff.IsDisabled)
+                var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
+                if (staff != null)
                 {
-                    MessageBox.Show("Please activate current account if you want to change information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                staff.Name = staffNameTextBox.Text;
-                staff.IsMale = staffMaleCheckBox.Checked;
-                staff.Position = staffPositionTextBox.Text;
-                staff.Username = staffUsernameTextBox.Text;
-                staff.HashedPassword = staffHashedPasswordTextBox.Text;
-                staff.PermissionId = permissionId;
-                staff.IsDisabled = staffDisableCheckBox.Checked;
+                    if (staff.IsDisabled)
+                    {
+                        MessageBox.Show("Please activate current account if you want to change information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    staff.Name = staffNameTextBox.Text;
+                    staff.IsMale = staffMaleCheckBox.Checked;
+                    staff.Position = staffPositionTextBox.Text;
+                    staff.Username = staffUsernameTextBox.Text;
+                    staff.HashedPassword = staffHashedPasswordTextBox.Text;
+                    staff.PermissionId = permissionId;
+                    staff.IsDisabled = staffDisableCheckBox.Checked;
 
-                context.SaveChanges();
-                loadStaff();
-                MessageBox.Show("Updated staff information successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    context.SaveChanges();
+                    loadStaff();
+                    MessageBox.Show("Updated staff information successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }
 
     private void disableStaffBtn_Click(object sender, EventArgs e)
     {
-        if (dataGridViewStaff.CurrentRow.Index.Equals(null))
-        {
-            MessageBox.Show("Please select a staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
         if (staffDisableCheckBox.Checked)
         {
             MessageBox.Show("Account has been disabled, please choose another account!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
         }
 
-        int staffId = Convert.ToInt32(staffIdTextBox.Text);
-
-        using (var context = new SavingsManagementContext())
+        int staffId;
+        if (int.TryParse(staffUsernameTextBox.Text, out staffId))
         {
-            var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
-            var staffPermission = context.StaffPermissions.FirstOrDefault(sp => sp.Id == staff.PermissionId);
-            if (staffPermission.Name.Equals("Admin"))
+            using (var context = new SavingsManagementContext())
             {
-                MessageBox.Show("Can't disable admin account!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
+                var staffPermission = context.StaffPermissions.FirstOrDefault(sp => sp.Id == staff.PermissionId);
+                if (staffPermission.Name.Equals("Admin"))
+                {
+                    MessageBox.Show("Can't disable admin account!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (staff != null)
+                {
+                    staff.IsDisabled = true;
+                    context.SaveChanges();
+                    loadStaff();
+                    MessageBox.Show("Staff account successfully deactivated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            if (staff != null)
-            {
-                staff.IsDisabled = true;
-                context.SaveChanges();
-                loadStaff();
-                MessageBox.Show("Staff account successfully deactivated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+        }
+        else
+        {
+            MessageBox.Show("Please select a staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 
     private void clearScreenStaffBtn_Click(object sender, EventArgs e)
     {
-        staffIdTextBox.Text = "";
-        staffNameTextBox.Text = "";
-        staffMaleCheckBox.Checked = false;
-        staffPositionTextBox.Text = "";
-        staffUsernameTextBox.Text = "";
-        staffHashedPasswordTextBox.Text = "";
-        staffPermissionIdComboBox.SelectedItem = staffPermissionIdComboBox.Items[0];
-        staffDisableCheckBox.Checked = false;
-        staffSearchTextBox.Text = "";
+        ReloadStaffScreen();
         MessageBox.Show("Screen cleared successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
     private void enableStaffBtn_Click(object sender, EventArgs e)
     {
-        if (dataGridViewStaff.CurrentRow.Index.Equals(null))
+        int staffId;
+        if (int.TryParse(staffUsernameTextBox.Text, out staffId))
+        {
+            using (var context = new SavingsManagementContext())
+            {
+                var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
+                if (staff != null)
+                {
+                    staff.IsDisabled = false;
+                    context.SaveChanges();
+                    loadStaff();
+                    MessageBox.Show("Staff account has been successfully activated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        else
         {
             MessageBox.Show("Please select a staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        int staffId = Convert.ToInt32(staffIdTextBox.Text);
-
-        using (var context = new SavingsManagementContext())
-        {
-            var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
-            if (staff != null)
-            {
-                staff.IsDisabled = false;
-                context.SaveChanges();
-                loadStaff();
-                MessageBox.Show("Staff account has been successfully activated!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
     }
 
@@ -1056,5 +1144,11 @@ public partial class StaffMenuForm : Form
     }
     #endregion
 
-    
+    private void customerDepositAmountNumeric_ValueChanged(object sender, EventArgs e)
+    {
+        if (customerDepositAmountNumeric.Value < 10)
+        {
+            MessageBox.Show("Invalid value!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
 }

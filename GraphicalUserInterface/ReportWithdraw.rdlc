@@ -2,20 +2,55 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Tablix Name="Tablix1">
+      <Textbox Name="Textbox8">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>PHIẾU RÚT TIỀN</Value>
+                <Style>
+                  <FontFamily>times New Roman</FontFamily>
+                  <FontSize>20pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox8</rd:DefaultName>
+        <Top>0.5393in</Top>
+        <Left>2.67472in</Left>
+        <Height>0.35417in</Height>
+        <Width>2.45833in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="Tablix3">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.88194in</Width>
+              <Width>0.78361in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.13889in</Width>
+              <Width>2.42361in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.61111in</Width>
+              <Width>1.07639in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.44444in</Width>
+              <Width>2.59611in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -24,7 +59,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox10">
+                    <Textbox Name="Textbox31">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -43,7 +78,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox10</rd:DefaultName>
+                      <rd:DefaultName>Textbox31</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -92,7 +127,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox12">
+                    <Textbox Name="Textbox33">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -111,7 +146,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox12</rd:DefaultName>
+                      <rd:DefaultName>Textbox33</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -161,18 +196,18 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.98611in</Height>
+              <Height>0.97917in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox17">
+                    <Textbox Name="Textbox32">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Ngày gửi:</Value>
+                              <Value>Ngày rút:</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -183,20 +218,8 @@
                             <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox17</rd:DefaultName>
+                      <rd:DefaultName>Textbox32</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -242,18 +265,19 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox15">
+                    <Textbox Name="Textbox34">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Số tiền gửi:</Value>
+                              <Value>Số tiền rút:</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
                                 <FontSize>14pt</FontSize>
@@ -264,20 +288,8 @@
                             <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                                <FontSize>14pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox15</rd:DefaultName>
+                      <rd:DefaultName>Textbox34</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -348,28 +360,42 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.93278in</Top>
-        <Left>0.37028in</Left>
-        <Height>1.98611in</Height>
-        <Width>7.07638in</Width>
+        <Top>1.20361in</Top>
+        <Left>0.21056in</Left>
+        <Height>1.97917in</Height>
+        <Width>6.87972in</Width>
+        <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox8">
+      <Textbox Name="Textbox9">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>PHIẾU GỬI TIỀN</Value>
+                <Value>TP. Hồ Chí Minh,....../....../......</Value>
                 <Style>
                   <FontFamily>times New Roman</FontFamily>
-                  <FontSize>20pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
+                  <FontSize>14pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ký tên</Value>
+                <Style>
+                  <FontFamily>times New Roman</FontFamily>
+                  <FontSize>14pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -378,12 +404,12 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>0.39111in</Top>
-        <Left>2.36333in</Left>
-        <Height>0.35417in</Height>
-        <Width>2.45833in</Width>
-        <ZIndex>1</ZIndex>
+        <rd:DefaultName>Textbox9</rd:DefaultName>
+        <Top>4.59028in</Top>
+        <Left>3.90278in</Left>
+        <Height>0.70139in</Height>
+        <Width>3.1875in</Width>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -395,14 +421,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>9.42537cm</Height>
-    <Style>
-      <Border>
-        <Style>None</Style>
-      </Border>
-    </Style>
+    <Height>13.44084cm</Height>
+    <Style />
   </Body>
-  <Width>19.84939cm</Width>
+  <Width>18.52083cm</Width>
   <Page>
     <PageHeader>
       <Height>3.10444cm</Height>
@@ -457,7 +479,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Left>2.24528in</Left>
+          <Top>0.01389in</Top>
+          <Left>2.25805in</Left>
           <Height>1.20833in</Height>
           <Width>3.39583in</Width>
           <ZIndex>1</ZIndex>
@@ -479,66 +502,17 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>4.02167cm</Height>
+      <Height>4.39209cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="Textbox9">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>TP. Hồ Chí Minh,....../....../......</Value>
-                  <Style>
-                    <FontFamily>times New Roman</FontFamily>
-                    <FontSize>14pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Ký tên</Value>
-                  <Style>
-                    <FontFamily>times New Roman</FontFamily>
-                    <FontSize>14pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Left>4.25917in</Left>
-          <Height>0.70139in</Height>
-          <Width>3.1875in</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
     <LeftMargin>1cm</LeftMargin>
     <RightMargin>1cm</RightMargin>
     <TopMargin>2.54cm</TopMargin>
@@ -548,19 +522,12 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="SavingsManagementDataSet">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>0401520d-18d6-41a1-8269-c27bdc0c4424</rd:DataSourceID>
-    </DataSource>
     <DataSource Name="SavingsManagementDataSet1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>b9281ef6-11e9-4308-bd4c-7ed78c2f195e</rd:DataSourceID>
+      <rd:DataSourceID>400e7a95-7a1d-4577-b58a-425cdf3057e6</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -597,7 +564,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SavingsManagementDataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Admin\Source\Repos\SavingsManagement\GraphicalUserInterface\SavingsManagementDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Admin\Source\Repos\SavingsManagement\GraphicalUserInterface\SavingsManagementDataSet1.xsd</rd:SchemaPath>
         <rd:TableName>CashFlows</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -624,5 +591,5 @@ fL/7Vrq7V3ZXhx6GWt9xbXO8/wAj/wB9FTuLY/tj7yCfoblaQURFnnQsihHoZ1O4lr+2/wCT/wDSu/zE
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>a52bc894-9cae-4623-967c-79fc7205cfa9</rd:ReportID>
+  <rd:ReportID>eca3b653-282e-404f-b241-21e5622a80bb</rd:ReportID>
 </Report>
