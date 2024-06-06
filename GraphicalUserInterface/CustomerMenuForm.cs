@@ -71,10 +71,10 @@ public partial class CustomerMenuForm : Form
     #region Savings
     private void InitializeSavings()
     {
-        this.LoadForm();
+        this.LoadSavingTab();
     }
 
-    private void LoadForm()
+    private void LoadSavingTab()
     {
         try
         {
@@ -124,6 +124,7 @@ public partial class CustomerMenuForm : Form
             this.openDayDetailsTextBox.Text = string.Empty;
             this.maturityDayDetailsTextBox.Text = string.Empty;
 
+            this.exportDetailsButton.Enabled = false;
             this.closeSavingDetailsButton.Enabled = false;
         }
         else if (this.savingDetailsComboBox.SelectedItem is int savingId)
@@ -141,19 +142,20 @@ public partial class CustomerMenuForm : Form
                 this.maturityDayDetailsTextBox.Text = Savings.GetMaturityDate(saving.OpeningDateTime, saving.PeriodInMonths)
                     .ToString(CultureInfo.CurrentCulture);
 
+                this.exportDetailsButton.Enabled = true;
                 this.closeSavingDetailsButton.Enabled = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.LoadForm();
+                this.LoadSavingTab();
             }
         }
         else
         {
             MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.LoadForm();
+            this.LoadSavingTab();
         }
     }
 
@@ -190,14 +192,14 @@ public partial class CustomerMenuForm : Form
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.LoadForm();
+                this.LoadSavingTab();
             }
         }
         else
         {
             MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.LoadForm();
+            this.LoadSavingTab();
         }
     }
 
@@ -217,22 +219,41 @@ public partial class CustomerMenuForm : Form
                 Savings.Open(this.savingDepositInfo);
                 MessageBox.Show(this, Properties.Resources.OpeningSavingSuccessfullyString, Properties.Resources.InformationTitleString,
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.LoadForm();
+                this.LoadSavingTab();
             }
 
         }
         catch (Exception ex)
         {
             MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.LoadForm();
+            this.LoadSavingTab();
+        }
+    }
+
+    private void exportDetailsButton_Click(object sender, EventArgs e)
+    {
+        if (this.savingDetailsComboBox.SelectedItem is int savingId)
+        {
+            using var savingReportForm = new SavingReportForm(Savings.GetSaving(savingId));
+            savingReportForm.ShowDialog(this);
+        }
+        else
+        {
+            MessageBox.Show(
+                Resources.UnknownErrorString,
+                Resources.ErrorTitleString,
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error,
+                MessageBoxDefaultButton.Button1);
         }
     }
 
     private void closingSavingDetailsButton_Click(object sender, EventArgs e)
     {
         this.savingClosingComboBox.SelectedItem = this.savingDetailsComboBox.SelectedItem;
-        this.savingTabControl.SelectedTab = this.withdrawTabPage;
+        this.savingTabControl.SelectedTab = this.closingTabPage;
     }
+
 
     private void savingClosingComboBox_SelectedValueChanged(object sender, EventArgs e)
     {
@@ -262,14 +283,14 @@ public partial class CustomerMenuForm : Form
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.LoadForm();
+                this.LoadSavingTab();
             }
         }
         else
         {
             MessageBox.Show(this, Properties.Resources.UnknownErrorString, Properties.Resources.ErrorTitleString,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.LoadForm();
+            this.LoadSavingTab();
         }
     }
 
@@ -293,7 +314,7 @@ public partial class CustomerMenuForm : Form
         {
             MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        this.LoadForm();
+        this.LoadSavingTab();
     }
     #endregion
     #region Statistical
