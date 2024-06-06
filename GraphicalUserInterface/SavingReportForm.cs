@@ -1,6 +1,7 @@
 ﻿namespace GraphicalUserInterface;
 
 using System;
+using System.Data;
 using System.IO;
 using System.Windows.Forms;
 using DataAccess;
@@ -20,11 +21,11 @@ public partial class SavingReportForm : Form
     private void reportViewer_Load(object sender, EventArgs e)
     {
         using SavingsManagementDataSet savingsManagementDataSet = new SavingsManagementDataSet();
-        var dataTable = savingsManagementDataSet.Tables[savingsManagementDataSet.Savings.TableName];
+        DataTable savingsDataTable = savingsManagementDataSet.Savings;
         MemoryStream memoryStream = new MemoryStream(Resources.SavingsReport);
-        dataTable?.Rows.Add(this.saving.Id, this.saving.CustomerId, this.saving.Balance, this.saving.AnnualInterestRate, this.saving.PeriodInMonths, this.saving.OpeningDateTime);
+        savingsDataTable?.Rows.Add(this.saving.Id, this.saving.CustomerId, this.saving.Balance, this.saving.AnnualInterestRate, this.saving.PeriodInMonths, this.saving.OpeningDateTime);
         ReportDataSource reportDataSource = new ReportDataSource(
-            "SavingsDataSet", dataTable
+            "SavingsDataSet", savingsDataTable
         );
 
         this.reportViewer.Reset();
