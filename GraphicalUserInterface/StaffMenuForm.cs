@@ -1169,10 +1169,6 @@ public partial class StaffMenuForm : Form
             dataGridViewDailyReport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
     }
-
-<<<<<<< Updated upstream
-   
-=======
     public void ExportExcel(string path)
     {
         // Tạo ứng dụng Excel và workbook mới
@@ -1263,5 +1259,4 @@ public partial class StaffMenuForm : Form
         loadDailyReport();
     }
     #endregion
->>>>>>> Stashed changes
 }
