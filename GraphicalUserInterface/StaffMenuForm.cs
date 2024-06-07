@@ -123,6 +123,13 @@ public partial class StaffMenuForm : Form
         form.ShowDialog();
     }
 
+    private void button1_Click(object sender, EventArgs e)
+    {
+        using var form = new StaffChangeInfo();
+        form.ShowDialog();
+        LoadingAccountInfo();
+    }
+
     public void LoadingRateList()
     {
         dt = new DataTable();
@@ -1151,4 +1158,6 @@ public partial class StaffMenuForm : Form
             MessageBox.Show("Invalid value!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
+
+   
 }
