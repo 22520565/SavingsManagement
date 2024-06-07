@@ -67,6 +67,13 @@ public partial class CustomerMenuForm : Form
         form.ShowDialog();
     }
 
+    private void button1_Click(object sender, EventArgs e)
+    {
+        using var form = new CustomerChangeInfo();
+        form.ShowDialog();
+        LoadingAccountInfo();
+    }
+
     #endregion
     #region Savings
     private void InitializeSavings()
@@ -456,4 +463,6 @@ public partial class CustomerMenuForm : Form
         this.GoingBackToLoginForm = !logOut.IsNotClosed;
         e.Cancel = logOut.IsNotClosed;
     }
+
+    
 }

@@ -31,6 +31,31 @@ public static class CustomerAccounts
         return context.CustomerAccounts.Find(customerId);
     }
 
+    public static void UpdateCustomer(CustomerAccount customer)
+    {
+        if (customer == null)
+        {
+            return;
+        }
+        else
+        {
+            using var context = new SavingsManagementContext();
+            CustomerAccount customerAccount = context.CustomerAccounts.Find(CurrentCustomerId);
+            if (customerAccount != null)
+            {
+                customerAccount.Name = customer.Name;
+                customerAccount.Email = customer.Email;
+                customerAccount.Address = customer.Address;
+                customerAccount.CicNumber = customer.CicNumber;
+                customerAccount.PhoneNumber = customer.PhoneNumber;
+                customerAccount.BirthDate = customer.BirthDate;
+                customerAccount.IsMale = customer.IsMale;
+                customerAccount.Username = customer.Username;
+                context.SaveChanges();
+            }
+        }
+    }
+
     public static bool IsPasswordCorrect(string password)
     {
         bool passwordCorrect = false;
