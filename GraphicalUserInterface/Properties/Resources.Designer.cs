@@ -427,6 +427,16 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap otp {
+            get {
+                object obj = ResourceManager.GetObject("otp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap padlock {
             get {
                 object obj = ResourceManager.GetObject("padlock", resourceCulture);
@@ -517,6 +527,26 @@ namespace GraphicalUserInterface.Properties {
             get {
                 object obj = ResourceManager.GetObject("SavingsReport", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap security_shield__1_ {
+            get {
+                object obj = ResourceManager.GetObject("security-shield (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap security_shield__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("security-shield (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

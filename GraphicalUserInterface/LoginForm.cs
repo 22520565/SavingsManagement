@@ -24,6 +24,13 @@ public partial class LoginForm : Form
         this.Close();
     }
 
+    private void linkLabel_ForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        this.Hide();
+        new ForgotPasswordForm().ShowDialog();
+        this.Close();
+    }
+
     private void btnCustomerLogin_MouseEnter(object sender, EventArgs e)
     {
         btnCustomerLogin.BackColor = Color.FromArgb(11, 9, 120);
@@ -328,5 +335,5 @@ public partial class LoginForm : Form
         {
             MessageBox.Show(this, ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-    }
+    }  
 }
