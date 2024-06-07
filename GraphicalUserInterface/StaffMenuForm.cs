@@ -1144,9 +1144,17 @@ public partial class StaffMenuForm : Form
     #endregion
 
     #region Daily Report
+    public class DailyReportItem
+    {
+        public int CustomerId { get; set; }
+        public string CustomerName { get; set; }
+        public decimal Deposit { get; set; }
+        public decimal Withdraw { get; set; }
+        public decimal Profit { get; set; }
+    }
+
     public void loadDailyReport()
     {
-        // Lấy giá trị ngày từ DateTimePicker
         DateTime selectedDate = dailyReportDateTimePicker.Value.Date;
 
         using (var context = new SavingsManagementContext())
@@ -1154,25 +1162,25 @@ public partial class StaffMenuForm : Form
             var dailys = (from cf in context.CashFlows
                           join ca in context.CustomerAccounts on cf.CustomerId equals ca.Id
                           where cf.Time.Date == selectedDate
-                          select new
+                          group cf by new { cf.CustomerId, ca.Name } into g
+                          select new DailyReportItem
                           {
-                              cf.Id,
-                              cf.CustomerId,
-                              CustomerName = ca.Name,
-                              cf.Time,
-                              cf.BalanceChanging,
-                              cf.Content,
+                              CustomerId = g.Key.CustomerId,
+                              CustomerName = g.Key.Name,
+                              Deposit = g.Where(cf => cf.BalanceChanging > 0).Sum(cf => cf.BalanceChanging),
+                              Withdraw = g.Where(cf => cf.BalanceChanging < 0).Sum(cf => cf.BalanceChanging),
+                              Profit = g.Sum(cf => cf.BalanceChanging)
                           }).ToList();
 
             dataGridViewDailyReport.DataSource = dailys;
-            dataGridViewDailyReport.Columns["BalanceChanging"].HeaderText = "Balance Fluctuations";
+            dataGridViewDailyReport.Columns["CustomerId"].HeaderText = "Customer ID";
+            dataGridViewDailyReport.Columns["CustomerName"].HeaderText = "Customer Name";
+            dataGridViewDailyReport.Columns["Deposit"].HeaderText = "Deposit";
+            dataGridViewDailyReport.Columns["Withdraw"].HeaderText = "Withdraw";
             dataGridViewDailyReport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
     }
 
-<<<<<<< Updated upstream
-   
-=======
     public void ExportExcel(string path)
     {
         // Tạo ứng dụng Excel và workbook mới
@@ -1263,5 +1271,4 @@ public partial class StaffMenuForm : Form
         loadDailyReport();
     }
     #endregion
->>>>>>> Stashed changes
 }

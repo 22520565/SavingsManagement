@@ -208,6 +208,7 @@
             Name = "ResetPasswordForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "ResetPasswordForm";
+            FormClosing += ResetPasswordForm_FormClosing;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();

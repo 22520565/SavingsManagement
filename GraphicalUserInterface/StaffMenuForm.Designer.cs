@@ -901,11 +901,7 @@ namespace GraphicalUserInterface
             // customerDisableCheckBox
             // 
             customerDisableCheckBox.AutoSize = true;
-<<<<<<< Updated upstream
-            customerDisableCheckBox.Location = new System.Drawing.Point(881, 231);
-=======
             customerDisableCheckBox.Location = new System.Drawing.Point(470, 292);
->>>>>>> Stashed changes
             customerDisableCheckBox.Margin = new System.Windows.Forms.Padding(2);
             customerDisableCheckBox.Name = "customerDisableCheckBox";
             customerDisableCheckBox.Size = new System.Drawing.Size(103, 30);
@@ -943,29 +939,6 @@ namespace GraphicalUserInterface
             customerMaleCheckBox.Text = "Male";
             customerMaleCheckBox.UseVisualStyleBackColor = true;
             // 
-<<<<<<< Updated upstream
-            // customerHashedPasswordTextBox
-            // 
-            customerHashedPasswordTextBox.Location = new System.Drawing.Point(550, 230);
-            customerHashedPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
-            customerHashedPasswordTextBox.Name = "customerHashedPasswordTextBox";
-            customerHashedPasswordTextBox.ReadOnly = true;
-            customerHashedPasswordTextBox.Size = new System.Drawing.Size(291, 34);
-            customerHashedPasswordTextBox.TabIndex = 15;
-            customerHashedPasswordTextBox.KeyPress += customerHashedPasswordTextBox_KeyPress;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(376, 234);
-            label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(176, 26);
-            label8.TabIndex = 14;
-            label8.Text = "HashedPassword:";
-            // 
-=======
->>>>>>> Stashed changes
             // customerUsernameTextBox
             // 
             customerUsernameTextBox.Location = new System.Drawing.Point(154, 230);
@@ -1283,29 +1256,6 @@ namespace GraphicalUserInterface
             label16.TabIndex = 10;
             label16.Text = "PermissionId:";
             // 
-<<<<<<< Updated upstream
-            // staffHashedPasswordTextBox
-            // 
-            staffHashedPasswordTextBox.Location = new System.Drawing.Point(573, 168);
-            staffHashedPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
-            staffHashedPasswordTextBox.Name = "staffHashedPasswordTextBox";
-            staffHashedPasswordTextBox.ReadOnly = true;
-            staffHashedPasswordTextBox.Size = new System.Drawing.Size(633, 34);
-            staffHashedPasswordTextBox.TabIndex = 9;
-            staffHashedPasswordTextBox.KeyPress += staffHashedPasswordTextBox_KeyPress;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new System.Drawing.Point(399, 170);
-            label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(176, 26);
-            label15.TabIndex = 8;
-            label15.Text = "HashedPassword:";
-            // 
-=======
->>>>>>> Stashed changes
             // staffUsernameTextBox
             // 
             staffUsernameTextBox.Location = new System.Drawing.Point(150, 168);
@@ -1768,9 +1718,7 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.Button withdrawPrintButton;
         private System.Windows.Forms.Button reportDepositBtn;
         private System.Windows.Forms.Button reportWithdrawBtn;
-<<<<<<< Updated upstream
         private System.Windows.Forms.Button button1;
-=======
         private System.Windows.Forms.TabPage tabPageFinancialReport;
         private System.Windows.Forms.Button dailyReportBtn;
         private System.Windows.Forms.DateTimePicker dailyReportDateTimePicker;
@@ -1781,6 +1729,5 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.TabPage tabPageMonth;
         private System.Windows.Forms.Label label21;
->>>>>>> Stashed changes
     }
 }

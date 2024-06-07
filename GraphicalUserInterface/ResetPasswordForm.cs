@@ -109,5 +109,13 @@ namespace GraphicalUserInterface
             btnConfirmPassword.BackColor = Color.Black;
             btnConfirmPassword.ForeColor = Color.White;
         }
+
+        private void ResetPasswordForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            LoginForm login = new LoginForm();
+            login.ShowDialog();
+            this.Close();
+        }
     }
 }
