@@ -34,4 +34,9 @@ public partial class SavingReportForm : Form
         this.reportViewer.LocalReport.DataSources.Add(reportDataSource);
         this.reportViewer.RefreshReport();
     }
+
+    private void SavingReportForm_Load(object sender, EventArgs e)
+    {
+
+    }
 }

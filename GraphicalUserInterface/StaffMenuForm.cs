@@ -15,6 +15,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using MiniExcelLibs;
 using MiniExcelLibs.OpenXml;
+using System.IO;
+using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 public partial class StaffMenuForm : Form
 {
@@ -32,6 +36,7 @@ public partial class StaffMenuForm : Form
         loadStaff();
         loadDeposit();
         loadWithdraw();
+        loadDailyReport();
         customerIdTextBox.ReadOnly = true;
         customerBalanceTextBox.ReadOnly = true;
         dataGridViewCustomer.ReadOnly = true;
@@ -200,7 +205,6 @@ public partial class StaffMenuForm : Form
         customerAddressTextBox.Text = "";
         customerEmailTextBox.Text = "";
         customerUsernameTextBox.Text = "";
-        customerHashedPasswordTextBox.Text = "";
         customerBalanceTextBox.Text = "";
         customerDisableCheckBox.Checked = false;
         customerSearchTextBox.Text = "";
@@ -213,7 +217,6 @@ public partial class StaffMenuForm : Form
         staffMaleCheckBox.Checked = false;
         staffPositionTextBox.Text = "";
         staffUsernameTextBox.Text = "";
-        staffHashedPasswordTextBox.Text = "";
         staffPermissionIdComboBox.SelectedItem = staffPermissionIdComboBox.Items[0];
         staffDisableCheckBox.Checked = false;
         staffSearchTextBox.Text = "";
@@ -243,18 +246,27 @@ public partial class StaffMenuForm : Form
         if (tabControlStaffMenu.SelectedTab == tabPageManageCustomers)
         {
             ReloadCustomerScreen();
+            loadCustomer();
         }
         else if (tabControlStaffMenu.SelectedTab == tabPageManageStaffs)
         {
             ReloadStaffScreen();
+            loadStaff();
         }
         else if (tabControlStaffMenu.SelectedTab == tabPageDeposit)
         {
             ReloadDepositScreen();
+            loadDeposit();
         }
         else if (tabControlStaffMenu.SelectedTab == tabPageWithdraw)
         {
             ReloadWithdrawScreen();
+            loadWithdraw();
+        }
+        else if (tabControlStaffMenu.SelectedTab == tabPageFinancialReport)
+        {
+            dailyReportDateTimePicker.Value = DateTime.Now.Date;
+            loadDailyReport();
         }
     }
     #endregion
@@ -395,6 +407,7 @@ public partial class StaffMenuForm : Form
                 this.customerDepositAmountNumeric.Value = this.customerDepositAmountNumeric.Minimum;
                 this.customerDepositContentTextBox.Text = string.Empty;
             }
+            loadDeposit();
         }
         catch (Exception ex)
         {
@@ -568,6 +581,7 @@ public partial class StaffMenuForm : Form
                 this.customerWithdrawAmountNumeric.Value = this.customerWithdrawAmountNumeric.Minimum;
                 this.customerWithdrawContentTextBox.Text = string.Empty;
             }
+            loadWithdraw();
         }
         catch (Exception ex)
         {
@@ -613,7 +627,6 @@ public partial class StaffMenuForm : Form
                 c.Address,
                 c.Email,
                 c.Username,
-                c.HashedPassword,
                 c.Balance,
                 c.IsDisabled,
             }).ToList();
@@ -638,9 +651,8 @@ public partial class StaffMenuForm : Form
         customerAddressTextBox.Text = dataGridViewCustomer.Rows[i].Cells[6].Value.ToString();
         customerEmailTextBox.Text = dataGridViewCustomer.Rows[i].Cells[7].Value.ToString();
         customerUsernameTextBox.Text = dataGridViewCustomer.Rows[i].Cells[8].Value.ToString();
-        customerHashedPasswordTextBox.Text = dataGridViewCustomer.Rows[i].Cells[9].Value.ToString();
-        customerBalanceTextBox.Text = dataGridViewCustomer.Rows[i].Cells[10].Value.ToString();
-        customerDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[11].Value);
+        customerBalanceTextBox.Text = dataGridViewCustomer.Rows[i].Cells[9].Value.ToString();
+        customerDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[10].Value);
     }
 
     private bool IsEmailExists(string email)
@@ -759,7 +771,6 @@ public partial class StaffMenuForm : Form
             customerAddressTextBox.Text.IsNullOrEmpty() ||
             customerEmailTextBox.Text.IsNullOrEmpty() ||
             customerUsernameTextBox.Text.IsNullOrEmpty() ||
-            customerHashedPasswordTextBox.Text.IsNullOrEmpty() ||
             customerBalanceTextBox.Text.IsNullOrEmpty())
         {
             MessageBox.Show("Please fill in all blanks!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -787,7 +798,6 @@ public partial class StaffMenuForm : Form
                     customer.Address = customerAddressTextBox.Text;
                     customer.Email = customerEmailTextBox.Text;
                     customer.Username = customerUsernameTextBox.Text;
-                    customer.HashedPassword = customerHashedPasswordTextBox.Text;
                     customer.Balance = Convert.ToDecimal(customerBalanceTextBox.Text);
                     customer.IsDisabled = customerDisableCheckBox.Checked;
                     context.SaveChanges();
@@ -804,13 +814,6 @@ public partial class StaffMenuForm : Form
         MessageBox.Show("Screen cleared successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
-    private void customerHashedPasswordTextBox_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        if (e.KeyChar == (char)Keys.Enter)
-        {
-            customerHashedPasswordTextBox.Text = PasswordHasher.HashPassword(null!, customerHashedPasswordTextBox.Text);
-        }
-    }
     private void enableCustomerBtn_Click(object sender, EventArgs e)
     {
         int customerId;
@@ -896,7 +899,6 @@ public partial class StaffMenuForm : Form
                 c.IsMale,
                 c.Position,
                 c.Username,
-                c.HashedPassword,
                 c.PermissionId,
                 c.IsDisabled,
             }).ToList();
@@ -925,8 +927,7 @@ public partial class StaffMenuForm : Form
         staffMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[2].Value);
         staffPositionTextBox.Text = dataGridViewStaff.Rows[i].Cells[3].Value.ToString();
         staffUsernameTextBox.Text = dataGridViewStaff.Rows[i].Cells[4].Value.ToString();
-        staffHashedPasswordTextBox.Text = dataGridViewStaff.Rows[i].Cells[5].Value.ToString();
-        switch (dataGridViewStaff.Rows[i].Cells[6].Value)
+        switch (dataGridViewStaff.Rows[i].Cells[5].Value)
         {
             case 1:
                 staffPermissionIdComboBox.Text = "1 - Admin";
@@ -938,7 +939,7 @@ public partial class StaffMenuForm : Form
                 MessageBox.Show("Can not find type of staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
         }
-        staffDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[7].Value);
+        staffDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[6].Value);
     }
     private bool IsStaffUsernameExists(string username)
     {
@@ -960,13 +961,6 @@ public partial class StaffMenuForm : Form
         }
         while (IsStaffUsernameExists(username)); // Kiểm tra xem Username đã tồn tại hay chưa
         return username;
-    }
-    private void staffHashedPasswordTextBox_KeyPress(object sender, KeyPressEventArgs e)
-    {
-        if (e.KeyChar == (char)Keys.Enter)
-        {
-            staffHashedPasswordTextBox.Text = PasswordHasher.HashPassword(null!, staffHashedPasswordTextBox.Text);
-        }
     }
 
     private void addStaffBtn_Click(object sender, EventArgs e)
@@ -1004,8 +998,7 @@ public partial class StaffMenuForm : Form
 
         if (staffNameTextBox.Text.IsNullOrEmpty() ||
             staffPositionTextBox.Text.IsNullOrEmpty() ||
-            staffUsernameTextBox.Text.IsNullOrEmpty() ||
-            staffHashedPasswordTextBox.Text.IsNullOrEmpty())
+            staffUsernameTextBox.Text.IsNullOrEmpty())
         {
             MessageBox.Show("Please fill in all blanks!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
@@ -1035,7 +1028,6 @@ public partial class StaffMenuForm : Form
                     staff.IsMale = staffMaleCheckBox.Checked;
                     staff.Position = staffPositionTextBox.Text;
                     staff.Username = staffUsernameTextBox.Text;
-                    staff.HashedPassword = staffHashedPasswordTextBox.Text;
                     staff.PermissionId = permissionId;
                     staff.IsDisabled = staffDisableCheckBox.Checked;
 
@@ -1151,13 +1143,125 @@ public partial class StaffMenuForm : Form
     }
     #endregion
 
-    private void customerDepositAmountNumeric_ValueChanged(object sender, EventArgs e)
+    #region Daily Report
+    public void loadDailyReport()
     {
-        if (customerDepositAmountNumeric.Value < 10)
+        // Lấy giá trị ngày từ DateTimePicker
+        DateTime selectedDate = dailyReportDateTimePicker.Value.Date;
+
+        using (var context = new SavingsManagementContext())
         {
-            MessageBox.Show("Invalid value!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            var dailys = (from cf in context.CashFlows
+                          join ca in context.CustomerAccounts on cf.CustomerId equals ca.Id
+                          where cf.Time.Date == selectedDate
+                          select new
+                          {
+                              cf.Id,
+                              cf.CustomerId,
+                              CustomerName = ca.Name,
+                              cf.Time,
+                              cf.BalanceChanging,
+                              cf.Content,
+                          }).ToList();
+
+            dataGridViewDailyReport.DataSource = dailys;
+            dataGridViewDailyReport.Columns["BalanceChanging"].HeaderText = "Balance Fluctuations";
+            dataGridViewDailyReport.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
     }
 
+<<<<<<< Updated upstream
    
+=======
+    public void ExportExcel(string path)
+    {
+        // Tạo ứng dụng Excel và workbook mới
+        Excel.Application application = new Excel.Application();
+        Excel.Workbook workbook = application.Workbooks.Add(Type.Missing);
+        Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1]; // Chuyển đổi kiểu dữ liệu ở đây
+
+        // Lấy tổng số cột từ DataGridView
+        int totalColumns = dataGridViewDailyReport.Columns.Count;
+
+        // Thêm tiêu đề báo cáo ở dòng 1 và hợp nhất các cột
+        Excel.Range headerRange1 = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, totalColumns]];
+        headerRange1.Merge();
+        headerRange1.Value = "Report daily operating sales";
+        headerRange1.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+        headerRange1.Borders.LineStyle = Excel.XlLineStyle.xlContinuous; // Kẻ viền cho hàng đầu tiên
+        headerRange1.Borders.Weight = Excel.XlBorderWeight.xlThin;
+
+        // Thêm ngày được chọn từ DateTimePicker ở dòng 2 và hợp nhất các cột
+        Excel.Range headerRange2 = worksheet.Range[worksheet.Cells[2, 1], worksheet.Cells[2, totalColumns]];
+        headerRange2.Merge();
+        headerRange2.Value = $"Date: {dailyReportDateTimePicker.Value.ToShortDateString()}";
+        headerRange2.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+        headerRange2.Borders.LineStyle = Excel.XlLineStyle.xlContinuous; // Kẻ viền cho hàng thứ hai
+        headerRange2.Borders.Weight = Excel.XlBorderWeight.xlThin;
+
+        // Gán tiêu đề cột từ DataGridView vào Excel, bắt đầu từ dòng thứ 3
+        for (int i = 0; i < dataGridViewDailyReport.Columns.Count; i++)
+        {
+            worksheet.Cells[3, i + 1] = dataGridViewDailyReport.Columns[i].HeaderText;
+            Excel.Range headerRange3 = (Excel.Range)worksheet.Cells[3, i + 1];
+            headerRange3.Borders.LineStyle = Excel.XlLineStyle.xlContinuous; // Kẻ viền cho tiêu đề cột
+            headerRange3.Borders.Weight = Excel.XlBorderWeight.xlThin;
+        }
+
+        // Gán dữ liệu từ DataGridView vào Excel, bắt đầu từ dòng thứ 4
+        for (int i = 0; i < dataGridViewDailyReport.Rows.Count; i++)
+        {
+            for (int j = 0; j < dataGridViewDailyReport.Columns.Count; j++)
+            {
+                var cellValue = dataGridViewDailyReport.Rows[i].Cells[j].Value;
+                if (cellValue is DateTimeOffset dto)
+                {
+                    cellValue = dto.ToLocalTime().Date;
+                }
+                worksheet.Cells[i + 4, j + 1] = cellValue; // Dữ liệu bắt đầu từ dòng thứ 4
+                Excel.Range dataRange = (Excel.Range)worksheet.Cells[i + 4, j + 1];
+                dataRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous; // Kẻ viền cho dữ liệu
+                dataRange.Borders.Weight = Excel.XlBorderWeight.xlThin;
+            }
+        }
+
+        // Điều chỉnh độ rộng cột để phù hợp với nội dung
+        worksheet.Columns.AutoFit();
+
+        // Lưu tập tin Excel
+        workbook.SaveAs(path);
+        workbook.Saved = true;
+
+        // Giải phóng tài nguyên
+        workbook.Close(false, Type.Missing, Type.Missing);
+        application.Quit();
+        System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+        System.Runtime.InteropServices.Marshal.ReleaseComObject(application);
+    }
+
+    private void dailyReportBtn_Click(object sender, EventArgs e)
+    {
+        SaveFileDialog saveFileDialog = new SaveFileDialog();
+        saveFileDialog.Title = "Export Excel";
+        saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx|Excel Files (*.xls)|*.xls";
+        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            try
+            {
+                ExportExcel(saveFileDialog.FileName);
+                MessageBox.Show("Export excel file successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exporting excel file failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+
+    private void dailyReportDateTimePicker_ValueChanged(object sender, EventArgs e)
+    {
+        loadDailyReport();
+    }
+    #endregion
+>>>>>>> Stashed changes
 }

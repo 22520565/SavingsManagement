@@ -24,7 +24,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>0.5393in</Top>
-        <Left>2.67472in</Left>
+        <Left>2.68166in</Left>
         <Height>0.35417in</Height>
         <Width>2.45833in</Width>
         <Style>
@@ -265,7 +265,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -361,7 +360,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Top>1.20361in</Top>
-        <Left>0.21056in</Left>
+        <Left>0.2175in</Left>
         <Height>1.97917in</Height>
         <Width>6.87972in</Width>
         <ZIndex>1</ZIndex>
@@ -371,63 +370,14 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox9">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>TP. Hồ Chí Minh,....../....../......</Value>
-                <Style>
-                  <FontFamily>times New Roman</FontFamily>
-                  <FontSize>14pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Ký tên</Value>
-                <Style>
-                  <FontFamily>times New Roman</FontFamily>
-                  <FontSize>14pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>4.59028in</Top>
-        <Left>3.90278in</Left>
-        <Height>0.70139in</Height>
-        <Width>3.1875in</Width>
-        <ZIndex>2</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>13.44084cm</Height>
     <Style />
   </Body>
-  <Width>18.52083cm</Width>
+  <Width>18.53847cm</Width>
   <Page>
     <PageHeader>
-      <Height>3.10444cm</Height>
+      <Height>3.13972cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -479,7 +429,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>0.01389in</Top>
+          <Top>0.02778in</Top>
           <Left>2.25805in</Left>
           <Height>1.20833in</Height>
           <Width>3.39583in</Width>
@@ -505,6 +455,56 @@
       <Height>4.39209cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox9">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>TP. Hồ Chí Minh,....../....../......</Value>
+                  <Style>
+                    <FontFamily>times New Roman</FontFamily>
+                    <FontSize>14pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Ký tên</Value>
+                  <Style>
+                    <FontFamily>times New Roman</FontFamily>
+                    <FontSize>14pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox9</rd:DefaultName>
+          <Top>0.01389in</Top>
+          <Left>3.90972in</Left>
+          <Height>0.70139in</Height>
+          <Width>3.1875in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
