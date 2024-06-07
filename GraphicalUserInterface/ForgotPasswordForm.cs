@@ -139,5 +139,25 @@ namespace GraphicalUserInterface
             btnResetPassword.BackColor = Color.Black;
             btnResetPassword.ForeColor = Color.White;
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginForm login = new LoginForm();
+            login.ShowDialog();
+            this.Close();
+        }
+
+        private void btnExit_MouseEnter(object sender, EventArgs e)
+        {
+            btnExit.BackColor = Color.Red;
+            btnExit.ForeColor = Color.White;
+        }
+
+        private void btnExit_MouseLeave(object sender, EventArgs e)
+        {
+            btnExit.BackColor = Color.Transparent;
+            btnExit.ForeColor = Color.Black;
+        }
     }
 }

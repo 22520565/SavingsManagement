@@ -40,11 +40,13 @@
             label3 = new System.Windows.Forms.Label();
             txtEmail = new System.Windows.Forms.TextBox();
             btnResetPassword = new System.Windows.Forms.Button();
+            btnExit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -187,18 +189,36 @@
             btnResetPassword.MouseEnter += btnResetPassword_MouseEnter;
             btnResetPassword.MouseLeave += btnResetPassword_MouseLeave;
             // 
+            // btnExit
+            // 
+            btnExit.BackColor = System.Drawing.Color.Transparent;
+            btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnExit.Image = Properties.Resources.close;
+            btnExit.Location = new System.Drawing.Point(835, 12);
+            btnExit.Margin = new System.Windows.Forms.Padding(4);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new System.Drawing.Size(30, 30);
+            btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            btnExit.TabIndex = 48;
+            btnExit.TabStop = false;
+            btnExit.Click += btnExit_Click;
+            btnExit.MouseEnter += btnExit_MouseEnter;
+            btnExit.MouseLeave += btnExit_MouseLeave;
+            // 
             // ForgotPasswordForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(929, 860);
+            Controls.Add(btnExit);
             Controls.Add(btnResetPassword);
             Controls.Add(getOTPBtn);
             Controls.Add(confirmOTPBtn);
             Controls.Add(panel5);
             Controls.Add(panel4);
             Controls.Add(pictureBox1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Name = "ForgotPasswordForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "ForgotPasswordForm";
@@ -209,6 +229,7 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnExit).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -227,5 +248,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnResetPassword;
+        private System.Windows.Forms.PictureBox btnExit;
     }
 }
