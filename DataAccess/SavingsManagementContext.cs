@@ -17,6 +17,8 @@ public sealed partial class SavingsManagementContext : DbContext
 
     public DbSet<CashFlow> CashFlows { get; set; }
 
+    public DbSet<Configuration> Configurations { get; set; }
+
     public DbSet<CustomerAccount> CustomerAccounts { get; set; }
 
     public DbSet<Saving> Savings { get; set; }

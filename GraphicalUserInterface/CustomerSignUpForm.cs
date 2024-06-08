@@ -250,7 +250,7 @@ public partial class CustomerSignUpForm : Form
 
         if (!checkPasssword(txtPassword.Text))
         {
-            MessageBox.Show("Please enter a password of at least 8 characters, at least one uppercase letter, at least one lowercase letter, at least one number and at least one special character!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show("Please enter a password of at least 8 characters, at least one uppercase letter, at least one lowercase letter, at least one number and at least one special character of {@,$,!,%,*,?,& } !", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 

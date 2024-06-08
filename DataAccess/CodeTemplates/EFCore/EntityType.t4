@@ -65,7 +65,6 @@ namespace <#= NamespaceHint #>;
         }
     }
 #>
-[Serializable]
 public sealed class <#= EntityType.Name #>
 {
 <#
