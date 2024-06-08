@@ -78,14 +78,20 @@ public partial class CustomerMenuForm : Form
     {
         try
         {
-            var customerBalance = CustomerAccounts.CurrentCustomerBalance;
-            this.balanceOpeningTextBox.Text = customerBalance?.ToString(
+            var customerBalance = CustomerAccounts.CurrentCustomerBalance ?? decimal.Zero;
+            this.balanceOpeningTextBox.Text = customerBalance.ToString(
                 Resources.CurrencyStringFormat, CultureInfo.InvariantCulture)
                 ?? decimal.Zero.ToString(
                 Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
-            this.amountOpeningNumeric.Maximum = customerBalance is decimal balance
-                ? Math.Round(balance, this.amountOpeningNumeric.DecimalPlaces, MidpointRounding.ToZero)
-                : decimal.Zero;
+            this.amountOpeningNumeric.Maximum = Math.Min(
+                Math.Round(customerBalance, this.amountOpeningNumeric.DecimalPlaces, MidpointRounding.ToZero),
+                Configurations.MaxAmountOpeningSaving);
+            this.amountOpeningNumeric.Minimum = Configurations.MinAmountOpeningSaving;
+
+            this.amountOpeningNumeric.Value = this.amountOpeningNumeric.Minimum;
+            this.amountOpeningErrorLabel.Text = "The minimum amount to open a saving is "
+                + this.amountOpeningNumeric.Minimum.ToString(Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
+            this.amountOpeningErrorLabel.Visible = customerBalance < this.amountOpeningNumeric.Minimum;
 
             this.savingDetailsComboBox.SelectedItem = null;
             this.savingClosingComboBox.SelectedItem = null;
@@ -167,7 +173,6 @@ public partial class CustomerMenuForm : Form
 
             this.interestOpeningTextBox.Text = string.Empty;
             this.maturityDayOpeningTextBox.Text = string.Empty;
-            this.amountOpeningNumeric.Value = this.amountOpeningNumeric.Minimum;
 
             this.openingSavingOpeningButton.Enabled = false;
         }
@@ -186,8 +191,7 @@ public partial class CustomerMenuForm : Form
                 this.maturityDayOpeningTextBox.Text = DateOnly.FromDateTime(DateTimeOffset.Now.LocalDateTime)
                                                         .AddMonths(this.savingDepositInfo.PeriodInMonths)
                                                         .ToString(CultureInfo.CurrentCulture);
-
-                this.openingSavingOpeningButton.Enabled = true;
+                this.openingSavingOpeningButton.Enabled = !this.amountOpeningErrorLabel.Visible;
             }
             catch (Exception ex)
             {
