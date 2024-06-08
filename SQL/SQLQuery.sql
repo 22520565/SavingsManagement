@@ -192,6 +192,45 @@ CREATE TABLE [dbo].[StaffPermissions](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+/****** Object:  Table [dbo].[Configurations]    Script Date: 08/06/24 17:32:20 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Configurations](
+	[ID] [tinyint] NOT NULL,
+	[MaxAmountOpeningSaving] [money] NOT NULL,
+	[MinAmountOpeningSaving] [money] NOT NULL,
+	[MaxAmountDepositing] [money] NOT NULL,
+	[MinAmountDepositing] [money] NOT NULL,
+	[MaxAmountWithdrawing] [money] NOT NULL,
+	[MinAmountWithdrawing] [money] NOT NULL,
+ CONSTRAINT [PK_Configurations] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Configurations] ([ID], [MaxAmountOpeningSaving], [MinAmountOpeningSaving], [MaxAmountDepositing], [MinAmountDepositing], [MaxAmountWithdrawing], [MinAmountWithdrawing]) VALUES (0, 200000.0000, 50.0000, 200000.0000, 50.0000, 200000.0000, 50.0000)
+GO
+ALTER TABLE [dbo].[Configurations] ADD  CONSTRAINT [DF_Configuration_ID]  DEFAULT ((0)) FOR [ID]
+GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MinMaxAmountDepositing] CHECK  (([MaxAmountDepositing]>=[MinAmountDepositing]))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MinMaxAmountDepositing]
+GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MinMaxAmountOpeningSaving] CHECK  (([MaxAmountOpeningSaving]>=[MinAmountOpeningSaving]))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MinMaxAmountOpeningSaving]
+GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MinMaxAmountWithdrawing] CHECK  (([MaxAmountWithdrawing]>=[MinAmountWithdrawing]))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MinMaxAmountWithdrawing]
+GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_OnlyOneRow] CHECK  (([ID]=(0)))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_OnlyOneRow]
+GO
 SET IDENTITY_INSERT [dbo].[CashFlows] ON 
 GO
 INSERT [dbo].[CashFlows] ([Id], [Time], [CustomerId], [BalanceChanging], [Content]) VALUES (2, CAST(N'2024-04-18T20:39:33.8246013+07:00' AS DateTimeOffset), 10, -2.0000, N'Deposit to saving ID: 26, periods: 3 months, annual interest rate: 0.020%/year')

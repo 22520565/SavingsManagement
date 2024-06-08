@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Globalization;
+using System.Windows.Forms;
 
 namespace GraphicalUserInterface
 {
@@ -76,6 +77,7 @@ namespace GraphicalUserInterface
             savingDetailsComboBox = new ComboBox();
             savingsDetailsLabel = new Label();
             openingTabPage = new TabPage();
+            amountOpeningErrorLabel = new Label();
             maturityDayOpeningTextBox = new TextBox();
             interestOpeningTextBox = new TextBox();
             balanceOpeningTextBox = new TextBox();
@@ -561,6 +563,7 @@ namespace GraphicalUserInterface
             // 
             // openingTabPage
             // 
+            openingTabPage.Controls.Add(amountOpeningErrorLabel);
             openingTabPage.Controls.Add(maturityDayOpeningTextBox);
             openingTabPage.Controls.Add(interestOpeningTextBox);
             openingTabPage.Controls.Add(balanceOpeningTextBox);
@@ -579,6 +582,17 @@ namespace GraphicalUserInterface
             openingTabPage.TabIndex = 0;
             openingTabPage.Text = "Opening";
             openingTabPage.UseVisualStyleBackColor = true;
+            // 
+            // amountOpeningErrorLabel
+            // 
+            amountOpeningErrorLabel.AutoSize = true;
+            amountOpeningErrorLabel.ForeColor = System.Drawing.Color.Red;
+            amountOpeningErrorLabel.Location = new System.Drawing.Point(311, 244);
+            amountOpeningErrorLabel.Name = "amountOpeningErrorLabel";
+            amountOpeningErrorLabel.Size = new System.Drawing.Size(420, 23);
+            amountOpeningErrorLabel.TabIndex = 5;
+            amountOpeningErrorLabel.Text = "The minimum amount to open a saving is $ 0.00";
+            amountOpeningErrorLabel.Visible = false;
             // 
             // maturityDayOpeningTextBox
             // 
@@ -641,6 +655,7 @@ namespace GraphicalUserInterface
             // 
             amountOpeningNumeric.DecimalPlaces = 2;
             amountOpeningNumeric.Location = new System.Drawing.Point(311, 210);
+            amountOpeningNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
             amountOpeningNumeric.Name = "amountOpeningNumeric";
             amountOpeningNumeric.Size = new System.Drawing.Size(244, 31);
             amountOpeningNumeric.TabIndex = 4;
@@ -1036,22 +1051,22 @@ namespace GraphicalUserInterface
 
         #endregion
         private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tabPage1;
-		private System.Windows.Forms.TabPage tabPage2;
-		private System.Windows.Forms.TabPage tabStatistical;
-		private GradientPanel panelSavings;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.Label lbSavings;
-		private System.Windows.Forms.Label label2;
-		private GradientPanel panelExpenses;
-		private System.Windows.Forms.PictureBox pictureBox2;
-		private System.Windows.Forms.Label lbExpenses;
-		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.Button btnExport;
-		private System.Windows.Forms.GroupBox groupBoxStats;
-		private System.Windows.Forms.GroupBox groupBoxTransactionList;
-		private System.Windows.Forms.DataGridView data_Transactions;
-		private System.Windows.Forms.GroupBox groupBoxFunction;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabStatistical;
+        private GradientPanel panelSavings;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbSavings;
+        private System.Windows.Forms.Label label2;
+        private GradientPanel panelExpenses;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lbExpenses;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.GroupBox groupBoxStats;
+        private System.Windows.Forms.GroupBox groupBoxTransactionList;
+        private System.Windows.Forms.DataGridView data_Transactions;
+        private System.Windows.Forms.GroupBox groupBoxFunction;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox customerBirthdayTextBox;
@@ -1113,6 +1128,7 @@ namespace GraphicalUserInterface
         private Label balanceClosingLabel;
         private ComboBox savingClosingComboBox;
         private Label savingClosingLabel;
+        private Label amountOpeningErrorLabel;
         private Button button1;
     }
 }

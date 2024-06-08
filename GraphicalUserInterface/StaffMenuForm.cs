@@ -272,27 +272,29 @@ public partial class StaffMenuForm : Form
     #endregion
 
     #region Deposit
+    // FIXME
     public void loadDeposit()
     {
-        using (var context = new SavingsManagementContext())
-        {
-            var deposits = (from cf in context.CashFlows
-                            join ca in context.CustomerAccounts on cf.CustomerId equals ca.Id
-                            where cf.BalanceChanging > 0
-                            select new
+        using var context = new SavingsManagementContext();
+        var deposits = context.CashFlows
+                            .Where(d => d.BalanceChanging > 0)
+                            .Select(d => new
                             {
-                                cf.Id,
-                                cf.CustomerId,
-                                CustomerName = ca.Name,
-                                cf.Time,
-                                cf.BalanceChanging,
-                                cf.Content,
-                            }).ToList();
+                                d.Id,
+                                d.CustomerId,
+                                CustomerName = context.CustomerAccounts
+                                                       .Where(c => c.Id == d.CustomerId)
+                                                       .Select(c => c.Name)
+                                                       .FirstOrDefault(),
+                                d.Time,
+                                d.BalanceChanging,
+                                d.Content,
+                            })
+                            .ToList();
 
-            dataGridViewDeposit.DataSource = deposits;
-            dataGridViewDeposit.Columns["BalanceChanging"].HeaderText = "Deposit Amount";
-            dataGridViewDeposit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-        }
+        dataGridViewDeposit.DataSource = deposits;
+        dataGridViewDeposit.Columns["CustomerName"].HeaderText = "Customer Name";
+        dataGridViewDeposit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
     }
 
     private void dataGridViewDeposit_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -337,6 +339,7 @@ public partial class StaffMenuForm : Form
         this.customerDepositNameTextBox.Text = string.Empty;
         this.customerDepositCicNumberTextBox.Text = string.Empty;
         this.customerDepositAmountNumeric.Enabled = false;
+        this.customerDepositAmountNumeric.Maximum = decimal.Zero;
         this.customerDepositContentTextBox.Enabled = false;
         this.customerDepositButton.Enabled = false;
         this.customerPrintButton.Enabled = false;
@@ -357,6 +360,7 @@ public partial class StaffMenuForm : Form
             this.customerDepositNameTextBox.Text = string.Empty;
             this.customerDepositCicNumberTextBox.Text = string.Empty;
             this.customerDepositAmountNumeric.Enabled = false;
+            this.customerDepositAmountNumeric.Maximum = decimal.Zero;
             this.customerDepositContentTextBox.Enabled = false;
             this.customerDepositButton.Enabled = false;
             this.customerPrintButton.Enabled = false;
@@ -366,6 +370,8 @@ public partial class StaffMenuForm : Form
             this.customerDepositNameTextBox.Text = customerAccount.Name;
             this.customerDepositCicNumberTextBox.Text = customerAccount.CicNumber;
             this.customerDepositAmountNumeric.Enabled = true;
+            this.customerDepositAmountNumeric.Maximum = Configurations.MaxAmountDepositing;
+            this.customerDepositAmountNumeric.Minimum = Configurations.MinAmountDepositing;
             this.customerDepositContentTextBox.Enabled = true;
             this.customerDepositButton.Enabled = !string.IsNullOrWhiteSpace(this.customerDepositContentTextBox.Text);
             this.customerPrintButton.Enabled = !string.IsNullOrWhiteSpace(this.customerDepositContentTextBox.Text);
@@ -505,8 +511,9 @@ public partial class StaffMenuForm : Form
         this.customerWithdrawCicNumberTextBox.Text = string.Empty;
         this.customerWithdrawBalanceTextBox.Text = string.Empty;
         this.customerWithdrawAmountNumeric.Enabled = false;
-        this.customerWithdrawContentTextBox.Enabled = false;
         this.customerWithdrawAmountNumeric.Maximum = decimal.Zero;
+        this.amountWithdrawingErrorLabel.Visible = false;
+        this.customerWithdrawContentTextBox.Enabled = false;
         this.customerWithdrawButton.Enabled = false;
         this.withdrawPrintButton.Enabled = false;
     }
@@ -528,6 +535,7 @@ public partial class StaffMenuForm : Form
             this.customerWithdrawBalanceTextBox.Text = string.Empty;
             this.customerWithdrawAmountNumeric.Enabled = false;
             this.customerWithdrawAmountNumeric.Maximum = decimal.Zero;
+            this.amountWithdrawingErrorLabel.Visible = false;
             this.customerWithdrawContentTextBox.Enabled = false;
             this.customerWithdrawButton.Enabled = false;
             this.withdrawPrintButton.Enabled = false;
@@ -539,9 +547,16 @@ public partial class StaffMenuForm : Form
             this.customerWithdrawBalanceTextBox.Text = customerAccount.Balance.ToString(
                 Resources.CurrencyStringFormat, CultureInfo.CurrentCulture);
             this.customerWithdrawAmountNumeric.Enabled = true;
-            this.customerWithdrawAmountNumeric.Maximum = Math.Round(customerAccount.Balance, this.customerWithdrawAmountNumeric.DecimalPlaces, MidpointRounding.ToZero);
+            this.customerWithdrawAmountNumeric.Maximum = Math.Min(
+                 Math.Round(customerAccount.Balance, this.customerWithdrawAmountNumeric.DecimalPlaces, MidpointRounding.ToZero),
+                 Configurations.MaxAmountWithdrawing);
+            this.customerWithdrawAmountNumeric.Minimum = Configurations.MinAmountWithdrawing;
+            this.amountWithdrawingErrorLabel.Text = "The minimum amount to withdraw is "
+                   + this.customerWithdrawAmountNumeric.Minimum.ToString(Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
+            this.amountWithdrawingErrorLabel.Visible = customerAccount.Balance < this.customerWithdrawAmountNumeric.Minimum;
             this.customerWithdrawContentTextBox.Enabled = true;
-            this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text);
+            this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text)
+                && !this.amountWithdrawingErrorLabel.Visible;
             this.withdrawPrintButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text);
         }
     }
@@ -549,7 +564,8 @@ public partial class StaffMenuForm : Form
     private void customerWithdrawContentTextBox_TextChanged(object sender, EventArgs e)
     {
         this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text)
-            && !string.IsNullOrWhiteSpace(this.customerWithdrawIdTextBox.Text);
+            && !string.IsNullOrWhiteSpace(this.customerWithdrawIdTextBox.Text)
+            && !this.amountWithdrawingErrorLabel.Visible;
         this.withdrawPrintButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text)
             && !string.IsNullOrWhiteSpace(this.customerWithdrawIdTextBox.Text);
     }

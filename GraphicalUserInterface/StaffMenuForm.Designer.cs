@@ -153,6 +153,7 @@ namespace GraphicalUserInterface
             groupBox5 = new System.Windows.Forms.GroupBox();
             data_rate = new System.Windows.Forms.DataGridView();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            amountWithdrawingErrorLabel = new System.Windows.Forms.Label();
             button1 = new System.Windows.Forms.Button();
             customerWithdrawContentLabel = new System.Windows.Forms.Label();
             customerWithdrawAmountLabel = new System.Windows.Forms.Label();
@@ -432,12 +433,10 @@ namespace GraphicalUserInterface
             customerDepositAmountNumeric.DecimalPlaces = 2;
             customerDepositAmountNumeric.Enabled = false;
             customerDepositAmountNumeric.Location = new System.Drawing.Point(363, 174);
-            customerDepositAmountNumeric.Maximum = new decimal(new int[] { -1981284353, -1966660860, 0, 0 });
-            customerDepositAmountNumeric.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
+            customerDepositAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
             customerDepositAmountNumeric.Name = "customerDepositAmountNumeric";
             customerDepositAmountNumeric.Size = new System.Drawing.Size(303, 34);
             customerDepositAmountNumeric.TabIndex = 6;
-            customerDepositAmountNumeric.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // customerDepositIdTextBox
             // 
@@ -687,6 +686,7 @@ namespace GraphicalUserInterface
             // 
             groupBox9.Controls.Add(reportWithdrawBtn);
             groupBox9.Controls.Add(withdrawPrintButton);
+            groupBox9.Controls.Add(amountWithdrawingErrorLabel);
             groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
             groupBox9.Location = new System.Drawing.Point(0, 0);
             groupBox9.Margin = new System.Windows.Forms.Padding(2);
@@ -1547,6 +1547,17 @@ namespace GraphicalUserInterface
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // amountWithdrawingErrorLabel
+            // 
+            amountWithdrawingErrorLabel.AutoSize = true;
+            amountWithdrawingErrorLabel.ForeColor = System.Drawing.Color.Red;
+            amountWithdrawingErrorLabel.Location = new System.Drawing.Point(379, 256);
+            amountWithdrawingErrorLabel.Name = "amountWithdrawingErrorLabel";
+            amountWithdrawingErrorLabel.Size = new System.Drawing.Size(421, 26);
+            amountWithdrawingErrorLabel.TabIndex = 5;
+            amountWithdrawingErrorLabel.Text = "The minimum amount to withdraw is $ 0.00";
+            amountWithdrawingErrorLabel.Visible = false;
+            // 
             // StaffMenuForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1714,6 +1725,7 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridView dataGridViewWithdraw;
         private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label amountWithdrawingErrorLabel;
         private System.Windows.Forms.Button customerPrintButton;
         private System.Windows.Forms.Button withdrawPrintButton;
         private System.Windows.Forms.Button reportDepositBtn;
