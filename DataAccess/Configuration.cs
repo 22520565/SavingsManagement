@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess;
 
-[Table("Configuration")]
 public sealed class Configuration
 {
     [Key]
