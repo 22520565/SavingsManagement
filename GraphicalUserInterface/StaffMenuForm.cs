@@ -123,9 +123,9 @@ public partial class StaffMenuForm : Form
         int month = int.Parse(this.monthtxt.Text);
         decimal rate = decimal.Parse(this.ratetxt.Text);
         rate = rate / 100;
-        SavingInterestRates.SetInterest(month,rate);
+        SavingInterestRates.SetInterest(month, rate);
         LoadingRateList();
-        MessageBox.Show("Successful","Save change successfully",MessageBoxButtons.OK);
+        MessageBox.Show("Successful", "Save change successfully", MessageBoxButtons.OK);
     }
 
     #endregion
@@ -212,30 +212,29 @@ public partial class StaffMenuForm : Form
     }
 
     #region Deposit
+    // FIXME
     public void loadDeposit()
     {
-        using (var context = new SavingsManagementContext())
-        {
-            var deposits = context.CashFlows
-                                .Where(d => d.BalanceChanging > 0)
-                                .Select(d => new
-                                {
-                                    d.Id,
-                                    d.CustomerId,
-                                    CustomerName = context.CustomerAccounts
-                                                           .Where(c => c.Id == d.CustomerId)
-                                                           .Select(c => c.Name)
-                                                           .FirstOrDefault(),
-                                    d.Time,
-                                    d.BalanceChanging,
-                                    d.Content,
-                                })
-                                .ToList();
+        using var context = new SavingsManagementContext();
+        var deposits = context.CashFlows
+                            .Where(d => d.BalanceChanging > 0)
+                            .Select(d => new
+                            {
+                                d.Id,
+                                d.CustomerId,
+                                CustomerName = context.CustomerAccounts
+                                                       .Where(c => c.Id == d.CustomerId)
+                                                       .Select(c => c.Name)
+                                                       .FirstOrDefault(),
+                                d.Time,
+                                d.BalanceChanging,
+                                d.Content,
+                            })
+                            .ToList();
 
-            dataGridViewDeposit.DataSource = deposits;
-            dataGridViewDeposit.Columns["CustomerName"].HeaderText = "Customer Name";
-            dataGridViewDeposit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-        }
+        dataGridViewDeposit.DataSource = deposits;
+        dataGridViewDeposit.Columns["CustomerName"].HeaderText = "Customer Name";
+        dataGridViewDeposit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
     }
 
     private void customerDepositIdTextBox_Enter(object sender, EventArgs e)
@@ -243,6 +242,7 @@ public partial class StaffMenuForm : Form
         this.customerDepositNameTextBox.Text = string.Empty;
         this.customerDepositCicNumberTextBox.Text = string.Empty;
         this.customerDepositAmountNumeric.Enabled = false;
+        this.customerDepositAmountNumeric.Maximum = decimal.Zero;
         this.customerDepositContentTextBox.Enabled = false;
         this.customerDepositButton.Enabled = false;
     }
@@ -262,6 +262,7 @@ public partial class StaffMenuForm : Form
             this.customerDepositNameTextBox.Text = string.Empty;
             this.customerDepositCicNumberTextBox.Text = string.Empty;
             this.customerDepositAmountNumeric.Enabled = false;
+            this.customerDepositAmountNumeric.Maximum = decimal.Zero;
             this.customerDepositContentTextBox.Enabled = false;
             this.customerDepositButton.Enabled = false;
         }
@@ -270,6 +271,8 @@ public partial class StaffMenuForm : Form
             this.customerDepositNameTextBox.Text = customerAccount.Name;
             this.customerDepositCicNumberTextBox.Text = customerAccount.CicNumber;
             this.customerDepositAmountNumeric.Enabled = true;
+            this.customerDepositAmountNumeric.Maximum = Configurations.MaxAmountDepositing;
+            this.customerDepositAmountNumeric.Minimum = Configurations.MinAmountDepositing;
             this.customerDepositContentTextBox.Enabled = true;
             this.customerDepositButton.Enabled = !string.IsNullOrWhiteSpace(this.customerDepositContentTextBox.Text);
         }
@@ -350,8 +353,9 @@ public partial class StaffMenuForm : Form
         this.customerWithdrawCicNumberTextBox.Text = string.Empty;
         this.customerWithdrawBalanceTextBox.Text = string.Empty;
         this.customerWithdrawAmountNumeric.Enabled = false;
-        this.customerWithdrawContentTextBox.Enabled = false;
         this.customerWithdrawAmountNumeric.Maximum = decimal.Zero;
+        this.amountWithdrawingErrorLabel.Visible = false;
+        this.customerWithdrawContentTextBox.Enabled = false;
         this.customerWithdrawButton.Enabled = false;
     }
 
@@ -372,6 +376,7 @@ public partial class StaffMenuForm : Form
             this.customerWithdrawBalanceTextBox.Text = string.Empty;
             this.customerWithdrawAmountNumeric.Enabled = false;
             this.customerWithdrawAmountNumeric.Maximum = decimal.Zero;
+            this.amountWithdrawingErrorLabel.Visible = false;
             this.customerWithdrawContentTextBox.Enabled = false;
             this.customerWithdrawButton.Enabled = false;
         }
@@ -382,16 +387,24 @@ public partial class StaffMenuForm : Form
             this.customerWithdrawBalanceTextBox.Text = customerAccount.Balance.ToString(
                 Resources.CurrencyStringFormat, CultureInfo.CurrentCulture);
             this.customerWithdrawAmountNumeric.Enabled = true;
-            this.customerWithdrawAmountNumeric.Maximum = Math.Round(customerAccount.Balance, this.customerWithdrawAmountNumeric.DecimalPlaces, MidpointRounding.ToZero);
+            this.customerWithdrawAmountNumeric.Maximum = Math.Min(
+                 Math.Round(customerAccount.Balance, this.customerWithdrawAmountNumeric.DecimalPlaces, MidpointRounding.ToZero),
+                 Configurations.MaxAmountWithdrawing);
+            this.customerWithdrawAmountNumeric.Minimum = Configurations.MinAmountWithdrawing;
+            this.amountWithdrawingErrorLabel.Text = "The minimum amount to withdraw is "
+                   + this.customerWithdrawAmountNumeric.Minimum.ToString(Resources.CurrencyStringFormat, CultureInfo.InvariantCulture);
+            this.amountWithdrawingErrorLabel.Visible = customerAccount.Balance < this.customerWithdrawAmountNumeric.Minimum;
             this.customerWithdrawContentTextBox.Enabled = true;
-            this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text);
+            this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text)
+                && !this.amountWithdrawingErrorLabel.Visible;
         }
     }
 
     private void customerWithdrawContentTextBox_TextChanged(object sender, EventArgs e)
     {
         this.customerWithdrawButton.Enabled = !string.IsNullOrWhiteSpace(this.customerWithdrawContentTextBox.Text)
-            && !string.IsNullOrWhiteSpace(this.customerWithdrawIdTextBox.Text);
+            && !string.IsNullOrWhiteSpace(this.customerWithdrawIdTextBox.Text)
+            && !this.amountWithdrawingErrorLabel.Visible;
     }
 
     private void customerWithdrawButton_Click(object sender, EventArgs e)

@@ -43,7 +43,7 @@ internal static class Program
                         break;
                     }
                 }
-            }  
+            }
         } while (true);
     }
 }
