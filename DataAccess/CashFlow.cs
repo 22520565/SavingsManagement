@@ -15,6 +15,9 @@ public sealed class CashFlow
 
     public int CustomerId { get; set; }
 
+    [StringLength(300)]
+    public string? CustomerName { get; set; }
+
     [Column(TypeName = "money")]
     public decimal BalanceChanging { get; set; }
 
