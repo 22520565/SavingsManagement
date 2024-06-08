@@ -61,11 +61,51 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _20945597 {
+            get {
+                object obj = ResourceManager.GetObject("20945597", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _307ce493_b254_4b2d_8ba4_d12c080d6651 {
+            get {
+                object obj = ResourceManager.GetObject("307ce493-b254-4b2d-8ba4-d12c080d6651", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4498897 {
+            get {
+                object obj = ResourceManager.GetObject("4498897", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your account has been disabled! Please contact us for support!.
         /// </summary>
         internal static string AccountDisabledErrorString {
             get {
                 return ResourceManager.GetString("AccountDisabledErrorString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap avt {
+            get {
+                object obj = ResourceManager.GetObject("avt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
