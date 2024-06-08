@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 namespace DataAccess;
 
 [Index("Username", Name = "UQ__StaffAcc__F3DBC572752A95C1", IsUnique = true)]
-[Serializable]
 public sealed class StaffAccount
 {
     [Key]

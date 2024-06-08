@@ -8,7 +8,6 @@ namespace DataAccess;
 
 [Index("Username", Name = "UQ_Customer", IsUnique = true)]
 [Index("Email", Name = "UQ_Email", IsUnique = true)]
-[Serializable]
 public sealed class CustomerAccount
 {
     [Key]
