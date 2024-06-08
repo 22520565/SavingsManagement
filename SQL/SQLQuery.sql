@@ -93,6 +93,7 @@ CREATE TABLE [dbo].[CashFlows](
 	[Id] [int] IDENTITY(0,1) NOT NULL,
 	[Time] [datetimeoffset](7) NOT NULL,
 	[CustomerId] [int] NOT NULL,
+	[CustomerName] [nvarchar](300),
 	[BalanceChanging] [money] NOT NULL,
 	[Content] [nvarchar](300) NOT NULL,
  CONSTRAINT [PK_CashFlows] PRIMARY KEY CLUSTERED 

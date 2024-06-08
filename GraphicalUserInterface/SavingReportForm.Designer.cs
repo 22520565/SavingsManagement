@@ -35,20 +35,24 @@
             // 
             reportViewer.Dock = System.Windows.Forms.DockStyle.Fill;
             reportViewer.Location = new System.Drawing.Point(0, 0);
+            reportViewer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             reportViewer.Name = "reportViewer";
             reportViewer.ServerReport.BearerToken = null;
-            reportViewer.Size = new System.Drawing.Size(800, 450);
+            reportViewer.Size = new System.Drawing.Size(1378, 844);
             reportViewer.TabIndex = 0;
             reportViewer.Load += reportViewer_Load;
             // 
             // SavingReportForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(800, 450);
+            ClientSize = new System.Drawing.Size(1378, 844);
             Controls.Add(reportViewer);
+            Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             Name = "SavingReportForm";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += SavingReportForm_Load;
             ResumeLayout(false);
         }
 

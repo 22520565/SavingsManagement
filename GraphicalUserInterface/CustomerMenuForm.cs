@@ -67,6 +67,13 @@ public partial class CustomerMenuForm : Form
         form.ShowDialog();
     }
 
+    private void button1_Click(object sender, EventArgs e)
+    {
+        using var form = new CustomerChangeInfo();
+        form.ShowDialog();
+        LoadingAccountInfo();
+    }
+
     #endregion
     #region Savings
     private void InitializeSavings()
@@ -436,24 +443,6 @@ public partial class CustomerMenuForm : Form
         this.GoingBackToLoginForm = false;
     }
 
-    private void accountInformationToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        using var accountInfoForm = new AccountInfoForm();
-        accountInfoForm.ShowDialog(this);
-    }
-
-    private void accountManagementToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        using var accountManagementForm = new AccountManagementForm();
-        accountManagementForm.ShowDialog(this);
-    }
-
-    private void customerInformationToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        using var personalInfoForm = new PersonalInfoForm();
-        personalInfoForm.ShowDialog(this);
-    }
-
     private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
     {
         Form bg = new Form();
@@ -477,5 +466,5 @@ public partial class CustomerMenuForm : Form
         }
         this.GoingBackToLoginForm = !logOut.IsNotClosed;
         e.Cancel = logOut.IsNotClosed;
-    }
+    }  
 }

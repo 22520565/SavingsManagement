@@ -31,9 +31,9 @@ namespace GraphicalUserInterface
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             tabControl2 = new TabControl();
@@ -113,6 +113,7 @@ namespace GraphicalUserInterface
             pictureBox2 = new PictureBox();
             lbExpenses = new Label();
             label8 = new Label();
+            button1 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabControl2.SuspendLayout();
@@ -171,6 +172,7 @@ namespace GraphicalUserInterface
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(button1);
             tabPage3.Controls.Add(customerUsernameTextBox);
             tabPage3.Controls.Add(customerUsernameLabel);
             tabPage3.Controls.Add(customerIdTextBox);
@@ -434,6 +436,7 @@ namespace GraphicalUserInterface
             // 
             exportDetailsButton.AutoSize = true;
             exportDetailsButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            exportDetailsButton.Enabled = false;
             exportDetailsButton.Location = new System.Drawing.Point(342, 304);
             exportDetailsButton.Name = "exportDetailsButton";
             exportDetailsButton.Size = new System.Drawing.Size(79, 33);
@@ -704,10 +707,10 @@ namespace GraphicalUserInterface
             closingTabPage.Controls.Add(balanceClosingLabel);
             closingTabPage.Controls.Add(savingClosingComboBox);
             closingTabPage.Controls.Add(savingClosingLabel);
-            closingTabPage.Location = new System.Drawing.Point(4, 29);
+            closingTabPage.Location = new System.Drawing.Point(4, 32);
             closingTabPage.Name = "closingTabPage";
             closingTabPage.Padding = new Padding(3);
-            closingTabPage.Size = new System.Drawing.Size(1127, 683);
+            closingTabPage.Size = new System.Drawing.Size(1127, 680);
             closingTabPage.TabIndex = 1;
             closingTabPage.Text = "Closing";
             closingTabPage.UseVisualStyleBackColor = true;
@@ -852,34 +855,34 @@ namespace GraphicalUserInterface
             data_Transactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             data_Transactions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             data_Transactions.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            data_Transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            data_Transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             data_Transactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Padding = new Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            data_Transactions.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Padding = new Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            data_Transactions.DefaultCellStyle = dataGridViewCellStyle5;
             data_Transactions.EditMode = DataGridViewEditMode.EditOnF2;
             data_Transactions.Location = new System.Drawing.Point(5, 38);
             data_Transactions.Name = "data_Transactions";
             data_Transactions.RowHeadersVisible = false;
             data_Transactions.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Padding = new Padding(5);
-            data_Transactions.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Padding = new Padding(5);
+            data_Transactions.RowsDefaultCellStyle = dataGridViewCellStyle6;
             data_Transactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             data_Transactions.Size = new System.Drawing.Size(825, 645);
             data_Transactions.TabIndex = 4;
@@ -992,6 +995,18 @@ namespace GraphicalUserInterface
             label8.Size = new System.Drawing.Size(104, 27);
             label8.TabIndex = 0;
             label8.Text = "Expenses";
+            // 
+            // button1
+            // 
+            button1.AutoSize = true;
+            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button1.Location = new System.Drawing.Point(638, 395);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(183, 33);
+            button1.TabIndex = 11;
+            button1.Text = "Change Infomation";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // CustomerMenuForm
             // 
@@ -1114,5 +1129,6 @@ namespace GraphicalUserInterface
         private ComboBox savingClosingComboBox;
         private Label savingClosingLabel;
         private Label amountOpeningErrorLabel;
+        private Button button1;
     }
 }

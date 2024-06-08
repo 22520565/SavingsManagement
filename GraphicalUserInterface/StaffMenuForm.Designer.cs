@@ -37,9 +37,9 @@ namespace GraphicalUserInterface
             System.Windows.Forms.Label customerWithdrawNameLabel;
             System.Windows.Forms.Label customerWithdrawIdLabel;
             System.Windows.Forms.Label customerWithdrawBalanceLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            tabControl1 = new System.Windows.Forms.TabControl();
-            tabPage1 = new System.Windows.Forms.TabPage();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            tabControlStaffMenu = new System.Windows.Forms.TabControl();
+            tabPageInformation = new System.Windows.Forms.TabPage();
             staffusernametxt = new System.Windows.Forms.TextBox();
             customerUsernameLabel = new System.Windows.Forms.Label();
             staffIdtxt = new System.Windows.Forms.TextBox();
@@ -51,7 +51,7 @@ namespace GraphicalUserInterface
             customerGenderLabel = new System.Windows.Forms.Label();
             staffnametxt = new System.Windows.Forms.TextBox();
             customerNameLabel = new System.Windows.Forms.Label();
-            tabPage2 = new System.Windows.Forms.TabPage();
+            tabPageDeposit = new System.Windows.Forms.TabPage();
             dataGridViewDeposit = new System.Windows.Forms.DataGridView();
             customerDepositAmountNumeric = new System.Windows.Forms.NumericUpDown();
             customerDepositIdTextBox = new System.Windows.Forms.TextBox();
@@ -65,7 +65,9 @@ namespace GraphicalUserInterface
             customerDepositNameLabel = new System.Windows.Forms.Label();
             customerDepositIdLabel = new System.Windows.Forms.Label();
             groupBox8 = new System.Windows.Forms.GroupBox();
-            tabPage3 = new System.Windows.Forms.TabPage();
+            reportDepositBtn = new System.Windows.Forms.Button();
+            customerPrintButton = new System.Windows.Forms.Button();
+            tabPageWithdraw = new System.Windows.Forms.TabPage();
             dataGridViewWithdraw = new System.Windows.Forms.DataGridView();
             customerWithdrawBalanceTextBox = new System.Windows.Forms.TextBox();
             customerWithdrawAmountNumeric = new System.Windows.Forms.NumericUpDown();
@@ -75,6 +77,8 @@ namespace GraphicalUserInterface
             customerWithdrawCicNumberTextBox = new System.Windows.Forms.TextBox();
             customerWithdrawNameTextBox = new System.Windows.Forms.TextBox();
             groupBox9 = new System.Windows.Forms.GroupBox();
+            reportWithdrawBtn = new System.Windows.Forms.Button();
+            withdrawPrintButton = new System.Windows.Forms.Button();
             tabPageManageCustomers = new System.Windows.Forms.TabPage();
             dataGridViewCustomer = new System.Windows.Forms.DataGridView();
             groupBox6 = new System.Windows.Forms.GroupBox();
@@ -92,8 +96,6 @@ namespace GraphicalUserInterface
             customerBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             label9 = new System.Windows.Forms.Label();
             customerMaleCheckBox = new System.Windows.Forms.CheckBox();
-            customerHashedPasswordTextBox = new System.Windows.Forms.TextBox();
-            label8 = new System.Windows.Forms.Label();
             customerUsernameTextBox = new System.Windows.Forms.TextBox();
             label7 = new System.Windows.Forms.Label();
             customerEmailTextBox = new System.Windows.Forms.TextBox();
@@ -123,8 +125,6 @@ namespace GraphicalUserInterface
             staffMaleCheckBox = new System.Windows.Forms.CheckBox();
             staffPermissionIdComboBox = new System.Windows.Forms.ComboBox();
             label16 = new System.Windows.Forms.Label();
-            staffHashedPasswordTextBox = new System.Windows.Forms.TextBox();
-            label15 = new System.Windows.Forms.Label();
             staffUsernameTextBox = new System.Windows.Forms.TextBox();
             label14 = new System.Windows.Forms.Label();
             staffPositionTextBox = new System.Windows.Forms.TextBox();
@@ -133,6 +133,16 @@ namespace GraphicalUserInterface
             label12 = new System.Windows.Forms.Label();
             staffIdTextBox = new System.Windows.Forms.TextBox();
             label11 = new System.Windows.Forms.Label();
+            tabPageFinancialReport = new System.Windows.Forms.TabPage();
+            tabControl1 = new System.Windows.Forms.TabControl();
+            tabPageDaily = new System.Windows.Forms.TabPage();
+            dataGridViewDailyReport = new System.Windows.Forms.DataGridView();
+            groupBox10 = new System.Windows.Forms.GroupBox();
+            dailyReportBtn = new System.Windows.Forms.Button();
+            label22 = new System.Windows.Forms.Label();
+            dailyReportDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            tabPageMonth = new System.Windows.Forms.TabPage();
+            label21 = new System.Windows.Forms.Label();
             tabPageChangeRegulations = new System.Windows.Forms.TabPage();
             label19 = new System.Windows.Forms.Label();
             saveRate = new System.Windows.Forms.Button();
@@ -144,18 +154,20 @@ namespace GraphicalUserInterface
             data_rate = new System.Windows.Forms.DataGridView();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             amountWithdrawingErrorLabel = new System.Windows.Forms.Label();
+            button1 = new System.Windows.Forms.Button();
             customerWithdrawContentLabel = new System.Windows.Forms.Label();
             customerWithdrawAmountLabel = new System.Windows.Forms.Label();
             customerWithdrawCicNumberLabel = new System.Windows.Forms.Label();
             customerWithdrawNameLabel = new System.Windows.Forms.Label();
             customerWithdrawIdLabel = new System.Windows.Forms.Label();
             customerWithdrawBalanceLabel = new System.Windows.Forms.Label();
-            tabControl1.SuspendLayout();
-            tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
+            tabControlStaffMenu.SuspendLayout();
+            tabPageInformation.SuspendLayout();
+            tabPageDeposit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDeposit).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).BeginInit();
-            tabPage3.SuspendLayout();
+            groupBox8.SuspendLayout();
+            tabPageWithdraw.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewWithdraw).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).BeginInit();
             groupBox9.SuspendLayout();
@@ -169,6 +181,12 @@ namespace GraphicalUserInterface
             groupBox7.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
+            tabPageFinancialReport.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPageDaily.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDailyReport).BeginInit();
+            groupBox10.SuspendLayout();
+            tabPageMonth.SuspendLayout();
             tabPageChangeRegulations.SuspendLayout();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)data_rate).BeginInit();
@@ -234,45 +252,47 @@ namespace GraphicalUserInterface
             customerWithdrawBalanceLabel.TabIndex = 3;
             customerWithdrawBalanceLabel.Text = "Balance:";
             // 
-            // tabControl1
+            // tabControlStaffMenu
             // 
-            tabControl1.Controls.Add(tabPage1);
-            tabControl1.Controls.Add(tabPage2);
-            tabControl1.Controls.Add(tabPage3);
-            tabControl1.Controls.Add(tabPageManageCustomers);
-            tabControl1.Controls.Add(tabPageManageStaffs);
-            tabControl1.Controls.Add(tabPageChangeRegulations);
-            tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            tabControl1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            tabControl1.Location = new System.Drawing.Point(0, 0);
-            tabControl1.Margin = new System.Windows.Forms.Padding(2);
-            tabControl1.Name = "tabControl1";
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(1262, 755);
-            tabControl1.TabIndex = 0;
-            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
+            tabControlStaffMenu.Controls.Add(tabPageInformation);
+            tabControlStaffMenu.Controls.Add(tabPageDeposit);
+            tabControlStaffMenu.Controls.Add(tabPageWithdraw);
+            tabControlStaffMenu.Controls.Add(tabPageManageCustomers);
+            tabControlStaffMenu.Controls.Add(tabPageManageStaffs);
+            tabControlStaffMenu.Controls.Add(tabPageFinancialReport);
+            tabControlStaffMenu.Controls.Add(tabPageChangeRegulations);
+            tabControlStaffMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            tabControlStaffMenu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tabControlStaffMenu.Location = new System.Drawing.Point(0, 0);
+            tabControlStaffMenu.Margin = new System.Windows.Forms.Padding(2);
+            tabControlStaffMenu.Name = "tabControlStaffMenu";
+            tabControlStaffMenu.SelectedIndex = 0;
+            tabControlStaffMenu.Size = new System.Drawing.Size(1262, 755);
+            tabControlStaffMenu.TabIndex = 0;
+            tabControlStaffMenu.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
-            // tabPage1
+            // tabPageInformation
             // 
-            tabPage1.Controls.Add(staffusernametxt);
-            tabPage1.Controls.Add(customerUsernameLabel);
-            tabPage1.Controls.Add(staffIdtxt);
-            tabPage1.Controls.Add(customerIdLabel);
-            tabPage1.Controls.Add(staffChangePasswordButton);
-            tabPage1.Controls.Add(customerPhoneNumberLabel);
-            tabPage1.Controls.Add(staffpositiontxt);
-            tabPage1.Controls.Add(staffgendertxt);
-            tabPage1.Controls.Add(customerGenderLabel);
-            tabPage1.Controls.Add(staffnametxt);
-            tabPage1.Controls.Add(customerNameLabel);
-            tabPage1.Location = new System.Drawing.Point(4, 35);
-            tabPage1.Margin = new System.Windows.Forms.Padding(2);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            tabPage1.Size = new System.Drawing.Size(1254, 716);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Information";
-            tabPage1.UseVisualStyleBackColor = true;
+            tabPageInformation.Controls.Add(button1);
+            tabPageInformation.Controls.Add(staffusernametxt);
+            tabPageInformation.Controls.Add(customerUsernameLabel);
+            tabPageInformation.Controls.Add(staffIdtxt);
+            tabPageInformation.Controls.Add(customerIdLabel);
+            tabPageInformation.Controls.Add(staffChangePasswordButton);
+            tabPageInformation.Controls.Add(customerPhoneNumberLabel);
+            tabPageInformation.Controls.Add(staffpositiontxt);
+            tabPageInformation.Controls.Add(staffgendertxt);
+            tabPageInformation.Controls.Add(customerGenderLabel);
+            tabPageInformation.Controls.Add(staffnametxt);
+            tabPageInformation.Controls.Add(customerNameLabel);
+            tabPageInformation.Location = new System.Drawing.Point(4, 35);
+            tabPageInformation.Margin = new System.Windows.Forms.Padding(2);
+            tabPageInformation.Name = "tabPageInformation";
+            tabPageInformation.Padding = new System.Windows.Forms.Padding(2);
+            tabPageInformation.Size = new System.Drawing.Size(1254, 716);
+            tabPageInformation.TabIndex = 0;
+            tabPageInformation.Text = "Information";
+            tabPageInformation.UseVisualStyleBackColor = true;
             // 
             // staffusernametxt
             // 
@@ -371,29 +391,29 @@ namespace GraphicalUserInterface
             customerNameLabel.TabIndex = 25;
             customerNameLabel.Text = "Name:";
             // 
-            // tabPage2
+            // tabPageDeposit
             // 
-            tabPage2.Controls.Add(dataGridViewDeposit);
-            tabPage2.Controls.Add(customerDepositAmountNumeric);
-            tabPage2.Controls.Add(customerDepositIdTextBox);
-            tabPage2.Controls.Add(customerDepositButton);
-            tabPage2.Controls.Add(customerDepositContentTextBox);
-            tabPage2.Controls.Add(customerDepositContentLabel);
-            tabPage2.Controls.Add(customerDepositAmountLabel);
-            tabPage2.Controls.Add(customerDepositCicNumberTextBox);
-            tabPage2.Controls.Add(customerDepositCicNumberLabel);
-            tabPage2.Controls.Add(customerDepositNameTextBox);
-            tabPage2.Controls.Add(customerDepositNameLabel);
-            tabPage2.Controls.Add(customerDepositIdLabel);
-            tabPage2.Controls.Add(groupBox8);
-            tabPage2.Location = new System.Drawing.Point(4, 35);
-            tabPage2.Margin = new System.Windows.Forms.Padding(2);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            tabPage2.Size = new System.Drawing.Size(1254, 716);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Deposit";
-            tabPage2.UseVisualStyleBackColor = true;
+            tabPageDeposit.Controls.Add(dataGridViewDeposit);
+            tabPageDeposit.Controls.Add(customerDepositAmountNumeric);
+            tabPageDeposit.Controls.Add(customerDepositIdTextBox);
+            tabPageDeposit.Controls.Add(customerDepositButton);
+            tabPageDeposit.Controls.Add(customerDepositContentTextBox);
+            tabPageDeposit.Controls.Add(customerDepositContentLabel);
+            tabPageDeposit.Controls.Add(customerDepositAmountLabel);
+            tabPageDeposit.Controls.Add(customerDepositCicNumberTextBox);
+            tabPageDeposit.Controls.Add(customerDepositCicNumberLabel);
+            tabPageDeposit.Controls.Add(customerDepositNameTextBox);
+            tabPageDeposit.Controls.Add(customerDepositNameLabel);
+            tabPageDeposit.Controls.Add(customerDepositIdLabel);
+            tabPageDeposit.Controls.Add(groupBox8);
+            tabPageDeposit.Location = new System.Drawing.Point(4, 35);
+            tabPageDeposit.Margin = new System.Windows.Forms.Padding(2);
+            tabPageDeposit.Name = "tabPageDeposit";
+            tabPageDeposit.Padding = new System.Windows.Forms.Padding(2);
+            tabPageDeposit.Size = new System.Drawing.Size(1254, 716);
+            tabPageDeposit.TabIndex = 1;
+            tabPageDeposit.Text = "Deposit";
+            tabPageDeposit.UseVisualStyleBackColor = true;
             // 
             // dataGridViewDeposit
             // 
@@ -406,6 +426,7 @@ namespace GraphicalUserInterface
             dataGridViewDeposit.RowHeadersWidth = 62;
             dataGridViewDeposit.Size = new System.Drawing.Size(1250, 340);
             dataGridViewDeposit.TabIndex = 8;
+            dataGridViewDeposit.CellContentClick += dataGridViewDeposit_CellContentClick;
             // 
             // customerDepositAmountNumeric
             // 
@@ -518,6 +539,8 @@ namespace GraphicalUserInterface
             // 
             // groupBox8
             // 
+            groupBox8.Controls.Add(reportDepositBtn);
+            groupBox8.Controls.Add(customerPrintButton);
             groupBox8.Dock = System.Windows.Forms.DockStyle.Top;
             groupBox8.Location = new System.Drawing.Point(2, 2);
             groupBox8.Margin = new System.Windows.Forms.Padding(2);
@@ -527,30 +550,56 @@ namespace GraphicalUserInterface
             groupBox8.TabIndex = 7;
             groupBox8.TabStop = false;
             // 
-            // tabPage3
+            // reportDepositBtn
             // 
-            tabPage3.Controls.Add(dataGridViewWithdraw);
-            tabPage3.Controls.Add(customerWithdrawBalanceTextBox);
-            tabPage3.Controls.Add(customerWithdrawBalanceLabel);
-            tabPage3.Controls.Add(customerWithdrawAmountNumeric);
-            tabPage3.Controls.Add(customerWithdrawIdTextBox);
-            tabPage3.Controls.Add(customerWithdrawButton);
-            tabPage3.Controls.Add(customerWithdrawContentTextBox);
-            tabPage3.Controls.Add(customerWithdrawContentLabel);
-            tabPage3.Controls.Add(customerWithdrawAmountLabel);
-            tabPage3.Controls.Add(customerWithdrawCicNumberTextBox);
-            tabPage3.Controls.Add(customerWithdrawCicNumberLabel);
-            tabPage3.Controls.Add(customerWithdrawNameTextBox);
-            tabPage3.Controls.Add(customerWithdrawNameLabel);
-            tabPage3.Controls.Add(customerWithdrawIdLabel);
-            tabPage3.Controls.Add(groupBox9);
-            tabPage3.Location = new System.Drawing.Point(4, 35);
-            tabPage3.Margin = new System.Windows.Forms.Padding(2);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Size = new System.Drawing.Size(1254, 716);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "Withdraw";
-            tabPage3.UseVisualStyleBackColor = true;
+            reportDepositBtn.AutoSize = true;
+            reportDepositBtn.Location = new System.Drawing.Point(362, 323);
+            reportDepositBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            reportDepositBtn.Name = "reportDepositBtn";
+            reportDepositBtn.Size = new System.Drawing.Size(90, 36);
+            reportDepositBtn.TabIndex = 6;
+            reportDepositBtn.Text = "Report";
+            reportDepositBtn.UseVisualStyleBackColor = true;
+            reportDepositBtn.Click += reportDepositBtn_Click;
+            // 
+            // customerPrintButton
+            // 
+            customerPrintButton.AutoSize = true;
+            customerPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            customerPrintButton.Enabled = false;
+            customerPrintButton.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerPrintButton.Location = new System.Drawing.Point(485, 323);
+            customerPrintButton.Name = "customerPrintButton";
+            customerPrintButton.Size = new System.Drawing.Size(67, 36);
+            customerPrintButton.TabIndex = 5;
+            customerPrintButton.Text = "Print";
+            customerPrintButton.UseVisualStyleBackColor = true;
+            customerPrintButton.Click += customerPrintButton_Click;
+            // 
+            // tabPageWithdraw
+            // 
+            tabPageWithdraw.Controls.Add(dataGridViewWithdraw);
+            tabPageWithdraw.Controls.Add(customerWithdrawBalanceTextBox);
+            tabPageWithdraw.Controls.Add(customerWithdrawBalanceLabel);
+            tabPageWithdraw.Controls.Add(customerWithdrawAmountNumeric);
+            tabPageWithdraw.Controls.Add(customerWithdrawIdTextBox);
+            tabPageWithdraw.Controls.Add(customerWithdrawButton);
+            tabPageWithdraw.Controls.Add(customerWithdrawContentTextBox);
+            tabPageWithdraw.Controls.Add(customerWithdrawContentLabel);
+            tabPageWithdraw.Controls.Add(customerWithdrawAmountLabel);
+            tabPageWithdraw.Controls.Add(customerWithdrawCicNumberTextBox);
+            tabPageWithdraw.Controls.Add(customerWithdrawCicNumberLabel);
+            tabPageWithdraw.Controls.Add(customerWithdrawNameTextBox);
+            tabPageWithdraw.Controls.Add(customerWithdrawNameLabel);
+            tabPageWithdraw.Controls.Add(customerWithdrawIdLabel);
+            tabPageWithdraw.Controls.Add(groupBox9);
+            tabPageWithdraw.Location = new System.Drawing.Point(4, 35);
+            tabPageWithdraw.Margin = new System.Windows.Forms.Padding(2);
+            tabPageWithdraw.Name = "tabPageWithdraw";
+            tabPageWithdraw.Size = new System.Drawing.Size(1254, 716);
+            tabPageWithdraw.TabIndex = 2;
+            tabPageWithdraw.Text = "Withdraw";
+            tabPageWithdraw.UseVisualStyleBackColor = true;
             // 
             // dataGridViewWithdraw
             // 
@@ -563,6 +612,7 @@ namespace GraphicalUserInterface
             dataGridViewWithdraw.RowHeadersWidth = 62;
             dataGridViewWithdraw.Size = new System.Drawing.Size(1254, 306);
             dataGridViewWithdraw.TabIndex = 9;
+            dataGridViewWithdraw.CellContentClick += dataGridViewWithdraw_CellContentClick;
             // 
             // customerWithdrawBalanceTextBox
             // 
@@ -578,6 +628,7 @@ namespace GraphicalUserInterface
             customerWithdrawAmountNumeric.Enabled = false;
             customerWithdrawAmountNumeric.Location = new System.Drawing.Point(379, 208);
             customerWithdrawAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
+            customerWithdrawAmountNumeric.Minimum = new decimal(new int[] { 99999, 0, 0, int.MinValue });
             customerWithdrawAmountNumeric.Name = "customerWithdrawAmountNumeric";
             customerWithdrawAmountNumeric.Size = new System.Drawing.Size(303, 34);
             customerWithdrawAmountNumeric.TabIndex = 4;
@@ -633,6 +684,8 @@ namespace GraphicalUserInterface
             // 
             // groupBox9
             // 
+            groupBox9.Controls.Add(reportWithdrawBtn);
+            groupBox9.Controls.Add(withdrawPrintButton);
             groupBox9.Controls.Add(amountWithdrawingErrorLabel);
             groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
             groupBox9.Location = new System.Drawing.Point(0, 0);
@@ -642,6 +695,32 @@ namespace GraphicalUserInterface
             groupBox9.Size = new System.Drawing.Size(1254, 410);
             groupBox9.TabIndex = 8;
             groupBox9.TabStop = false;
+            // 
+            // reportWithdrawBtn
+            // 
+            reportWithdrawBtn.AutoSize = true;
+            reportWithdrawBtn.Location = new System.Drawing.Point(379, 359);
+            reportWithdrawBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            reportWithdrawBtn.Name = "reportWithdrawBtn";
+            reportWithdrawBtn.Size = new System.Drawing.Size(90, 36);
+            reportWithdrawBtn.TabIndex = 11;
+            reportWithdrawBtn.Text = "Report";
+            reportWithdrawBtn.UseVisualStyleBackColor = true;
+            reportWithdrawBtn.Click += reportWithdrawBtn_Click;
+            // 
+            // withdrawPrintButton
+            // 
+            withdrawPrintButton.AutoSize = true;
+            withdrawPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            withdrawPrintButton.Enabled = false;
+            withdrawPrintButton.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            withdrawPrintButton.Location = new System.Drawing.Point(504, 359);
+            withdrawPrintButton.Name = "withdrawPrintButton";
+            withdrawPrintButton.Size = new System.Drawing.Size(67, 36);
+            withdrawPrintButton.TabIndex = 10;
+            withdrawPrintButton.Text = "Print";
+            withdrawPrintButton.UseVisualStyleBackColor = true;
+            withdrawPrintButton.Click += withdrawPrintButton_Click;
             // 
             // tabPageManageCustomers
             // 
@@ -777,8 +856,6 @@ namespace GraphicalUserInterface
             groupBox1.Controls.Add(customerBirthDateTimePicker);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(customerMaleCheckBox);
-            groupBox1.Controls.Add(customerHashedPasswordTextBox);
-            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(customerUsernameTextBox);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(customerEmailTextBox);
@@ -824,7 +901,7 @@ namespace GraphicalUserInterface
             // customerDisableCheckBox
             // 
             customerDisableCheckBox.AutoSize = true;
-            customerDisableCheckBox.Location = new System.Drawing.Point(881, 231);
+            customerDisableCheckBox.Location = new System.Drawing.Point(470, 292);
             customerDisableCheckBox.Margin = new System.Windows.Forms.Padding(2);
             customerDisableCheckBox.Name = "customerDisableCheckBox";
             customerDisableCheckBox.Size = new System.Drawing.Size(103, 30);
@@ -861,26 +938,6 @@ namespace GraphicalUserInterface
             customerMaleCheckBox.TabIndex = 16;
             customerMaleCheckBox.Text = "Male";
             customerMaleCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // customerHashedPasswordTextBox
-            // 
-            customerHashedPasswordTextBox.Location = new System.Drawing.Point(550, 230);
-            customerHashedPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
-            customerHashedPasswordTextBox.Name = "customerHashedPasswordTextBox";
-            customerHashedPasswordTextBox.ReadOnly = true;
-            customerHashedPasswordTextBox.Size = new System.Drawing.Size(291, 34);
-            customerHashedPasswordTextBox.TabIndex = 15;
-            customerHashedPasswordTextBox.KeyPress += customerHashedPasswordTextBox_KeyPress;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(376, 234);
-            label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(176, 26);
-            label8.TabIndex = 14;
-            label8.Text = "HashedPassword:";
             // 
             // customerUsernameTextBox
             // 
@@ -1139,8 +1196,6 @@ namespace GraphicalUserInterface
             groupBox3.Controls.Add(staffMaleCheckBox);
             groupBox3.Controls.Add(staffPermissionIdComboBox);
             groupBox3.Controls.Add(label16);
-            groupBox3.Controls.Add(staffHashedPasswordTextBox);
-            groupBox3.Controls.Add(label15);
             groupBox3.Controls.Add(staffUsernameTextBox);
             groupBox3.Controls.Add(label14);
             groupBox3.Controls.Add(staffPositionTextBox);
@@ -1200,26 +1255,6 @@ namespace GraphicalUserInterface
             label16.Size = new System.Drawing.Size(141, 26);
             label16.TabIndex = 10;
             label16.Text = "PermissionId:";
-            // 
-            // staffHashedPasswordTextBox
-            // 
-            staffHashedPasswordTextBox.Location = new System.Drawing.Point(573, 168);
-            staffHashedPasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
-            staffHashedPasswordTextBox.Name = "staffHashedPasswordTextBox";
-            staffHashedPasswordTextBox.ReadOnly = true;
-            staffHashedPasswordTextBox.Size = new System.Drawing.Size(633, 34);
-            staffHashedPasswordTextBox.TabIndex = 9;
-            staffHashedPasswordTextBox.KeyPress += staffHashedPasswordTextBox_KeyPress;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new System.Drawing.Point(399, 170);
-            label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(176, 26);
-            label15.TabIndex = 8;
-            label15.Text = "HashedPassword:";
             // 
             // staffUsernameTextBox
             // 
@@ -1292,6 +1327,111 @@ namespace GraphicalUserInterface
             label11.Size = new System.Drawing.Size(38, 26);
             label11.TabIndex = 0;
             label11.Text = "Id:";
+            // 
+            // tabPageFinancialReport
+            // 
+            tabPageFinancialReport.Controls.Add(tabControl1);
+            tabPageFinancialReport.Location = new System.Drawing.Point(4, 42);
+            tabPageFinancialReport.Name = "tabPageFinancialReport";
+            tabPageFinancialReport.Size = new System.Drawing.Size(1570, 898);
+            tabPageFinancialReport.TabIndex = 6;
+            tabPageFinancialReport.Text = "Financial Report";
+            tabPageFinancialReport.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPageDaily);
+            tabControl1.Controls.Add(tabPageMonth);
+            tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tabControl1.Location = new System.Drawing.Point(0, 0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new System.Drawing.Size(1570, 898);
+            tabControl1.TabIndex = 5;
+            // 
+            // tabPageDaily
+            // 
+            tabPageDaily.Controls.Add(dataGridViewDailyReport);
+            tabPageDaily.Controls.Add(groupBox10);
+            tabPageDaily.Location = new System.Drawing.Point(4, 42);
+            tabPageDaily.Name = "tabPageDaily";
+            tabPageDaily.Padding = new System.Windows.Forms.Padding(3);
+            tabPageDaily.Size = new System.Drawing.Size(1562, 852);
+            tabPageDaily.TabIndex = 0;
+            tabPageDaily.Text = "Daily Activity Report";
+            tabPageDaily.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewDailyReport
+            // 
+            dataGridViewDailyReport.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewDailyReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDailyReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridViewDailyReport.Location = new System.Drawing.Point(3, 292);
+            dataGridViewDailyReport.Name = "dataGridViewDailyReport";
+            dataGridViewDailyReport.RowHeadersWidth = 62;
+            dataGridViewDailyReport.Size = new System.Drawing.Size(1556, 557);
+            dataGridViewDailyReport.TabIndex = 6;
+            // 
+            // groupBox10
+            // 
+            groupBox10.Controls.Add(dailyReportBtn);
+            groupBox10.Controls.Add(label22);
+            groupBox10.Controls.Add(dailyReportDateTimePicker);
+            groupBox10.Dock = System.Windows.Forms.DockStyle.Top;
+            groupBox10.Location = new System.Drawing.Point(3, 3);
+            groupBox10.Name = "groupBox10";
+            groupBox10.Size = new System.Drawing.Size(1556, 289);
+            groupBox10.TabIndex = 5;
+            groupBox10.TabStop = false;
+            // 
+            // dailyReportBtn
+            // 
+            dailyReportBtn.AutoSize = true;
+            dailyReportBtn.Location = new System.Drawing.Point(542, 160);
+            dailyReportBtn.Name = "dailyReportBtn";
+            dailyReportBtn.Size = new System.Drawing.Size(171, 43);
+            dailyReportBtn.TabIndex = 4;
+            dailyReportBtn.Text = "Export Excel";
+            dailyReportBtn.UseVisualStyleBackColor = true;
+            dailyReportBtn.Click += dailyReportBtn_Click;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new System.Drawing.Point(461, 81);
+            label22.Name = "label22";
+            label22.Size = new System.Drawing.Size(75, 33);
+            label22.TabIndex = 2;
+            label22.Text = "Day: ";
+            // 
+            // dailyReportDateTimePicker
+            // 
+            dailyReportDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dailyReportDateTimePicker.Location = new System.Drawing.Point(542, 75);
+            dailyReportDateTimePicker.Name = "dailyReportDateTimePicker";
+            dailyReportDateTimePicker.Size = new System.Drawing.Size(300, 39);
+            dailyReportDateTimePicker.TabIndex = 3;
+            dailyReportDateTimePicker.ValueChanged += dailyReportDateTimePicker_ValueChanged;
+            // 
+            // tabPageMonth
+            // 
+            tabPageMonth.Controls.Add(label21);
+            tabPageMonth.Location = new System.Drawing.Point(4, 34);
+            tabPageMonth.Name = "tabPageMonth";
+            tabPageMonth.Padding = new System.Windows.Forms.Padding(3);
+            tabPageMonth.Size = new System.Drawing.Size(1562, 860);
+            tabPageMonth.TabIndex = 1;
+            tabPageMonth.Text = "Month Activity Report";
+            tabPageMonth.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new System.Drawing.Point(326, 89);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(287, 33);
+            label21.TabIndex = 2;
+            label21.Text = "Monthly Activity Report";
             // 
             // tabPageChangeRegulations
             // 
@@ -1388,12 +1528,24 @@ namespace GraphicalUserInterface
             data_rate.ReadOnly = true;
             data_rate.RowHeadersVisible = false;
             data_rate.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            data_rate.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            data_rate.RowsDefaultCellStyle = dataGridViewCellStyle1;
             data_rate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             data_rate.Size = new System.Drawing.Size(426, 198);
             data_rate.TabIndex = 2;
             data_rate.CellClick += data_rate_CellClick;
+            // 
+            // button1
+            // 
+            button1.AutoSize = true;
+            button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            button1.Location = new System.Drawing.Point(692, 209);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(202, 36);
+            button1.TabIndex = 33;
+            button1.Text = "Change Infomation";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // amountWithdrawingErrorLabel
             // 
@@ -1411,22 +1563,24 @@ namespace GraphicalUserInterface
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1262, 755);
-            Controls.Add(tabControl1);
+            Controls.Add(tabControlStaffMenu);
             Margin = new System.Windows.Forms.Padding(2);
             Name = "StaffMenuForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "StaffMenuForm";
             FormClosing += StaffMenuForm_FormClosing;
             Load += StaffMenuForm_Load;
-            tabControl1.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            tabControlStaffMenu.ResumeLayout(false);
+            tabPageInformation.ResumeLayout(false);
+            tabPageInformation.PerformLayout();
+            tabPageDeposit.ResumeLayout(false);
+            tabPageDeposit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDeposit).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).EndInit();
-            tabPage3.ResumeLayout(false);
-            tabPage3.PerformLayout();
+            groupBox8.ResumeLayout(false);
+            groupBox8.PerformLayout();
+            tabPageWithdraw.ResumeLayout(false);
+            tabPageWithdraw.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewWithdraw).EndInit();
             ((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).EndInit();
             groupBox9.ResumeLayout(false);
@@ -1447,6 +1601,14 @@ namespace GraphicalUserInterface
             groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            tabPageFinancialReport.ResumeLayout(false);
+            tabControl1.ResumeLayout(false);
+            tabPageDaily.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDailyReport).EndInit();
+            groupBox10.ResumeLayout(false);
+            groupBox10.PerformLayout();
+            tabPageMonth.ResumeLayout(false);
+            tabPageMonth.PerformLayout();
             tabPageChangeRegulations.ResumeLayout(false);
             tabPageChangeRegulations.PerformLayout();
             groupBox5.ResumeLayout(false);
@@ -1456,10 +1618,10 @@ namespace GraphicalUserInterface
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabControl tabControlStaffMenu;
+        private System.Windows.Forms.TabPage tabPageInformation;
+        private System.Windows.Forms.TabPage tabPageDeposit;
+        private System.Windows.Forms.TabPage tabPageWithdraw;
         private System.Windows.Forms.TabPage tabPageManageStaffs;
         private System.Windows.Forms.TabPage tabPageChangeRegulations;
         private System.Windows.Forms.TabPage tabPageManageCustomers;
@@ -1489,8 +1651,6 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.TextBox customerWithdrawBalanceTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox customerHashedPasswordTextBox;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox customerUsernameTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox customerEmailTextBox;
@@ -1525,8 +1685,6 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.CheckBox staffMaleCheckBox;
         private System.Windows.Forms.ComboBox staffPermissionIdComboBox;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox staffHashedPasswordTextBox;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox staffUsernameTextBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox staffPositionTextBox;
@@ -1568,5 +1726,20 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.DataGridView dataGridViewWithdraw;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Label amountWithdrawingErrorLabel;
+        private System.Windows.Forms.Button customerPrintButton;
+        private System.Windows.Forms.Button withdrawPrintButton;
+        private System.Windows.Forms.Button reportDepositBtn;
+        private System.Windows.Forms.Button reportWithdrawBtn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPageFinancialReport;
+        private System.Windows.Forms.Button dailyReportBtn;
+        private System.Windows.Forms.DateTimePicker dailyReportDateTimePicker;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPageDaily;
+        private System.Windows.Forms.DataGridView dataGridViewDailyReport;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TabPage tabPageMonth;
+        private System.Windows.Forms.Label label21;
     }
 }

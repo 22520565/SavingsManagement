@@ -29,6 +29,27 @@ public static class StaffAccounts
         return context.StaffAccounts.Find(staffId);
     }
 
+    public static void UpdateStaff(StaffAccount staff)
+    {
+        if (staff == null)
+        {
+            return;
+        }
+        else
+        {
+            using var context = new SavingsManagementContext();
+            StaffAccount staffAccount = context.StaffAccounts.Find(CurrentStaffId);
+            if (staffAccount != null)
+            {
+                staffAccount.Name = staff.Name;
+                staffAccount.Position = staff.Position;
+                staffAccount.IsMale = staff.IsMale;
+                staffAccount.Username = staff.Username;
+                context.SaveChanges();
+            }
+        }
+    }
+
     public enum PasswordChangingResult
     {
         Success,

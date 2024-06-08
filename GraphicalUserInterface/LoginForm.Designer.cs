@@ -61,6 +61,8 @@
             cbStaffRemeberInfo = new System.Windows.Forms.CheckBox();
             btnStaffLogin = new System.Windows.Forms.Button();
             pictureBox8 = new System.Windows.Forms.PictureBox();
+            label8 = new System.Windows.Forms.Label();
+            linkLabel_ForgotPassword = new System.Windows.Forms.LinkLabel();
             tabControl.SuspendLayout();
             customerTabPage.SuspendLayout();
             panel2.SuspendLayout();
@@ -92,6 +94,8 @@
             // customerTabPage
             // 
             customerTabPage.BackColor = System.Drawing.Color.Transparent;
+            customerTabPage.Controls.Add(label8);
+            customerTabPage.Controls.Add(linkLabel_ForgotPassword);
             customerTabPage.Controls.Add(label6);
             customerTabPage.Controls.Add(label7);
             customerTabPage.Controls.Add(linkLabel_SignUp);
@@ -125,7 +129,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Cambria", 10.8F);
-            label7.Location = new System.Drawing.Point(732, 626);
+            label7.Location = new System.Drawing.Point(734, 593);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(228, 26);
@@ -136,7 +140,7 @@
             // 
             linkLabel_SignUp.AutoSize = true;
             linkLabel_SignUp.Font = new System.Drawing.Font("Cambria", 10.8F);
-            linkLabel_SignUp.Location = new System.Drawing.Point(975, 626);
+            linkLabel_SignUp.Location = new System.Drawing.Point(977, 593);
             linkLabel_SignUp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             linkLabel_SignUp.Name = "linkLabel_SignUp";
             linkLabel_SignUp.Size = new System.Drawing.Size(139, 26);
@@ -502,6 +506,30 @@
             pictureBox8.TabIndex = 25;
             pictureBox8.TabStop = false;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Cambria", 10.8F);
+            label8.Location = new System.Drawing.Point(734, 637);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(228, 26);
+            label8.TabIndex = 47;
+            label8.Text = "Forgot your password?";
+            // 
+            // linkLabel_ForgotPassword
+            // 
+            linkLabel_ForgotPassword.AutoSize = true;
+            linkLabel_ForgotPassword.Font = new System.Drawing.Font("Cambria", 10.8F);
+            linkLabel_ForgotPassword.Location = new System.Drawing.Point(977, 637);
+            linkLabel_ForgotPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            linkLabel_ForgotPassword.Name = "linkLabel_ForgotPassword";
+            linkLabel_ForgotPassword.Size = new System.Drawing.Size(106, 26);
+            linkLabel_ForgotPassword.TabIndex = 46;
+            linkLabel_ForgotPassword.TabStop = true;
+            linkLabel_ForgotPassword.Text = "Click here";
+            linkLabel_ForgotPassword.LinkClicked += linkLabel_ForgotPassword_LinkClicked;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -573,5 +601,7 @@
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.LinkLabel linkLabel_SignUp;
 		private System.Windows.Forms.Label label6;
-	}
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.LinkLabel linkLabel_ForgotPassword;
+    }
 }
