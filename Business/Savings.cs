@@ -36,6 +36,11 @@ public static class Savings
             throw new ArgumentException("The balance is not enough to open a saving");
         }
 
+        if (currentBalance < Configurations.MinAmountOpeningSaving || currentBalance > Configurations.MaxAmountOpeningSaving)
+        {
+            throw new ArgumentException("The amount to open a saving is not in a range! Please try again.");
+        }
+
         decimal? actualInterestRate = context.SavingInterestRates.FirstOrDefault(s => s.PeriodInMonths == savingOpeningInfo.PeriodInMonths)?.AnnualInterestRate;
         if (actualInterestRate is null || savingOpeningInfo.AnnualInterestRate != actualInterestRate)
         {
