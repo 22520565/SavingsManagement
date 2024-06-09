@@ -101,5 +101,12 @@ namespace GraphicalUserInterface
 		private void btnConfirmPassword_MouseLeave(object sender, EventArgs e) {
 			btnConfirmPassword.BackColor = Color.FromArgb(22, 94, 240);
 		}
+
+		private void linkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+			this.Hide();
+			LoginForm login = new LoginForm();
+			login.ShowDialog();
+			this.Close();
+		}
 	}
 }
