@@ -86,6 +86,7 @@ public partial class CustomerMenuForm : Form {
 			form.ShowDialog(bg);
 			bg.Dispose();
 		}
+		LoadingAccountInfo();
 	}
 
 	#endregion

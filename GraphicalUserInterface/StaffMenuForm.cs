@@ -19,6 +19,8 @@ using System.IO;
 using OfficeOpenXml;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 public partial class StaffMenuForm : Form
 {
@@ -806,6 +808,18 @@ public partial class StaffMenuForm : Form
                         MessageBox.Show("Please activate current account if you want to change information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    if (!IsValidEmail(customerEmailTextBox.Text))
+                    {
+                        MessageBox.Show(this, "Invalid format Email.\nPlease try again!", Resources.WarningTitleString,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        return;
+                    }
+                    if (!IsValidPhoneNumber(customerPhoneNumberTextBox.Text))
+                    {
+                        MessageBox.Show(this, "Phone number has at least 10 to 11 digit and begin with 0.\nPlease try again!", Resources.WarningTitleString,
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+                        return;
+                    }    
                     customer.Name = customerNameTextBox.Text;
                     customer.IsMale = customerMaleCheckBox.Checked;
                     customer.CicNumber = customerCicNumberTextBox.Text;
@@ -822,6 +836,27 @@ public partial class StaffMenuForm : Form
                 }
             }
         }
+    }
+
+    private static bool IsValidEmail(string email)
+    {
+        try
+        {
+            var mailAddress = new MailAddress(email);
+            return true;
+        }
+        catch (FormatException)
+        {
+            return false;
+        }
+    }
+
+    private static bool IsValidPhoneNumber(string phoneNumber)
+    {
+        if (string.IsNullOrWhiteSpace(phoneNumber))
+            return false;
+        string pattern = @"^0[0-9]{9,10}$";
+        return Regex.IsMatch(phoneNumber, pattern);
     }
 
     private void clearScreenCustomerBtn_Click(object sender, EventArgs e)

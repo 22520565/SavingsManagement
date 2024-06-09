@@ -29,7 +29,14 @@ namespace GraphicalUserInterface
                 if (staffAccount is not null)
                 {
                     this.staffNameTextBox.Text = staffAccount.Name;
-                    this.staffGenderCbx.Text = staffAccount.IsMale ? Resources.MaleString : Resources.FemaleString;
+                    if (staffAccount.IsMale)
+                    {
+                        rbMale.Checked = true;
+                    }
+                    else
+                    {
+                        rbFemale.Checked = true;
+                    }
                     this.staffPositionTextBox.Text = staffAccount.Position;
                     this.staffUsernameTextBox.Text = staffAccount.Username;
                 }
@@ -48,7 +55,7 @@ namespace GraphicalUserInterface
         private void staffChangeInfoButton_Click(object sender, EventArgs e)
         {
             StaffAccount staffAccount = new StaffAccount();
-            string gender = this.staffGenderCbx.Text;
+            string gender = this.rbMale.Checked ? this.rbMale.Text : this.rbFemale.Text;
             if (gender == Resources.MaleString)
             {
                 staffAccount.IsMale = true;

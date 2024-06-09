@@ -39,7 +39,7 @@ namespace GraphicalUserInterface
 								break;
 
 							case CustomerAccounts.PasswordChangingResult.InvalidNewPassword:
-								MessageBox.Show(this, Resources.NewPasswordInvalidString, Resources.NotificationTitleString,
+								MessageBox.Show(this, "Please enter a password of at least 8 characters, at least one uppercase letter, at least one lowercase letter, at least one number and at least one special character!", Resources.NotificationTitleString,
 									MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 								break;
 
@@ -67,7 +67,7 @@ namespace GraphicalUserInterface
 								break;
 
 							case StaffAccounts.PasswordChangingResult.InvalidNewPassword:
-								MessageBox.Show(this, Resources.NewPasswordInvalidString, Resources.NotificationTitleString,
+								MessageBox.Show(this, "Please enter a password of at least 8 characters, at least one uppercase letter, at least one lowercase letter, at least one number and at least one special character!", Resources.NotificationTitleString,
 									MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 								break;
 
