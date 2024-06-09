@@ -240,6 +240,7 @@
 			linkBackToLogin.Text = "Back to login";
 			linkBackToLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			linkBackToLogin.VisitedLinkColor = System.Drawing.Color.Black;
+			linkBackToLogin.LinkClicked += linkBackToLogin_LinkClicked;
 			// 
 			// label3
 			// 
