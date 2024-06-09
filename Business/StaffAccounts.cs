@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using DataAccess;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
@@ -59,6 +60,12 @@ public static class StaffAccounts
         WrongOldPassword,
     }
 
+    private static bool checkPasssword(string password)
+    {
+        //Tối thiểu tám ký tự, ít nhất một chữ cái viết hoa, ít nhất một chữ cái viết thường, ít nhất một số và ít nhất một ký tự đặc biệt
+        return Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$");
+    }
+
     public static PasswordChangingResult ChangePassword(string oldPassword, string newPassword)
     {
         PasswordChangingResult passwordChangingResult = PasswordChangingResult.WrongOldPassword;
@@ -70,7 +77,7 @@ public static class StaffAccounts
         {
             passwordChangingResult = PasswordChangingResult.EmptyOldPassword;
         }
-        else if (newPassword.IsNullOrEmpty())
+        else if (newPassword.IsNullOrEmpty() || !checkPasssword(newPassword))
         {
             passwordChangingResult = PasswordChangingResult.InvalidNewPassword;
         }

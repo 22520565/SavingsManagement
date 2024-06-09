@@ -2,13 +2,16 @@
 using DataAccess;
 using GraphicalUserInterface.Properties;
 using System;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.Net.Mail;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -53,27 +56,70 @@ namespace GraphicalUserInterface
 		}
 
 		private void customerChangeInfoButton_Click(object sender, EventArgs e) {
-			CustomerAccount customerAccount = new CustomerAccount();
-			string gender = this.rbMale.Checked ? this.rbMale.Text : this.rbFemale.Text;
-			if (gender == Resources.MaleString) {
-				customerAccount.IsMale = true;
-			} else {
-				customerAccount.IsMale = false;
+            bool isValid = IsValidPhoneNumber(customerPhoneNumberTextBox.Text);
+            bool isValidEmail = IsValidEmail(customerEmailTextBox.Text);
+            if (isValid)
+			{
+				if (isValidEmail)
+				{
+					CustomerAccount customerAccount = new CustomerAccount();
+					string gender = this.rbMale.Checked ? this.rbMale.Text : this.rbFemale.Text;
+					if (gender == Resources.MaleString)
+					{
+						customerAccount.IsMale = true;
+					}
+					else
+					{
+						customerAccount.IsMale = false;
+					}
+					customerAccount.Name = customerNameTextBox.Text;
+					customerAccount.CicNumber = customerCicNumberTextBox.Text;
+					customerAccount.BirthDate = new DateOnly(customerBirthDateTimePicker.Value.Year, customerBirthDateTimePicker.Value.Month, customerBirthDateTimePicker.Value.Day);
+					customerAccount.PhoneNumber = customerPhoneNumberTextBox.Text;
+					customerAccount.Address = customerAddressTextBox.Text;
+					customerAccount.Email = customerEmailTextBox.Text;
+					customerAccount.Username = customerUsernameTextBox.Text;
+					CustomerAccounts.UpdateCustomer(customerAccount);
+					MessageBox.Show(this, "Change Infomation successfully", Resources.NotificationTitleString,
+										   MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+					this.Close();
+                }
+				else
+                {
+					MessageBox.Show(this, "Invalid format Email.\nPlease try again!", Resources.WarningTitleString,
+						MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+				}
 			}
-			customerAccount.Name = customerNameTextBox.Text;
-			customerAccount.CicNumber = customerCicNumberTextBox.Text;
-			customerAccount.BirthDate = new DateOnly(customerBirthDateTimePicker.Value.Year, customerBirthDateTimePicker.Value.Month, customerBirthDateTimePicker.Value.Day);
-			customerAccount.PhoneNumber = customerPhoneNumberTextBox.Text;
-			customerAccount.Address = customerAddressTextBox.Text;
-			customerAccount.Email = customerEmailTextBox.Text;
-			customerAccount.Username = customerUsernameTextBox.Text;
-			CustomerAccounts.UpdateCustomer(customerAccount);
-			MessageBox.Show(this, "Change Infomation successfully", Resources.NotificationTitleString,
-								   MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
-			this.Close();
+			else
+			{
+				MessageBox.Show(this, "Phone number has at least 10 to 11 digit and begin with 0.\nPlease try again!", Resources.WarningTitleString,
+							MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+			}
 		}
 
-		private void btnCancel_Click(object sender, EventArgs e) {
+        private static bool IsValidEmail(string email)
+        {
+            try
+            {
+                // Khởi tạo đối tượng MailAddress với chuỗi email
+                var mailAddress = new MailAddress(email);
+                return true; // Nếu không ném ra ngoại lệ, email hợp lệ
+            }
+            catch (FormatException)
+            {
+                return false; // Nếu ném ra ngoại lệ FormatException, email không hợp lệ
+            }
+        }
+
+        private static bool IsValidPhoneNumber(string phoneNumber)
+        {
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+                return false;
+            string pattern = @"^0[0-9]{9,10}$";
+            return Regex.IsMatch(phoneNumber, pattern);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
 			this.Close();
 		}
 
