@@ -117,10 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="avt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\avt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PasswordChangingSuccessfullyString" xml:space="preserve">
     <value>Password has been changed successfully!</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="user1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,8 +154,11 @@
   <data name="SavingsReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\SavingsReport.rdlc;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MaleString" xml:space="preserve">
-    <value>Male</value>
+  <data name="key-tag_9664446" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key-tag_9664446.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="email1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\email1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +175,8 @@
   <data name="HelpImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\help.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="expenses" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\expenses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MaleString" xml:space="preserve">
+    <value>Male</value>
   </data>
   <data name="ClosingSavingBeforeMaturityDayWarningString" xml:space="preserve">
     <value>You are about to close your saving before its maturity day. You will benefit only non-term savings interest. Are you sure you want to proceed this?</value>
@@ -181,8 +187,8 @@
   <data name="InvalidCustomerIdString" xml:space="preserve">
     <value>Invalid customer ID. Please check and try again.</value>
   </data>
-  <data name="ErrorEmptyContentString" xml:space="preserve">
-    <value>The content shall not be empty. Please type the content and try again.</value>
+  <data name="InterestTextFormatString" xml:space="preserve">
+    <value>#,0.00#%/year</value>
   </data>
   <data name="ExportingFileFailedString" xml:space="preserve">
     <value>Failed to export file!</value>
@@ -205,6 +211,9 @@
   <data name="LogOutConfirmationString" xml:space="preserve">
     <value>Do you want to log out?</value>
   </data>
+  <data name="ErrorEmptyContentString" xml:space="preserve">
+    <value>The content shall not be empty. Please type the content and try again.</value>
+  </data>
   <data name="307ce493-b254-4b2d-8ba4-d12c080d6651" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\307ce493-b254-4b2d-8ba4-d12c080d6651.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -226,6 +235,9 @@
   <data name="ComputerProcessImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Computer process.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="expenses" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expenses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="OldPasswordEmptyString" xml:space="preserve">
     <value>Old password cannot be left empty.</value>
   </data>
@@ -234,6 +246,9 @@
   </data>
   <data name="DateTimeStringFormat" xml:space="preserve">
     <value>hh:mm:ss tt dd/MM/yyyy</value>
+  </data>
+  <data name="key_9567357" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\key_9567357.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UsernameBlankWarningString" xml:space="preserve">
     <value>Username cannot be blank!</value>
@@ -280,9 +295,6 @@
   <data name="4498897" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4498897.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="InterestTextFormatString" xml:space="preserve">
-    <value>#,0.00#%/year</value>
-  </data>
   <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -304,6 +316,9 @@
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="left-arrow_109618" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\left-arrow_109618.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DepositSuccessfullyString" xml:space="preserve">
     <value>Deposited successfully!</value>
   </data>
@@ -319,7 +334,7 @@
   <data name="20945597" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\20945597.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="avt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\avt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="password" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

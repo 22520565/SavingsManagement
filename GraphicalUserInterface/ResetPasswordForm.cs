@@ -21,6 +21,10 @@ namespace GraphicalUserInterface
 		public ResetPasswordForm(int customerId) {
 			this.InitializeComponent();
 			this.customerID = customerId;
+
+			this.panelStep3.BackColor = Color.FromArgb(22, 94, 240);
+			this.btnConfirmPassword.BackColor = Color.FromArgb(22, 94, 240);
+
 			this.cbShowPassword.Appearance = Appearance.Button;
 			this.cbShowPassword.FlatStyle = FlatStyle.Flat;
 			this.cbShowPassword.FlatAppearance.BorderSize = 0;
@@ -91,13 +95,11 @@ namespace GraphicalUserInterface
 		}
 
 		private void btnConfirmPassword_MouseEnter(object sender, EventArgs e) {
-			btnConfirmPassword.BackColor = Color.FromArgb(11, 9, 120);
-			btnConfirmPassword.ForeColor = Color.White;
+			btnConfirmPassword.BackColor = Color.FromArgb(74, 131, 248);
 		}
 
 		private void btnConfirmPassword_MouseLeave(object sender, EventArgs e) {
-			btnConfirmPassword.BackColor = Color.Black;
-			btnConfirmPassword.ForeColor = Color.White;
+			btnConfirmPassword.BackColor = Color.FromArgb(22, 94, 240);
 		}
 	}
 }

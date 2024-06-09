@@ -39,6 +39,11 @@
 			label1 = new System.Windows.Forms.Label();
 			txtPassword = new System.Windows.Forms.TextBox();
 			btnConfirmPassword = new System.Windows.Forms.Button();
+			panelStep3 = new System.Windows.Forms.Panel();
+			panelStep2 = new System.Windows.Forms.Panel();
+			panelStep1 = new System.Windows.Forms.Panel();
+			linkBackToLogin = new System.Windows.Forms.LinkLabel();
+			label3 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -48,12 +53,12 @@
 			// 
 			// pictureBox1
 			// 
-			pictureBox1.Image = Properties.Resources._20945597;
-			pictureBox1.Location = new System.Drawing.Point(129, 11);
+			pictureBox1.Image = Properties.Resources.password;
+			pictureBox1.Location = new System.Drawing.Point(241, 36);
 			pictureBox1.Margin = new System.Windows.Forms.Padding(2);
 			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new System.Drawing.Size(250, 250);
-			pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			pictureBox1.Size = new System.Drawing.Size(64, 64);
+			pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			pictureBox1.TabIndex = 0;
 			pictureBox1.TabStop = false;
 			// 
@@ -63,7 +68,7 @@
 			panel3.Controls.Add(pictureBox3);
 			panel3.Controls.Add(label2);
 			panel3.Controls.Add(txtConfirmPassword);
-			panel3.Location = new System.Drawing.Point(65, 377);
+			panel3.Location = new System.Drawing.Point(89, 286);
 			panel3.Name = "panel3";
 			panel3.Size = new System.Drawing.Size(362, 83);
 			panel3.TabIndex = 39;
@@ -122,7 +127,7 @@
 			panel2.Controls.Add(pictureBox2);
 			panel2.Controls.Add(label1);
 			panel2.Controls.Add(txtPassword);
-			panel2.Location = new System.Drawing.Point(65, 288);
+			panel2.Location = new System.Drawing.Point(89, 197);
 			panel2.Name = "panel2";
 			panel2.Size = new System.Drawing.Size(362, 83);
 			panel2.TabIndex = 38;
@@ -180,12 +185,12 @@
 			btnConfirmPassword.AutoSize = true;
 			btnConfirmPassword.BackColor = System.Drawing.Color.Black;
 			btnConfirmPassword.Cursor = System.Windows.Forms.Cursors.Hand;
-			btnConfirmPassword.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			btnConfirmPassword.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 			btnConfirmPassword.ForeColor = System.Drawing.Color.White;
-			btnConfirmPassword.Location = new System.Drawing.Point(151, 495);
+			btnConfirmPassword.Location = new System.Drawing.Point(185, 388);
 			btnConfirmPassword.Margin = new System.Windows.Forms.Padding(2);
 			btnConfirmPassword.Name = "btnConfirmPassword";
-			btnConfirmPassword.Size = new System.Drawing.Size(187, 53);
+			btnConfirmPassword.Size = new System.Drawing.Size(187, 46);
 			btnConfirmPassword.TabIndex = 48;
 			btnConfirmPassword.Text = "Confirm";
 			btnConfirmPassword.UseVisualStyleBackColor = false;
@@ -193,17 +198,76 @@
 			btnConfirmPassword.MouseEnter += btnConfirmPassword_MouseEnter;
 			btnConfirmPassword.MouseLeave += btnConfirmPassword_MouseLeave;
 			// 
+			// panelStep3
+			// 
+			panelStep3.BackColor = System.Drawing.Color.WhiteSmoke;
+			panelStep3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			panelStep3.Location = new System.Drawing.Point(379, 573);
+			panelStep3.Name = "panelStep3";
+			panelStep3.Size = new System.Drawing.Size(150, 10);
+			panelStep3.TabIndex = 72;
+			// 
+			// panelStep2
+			// 
+			panelStep2.BackColor = System.Drawing.Color.WhiteSmoke;
+			panelStep2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			panelStep2.Location = new System.Drawing.Point(204, 573);
+			panelStep2.Name = "panelStep2";
+			panelStep2.Size = new System.Drawing.Size(150, 10);
+			panelStep2.TabIndex = 71;
+			// 
+			// panelStep1
+			// 
+			panelStep1.BackColor = System.Drawing.Color.WhiteSmoke;
+			panelStep1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			panelStep1.Location = new System.Drawing.Point(25, 573);
+			panelStep1.Name = "panelStep1";
+			panelStep1.Size = new System.Drawing.Size(150, 10);
+			panelStep1.TabIndex = 70;
+			// 
+			// linkBackToLogin
+			// 
+			linkBackToLogin.Font = new System.Drawing.Font("Cambria", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			linkBackToLogin.Image = Properties.Resources.left_arrow_109618;
+			linkBackToLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			linkBackToLogin.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+			linkBackToLogin.LinkColor = System.Drawing.Color.Black;
+			linkBackToLogin.Location = new System.Drawing.Point(210, 446);
+			linkBackToLogin.Name = "linkBackToLogin";
+			linkBackToLogin.Size = new System.Drawing.Size(138, 25);
+			linkBackToLogin.TabIndex = 73;
+			linkBackToLogin.TabStop = true;
+			linkBackToLogin.Text = "Back to login";
+			linkBackToLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			linkBackToLogin.VisitedLinkColor = System.Drawing.Color.Black;
+			// 
+			// label3
+			// 
+			label3.AutoSize = true;
+			label3.Font = new System.Drawing.Font("Cambria", 19.8000011F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+			label3.Location = new System.Drawing.Point(132, 112);
+			label3.Name = "label3";
+			label3.Size = new System.Drawing.Size(295, 40);
+			label3.TabIndex = 74;
+			label3.Text = "Set new password";
+			// 
 			// ResetPasswordForm
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			BackColor = System.Drawing.Color.White;
-			ClientSize = new System.Drawing.Size(508, 581);
+			ClientSize = new System.Drawing.Size(560, 630);
+			Controls.Add(label3);
+			Controls.Add(linkBackToLogin);
+			Controls.Add(panelStep3);
+			Controls.Add(panelStep2);
+			Controls.Add(panelStep1);
 			Controls.Add(btnConfirmPassword);
 			Controls.Add(panel3);
 			Controls.Add(panel2);
 			Controls.Add(pictureBox1);
+			FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			Margin = new System.Windows.Forms.Padding(2);
 			Name = "ResetPasswordForm";
 			StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -233,5 +297,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnConfirmPassword;
-    }
+		private System.Windows.Forms.Panel panelStep3;
+		private System.Windows.Forms.Panel panelStep2;
+		private System.Windows.Forms.Panel panelStep1;
+		private System.Windows.Forms.LinkLabel linkBackToLogin;
+		private System.Windows.Forms.Label label3;
+	}
 }

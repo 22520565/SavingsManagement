@@ -232,6 +232,16 @@ namespace GraphicalUserInterface.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap email1 {
+            get {
+                object obj = ResourceManager.GetObject("email1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The content shall not be empty. Please type the content and try again..
         /// </summary>
         internal static string ErrorEmptyContentString {
@@ -364,6 +374,36 @@ namespace GraphicalUserInterface.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap key_9567357 {
+            get {
+                object obj = ResourceManager.GetObject("key_9567357", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap key_tag_9664446 {
+            get {
+                object obj = ResourceManager.GetObject("key-tag_9664446", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap left_arrow_109618 {
+            get {
+                object obj = ResourceManager.GetObject("left-arrow_109618", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LoginImage {
             get {
                 object obj = ResourceManager.GetObject("LoginImage", resourceCulture);
@@ -490,6 +530,16 @@ namespace GraphicalUserInterface.Properties {
         internal static System.Drawing.Bitmap PadlockImage {
             get {
                 object obj = ResourceManager.GetObject("PadlockImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap password {
+            get {
+                object obj = ResourceManager.GetObject("password", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
