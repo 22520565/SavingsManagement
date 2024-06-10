@@ -57,6 +57,10 @@
             txtOTP = new System.Windows.Forms.TextBox();
             confirmOTPBtn = new System.Windows.Forms.Button();
             getOTPBtn = new System.Windows.Forms.Button();
+            panel6 = new System.Windows.Forms.Panel();
+            typeAccountComboBox = new System.Windows.Forms.ComboBox();
+            pictureBox6 = new System.Windows.Forms.PictureBox();
+            label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)btnExit).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -68,6 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // txtUsername
@@ -119,7 +125,7 @@
             btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
             btnSignUp.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnSignUp.ForeColor = System.Drawing.Color.White;
-            btnSignUp.Location = new System.Drawing.Point(175, 733);
+            btnSignUp.Location = new System.Drawing.Point(183, 786);
             btnSignUp.Margin = new System.Windows.Forms.Padding(2);
             btnSignUp.Name = "btnSignUp";
             btnSignUp.Size = new System.Drawing.Size(308, 66);
@@ -162,7 +168,7 @@
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(txtUsername);
-            panel1.Location = new System.Drawing.Point(88, 145);
+            panel1.Location = new System.Drawing.Point(88, 84);
             panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(521, 104);
@@ -197,7 +203,7 @@
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(txtPassword);
-            panel2.Location = new System.Drawing.Point(88, 368);
+            panel2.Location = new System.Drawing.Point(88, 307);
             panel2.Margin = new System.Windows.Forms.Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(521, 104);
@@ -246,7 +252,7 @@
             panel3.Controls.Add(pictureBox3);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(txtConfirmPassword);
-            panel3.Location = new System.Drawing.Point(88, 479);
+            panel3.Location = new System.Drawing.Point(88, 418);
             panel3.Margin = new System.Windows.Forms.Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new System.Drawing.Size(521, 104);
@@ -294,7 +300,7 @@
             panel4.Controls.Add(pictureBox4);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(txtEmail);
-            panel4.Location = new System.Drawing.Point(88, 256);
+            panel4.Location = new System.Drawing.Point(88, 195);
             panel4.Margin = new System.Windows.Forms.Padding(4);
             panel4.Name = "panel4";
             panel4.Size = new System.Drawing.Size(521, 104);
@@ -353,7 +359,7 @@
             panel5.Controls.Add(pictureBox5);
             panel5.Controls.Add(label7);
             panel5.Controls.Add(txtOTP);
-            panel5.Location = new System.Drawing.Point(88, 591);
+            panel5.Location = new System.Drawing.Point(88, 653);
             panel5.Margin = new System.Windows.Forms.Padding(4);
             panel5.Name = "panel5";
             panel5.Size = new System.Drawing.Size(354, 104);
@@ -396,7 +402,7 @@
             // 
             confirmOTPBtn.AutoSize = true;
             confirmOTPBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            confirmOTPBtn.Location = new System.Drawing.Point(449, 653);
+            confirmOTPBtn.Location = new System.Drawing.Point(449, 715);
             confirmOTPBtn.Name = "confirmOTPBtn";
             confirmOTPBtn.Size = new System.Drawing.Size(160, 42);
             confirmOTPBtn.TabIndex = 41;
@@ -408,13 +414,58 @@
             // 
             getOTPBtn.AutoSize = true;
             getOTPBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            getOTPBtn.Location = new System.Drawing.Point(449, 593);
+            getOTPBtn.Location = new System.Drawing.Point(449, 655);
             getOTPBtn.Name = "getOTPBtn";
             getOTPBtn.Size = new System.Drawing.Size(160, 42);
             getOTPBtn.TabIndex = 42;
             getOTPBtn.Text = "Get OTP";
             getOTPBtn.UseVisualStyleBackColor = true;
             getOTPBtn.Click += getOTPBtn_Click;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(typeAccountComboBox);
+            panel6.Controls.Add(pictureBox6);
+            panel6.Controls.Add(label8);
+            panel6.Location = new System.Drawing.Point(88, 530);
+            panel6.Margin = new System.Windows.Forms.Padding(4);
+            panel6.Name = "panel6";
+            panel6.Size = new System.Drawing.Size(521, 104);
+            panel6.TabIndex = 43;
+            // 
+            // typeAccountComboBox
+            // 
+            typeAccountComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            typeAccountComboBox.Font = new System.Drawing.Font("Cambria", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            typeAccountComboBox.FormattingEnabled = true;
+            typeAccountComboBox.Items.AddRange(new object[] { "Customer", "Staff" });
+            typeAccountComboBox.Location = new System.Drawing.Point(16, 50);
+            typeAccountComboBox.Name = "typeAccountComboBox";
+            typeAccountComboBox.Size = new System.Drawing.Size(483, 41);
+            typeAccountComboBox.TabIndex = 30;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = Properties.Resources.user1;
+            pictureBox6.Location = new System.Drawing.Point(16, 14);
+            pictureBox6.Margin = new System.Windows.Forms.Padding(2);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new System.Drawing.Size(16, 16);
+            pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            pictureBox6.TabIndex = 29;
+            pictureBox6.TabStop = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label8.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            label8.Location = new System.Drawing.Point(52, 10);
+            label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(151, 28);
+            label8.TabIndex = 26;
+            label8.Text = "Type Account";
             // 
             // CustomerSignUpForm
             // 
@@ -424,6 +475,7 @@
             BackColor = System.Drawing.Color.White;
             ClientSize = new System.Drawing.Size(694, 925);
             ControlBox = false;
+            Controls.Add(panel6);
             Controls.Add(getOTPBtn);
             Controls.Add(confirmOTPBtn);
             Controls.Add(panel5);
@@ -455,6 +507,9 @@
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -489,5 +544,9 @@
         private System.Windows.Forms.TextBox txtOTP;
         private System.Windows.Forms.Button confirmOTPBtn;
         private System.Windows.Forms.Button getOTPBtn;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox typeAccountComboBox;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label8;
     }
 }
