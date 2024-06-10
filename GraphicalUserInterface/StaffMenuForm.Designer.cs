@@ -30,13 +30,13 @@ namespace GraphicalUserInterface
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.Label customerWithdrawBalanceLabel;
 			System.Windows.Forms.Label customerWithdrawContentLabel;
 			System.Windows.Forms.Label customerWithdrawAmountLabel;
 			System.Windows.Forms.Label customerWithdrawCicNumberLabel;
 			System.Windows.Forms.Label customerWithdrawNameLabel;
 			System.Windows.Forms.Label customerWithdrawIdLabel;
-			System.Windows.Forms.Label customerWithdrawBalanceLabel;
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			tabControlStaffMenu = new System.Windows.Forms.TabControl();
 			tabPageInformation = new System.Windows.Forms.TabPage();
 			button1 = new System.Windows.Forms.Button();
@@ -53,33 +53,8 @@ namespace GraphicalUserInterface
 			customerNameLabel = new System.Windows.Forms.Label();
 			tabPageDeposit = new System.Windows.Forms.TabPage();
 			dataGridViewDeposit = new System.Windows.Forms.DataGridView();
-			customerDepositAmountNumeric = new System.Windows.Forms.NumericUpDown();
-			customerDepositIdTextBox = new System.Windows.Forms.TextBox();
-			customerDepositButton = new System.Windows.Forms.Button();
-			customerDepositContentTextBox = new System.Windows.Forms.TextBox();
-			customerDepositContentLabel = new System.Windows.Forms.Label();
-			customerDepositAmountLabel = new System.Windows.Forms.Label();
-			customerDepositCicNumberTextBox = new System.Windows.Forms.TextBox();
-			customerDepositCicNumberLabel = new System.Windows.Forms.Label();
-			customerDepositNameTextBox = new System.Windows.Forms.TextBox();
-			customerDepositNameLabel = new System.Windows.Forms.Label();
-			customerDepositIdLabel = new System.Windows.Forms.Label();
-			groupBox8 = new System.Windows.Forms.GroupBox();
-			reportDepositBtn = new System.Windows.Forms.Button();
-			customerPrintButton = new System.Windows.Forms.Button();
 			tabPageWithdraw = new System.Windows.Forms.TabPage();
 			dataGridViewWithdraw = new System.Windows.Forms.DataGridView();
-			customerWithdrawBalanceTextBox = new System.Windows.Forms.TextBox();
-			customerWithdrawAmountNumeric = new System.Windows.Forms.NumericUpDown();
-			customerWithdrawIdTextBox = new System.Windows.Forms.TextBox();
-			customerWithdrawButton = new System.Windows.Forms.Button();
-			customerWithdrawContentTextBox = new System.Windows.Forms.TextBox();
-			customerWithdrawCicNumberTextBox = new System.Windows.Forms.TextBox();
-			customerWithdrawNameTextBox = new System.Windows.Forms.TextBox();
-			groupBox9 = new System.Windows.Forms.GroupBox();
-			reportWithdrawBtn = new System.Windows.Forms.Button();
-			withdrawPrintButton = new System.Windows.Forms.Button();
-			amountWithdrawingErrorLabel = new System.Windows.Forms.Label();
 			tabPageManageCustomers = new System.Windows.Forms.TabPage();
 			dataGridViewCustomer = new System.Windows.Forms.DataGridView();
 			groupBox6 = new System.Windows.Forms.GroupBox();
@@ -135,6 +110,14 @@ namespace GraphicalUserInterface
 			staffIdTextBox = new System.Windows.Forms.TextBox();
 			label11 = new System.Windows.Forms.Label();
 			tabPageFinancialReport = new System.Windows.Forms.TabPage();
+			panel1 = new System.Windows.Forms.Panel();
+			groupBox11 = new System.Windows.Forms.GroupBox();
+			rbMonthly = new System.Windows.Forms.RadioButton();
+			rbDaily = new System.Windows.Forms.RadioButton();
+			dailyReportBtn = new System.Windows.Forms.Button();
+			label22 = new System.Windows.Forms.Label();
+			dailyReportDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			dataGridViewDailyReport = new System.Windows.Forms.DataGridView();
 			tabPageChangeRegulations = new System.Windows.Forms.TabPage();
 			label19 = new System.Windows.Forms.Label();
 			saveRate = new System.Windows.Forms.Button();
@@ -145,30 +128,47 @@ namespace GraphicalUserInterface
 			groupBox5 = new System.Windows.Forms.GroupBox();
 			data_rate = new System.Windows.Forms.DataGridView();
 			backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			dataGridViewDailyReport = new System.Windows.Forms.DataGridView();
-			panel1 = new System.Windows.Forms.Panel();
-			groupBox11 = new System.Windows.Forms.GroupBox();
-			rbMonthly = new System.Windows.Forms.RadioButton();
-			rbDaily = new System.Windows.Forms.RadioButton();
-			dailyReportBtn = new System.Windows.Forms.Button();
-			label22 = new System.Windows.Forms.Label();
-			dailyReportDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			groupBox10 = new System.Windows.Forms.GroupBox();
+			label8 = new System.Windows.Forms.Label();
+			label15 = new System.Windows.Forms.Label();
+			panel2 = new System.Windows.Forms.Panel();
+			customerWithdrawBalanceTextBox = new System.Windows.Forms.TextBox();
+			customerWithdrawAmountNumeric = new System.Windows.Forms.NumericUpDown();
+			customerWithdrawIdTextBox = new System.Windows.Forms.TextBox();
+			customerWithdrawCicNumberTextBox = new System.Windows.Forms.TextBox();
+			customerWithdrawNameTextBox = new System.Windows.Forms.TextBox();
+			amountWithdrawingErrorLabel = new System.Windows.Forms.Label();
+			customerWithdrawContentTextBox = new System.Windows.Forms.TextBox();
+			reportWithdrawBtn = new System.Windows.Forms.Button();
+			withdrawPrintButton = new System.Windows.Forms.Button();
+			customerWithdrawButton = new System.Windows.Forms.Button();
+			panel3 = new System.Windows.Forms.Panel();
+			customerDepositAmountNumeric = new System.Windows.Forms.NumericUpDown();
+			customerDepositIdTextBox = new System.Windows.Forms.TextBox();
+			customerDepositContentTextBox = new System.Windows.Forms.TextBox();
+			customerDepositContentLabel = new System.Windows.Forms.Label();
+			customerDepositAmountLabel = new System.Windows.Forms.Label();
+			customerDepositCicNumberTextBox = new System.Windows.Forms.TextBox();
+			customerDepositCicNumberLabel = new System.Windows.Forms.Label();
+			customerDepositNameTextBox = new System.Windows.Forms.TextBox();
+			customerDepositNameLabel = new System.Windows.Forms.Label();
+			customerDepositIdLabel = new System.Windows.Forms.Label();
+			reportDepositBtn = new System.Windows.Forms.Button();
+			customerPrintButton = new System.Windows.Forms.Button();
+			customerDepositButton = new System.Windows.Forms.Button();
+			groupBox8 = new System.Windows.Forms.GroupBox();
+			customerWithdrawBalanceLabel = new System.Windows.Forms.Label();
 			customerWithdrawContentLabel = new System.Windows.Forms.Label();
 			customerWithdrawAmountLabel = new System.Windows.Forms.Label();
 			customerWithdrawCicNumberLabel = new System.Windows.Forms.Label();
 			customerWithdrawNameLabel = new System.Windows.Forms.Label();
 			customerWithdrawIdLabel = new System.Windows.Forms.Label();
-			customerWithdrawBalanceLabel = new System.Windows.Forms.Label();
 			tabControlStaffMenu.SuspendLayout();
 			tabPageInformation.SuspendLayout();
 			tabPageDeposit.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridViewDeposit).BeginInit();
-			((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).BeginInit();
-			groupBox8.SuspendLayout();
 			tabPageWithdraw.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridViewWithdraw).BeginInit();
-			((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).BeginInit();
-			groupBox9.SuspendLayout();
 			tabPageManageCustomers.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
 			groupBox6.SuspendLayout();
@@ -180,76 +180,23 @@ namespace GraphicalUserInterface
 			groupBox4.SuspendLayout();
 			groupBox3.SuspendLayout();
 			tabPageFinancialReport.SuspendLayout();
+			panel1.SuspendLayout();
+			groupBox11.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)dataGridViewDailyReport).BeginInit();
 			tabPageChangeRegulations.SuspendLayout();
 			groupBox5.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)data_rate).BeginInit();
-			((System.ComponentModel.ISupportInitialize)dataGridViewDailyReport).BeginInit();
-			panel1.SuspendLayout();
-			groupBox11.SuspendLayout();
+			groupBox10.SuspendLayout();
+			panel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).BeginInit();
+			panel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).BeginInit();
+			groupBox8.SuspendLayout();
 			SuspendLayout();
-			// 
-			// customerWithdrawContentLabel
-			// 
-			customerWithdrawContentLabel.AutoSize = true;
-			customerWithdrawContentLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerWithdrawContentLabel.Location = new System.Drawing.Point(84, 256);
-			customerWithdrawContentLabel.Name = "customerWithdrawContentLabel";
-			customerWithdrawContentLabel.Size = new System.Drawing.Size(91, 26);
-			customerWithdrawContentLabel.TabIndex = 5;
-			customerWithdrawContentLabel.Text = "Content:";
-			// 
-			// customerWithdrawAmountLabel
-			// 
-			customerWithdrawAmountLabel.AutoSize = true;
-			customerWithdrawAmountLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerWithdrawAmountLabel.Location = new System.Drawing.Point(84, 210);
-			customerWithdrawAmountLabel.Name = "customerWithdrawAmountLabel";
-			customerWithdrawAmountLabel.Size = new System.Drawing.Size(185, 26);
-			customerWithdrawAmountLabel.TabIndex = 4;
-			customerWithdrawAmountLabel.Text = "Withdraw amount:";
-			// 
-			// customerWithdrawCicNumberLabel
-			// 
-			customerWithdrawCicNumberLabel.AutoSize = true;
-			customerWithdrawCicNumberLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerWithdrawCicNumberLabel.Location = new System.Drawing.Point(84, 128);
-			customerWithdrawCicNumberLabel.Name = "customerWithdrawCicNumberLabel";
-			customerWithdrawCicNumberLabel.Size = new System.Drawing.Size(138, 26);
-			customerWithdrawCicNumberLabel.TabIndex = 2;
-			customerWithdrawCicNumberLabel.Text = "CIC Number:";
-			// 
-			// customerWithdrawNameLabel
-			// 
-			customerWithdrawNameLabel.AutoSize = true;
-			customerWithdrawNameLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerWithdrawNameLabel.Location = new System.Drawing.Point(84, 86);
-			customerWithdrawNameLabel.Name = "customerWithdrawNameLabel";
-			customerWithdrawNameLabel.Size = new System.Drawing.Size(72, 26);
-			customerWithdrawNameLabel.TabIndex = 1;
-			customerWithdrawNameLabel.Text = "Name:";
-			// 
-			// customerWithdrawIdLabel
-			// 
-			customerWithdrawIdLabel.AutoSize = true;
-			customerWithdrawIdLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerWithdrawIdLabel.Location = new System.Drawing.Point(84, 40);
-			customerWithdrawIdLabel.Name = "customerWithdrawIdLabel";
-			customerWithdrawIdLabel.Size = new System.Drawing.Size(138, 26);
-			customerWithdrawIdLabel.TabIndex = 0;
-			customerWithdrawIdLabel.Text = "Customer ID:";
-			// 
-			// customerWithdrawBalanceLabel
-			// 
-			customerWithdrawBalanceLabel.AutoSize = true;
-			customerWithdrawBalanceLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerWithdrawBalanceLabel.Location = new System.Drawing.Point(84, 167);
-			customerWithdrawBalanceLabel.Name = "customerWithdrawBalanceLabel";
-			customerWithdrawBalanceLabel.Size = new System.Drawing.Size(90, 26);
-			customerWithdrawBalanceLabel.TabIndex = 3;
-			customerWithdrawBalanceLabel.Text = "Balance:";
 			// 
 			// tabControlStaffMenu
 			// 
+			tabControlStaffMenu.Appearance = System.Windows.Forms.TabAppearance.Buttons;
 			tabControlStaffMenu.Controls.Add(tabPageInformation);
 			tabControlStaffMenu.Controls.Add(tabPageDeposit);
 			tabControlStaffMenu.Controls.Add(tabPageWithdraw);
@@ -258,7 +205,7 @@ namespace GraphicalUserInterface
 			tabControlStaffMenu.Controls.Add(tabPageFinancialReport);
 			tabControlStaffMenu.Controls.Add(tabPageChangeRegulations);
 			tabControlStaffMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-			tabControlStaffMenu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			tabControlStaffMenu.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 			tabControlStaffMenu.Location = new System.Drawing.Point(0, 0);
 			tabControlStaffMenu.Margin = new System.Windows.Forms.Padding(2);
 			tabControlStaffMenu.Name = "tabControlStaffMenu";
@@ -296,7 +243,7 @@ namespace GraphicalUserInterface
 			button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			button1.Location = new System.Drawing.Point(692, 209);
 			button1.Name = "button1";
-			button1.Size = new System.Drawing.Size(202, 36);
+			button1.Size = new System.Drawing.Size(183, 33);
 			button1.TabIndex = 33;
 			button1.Text = "Change Infomation";
 			button1.UseVisualStyleBackColor = true;
@@ -304,10 +251,11 @@ namespace GraphicalUserInterface
 			// 
 			// staffusernametxt
 			// 
+			staffusernametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			staffusernametxt.Location = new System.Drawing.Point(886, 93);
 			staffusernametxt.Name = "staffusernametxt";
 			staffusernametxt.ReadOnly = true;
-			staffusernametxt.Size = new System.Drawing.Size(336, 34);
+			staffusernametxt.Size = new System.Drawing.Size(336, 31);
 			staffusernametxt.TabIndex = 30;
 			// 
 			// customerUsernameLabel
@@ -315,16 +263,17 @@ namespace GraphicalUserInterface
 			customerUsernameLabel.AutoSize = true;
 			customerUsernameLabel.Location = new System.Drawing.Point(770, 99);
 			customerUsernameLabel.Name = "customerUsernameLabel";
-			customerUsernameLabel.Size = new System.Drawing.Size(110, 26);
+			customerUsernameLabel.Size = new System.Drawing.Size(103, 23);
 			customerUsernameLabel.TabIndex = 31;
 			customerUsernameLabel.Text = "Username:";
 			// 
 			// staffIdtxt
 			// 
+			staffIdtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			staffIdtxt.Location = new System.Drawing.Point(78, 29);
 			staffIdtxt.Name = "staffIdtxt";
 			staffIdtxt.ReadOnly = true;
-			staffIdtxt.Size = new System.Drawing.Size(365, 34);
+			staffIdtxt.Size = new System.Drawing.Size(365, 31);
 			staffIdtxt.TabIndex = 22;
 			// 
 			// customerIdLabel
@@ -332,7 +281,7 @@ namespace GraphicalUserInterface
 			customerIdLabel.AutoSize = true;
 			customerIdLabel.Location = new System.Drawing.Point(38, 32);
 			customerIdLabel.Name = "customerIdLabel";
-			customerIdLabel.Size = new System.Drawing.Size(42, 26);
+			customerIdLabel.Size = new System.Drawing.Size(34, 23);
 			customerIdLabel.TabIndex = 23;
 			customerIdLabel.Text = "ID:";
 			// 
@@ -342,7 +291,7 @@ namespace GraphicalUserInterface
 			staffChangePasswordButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			staffChangePasswordButton.Location = new System.Drawing.Point(969, 209);
 			staffChangePasswordButton.Name = "staffChangePasswordButton";
-			staffChangePasswordButton.Size = new System.Drawing.Size(188, 36);
+			staffChangePasswordButton.Size = new System.Drawing.Size(171, 33);
 			staffChangePasswordButton.TabIndex = 32;
 			staffChangePasswordButton.Text = "Change Password";
 			staffChangePasswordButton.UseVisualStyleBackColor = true;
@@ -353,24 +302,26 @@ namespace GraphicalUserInterface
 			customerPhoneNumberLabel.AutoSize = true;
 			customerPhoneNumberLabel.Location = new System.Drawing.Point(334, 99);
 			customerPhoneNumberLabel.Name = "customerPhoneNumberLabel";
-			customerPhoneNumberLabel.Size = new System.Drawing.Size(94, 26);
+			customerPhoneNumberLabel.Size = new System.Drawing.Size(87, 23);
 			customerPhoneNumberLabel.TabIndex = 28;
 			customerPhoneNumberLabel.Text = "Position:";
 			// 
 			// staffpositiontxt
 			// 
+			staffpositiontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			staffpositiontxt.Location = new System.Drawing.Point(434, 93);
 			staffpositiontxt.Name = "staffpositiontxt";
 			staffpositiontxt.ReadOnly = true;
-			staffpositiontxt.Size = new System.Drawing.Size(271, 34);
+			staffpositiontxt.Size = new System.Drawing.Size(271, 31);
 			staffpositiontxt.TabIndex = 29;
 			// 
 			// staffgendertxt
 			// 
+			staffgendertxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			staffgendertxt.Location = new System.Drawing.Point(121, 93);
 			staffgendertxt.Name = "staffgendertxt";
 			staffgendertxt.ReadOnly = true;
-			staffgendertxt.Size = new System.Drawing.Size(162, 34);
+			staffgendertxt.Size = new System.Drawing.Size(162, 31);
 			staffgendertxt.TabIndex = 26;
 			// 
 			// customerGenderLabel
@@ -378,16 +329,17 @@ namespace GraphicalUserInterface
 			customerGenderLabel.AutoSize = true;
 			customerGenderLabel.Location = new System.Drawing.Point(38, 96);
 			customerGenderLabel.Name = "customerGenderLabel";
-			customerGenderLabel.Size = new System.Drawing.Size(86, 26);
+			customerGenderLabel.Size = new System.Drawing.Size(77, 23);
 			customerGenderLabel.TabIndex = 27;
 			customerGenderLabel.Text = "Gender:";
 			// 
 			// staffnametxt
 			// 
+			staffnametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			staffnametxt.Location = new System.Drawing.Point(557, 29);
 			staffnametxt.Name = "staffnametxt";
 			staffnametxt.ReadOnly = true;
-			staffnametxt.Size = new System.Drawing.Size(569, 34);
+			staffnametxt.Size = new System.Drawing.Size(569, 31);
 			staffnametxt.TabIndex = 24;
 			// 
 			// customerNameLabel
@@ -395,25 +347,14 @@ namespace GraphicalUserInterface
 			customerNameLabel.AutoSize = true;
 			customerNameLabel.Location = new System.Drawing.Point(485, 32);
 			customerNameLabel.Name = "customerNameLabel";
-			customerNameLabel.Size = new System.Drawing.Size(72, 26);
+			customerNameLabel.Size = new System.Drawing.Size(66, 23);
 			customerNameLabel.TabIndex = 25;
 			customerNameLabel.Text = "Name:";
 			// 
 			// tabPageDeposit
 			// 
+			tabPageDeposit.Controls.Add(panel3);
 			tabPageDeposit.Controls.Add(dataGridViewDeposit);
-			tabPageDeposit.Controls.Add(customerDepositAmountNumeric);
-			tabPageDeposit.Controls.Add(customerDepositIdTextBox);
-			tabPageDeposit.Controls.Add(customerDepositButton);
-			tabPageDeposit.Controls.Add(customerDepositContentTextBox);
-			tabPageDeposit.Controls.Add(customerDepositContentLabel);
-			tabPageDeposit.Controls.Add(customerDepositAmountLabel);
-			tabPageDeposit.Controls.Add(customerDepositCicNumberTextBox);
-			tabPageDeposit.Controls.Add(customerDepositCicNumberLabel);
-			tabPageDeposit.Controls.Add(customerDepositNameTextBox);
-			tabPageDeposit.Controls.Add(customerDepositNameLabel);
-			tabPageDeposit.Controls.Add(customerDepositIdLabel);
-			tabPageDeposit.Controls.Add(groupBox8);
 			tabPageDeposit.Location = new System.Drawing.Point(4, 35);
 			tabPageDeposit.Margin = new System.Windows.Forms.Padding(2);
 			tabPageDeposit.Name = "tabPageDeposit";
@@ -427,180 +368,19 @@ namespace GraphicalUserInterface
 			// 
 			dataGridViewDeposit.BackgroundColor = System.Drawing.Color.White;
 			dataGridViewDeposit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewDeposit.Dock = System.Windows.Forms.DockStyle.Fill;
-			dataGridViewDeposit.Location = new System.Drawing.Point(2, 374);
+			dataGridViewDeposit.Dock = System.Windows.Forms.DockStyle.Right;
+			dataGridViewDeposit.Location = new System.Drawing.Point(681, 2);
 			dataGridViewDeposit.Margin = new System.Windows.Forms.Padding(2);
 			dataGridViewDeposit.Name = "dataGridViewDeposit";
 			dataGridViewDeposit.RowHeadersWidth = 62;
-			dataGridViewDeposit.Size = new System.Drawing.Size(1250, 340);
+			dataGridViewDeposit.Size = new System.Drawing.Size(571, 712);
 			dataGridViewDeposit.TabIndex = 8;
 			dataGridViewDeposit.CellContentClick += dataGridViewDeposit_CellContentClick;
 			// 
-			// customerDepositAmountNumeric
-			// 
-			customerDepositAmountNumeric.DecimalPlaces = 2;
-			customerDepositAmountNumeric.Enabled = false;
-			customerDepositAmountNumeric.Location = new System.Drawing.Point(363, 174);
-			customerDepositAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
-			customerDepositAmountNumeric.Name = "customerDepositAmountNumeric";
-			customerDepositAmountNumeric.Size = new System.Drawing.Size(303, 34);
-			customerDepositAmountNumeric.TabIndex = 6;
-			// 
-			// customerDepositIdTextBox
-			// 
-			customerDepositIdTextBox.Location = new System.Drawing.Point(363, 41);
-			customerDepositIdTextBox.MaxLength = 10;
-			customerDepositIdTextBox.Name = "customerDepositIdTextBox";
-			customerDepositIdTextBox.Size = new System.Drawing.Size(303, 34);
-			customerDepositIdTextBox.TabIndex = 0;
-			customerDepositIdTextBox.Enter += customerDepositIdTextBox_Enter;
-			customerDepositIdTextBox.Leave += customerDepositIdTextBox_Leave;
-			// 
-			// customerDepositButton
-			// 
-			customerDepositButton.AutoSize = true;
-			customerDepositButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			customerDepositButton.Enabled = false;
-			customerDepositButton.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerDepositButton.Location = new System.Drawing.Point(601, 325);
-			customerDepositButton.Name = "customerDepositButton";
-			customerDepositButton.Size = new System.Drawing.Size(93, 36);
-			customerDepositButton.TabIndex = 5;
-			customerDepositButton.Text = "Deposit";
-			customerDepositButton.UseVisualStyleBackColor = true;
-			customerDepositButton.Click += customerDepositButton_Click;
-			// 
-			// customerDepositContentTextBox
-			// 
-			customerDepositContentTextBox.Enabled = false;
-			customerDepositContentTextBox.Location = new System.Drawing.Point(68, 262);
-			customerDepositContentTextBox.Name = "customerDepositContentTextBox";
-			customerDepositContentTextBox.Size = new System.Drawing.Size(598, 34);
-			customerDepositContentTextBox.TabIndex = 4;
-			customerDepositContentTextBox.TextChanged += customerDepositContentTextBox_TextChanged;
-			// 
-			// customerDepositContentLabel
-			// 
-			customerDepositContentLabel.AutoSize = true;
-			customerDepositContentLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerDepositContentLabel.Location = new System.Drawing.Point(68, 222);
-			customerDepositContentLabel.Name = "customerDepositContentLabel";
-			customerDepositContentLabel.Size = new System.Drawing.Size(91, 26);
-			customerDepositContentLabel.TabIndex = 4;
-			customerDepositContentLabel.Text = "Content:";
-			// 
-			// customerDepositAmountLabel
-			// 
-			customerDepositAmountLabel.AutoSize = true;
-			customerDepositAmountLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerDepositAmountLabel.Location = new System.Drawing.Point(68, 176);
-			customerDepositAmountLabel.Name = "customerDepositAmountLabel";
-			customerDepositAmountLabel.Size = new System.Drawing.Size(165, 26);
-			customerDepositAmountLabel.TabIndex = 3;
-			customerDepositAmountLabel.Text = "Deposit amount:";
-			// 
-			// customerDepositCicNumberTextBox
-			// 
-			customerDepositCicNumberTextBox.Location = new System.Drawing.Point(363, 128);
-			customerDepositCicNumberTextBox.Name = "customerDepositCicNumberTextBox";
-			customerDepositCicNumberTextBox.ReadOnly = true;
-			customerDepositCicNumberTextBox.Size = new System.Drawing.Size(303, 34);
-			customerDepositCicNumberTextBox.TabIndex = 2;
-			// 
-			// customerDepositCicNumberLabel
-			// 
-			customerDepositCicNumberLabel.AutoSize = true;
-			customerDepositCicNumberLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerDepositCicNumberLabel.Location = new System.Drawing.Point(68, 132);
-			customerDepositCicNumberLabel.Name = "customerDepositCicNumberLabel";
-			customerDepositCicNumberLabel.Size = new System.Drawing.Size(138, 26);
-			customerDepositCicNumberLabel.TabIndex = 2;
-			customerDepositCicNumberLabel.Text = "CIC Number:";
-			// 
-			// customerDepositNameTextBox
-			// 
-			customerDepositNameTextBox.Location = new System.Drawing.Point(363, 86);
-			customerDepositNameTextBox.Name = "customerDepositNameTextBox";
-			customerDepositNameTextBox.ReadOnly = true;
-			customerDepositNameTextBox.Size = new System.Drawing.Size(303, 34);
-			customerDepositNameTextBox.TabIndex = 1;
-			// 
-			// customerDepositNameLabel
-			// 
-			customerDepositNameLabel.AutoSize = true;
-			customerDepositNameLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerDepositNameLabel.Location = new System.Drawing.Point(68, 90);
-			customerDepositNameLabel.Name = "customerDepositNameLabel";
-			customerDepositNameLabel.Size = new System.Drawing.Size(72, 26);
-			customerDepositNameLabel.TabIndex = 1;
-			customerDepositNameLabel.Text = "Name:";
-			// 
-			// customerDepositIdLabel
-			// 
-			customerDepositIdLabel.AutoSize = true;
-			customerDepositIdLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerDepositIdLabel.Location = new System.Drawing.Point(68, 44);
-			customerDepositIdLabel.Name = "customerDepositIdLabel";
-			customerDepositIdLabel.Size = new System.Drawing.Size(138, 26);
-			customerDepositIdLabel.TabIndex = 0;
-			customerDepositIdLabel.Text = "Customer ID:";
-			// 
-			// groupBox8
-			// 
-			groupBox8.Controls.Add(reportDepositBtn);
-			groupBox8.Controls.Add(customerPrintButton);
-			groupBox8.Dock = System.Windows.Forms.DockStyle.Top;
-			groupBox8.Location = new System.Drawing.Point(2, 2);
-			groupBox8.Margin = new System.Windows.Forms.Padding(2);
-			groupBox8.Name = "groupBox8";
-			groupBox8.Padding = new System.Windows.Forms.Padding(2);
-			groupBox8.Size = new System.Drawing.Size(1250, 372);
-			groupBox8.TabIndex = 7;
-			groupBox8.TabStop = false;
-			// 
-			// reportDepositBtn
-			// 
-			reportDepositBtn.AutoSize = true;
-			reportDepositBtn.Location = new System.Drawing.Point(362, 323);
-			reportDepositBtn.Margin = new System.Windows.Forms.Padding(2);
-			reportDepositBtn.Name = "reportDepositBtn";
-			reportDepositBtn.Size = new System.Drawing.Size(90, 36);
-			reportDepositBtn.TabIndex = 6;
-			reportDepositBtn.Text = "Report";
-			reportDepositBtn.UseVisualStyleBackColor = true;
-			reportDepositBtn.Click += reportDepositBtn_Click;
-			// 
-			// customerPrintButton
-			// 
-			customerPrintButton.AutoSize = true;
-			customerPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			customerPrintButton.Enabled = false;
-			customerPrintButton.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerPrintButton.Location = new System.Drawing.Point(485, 323);
-			customerPrintButton.Name = "customerPrintButton";
-			customerPrintButton.Size = new System.Drawing.Size(67, 36);
-			customerPrintButton.TabIndex = 5;
-			customerPrintButton.Text = "Print";
-			customerPrintButton.UseVisualStyleBackColor = true;
-			customerPrintButton.Click += customerPrintButton_Click;
-			// 
 			// tabPageWithdraw
 			// 
+			tabPageWithdraw.Controls.Add(panel2);
 			tabPageWithdraw.Controls.Add(dataGridViewWithdraw);
-			tabPageWithdraw.Controls.Add(customerWithdrawBalanceTextBox);
-			tabPageWithdraw.Controls.Add(customerWithdrawBalanceLabel);
-			tabPageWithdraw.Controls.Add(customerWithdrawAmountNumeric);
-			tabPageWithdraw.Controls.Add(customerWithdrawIdTextBox);
-			tabPageWithdraw.Controls.Add(customerWithdrawButton);
-			tabPageWithdraw.Controls.Add(customerWithdrawContentTextBox);
-			tabPageWithdraw.Controls.Add(customerWithdrawContentLabel);
-			tabPageWithdraw.Controls.Add(customerWithdrawAmountLabel);
-			tabPageWithdraw.Controls.Add(customerWithdrawCicNumberTextBox);
-			tabPageWithdraw.Controls.Add(customerWithdrawCicNumberLabel);
-			tabPageWithdraw.Controls.Add(customerWithdrawNameTextBox);
-			tabPageWithdraw.Controls.Add(customerWithdrawNameLabel);
-			tabPageWithdraw.Controls.Add(customerWithdrawIdLabel);
-			tabPageWithdraw.Controls.Add(groupBox9);
 			tabPageWithdraw.Location = new System.Drawing.Point(4, 35);
 			tabPageWithdraw.Margin = new System.Windows.Forms.Padding(2);
 			tabPageWithdraw.Name = "tabPageWithdraw";
@@ -613,136 +393,18 @@ namespace GraphicalUserInterface
 			// 
 			dataGridViewWithdraw.BackgroundColor = System.Drawing.Color.White;
 			dataGridViewWithdraw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewWithdraw.Dock = System.Windows.Forms.DockStyle.Fill;
-			dataGridViewWithdraw.Location = new System.Drawing.Point(0, 410);
+			dataGridViewWithdraw.Dock = System.Windows.Forms.DockStyle.Right;
+			dataGridViewWithdraw.Location = new System.Drawing.Point(679, 0);
 			dataGridViewWithdraw.Margin = new System.Windows.Forms.Padding(2);
 			dataGridViewWithdraw.Name = "dataGridViewWithdraw";
 			dataGridViewWithdraw.RowHeadersWidth = 62;
-			dataGridViewWithdraw.Size = new System.Drawing.Size(1254, 306);
+			dataGridViewWithdraw.Size = new System.Drawing.Size(575, 716);
 			dataGridViewWithdraw.TabIndex = 9;
 			dataGridViewWithdraw.CellContentClick += dataGridViewWithdraw_CellContentClick;
 			// 
-			// customerWithdrawBalanceTextBox
-			// 
-			customerWithdrawBalanceTextBox.Location = new System.Drawing.Point(379, 164);
-			customerWithdrawBalanceTextBox.Name = "customerWithdrawBalanceTextBox";
-			customerWithdrawBalanceTextBox.ReadOnly = true;
-			customerWithdrawBalanceTextBox.Size = new System.Drawing.Size(303, 34);
-			customerWithdrawBalanceTextBox.TabIndex = 3;
-			// 
-			// customerWithdrawAmountNumeric
-			// 
-			customerWithdrawAmountNumeric.DecimalPlaces = 2;
-			customerWithdrawAmountNumeric.Enabled = false;
-			customerWithdrawAmountNumeric.Location = new System.Drawing.Point(379, 208);
-			customerWithdrawAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
-			customerWithdrawAmountNumeric.Minimum = new decimal(new int[] { 99999, 0, 0, int.MinValue });
-			customerWithdrawAmountNumeric.Name = "customerWithdrawAmountNumeric";
-			customerWithdrawAmountNumeric.Size = new System.Drawing.Size(303, 34);
-			customerWithdrawAmountNumeric.TabIndex = 4;
-			// 
-			// customerWithdrawIdTextBox
-			// 
-			customerWithdrawIdTextBox.Location = new System.Drawing.Point(379, 37);
-			customerWithdrawIdTextBox.MaxLength = 0;
-			customerWithdrawIdTextBox.Name = "customerWithdrawIdTextBox";
-			customerWithdrawIdTextBox.Size = new System.Drawing.Size(303, 34);
-			customerWithdrawIdTextBox.TabIndex = 7;
-			customerWithdrawIdTextBox.Enter += customerWithdrawIdTextBox_Enter;
-			customerWithdrawIdTextBox.Leave += customerWithdrawIdTextBox_Leave;
-			// 
-			// customerWithdrawButton
-			// 
-			customerWithdrawButton.AutoSize = true;
-			customerWithdrawButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			customerWithdrawButton.Enabled = false;
-			customerWithdrawButton.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			customerWithdrawButton.Location = new System.Drawing.Point(617, 359);
-			customerWithdrawButton.Name = "customerWithdrawButton";
-			customerWithdrawButton.Size = new System.Drawing.Size(113, 36);
-			customerWithdrawButton.TabIndex = 6;
-			customerWithdrawButton.Text = "Withdraw";
-			customerWithdrawButton.UseVisualStyleBackColor = true;
-			customerWithdrawButton.Click += customerWithdrawButton_Click;
-			// 
-			// customerWithdrawContentTextBox
-			// 
-			customerWithdrawContentTextBox.Enabled = false;
-			customerWithdrawContentTextBox.Location = new System.Drawing.Point(84, 296);
-			customerWithdrawContentTextBox.Name = "customerWithdrawContentTextBox";
-			customerWithdrawContentTextBox.Size = new System.Drawing.Size(598, 34);
-			customerWithdrawContentTextBox.TabIndex = 5;
-			customerWithdrawContentTextBox.TextChanged += customerWithdrawContentTextBox_TextChanged;
-			// 
-			// customerWithdrawCicNumberTextBox
-			// 
-			customerWithdrawCicNumberTextBox.Location = new System.Drawing.Point(379, 124);
-			customerWithdrawCicNumberTextBox.Name = "customerWithdrawCicNumberTextBox";
-			customerWithdrawCicNumberTextBox.ReadOnly = true;
-			customerWithdrawCicNumberTextBox.Size = new System.Drawing.Size(303, 34);
-			customerWithdrawCicNumberTextBox.TabIndex = 2;
-			// 
-			// customerWithdrawNameTextBox
-			// 
-			customerWithdrawNameTextBox.Location = new System.Drawing.Point(379, 82);
-			customerWithdrawNameTextBox.Name = "customerWithdrawNameTextBox";
-			customerWithdrawNameTextBox.ReadOnly = true;
-			customerWithdrawNameTextBox.Size = new System.Drawing.Size(303, 34);
-			customerWithdrawNameTextBox.TabIndex = 1;
-			// 
-			// groupBox9
-			// 
-			groupBox9.Controls.Add(reportWithdrawBtn);
-			groupBox9.Controls.Add(withdrawPrintButton);
-			groupBox9.Controls.Add(amountWithdrawingErrorLabel);
-			groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
-			groupBox9.Location = new System.Drawing.Point(0, 0);
-			groupBox9.Margin = new System.Windows.Forms.Padding(2);
-			groupBox9.Name = "groupBox9";
-			groupBox9.Padding = new System.Windows.Forms.Padding(2);
-			groupBox9.Size = new System.Drawing.Size(1254, 410);
-			groupBox9.TabIndex = 8;
-			groupBox9.TabStop = false;
-			// 
-			// reportWithdrawBtn
-			// 
-			reportWithdrawBtn.AutoSize = true;
-			reportWithdrawBtn.Location = new System.Drawing.Point(379, 359);
-			reportWithdrawBtn.Margin = new System.Windows.Forms.Padding(2);
-			reportWithdrawBtn.Name = "reportWithdrawBtn";
-			reportWithdrawBtn.Size = new System.Drawing.Size(90, 36);
-			reportWithdrawBtn.TabIndex = 11;
-			reportWithdrawBtn.Text = "Report";
-			reportWithdrawBtn.UseVisualStyleBackColor = true;
-			reportWithdrawBtn.Click += reportWithdrawBtn_Click;
-			// 
-			// withdrawPrintButton
-			// 
-			withdrawPrintButton.AutoSize = true;
-			withdrawPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			withdrawPrintButton.Enabled = false;
-			withdrawPrintButton.Font = new System.Drawing.Font("Times New Roman", 13.8F);
-			withdrawPrintButton.Location = new System.Drawing.Point(504, 359);
-			withdrawPrintButton.Name = "withdrawPrintButton";
-			withdrawPrintButton.Size = new System.Drawing.Size(67, 36);
-			withdrawPrintButton.TabIndex = 10;
-			withdrawPrintButton.Text = "Print";
-			withdrawPrintButton.UseVisualStyleBackColor = true;
-			withdrawPrintButton.Click += withdrawPrintButton_Click;
-			// 
-			// amountWithdrawingErrorLabel
-			// 
-			amountWithdrawingErrorLabel.AutoSize = true;
-			amountWithdrawingErrorLabel.ForeColor = System.Drawing.Color.Red;
-			amountWithdrawingErrorLabel.Location = new System.Drawing.Point(379, 256);
-			amountWithdrawingErrorLabel.Name = "amountWithdrawingErrorLabel";
-			amountWithdrawingErrorLabel.Size = new System.Drawing.Size(421, 26);
-			amountWithdrawingErrorLabel.TabIndex = 5;
-			amountWithdrawingErrorLabel.Text = "The minimum amount to withdraw is $ 0.00";
-			amountWithdrawingErrorLabel.Visible = false;
-			// 
 			// tabPageManageCustomers
 			// 
+			tabPageManageCustomers.Controls.Add(groupBox8);
 			tabPageManageCustomers.Controls.Add(dataGridViewCustomer);
 			tabPageManageCustomers.Controls.Add(groupBox6);
 			tabPageManageCustomers.Controls.Add(groupBox2);
@@ -759,7 +421,6 @@ namespace GraphicalUserInterface
 			// 
 			dataGridViewCustomer.BackgroundColor = System.Drawing.Color.White;
 			dataGridViewCustomer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
 			dataGridViewCustomer.Location = new System.Drawing.Point(0, 451);
 			dataGridViewCustomer.Margin = new System.Windows.Forms.Padding(2);
 			dataGridViewCustomer.Name = "dataGridViewCustomer";
@@ -771,7 +432,6 @@ namespace GraphicalUserInterface
 			// groupBox6
 			// 
 			groupBox6.Controls.Add(customerSearchTextBox);
-			groupBox6.Dock = System.Windows.Forms.DockStyle.Top;
 			groupBox6.Location = new System.Drawing.Point(0, 373);
 			groupBox6.Margin = new System.Windows.Forms.Padding(2);
 			groupBox6.Name = "groupBox6";
@@ -783,10 +443,11 @@ namespace GraphicalUserInterface
 			// 
 			// customerSearchTextBox
 			// 
+			customerSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			customerSearchTextBox.Location = new System.Drawing.Point(45, 32);
 			customerSearchTextBox.Margin = new System.Windows.Forms.Padding(2);
 			customerSearchTextBox.Name = "customerSearchTextBox";
-			customerSearchTextBox.Size = new System.Drawing.Size(710, 34);
+			customerSearchTextBox.Size = new System.Drawing.Size(710, 31);
 			customerSearchTextBox.TabIndex = 0;
 			customerSearchTextBox.TextChanged += customerSearchTextBox_TextChanged;
 			// 
@@ -797,7 +458,6 @@ namespace GraphicalUserInterface
 			groupBox2.Controls.Add(disableCustomerBtn);
 			groupBox2.Controls.Add(saveCustomerBtn);
 			groupBox2.Controls.Add(addCustomerBtn);
-			groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
 			groupBox2.Location = new System.Drawing.Point(0, 281);
 			groupBox2.Margin = new System.Windows.Forms.Padding(2);
 			groupBox2.Name = "groupBox2";
@@ -869,51 +529,45 @@ namespace GraphicalUserInterface
 			// 
 			// groupBox1
 			// 
-			groupBox1.Controls.Add(customerBalanceTextBox);
-			groupBox1.Controls.Add(label10);
 			groupBox1.Controls.Add(customerDisableCheckBox);
 			groupBox1.Controls.Add(customerBirthDateTimePicker);
 			groupBox1.Controls.Add(label9);
 			groupBox1.Controls.Add(customerMaleCheckBox);
-			groupBox1.Controls.Add(customerUsernameTextBox);
-			groupBox1.Controls.Add(label7);
 			groupBox1.Controls.Add(customerEmailTextBox);
 			groupBox1.Controls.Add(label6);
-			groupBox1.Controls.Add(customerAddressTextBox);
-			groupBox1.Controls.Add(label5);
 			groupBox1.Controls.Add(customerPhoneNumberTextBox);
 			groupBox1.Controls.Add(label4);
+			groupBox1.Controls.Add(customerAddressTextBox);
+			groupBox1.Controls.Add(label5);
 			groupBox1.Controls.Add(customerCicNumberTextBox);
 			groupBox1.Controls.Add(label3);
 			groupBox1.Controls.Add(customerNameTextBox);
 			groupBox1.Controls.Add(label2);
-			groupBox1.Controls.Add(customerIdTextBox);
-			groupBox1.Controls.Add(label1);
-			groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
 			groupBox1.Location = new System.Drawing.Point(0, 0);
 			groupBox1.Margin = new System.Windows.Forms.Padding(2);
 			groupBox1.Name = "groupBox1";
 			groupBox1.Padding = new System.Windows.Forms.Padding(2);
-			groupBox1.Size = new System.Drawing.Size(1254, 281);
+			groupBox1.Size = new System.Drawing.Size(788, 281);
 			groupBox1.TabIndex = 0;
 			groupBox1.TabStop = false;
-			groupBox1.Text = "Customer Information";
+			groupBox1.Text = "Information";
 			// 
 			// customerBalanceTextBox
 			// 
-			customerBalanceTextBox.Location = new System.Drawing.Point(981, 170);
-			customerBalanceTextBox.Margin = new System.Windows.Forms.Padding(2);
+			customerBalanceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerBalanceTextBox.Location = new System.Drawing.Point(227, 91);
+			customerBalanceTextBox.Margin = new System.Windows.Forms.Padding(5);
 			customerBalanceTextBox.Name = "customerBalanceTextBox";
-			customerBalanceTextBox.Size = new System.Drawing.Size(255, 34);
+			customerBalanceTextBox.Size = new System.Drawing.Size(194, 31);
 			customerBalanceTextBox.TabIndex = 21;
 			// 
 			// label10
 			// 
 			label10.AutoSize = true;
-			label10.Location = new System.Drawing.Point(881, 175);
+			label10.Location = new System.Drawing.Point(227, 63);
 			label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label10.Name = "label10";
-			label10.Size = new System.Drawing.Size(96, 26);
+			label10.Size = new System.Drawing.Size(86, 23);
 			label10.TabIndex = 20;
 			label10.Text = "Balance: ";
 			// 
@@ -923,7 +577,7 @@ namespace GraphicalUserInterface
 			customerDisableCheckBox.Location = new System.Drawing.Point(470, 292);
 			customerDisableCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			customerDisableCheckBox.Name = "customerDisableCheckBox";
-			customerDisableCheckBox.Size = new System.Drawing.Size(103, 30);
+			customerDisableCheckBox.Size = new System.Drawing.Size(96, 27);
 			customerDisableCheckBox.TabIndex = 19;
 			customerDisableCheckBox.Text = "Disable";
 			customerDisableCheckBox.UseVisualStyleBackColor = true;
@@ -931,161 +585,169 @@ namespace GraphicalUserInterface
 			// customerBirthDateTimePicker
 			// 
 			customerBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			customerBirthDateTimePicker.Location = new System.Drawing.Point(513, 105);
-			customerBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
+			customerBirthDateTimePicker.Location = new System.Drawing.Point(385, 63);
+			customerBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(5);
 			customerBirthDateTimePicker.Name = "customerBirthDateTimePicker";
-			customerBirthDateTimePicker.Size = new System.Drawing.Size(328, 34);
+			customerBirthDateTimePicker.Size = new System.Drawing.Size(243, 31);
 			customerBirthDateTimePicker.TabIndex = 18;
 			// 
 			// label9
 			// 
 			label9.AutoSize = true;
-			label9.Location = new System.Drawing.Point(376, 107);
+			label9.Location = new System.Drawing.Point(385, 35);
 			label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label9.Name = "label9";
-			label9.Size = new System.Drawing.Size(136, 26);
+			label9.Size = new System.Drawing.Size(123, 23);
 			label9.TabIndex = 17;
 			label9.Text = "Date of birth:";
 			// 
 			// customerMaleCheckBox
 			// 
 			customerMaleCheckBox.AutoSize = true;
-			customerMaleCheckBox.Location = new System.Drawing.Point(881, 30);
+			customerMaleCheckBox.Location = new System.Drawing.Point(671, 64);
 			customerMaleCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			customerMaleCheckBox.Name = "customerMaleCheckBox";
-			customerMaleCheckBox.Size = new System.Drawing.Size(79, 30);
+			customerMaleCheckBox.Size = new System.Drawing.Size(73, 27);
 			customerMaleCheckBox.TabIndex = 16;
 			customerMaleCheckBox.Text = "Male";
 			customerMaleCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// customerUsernameTextBox
 			// 
-			customerUsernameTextBox.Location = new System.Drawing.Point(154, 230);
-			customerUsernameTextBox.Margin = new System.Windows.Forms.Padding(2);
+			customerUsernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerUsernameTextBox.Location = new System.Drawing.Point(43, 178);
+			customerUsernameTextBox.Margin = new System.Windows.Forms.Padding(5);
 			customerUsernameTextBox.Name = "customerUsernameTextBox";
-			customerUsernameTextBox.Size = new System.Drawing.Size(175, 34);
+			customerUsernameTextBox.Size = new System.Drawing.Size(378, 31);
 			customerUsernameTextBox.TabIndex = 13;
 			// 
 			// label7
 			// 
 			label7.AutoSize = true;
-			label7.Location = new System.Drawing.Point(38, 234);
+			label7.Location = new System.Drawing.Point(43, 150);
 			label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label7.Name = "label7";
-			label7.Size = new System.Drawing.Size(116, 26);
+			label7.Size = new System.Drawing.Size(107, 23);
 			label7.TabIndex = 12;
 			label7.Text = "Username: ";
 			// 
 			// customerEmailTextBox
 			// 
-			customerEmailTextBox.Location = new System.Drawing.Point(462, 175);
-			customerEmailTextBox.Margin = new System.Windows.Forms.Padding(2);
+			customerEmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerEmailTextBox.Location = new System.Drawing.Point(36, 149);
+			customerEmailTextBox.Margin = new System.Windows.Forms.Padding(5);
 			customerEmailTextBox.Name = "customerEmailTextBox";
-			customerEmailTextBox.Size = new System.Drawing.Size(378, 34);
+			customerEmailTextBox.Size = new System.Drawing.Size(295, 31);
 			customerEmailTextBox.TabIndex = 11;
 			// 
 			// label6
 			// 
 			label6.AutoSize = true;
-			label6.Location = new System.Drawing.Point(376, 178);
+			label6.Location = new System.Drawing.Point(36, 121);
 			label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label6.Name = "label6";
-			label6.Size = new System.Drawing.Size(71, 26);
+			label6.Size = new System.Drawing.Size(65, 23);
 			label6.TabIndex = 10;
 			label6.Text = "Email:";
 			// 
 			// customerAddressTextBox
 			// 
-			customerAddressTextBox.Location = new System.Drawing.Point(138, 173);
-			customerAddressTextBox.Margin = new System.Windows.Forms.Padding(2);
+			customerAddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerAddressTextBox.Location = new System.Drawing.Point(36, 223);
+			customerAddressTextBox.Margin = new System.Windows.Forms.Padding(5);
 			customerAddressTextBox.Name = "customerAddressTextBox";
-			customerAddressTextBox.Size = new System.Drawing.Size(190, 34);
+			customerAddressTextBox.Size = new System.Drawing.Size(295, 31);
 			customerAddressTextBox.TabIndex = 9;
 			// 
 			// label5
 			// 
 			label5.AutoSize = true;
-			label5.Location = new System.Drawing.Point(38, 175);
+			label5.Location = new System.Drawing.Point(36, 195);
 			label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label5.Name = "label5";
-			label5.Size = new System.Drawing.Size(100, 26);
+			label5.Size = new System.Drawing.Size(89, 23);
 			label5.TabIndex = 8;
 			label5.Text = "Address: ";
 			// 
 			// customerPhoneNumberTextBox
 			// 
-			customerPhoneNumberTextBox.Location = new System.Drawing.Point(1030, 102);
-			customerPhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
+			customerPhoneNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerPhoneNumberTextBox.Location = new System.Drawing.Point(385, 149);
+			customerPhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(5);
 			customerPhoneNumberTextBox.Name = "customerPhoneNumberTextBox";
-			customerPhoneNumberTextBox.Size = new System.Drawing.Size(206, 34);
+			customerPhoneNumberTextBox.Size = new System.Drawing.Size(243, 31);
 			customerPhoneNumberTextBox.TabIndex = 7;
 			// 
 			// label4
 			// 
 			label4.AutoSize = true;
-			label4.Location = new System.Drawing.Point(880, 107);
+			label4.Location = new System.Drawing.Point(385, 121);
 			label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label4.Name = "label4";
-			label4.Size = new System.Drawing.Size(153, 26);
+			label4.Size = new System.Drawing.Size(139, 23);
 			label4.TabIndex = 6;
 			label4.Text = "Phone Number";
 			// 
 			// customerCicNumberTextBox
 			// 
-			customerCicNumberTextBox.Location = new System.Drawing.Point(157, 102);
-			customerCicNumberTextBox.Margin = new System.Windows.Forms.Padding(2);
+			customerCicNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerCicNumberTextBox.Location = new System.Drawing.Point(385, 223);
+			customerCicNumberTextBox.Margin = new System.Windows.Forms.Padding(5);
 			customerCicNumberTextBox.Name = "customerCicNumberTextBox";
-			customerCicNumberTextBox.Size = new System.Drawing.Size(172, 34);
+			customerCicNumberTextBox.Size = new System.Drawing.Size(243, 31);
 			customerCicNumberTextBox.TabIndex = 5;
 			// 
 			// label3
 			// 
 			label3.AutoSize = true;
-			label3.Location = new System.Drawing.Point(38, 105);
+			label3.Location = new System.Drawing.Point(385, 195);
 			label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label3.Name = "label3";
-			label3.Size = new System.Drawing.Size(125, 26);
+			label3.Size = new System.Drawing.Size(118, 23);
 			label3.TabIndex = 4;
-			label3.Text = "CicNumber:";
+			label3.Text = "CIC Number:";
 			// 
 			// customerNameTextBox
 			// 
-			customerNameTextBox.Location = new System.Drawing.Point(450, 38);
-			customerNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+			customerNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerNameTextBox.Location = new System.Drawing.Point(36, 63);
+			customerNameTextBox.Margin = new System.Windows.Forms.Padding(5);
 			customerNameTextBox.Name = "customerNameTextBox";
-			customerNameTextBox.Size = new System.Drawing.Size(390, 34);
+			customerNameTextBox.Size = new System.Drawing.Size(295, 31);
 			customerNameTextBox.TabIndex = 3;
 			// 
 			// label2
 			// 
 			label2.AutoSize = true;
-			label2.Location = new System.Drawing.Point(376, 41);
+			label2.Location = new System.Drawing.Point(36, 35);
 			label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label2.Name = "label2";
-			label2.Size = new System.Drawing.Size(72, 26);
+			label2.Size = new System.Drawing.Size(66, 23);
 			label2.TabIndex = 2;
 			label2.Text = "Name:";
 			// 
 			// customerIdTextBox
 			// 
-			customerIdTextBox.Location = new System.Drawing.Point(78, 38);
-			customerIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+			customerIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerIdTextBox.Location = new System.Drawing.Point(43, 91);
+			customerIdTextBox.Margin = new System.Windows.Forms.Padding(5);
 			customerIdTextBox.Name = "customerIdTextBox";
-			customerIdTextBox.Size = new System.Drawing.Size(250, 34);
+			customerIdTextBox.Size = new System.Drawing.Size(127, 31);
 			customerIdTextBox.TabIndex = 1;
 			// 
 			// label1
 			// 
 			label1.AutoSize = true;
-			label1.Location = new System.Drawing.Point(38, 43);
+			label1.Location = new System.Drawing.Point(43, 63);
 			label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label1.Name = "label1";
-			label1.Size = new System.Drawing.Size(38, 26);
+			label1.Size = new System.Drawing.Size(32, 23);
 			label1.TabIndex = 0;
 			label1.Text = "Id:";
 			// 
 			// tabPageManageStaffs
 			// 
+			tabPageManageStaffs.Controls.Add(groupBox10);
 			tabPageManageStaffs.Controls.Add(dataGridViewStaff);
 			tabPageManageStaffs.Controls.Add(groupBox7);
 			tabPageManageStaffs.Controls.Add(groupBox4);
@@ -1102,7 +764,6 @@ namespace GraphicalUserInterface
 			// 
 			dataGridViewStaff.BackgroundColor = System.Drawing.Color.White;
 			dataGridViewStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewStaff.Dock = System.Windows.Forms.DockStyle.Fill;
 			dataGridViewStaff.Location = new System.Drawing.Point(0, 421);
 			dataGridViewStaff.Margin = new System.Windows.Forms.Padding(2);
 			dataGridViewStaff.Name = "dataGridViewStaff";
@@ -1114,7 +775,6 @@ namespace GraphicalUserInterface
 			// groupBox7
 			// 
 			groupBox7.Controls.Add(staffSearchTextBox);
-			groupBox7.Dock = System.Windows.Forms.DockStyle.Top;
 			groupBox7.Location = new System.Drawing.Point(0, 339);
 			groupBox7.Margin = new System.Windows.Forms.Padding(2);
 			groupBox7.Name = "groupBox7";
@@ -1126,10 +786,11 @@ namespace GraphicalUserInterface
 			// 
 			// staffSearchTextBox
 			// 
+			staffSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			staffSearchTextBox.Location = new System.Drawing.Point(56, 38);
 			staffSearchTextBox.Margin = new System.Windows.Forms.Padding(2);
 			staffSearchTextBox.Name = "staffSearchTextBox";
-			staffSearchTextBox.Size = new System.Drawing.Size(750, 34);
+			staffSearchTextBox.Size = new System.Drawing.Size(750, 31);
 			staffSearchTextBox.TabIndex = 0;
 			staffSearchTextBox.TextChanged += staffSearchTextBox_TextChanged;
 			// 
@@ -1140,7 +801,6 @@ namespace GraphicalUserInterface
 			groupBox4.Controls.Add(disableStaffBtn);
 			groupBox4.Controls.Add(saveStaffBtn);
 			groupBox4.Controls.Add(addStaffBtn);
-			groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
 			groupBox4.Location = new System.Drawing.Point(0, 237);
 			groupBox4.Margin = new System.Windows.Forms.Padding(2);
 			groupBox4.Name = "groupBox4";
@@ -1211,35 +871,26 @@ namespace GraphicalUserInterface
 			// 
 			// groupBox3
 			// 
-			groupBox3.Controls.Add(staffDisableCheckBox);
-			groupBox3.Controls.Add(staffMaleCheckBox);
-			groupBox3.Controls.Add(staffPermissionIdComboBox);
-			groupBox3.Controls.Add(label16);
-			groupBox3.Controls.Add(staffUsernameTextBox);
-			groupBox3.Controls.Add(label14);
-			groupBox3.Controls.Add(staffPositionTextBox);
-			groupBox3.Controls.Add(label13);
-			groupBox3.Controls.Add(staffNameTextBox);
+			groupBox3.Controls.Add(label8);
 			groupBox3.Controls.Add(label12);
-			groupBox3.Controls.Add(staffIdTextBox);
-			groupBox3.Controls.Add(label11);
-			groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+			groupBox3.Controls.Add(staffMaleCheckBox);
+			groupBox3.Controls.Add(staffNameTextBox);
 			groupBox3.Location = new System.Drawing.Point(0, 0);
 			groupBox3.Margin = new System.Windows.Forms.Padding(2);
 			groupBox3.Name = "groupBox3";
 			groupBox3.Padding = new System.Windows.Forms.Padding(2);
-			groupBox3.Size = new System.Drawing.Size(1254, 237);
+			groupBox3.Size = new System.Drawing.Size(407, 237);
 			groupBox3.TabIndex = 0;
 			groupBox3.TabStop = false;
-			groupBox3.Text = "Staff Information";
+			groupBox3.Text = "Information";
 			// 
 			// staffDisableCheckBox
 			// 
 			staffDisableCheckBox.AutoSize = true;
-			staffDisableCheckBox.Location = new System.Drawing.Point(917, 104);
-			staffDisableCheckBox.Margin = new System.Windows.Forms.Padding(2);
+			staffDisableCheckBox.Location = new System.Drawing.Point(599, 74);
+			staffDisableCheckBox.Margin = new System.Windows.Forms.Padding(5);
 			staffDisableCheckBox.Name = "staffDisableCheckBox";
-			staffDisableCheckBox.Size = new System.Drawing.Size(103, 30);
+			staffDisableCheckBox.Size = new System.Drawing.Size(96, 27);
 			staffDisableCheckBox.TabIndex = 13;
 			staffDisableCheckBox.Text = "Disable";
 			staffDisableCheckBox.UseVisualStyleBackColor = true;
@@ -1247,10 +898,10 @@ namespace GraphicalUserInterface
 			// staffMaleCheckBox
 			// 
 			staffMaleCheckBox.AutoSize = true;
-			staffMaleCheckBox.Location = new System.Drawing.Point(917, 41);
+			staffMaleCheckBox.Location = new System.Drawing.Point(45, 168);
 			staffMaleCheckBox.Margin = new System.Windows.Forms.Padding(2);
 			staffMaleCheckBox.Name = "staffMaleCheckBox";
-			staffMaleCheckBox.Size = new System.Drawing.Size(79, 30);
+			staffMaleCheckBox.Size = new System.Drawing.Size(73, 27);
 			staffMaleCheckBox.TabIndex = 12;
 			staffMaleCheckBox.Text = "Male";
 			staffMaleCheckBox.UseVisualStyleBackColor = true;
@@ -1258,92 +909,101 @@ namespace GraphicalUserInterface
 			// staffPermissionIdComboBox
 			// 
 			staffPermissionIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			staffPermissionIdComboBox.Font = new System.Drawing.Font("Cambria", 12F);
 			staffPermissionIdComboBox.FormattingEnabled = true;
-			staffPermissionIdComboBox.Location = new System.Drawing.Point(553, 101);
-			staffPermissionIdComboBox.Margin = new System.Windows.Forms.Padding(2);
+			staffPermissionIdComboBox.Location = new System.Drawing.Point(327, 154);
+			staffPermissionIdComboBox.Margin = new System.Windows.Forms.Padding(5);
 			staffPermissionIdComboBox.Name = "staffPermissionIdComboBox";
-			staffPermissionIdComboBox.Size = new System.Drawing.Size(302, 34);
+			staffPermissionIdComboBox.Size = new System.Drawing.Size(220, 31);
 			staffPermissionIdComboBox.TabIndex = 11;
 			// 
 			// label16
 			// 
 			label16.AutoSize = true;
-			label16.Location = new System.Drawing.Point(399, 103);
+			label16.Location = new System.Drawing.Point(327, 126);
 			label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label16.Name = "label16";
-			label16.Size = new System.Drawing.Size(141, 26);
+			label16.Size = new System.Drawing.Size(113, 23);
 			label16.TabIndex = 10;
-			label16.Text = "PermissionId:";
+			label16.Text = "Permission:";
 			// 
 			// staffUsernameTextBox
 			// 
-			staffUsernameTextBox.Location = new System.Drawing.Point(150, 168);
-			staffUsernameTextBox.Margin = new System.Windows.Forms.Padding(2);
+			staffUsernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffUsernameTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			staffUsernameTextBox.Location = new System.Drawing.Point(327, 70);
+			staffUsernameTextBox.Margin = new System.Windows.Forms.Padding(5);
 			staffUsernameTextBox.Name = "staffUsernameTextBox";
-			staffUsernameTextBox.Size = new System.Drawing.Size(203, 34);
+			staffUsernameTextBox.Size = new System.Drawing.Size(220, 31);
 			staffUsernameTextBox.TabIndex = 7;
 			// 
 			// label14
 			// 
 			label14.AutoSize = true;
-			label14.Location = new System.Drawing.Point(40, 170);
+			label14.Location = new System.Drawing.Point(327, 42);
 			label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label14.Name = "label14";
-			label14.Size = new System.Drawing.Size(110, 26);
+			label14.Size = new System.Drawing.Size(103, 23);
 			label14.TabIndex = 6;
 			label14.Text = "Username:";
 			// 
 			// staffPositionTextBox
 			// 
-			staffPositionTextBox.Location = new System.Drawing.Point(138, 101);
-			staffPositionTextBox.Margin = new System.Windows.Forms.Padding(2);
+			staffPositionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffPositionTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			staffPositionTextBox.Location = new System.Drawing.Point(62, 154);
+			staffPositionTextBox.Margin = new System.Windows.Forms.Padding(5);
 			staffPositionTextBox.Name = "staffPositionTextBox";
-			staffPositionTextBox.Size = new System.Drawing.Size(216, 34);
+			staffPositionTextBox.Size = new System.Drawing.Size(209, 31);
 			staffPositionTextBox.TabIndex = 5;
 			// 
 			// label13
 			// 
 			label13.AutoSize = true;
-			label13.Location = new System.Drawing.Point(40, 103);
+			label13.Location = new System.Drawing.Point(62, 126);
 			label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label13.Name = "label13";
-			label13.Size = new System.Drawing.Size(94, 26);
+			label13.Size = new System.Drawing.Size(87, 23);
 			label13.TabIndex = 4;
 			label13.Text = "Position:";
 			// 
 			// staffNameTextBox
 			// 
-			staffNameTextBox.Location = new System.Drawing.Point(479, 39);
-			staffNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+			staffNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffNameTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			staffNameTextBox.Location = new System.Drawing.Point(45, 80);
+			staffNameTextBox.Margin = new System.Windows.Forms.Padding(5);
 			staffNameTextBox.Name = "staffNameTextBox";
-			staffNameTextBox.Size = new System.Drawing.Size(375, 34);
+			staffNameTextBox.Size = new System.Drawing.Size(314, 31);
 			staffNameTextBox.TabIndex = 3;
 			// 
 			// label12
 			// 
 			label12.AutoSize = true;
-			label12.Location = new System.Drawing.Point(399, 44);
+			label12.Location = new System.Drawing.Point(45, 49);
 			label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label12.Name = "label12";
-			label12.Size = new System.Drawing.Size(78, 26);
+			label12.Size = new System.Drawing.Size(70, 23);
 			label12.TabIndex = 2;
 			label12.Text = "Name: ";
 			// 
 			// staffIdTextBox
 			// 
-			staffIdTextBox.Location = new System.Drawing.Point(81, 42);
-			staffIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+			staffIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffIdTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			staffIdTextBox.Location = new System.Drawing.Point(62, 70);
+			staffIdTextBox.Margin = new System.Windows.Forms.Padding(5);
 			staffIdTextBox.Name = "staffIdTextBox";
-			staffIdTextBox.Size = new System.Drawing.Size(273, 34);
+			staffIdTextBox.Size = new System.Drawing.Size(209, 31);
 			staffIdTextBox.TabIndex = 1;
 			// 
 			// label11
 			// 
 			label11.AutoSize = true;
-			label11.Location = new System.Drawing.Point(40, 45);
+			label11.Location = new System.Drawing.Point(62, 42);
 			label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
 			label11.Name = "label11";
-			label11.Size = new System.Drawing.Size(38, 26);
+			label11.Size = new System.Drawing.Size(32, 23);
 			label11.TabIndex = 0;
 			label11.Text = "Id:";
 			// 
@@ -1357,6 +1017,90 @@ namespace GraphicalUserInterface
 			tabPageFinancialReport.TabIndex = 6;
 			tabPageFinancialReport.Text = "Financial Report";
 			tabPageFinancialReport.UseVisualStyleBackColor = true;
+			// 
+			// panel1
+			// 
+			panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			panel1.Controls.Add(groupBox11);
+			panel1.Controls.Add(dailyReportBtn);
+			panel1.Controls.Add(label22);
+			panel1.Controls.Add(dailyReportDateTimePicker);
+			panel1.Dock = System.Windows.Forms.DockStyle.Left;
+			panel1.Location = new System.Drawing.Point(0, 0);
+			panel1.Name = "panel1";
+			panel1.Size = new System.Drawing.Size(514, 716);
+			panel1.TabIndex = 9;
+			// 
+			// groupBox11
+			// 
+			groupBox11.Controls.Add(rbMonthly);
+			groupBox11.Controls.Add(rbDaily);
+			groupBox11.Location = new System.Drawing.Point(128, 143);
+			groupBox11.Name = "groupBox11";
+			groupBox11.Size = new System.Drawing.Size(300, 125);
+			groupBox11.TabIndex = 9;
+			groupBox11.TabStop = false;
+			groupBox11.Text = "Select report type";
+			// 
+			// rbMonthly
+			// 
+			rbMonthly.AutoSize = true;
+			rbMonthly.Location = new System.Drawing.Point(165, 66);
+			rbMonthly.Name = "rbMonthly";
+			rbMonthly.Size = new System.Drawing.Size(102, 27);
+			rbMonthly.TabIndex = 1;
+			rbMonthly.TabStop = true;
+			rbMonthly.Text = "Monthly";
+			rbMonthly.UseVisualStyleBackColor = true;
+			// 
+			// rbDaily
+			// 
+			rbDaily.AutoSize = true;
+			rbDaily.Location = new System.Drawing.Point(24, 66);
+			rbDaily.Name = "rbDaily";
+			rbDaily.Size = new System.Drawing.Size(75, 27);
+			rbDaily.TabIndex = 0;
+			rbDaily.TabStop = true;
+			rbDaily.Text = "Daily";
+			rbDaily.UseVisualStyleBackColor = true;
+			// 
+			// dailyReportBtn
+			// 
+			dailyReportBtn.AutoSize = true;
+			dailyReportBtn.Location = new System.Drawing.Point(169, 437);
+			dailyReportBtn.Name = "dailyReportBtn";
+			dailyReportBtn.Size = new System.Drawing.Size(171, 43);
+			dailyReportBtn.TabIndex = 8;
+			dailyReportBtn.Text = "Export Excel";
+			dailyReportBtn.UseVisualStyleBackColor = true;
+			// 
+			// label22
+			// 
+			label22.AutoSize = true;
+			label22.Location = new System.Drawing.Point(57, 341);
+			label22.Name = "label22";
+			label22.Size = new System.Drawing.Size(60, 23);
+			label22.TabIndex = 6;
+			label22.Text = "Time:";
+			// 
+			// dailyReportDateTimePicker
+			// 
+			dailyReportDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			dailyReportDateTimePicker.Location = new System.Drawing.Point(128, 335);
+			dailyReportDateTimePicker.Name = "dailyReportDateTimePicker";
+			dailyReportDateTimePicker.Size = new System.Drawing.Size(300, 31);
+			dailyReportDateTimePicker.TabIndex = 7;
+			// 
+			// dataGridViewDailyReport
+			// 
+			dataGridViewDailyReport.BackgroundColor = System.Drawing.Color.White;
+			dataGridViewDailyReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewDailyReport.Dock = System.Windows.Forms.DockStyle.Right;
+			dataGridViewDailyReport.Location = new System.Drawing.Point(520, 0);
+			dataGridViewDailyReport.Name = "dataGridViewDailyReport";
+			dataGridViewDailyReport.RowHeadersWidth = 62;
+			dataGridViewDailyReport.Size = new System.Drawing.Size(734, 716);
+			dataGridViewDailyReport.TabIndex = 8;
 			// 
 			// tabPageChangeRegulations
 			// 
@@ -1380,7 +1124,7 @@ namespace GraphicalUserInterface
 			label19.AutoSize = true;
 			label19.Location = new System.Drawing.Point(1179, 109);
 			label19.Name = "label19";
-			label19.Size = new System.Drawing.Size(31, 26);
+			label19.Size = new System.Drawing.Size(28, 23);
 			label19.TabIndex = 12;
 			label19.Text = "%";
 			// 
@@ -1396,9 +1140,10 @@ namespace GraphicalUserInterface
 			// 
 			// ratetxt
 			// 
+			ratetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			ratetxt.Location = new System.Drawing.Point(1031, 106);
 			ratetxt.Name = "ratetxt";
-			ratetxt.Size = new System.Drawing.Size(142, 34);
+			ratetxt.Size = new System.Drawing.Size(142, 31);
 			ratetxt.TabIndex = 10;
 			// 
 			// label17
@@ -1406,16 +1151,17 @@ namespace GraphicalUserInterface
 			label17.AutoSize = true;
 			label17.Location = new System.Drawing.Point(829, 114);
 			label17.Name = "label17";
-			label17.Size = new System.Drawing.Size(196, 26);
+			label17.Size = new System.Drawing.Size(182, 23);
 			label17.TabIndex = 9;
 			label17.Text = "AnnualInterestRate:";
 			// 
 			// monthtxt
 			// 
+			monthtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			monthtxt.Location = new System.Drawing.Point(652, 106);
 			monthtxt.Name = "monthtxt";
 			monthtxt.ReadOnly = true;
-			monthtxt.Size = new System.Drawing.Size(125, 34);
+			monthtxt.Size = new System.Drawing.Size(125, 31);
 			monthtxt.TabIndex = 8;
 			// 
 			// label18
@@ -1423,7 +1169,7 @@ namespace GraphicalUserInterface
 			label18.AutoSize = true;
 			label18.Location = new System.Drawing.Point(477, 114);
 			label18.Name = "label18";
-			label18.Size = new System.Drawing.Size(169, 26);
+			label18.Size = new System.Drawing.Size(154, 23);
 			label18.TabIndex = 7;
 			label18.Text = "PeriodInMonths:";
 			// 
@@ -1453,96 +1199,425 @@ namespace GraphicalUserInterface
 			data_rate.ReadOnly = true;
 			data_rate.RowHeadersVisible = false;
 			data_rate.RowHeadersWidth = 51;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			data_rate.RowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			data_rate.RowsDefaultCellStyle = dataGridViewCellStyle2;
 			data_rate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			data_rate.Size = new System.Drawing.Size(426, 198);
 			data_rate.TabIndex = 2;
 			data_rate.CellClick += data_rate_CellClick;
 			// 
-			// dataGridViewDailyReport
+			// groupBox10
 			// 
-			dataGridViewDailyReport.BackgroundColor = System.Drawing.Color.White;
-			dataGridViewDailyReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewDailyReport.Dock = System.Windows.Forms.DockStyle.Right;
-			dataGridViewDailyReport.Location = new System.Drawing.Point(580, 0);
-			dataGridViewDailyReport.Name = "dataGridViewDailyReport";
-			dataGridViewDailyReport.RowHeadersWidth = 62;
-			dataGridViewDailyReport.Size = new System.Drawing.Size(674, 716);
-			dataGridViewDailyReport.TabIndex = 8;
+			groupBox10.Controls.Add(label15);
+			groupBox10.Controls.Add(staffDisableCheckBox);
+			groupBox10.Controls.Add(staffIdTextBox);
+			groupBox10.Controls.Add(staffPermissionIdComboBox);
+			groupBox10.Controls.Add(label11);
+			groupBox10.Controls.Add(label13);
+			groupBox10.Controls.Add(staffPositionTextBox);
+			groupBox10.Controls.Add(label16);
+			groupBox10.Controls.Add(staffUsernameTextBox);
+			groupBox10.Controls.Add(label14);
+			groupBox10.Location = new System.Drawing.Point(426, 0);
+			groupBox10.Name = "groupBox10";
+			groupBox10.Size = new System.Drawing.Size(823, 237);
+			groupBox10.TabIndex = 4;
+			groupBox10.TabStop = false;
+			groupBox10.Text = "Account";
 			// 
-			// panel1
+			// label8
 			// 
-			panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			panel1.Controls.Add(groupBox11);
-			panel1.Controls.Add(dailyReportBtn);
-			panel1.Controls.Add(label22);
-			panel1.Controls.Add(dailyReportDateTimePicker);
-			panel1.Dock = System.Windows.Forms.DockStyle.Left;
-			panel1.Location = new System.Drawing.Point(0, 0);
-			panel1.Name = "panel1";
-			panel1.Size = new System.Drawing.Size(574, 716);
-			panel1.TabIndex = 9;
+			label8.AutoSize = true;
+			label8.Location = new System.Drawing.Point(45, 136);
+			label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			label8.Name = "label8";
+			label8.Size = new System.Drawing.Size(77, 23);
+			label8.TabIndex = 14;
+			label8.Text = "Gender:";
 			// 
-			// groupBox11
+			// label15
 			// 
-			groupBox11.Controls.Add(rbMonthly);
-			groupBox11.Controls.Add(rbDaily);
-			groupBox11.Location = new System.Drawing.Point(132, 142);
-			groupBox11.Name = "groupBox11";
-			groupBox11.Size = new System.Drawing.Size(281, 125);
-			groupBox11.TabIndex = 9;
-			groupBox11.TabStop = false;
-			groupBox11.Text = "Select report type";
+			label15.AutoSize = true;
+			label15.Location = new System.Drawing.Point(599, 42);
+			label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			label15.Name = "label15";
+			label15.Size = new System.Drawing.Size(69, 23);
+			label15.TabIndex = 15;
+			label15.Text = "Status:";
 			// 
-			// rbMonthly
+			// panel2
 			// 
-			rbMonthly.AutoSize = true;
-			rbMonthly.Location = new System.Drawing.Point(154, 66);
-			rbMonthly.Name = "rbMonthly";
-			rbMonthly.Size = new System.Drawing.Size(111, 30);
-			rbMonthly.TabIndex = 1;
-			rbMonthly.TabStop = true;
-			rbMonthly.Text = "Monthly";
-			rbMonthly.UseVisualStyleBackColor = true;
+			panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			panel2.Controls.Add(customerWithdrawBalanceTextBox);
+			panel2.Controls.Add(customerWithdrawBalanceLabel);
+			panel2.Controls.Add(customerWithdrawAmountNumeric);
+			panel2.Controls.Add(customerWithdrawIdTextBox);
+			panel2.Controls.Add(customerWithdrawContentLabel);
+			panel2.Controls.Add(customerWithdrawAmountLabel);
+			panel2.Controls.Add(customerWithdrawCicNumberTextBox);
+			panel2.Controls.Add(customerWithdrawCicNumberLabel);
+			panel2.Controls.Add(customerWithdrawNameTextBox);
+			panel2.Controls.Add(customerWithdrawNameLabel);
+			panel2.Controls.Add(customerWithdrawIdLabel);
+			panel2.Controls.Add(amountWithdrawingErrorLabel);
+			panel2.Controls.Add(customerWithdrawContentTextBox);
+			panel2.Controls.Add(reportWithdrawBtn);
+			panel2.Controls.Add(withdrawPrintButton);
+			panel2.Controls.Add(customerWithdrawButton);
+			panel2.Dock = System.Windows.Forms.DockStyle.Left;
+			panel2.Location = new System.Drawing.Point(0, 0);
+			panel2.Name = "panel2";
+			panel2.Size = new System.Drawing.Size(674, 716);
+			panel2.TabIndex = 10;
 			// 
-			// rbDaily
+			// customerWithdrawBalanceTextBox
 			// 
-			rbDaily.AutoSize = true;
-			rbDaily.Location = new System.Drawing.Point(24, 66);
-			rbDaily.Name = "rbDaily";
-			rbDaily.Size = new System.Drawing.Size(82, 30);
-			rbDaily.TabIndex = 0;
-			rbDaily.TabStop = true;
-			rbDaily.Text = "Daily";
-			rbDaily.UseVisualStyleBackColor = true;
+			customerWithdrawBalanceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerWithdrawBalanceTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawBalanceTextBox.Location = new System.Drawing.Point(259, 315);
+			customerWithdrawBalanceTextBox.Name = "customerWithdrawBalanceTextBox";
+			customerWithdrawBalanceTextBox.ReadOnly = true;
+			customerWithdrawBalanceTextBox.Size = new System.Drawing.Size(386, 31);
+			customerWithdrawBalanceTextBox.TabIndex = 17;
 			// 
-			// dailyReportBtn
+			// customerWithdrawBalanceLabel
 			// 
-			dailyReportBtn.AutoSize = true;
-			dailyReportBtn.Location = new System.Drawing.Point(186, 436);
-			dailyReportBtn.Name = "dailyReportBtn";
-			dailyReportBtn.Size = new System.Drawing.Size(171, 43);
-			dailyReportBtn.TabIndex = 8;
-			dailyReportBtn.Text = "Export Excel";
-			dailyReportBtn.UseVisualStyleBackColor = true;
+			customerWithdrawBalanceLabel.AutoSize = true;
+			customerWithdrawBalanceLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawBalanceLabel.Location = new System.Drawing.Point(23, 317);
+			customerWithdrawBalanceLabel.Name = "customerWithdrawBalanceLabel";
+			customerWithdrawBalanceLabel.Size = new System.Drawing.Size(82, 23);
+			customerWithdrawBalanceLabel.TabIndex = 18;
+			customerWithdrawBalanceLabel.Text = "Balance:";
 			// 
-			// label22
+			// customerWithdrawAmountNumeric
 			// 
-			label22.AutoSize = true;
-			label22.Location = new System.Drawing.Point(74, 340);
-			label22.Name = "label22";
-			label22.Size = new System.Drawing.Size(65, 26);
-			label22.TabIndex = 6;
-			label22.Text = "Time:";
+			customerWithdrawAmountNumeric.DecimalPlaces = 2;
+			customerWithdrawAmountNumeric.Enabled = false;
+			customerWithdrawAmountNumeric.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawAmountNumeric.Location = new System.Drawing.Point(259, 380);
+			customerWithdrawAmountNumeric.Margin = new System.Windows.Forms.Padding(5);
+			customerWithdrawAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
+			customerWithdrawAmountNumeric.Minimum = new decimal(new int[] { 99999, 0, 0, int.MinValue });
+			customerWithdrawAmountNumeric.Name = "customerWithdrawAmountNumeric";
+			customerWithdrawAmountNumeric.Size = new System.Drawing.Size(386, 31);
+			customerWithdrawAmountNumeric.TabIndex = 19;
 			// 
-			// dailyReportDateTimePicker
+			// customerWithdrawIdTextBox
 			// 
-			dailyReportDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-			dailyReportDateTimePicker.Location = new System.Drawing.Point(145, 334);
-			dailyReportDateTimePicker.Name = "dailyReportDateTimePicker";
-			dailyReportDateTimePicker.Size = new System.Drawing.Size(300, 34);
-			dailyReportDateTimePicker.TabIndex = 7;
+			customerWithdrawIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerWithdrawIdTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawIdTextBox.Location = new System.Drawing.Point(259, 117);
+			customerWithdrawIdTextBox.MaxLength = 0;
+			customerWithdrawIdTextBox.Name = "customerWithdrawIdTextBox";
+			customerWithdrawIdTextBox.Size = new System.Drawing.Size(386, 31);
+			customerWithdrawIdTextBox.TabIndex = 25;
+			// 
+			// customerWithdrawContentLabel
+			// 
+			customerWithdrawContentLabel.AutoSize = true;
+			customerWithdrawContentLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawContentLabel.Location = new System.Drawing.Point(23, 483);
+			customerWithdrawContentLabel.Name = "customerWithdrawContentLabel";
+			customerWithdrawContentLabel.Size = new System.Drawing.Size(83, 23);
+			customerWithdrawContentLabel.TabIndex = 21;
+			customerWithdrawContentLabel.Text = "Content:";
+			// 
+			// customerWithdrawAmountLabel
+			// 
+			customerWithdrawAmountLabel.AutoSize = true;
+			customerWithdrawAmountLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawAmountLabel.Location = new System.Drawing.Point(23, 382);
+			customerWithdrawAmountLabel.Name = "customerWithdrawAmountLabel";
+			customerWithdrawAmountLabel.Size = new System.Drawing.Size(172, 23);
+			customerWithdrawAmountLabel.TabIndex = 20;
+			customerWithdrawAmountLabel.Text = "Withdraw amount:";
+			// 
+			// customerWithdrawCicNumberTextBox
+			// 
+			customerWithdrawCicNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerWithdrawCicNumberTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawCicNumberTextBox.Location = new System.Drawing.Point(259, 249);
+			customerWithdrawCicNumberTextBox.Name = "customerWithdrawCicNumberTextBox";
+			customerWithdrawCicNumberTextBox.ReadOnly = true;
+			customerWithdrawCicNumberTextBox.Size = new System.Drawing.Size(386, 31);
+			customerWithdrawCicNumberTextBox.TabIndex = 15;
+			// 
+			// customerWithdrawCicNumberLabel
+			// 
+			customerWithdrawCicNumberLabel.AutoSize = true;
+			customerWithdrawCicNumberLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawCicNumberLabel.Location = new System.Drawing.Point(23, 251);
+			customerWithdrawCicNumberLabel.Name = "customerWithdrawCicNumberLabel";
+			customerWithdrawCicNumberLabel.Size = new System.Drawing.Size(118, 23);
+			customerWithdrawCicNumberLabel.TabIndex = 16;
+			customerWithdrawCicNumberLabel.Text = "CIC Number:";
+			// 
+			// customerWithdrawNameTextBox
+			// 
+			customerWithdrawNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerWithdrawNameTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawNameTextBox.Location = new System.Drawing.Point(259, 183);
+			customerWithdrawNameTextBox.Name = "customerWithdrawNameTextBox";
+			customerWithdrawNameTextBox.ReadOnly = true;
+			customerWithdrawNameTextBox.Size = new System.Drawing.Size(386, 31);
+			customerWithdrawNameTextBox.TabIndex = 13;
+			// 
+			// customerWithdrawNameLabel
+			// 
+			customerWithdrawNameLabel.AutoSize = true;
+			customerWithdrawNameLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawNameLabel.Location = new System.Drawing.Point(23, 185);
+			customerWithdrawNameLabel.Name = "customerWithdrawNameLabel";
+			customerWithdrawNameLabel.Size = new System.Drawing.Size(66, 23);
+			customerWithdrawNameLabel.TabIndex = 14;
+			customerWithdrawNameLabel.Text = "Name:";
+			// 
+			// customerWithdrawIdLabel
+			// 
+			customerWithdrawIdLabel.AutoSize = true;
+			customerWithdrawIdLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawIdLabel.Location = new System.Drawing.Point(23, 119);
+			customerWithdrawIdLabel.Name = "customerWithdrawIdLabel";
+			customerWithdrawIdLabel.Size = new System.Drawing.Size(122, 23);
+			customerWithdrawIdLabel.TabIndex = 12;
+			customerWithdrawIdLabel.Text = "Customer ID:";
+			// 
+			// amountWithdrawingErrorLabel
+			// 
+			amountWithdrawingErrorLabel.AutoSize = true;
+			amountWithdrawingErrorLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			amountWithdrawingErrorLabel.ForeColor = System.Drawing.Color.Red;
+			amountWithdrawingErrorLabel.Location = new System.Drawing.Point(259, 416);
+			amountWithdrawingErrorLabel.Name = "amountWithdrawingErrorLabel";
+			amountWithdrawingErrorLabel.Size = new System.Drawing.Size(386, 23);
+			amountWithdrawingErrorLabel.TabIndex = 22;
+			amountWithdrawingErrorLabel.Text = "The minimum amount to withdraw is $ 0.00";
+			amountWithdrawingErrorLabel.Visible = false;
+			// 
+			// customerWithdrawContentTextBox
+			// 
+			customerWithdrawContentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerWithdrawContentTextBox.Enabled = false;
+			customerWithdrawContentTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawContentTextBox.Location = new System.Drawing.Point(259, 481);
+			customerWithdrawContentTextBox.Name = "customerWithdrawContentTextBox";
+			customerWithdrawContentTextBox.Size = new System.Drawing.Size(386, 31);
+			customerWithdrawContentTextBox.TabIndex = 23;
+			// 
+			// reportWithdrawBtn
+			// 
+			reportWithdrawBtn.AutoSize = true;
+			reportWithdrawBtn.Font = new System.Drawing.Font("Cambria", 12F);
+			reportWithdrawBtn.Location = new System.Drawing.Point(259, 570);
+			reportWithdrawBtn.Margin = new System.Windows.Forms.Padding(2);
+			reportWithdrawBtn.Name = "reportWithdrawBtn";
+			reportWithdrawBtn.Size = new System.Drawing.Size(90, 36);
+			reportWithdrawBtn.TabIndex = 27;
+			reportWithdrawBtn.Text = "Report";
+			reportWithdrawBtn.UseVisualStyleBackColor = true;
+			// 
+			// withdrawPrintButton
+			// 
+			withdrawPrintButton.AutoSize = true;
+			withdrawPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			withdrawPrintButton.Enabled = false;
+			withdrawPrintButton.Font = new System.Drawing.Font("Cambria", 12F);
+			withdrawPrintButton.Location = new System.Drawing.Point(400, 575);
+			withdrawPrintButton.Name = "withdrawPrintButton";
+			withdrawPrintButton.Size = new System.Drawing.Size(63, 33);
+			withdrawPrintButton.TabIndex = 26;
+			withdrawPrintButton.Text = "Print";
+			withdrawPrintButton.UseVisualStyleBackColor = true;
+			// 
+			// customerWithdrawButton
+			// 
+			customerWithdrawButton.AutoSize = true;
+			customerWithdrawButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			customerWithdrawButton.Enabled = false;
+			customerWithdrawButton.Font = new System.Drawing.Font("Cambria", 12F);
+			customerWithdrawButton.Location = new System.Drawing.Point(510, 572);
+			customerWithdrawButton.Name = "customerWithdrawButton";
+			customerWithdrawButton.Size = new System.Drawing.Size(106, 33);
+			customerWithdrawButton.TabIndex = 24;
+			customerWithdrawButton.Text = "Withdraw";
+			customerWithdrawButton.UseVisualStyleBackColor = true;
+			// 
+			// panel3
+			// 
+			panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			panel3.Controls.Add(customerDepositAmountNumeric);
+			panel3.Controls.Add(customerDepositIdTextBox);
+			panel3.Controls.Add(customerDepositContentTextBox);
+			panel3.Controls.Add(customerDepositContentLabel);
+			panel3.Controls.Add(customerDepositAmountLabel);
+			panel3.Controls.Add(customerDepositCicNumberTextBox);
+			panel3.Controls.Add(customerDepositCicNumberLabel);
+			panel3.Controls.Add(customerDepositNameTextBox);
+			panel3.Controls.Add(customerDepositNameLabel);
+			panel3.Controls.Add(customerDepositIdLabel);
+			panel3.Controls.Add(reportDepositBtn);
+			panel3.Controls.Add(customerPrintButton);
+			panel3.Controls.Add(customerDepositButton);
+			panel3.Dock = System.Windows.Forms.DockStyle.Left;
+			panel3.Location = new System.Drawing.Point(2, 2);
+			panel3.Name = "panel3";
+			panel3.Size = new System.Drawing.Size(674, 712);
+			panel3.TabIndex = 9;
+			// 
+			// customerDepositAmountNumeric
+			// 
+			customerDepositAmountNumeric.DecimalPlaces = 2;
+			customerDepositAmountNumeric.Enabled = false;
+			customerDepositAmountNumeric.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositAmountNumeric.Location = new System.Drawing.Point(259, 315);
+			customerDepositAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
+			customerDepositAmountNumeric.Name = "customerDepositAmountNumeric";
+			customerDepositAmountNumeric.Size = new System.Drawing.Size(386, 31);
+			customerDepositAmountNumeric.TabIndex = 18;
+			// 
+			// customerDepositIdTextBox
+			// 
+			customerDepositIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerDepositIdTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositIdTextBox.Location = new System.Drawing.Point(259, 117);
+			customerDepositIdTextBox.MaxLength = 10;
+			customerDepositIdTextBox.Name = "customerDepositIdTextBox";
+			customerDepositIdTextBox.Size = new System.Drawing.Size(386, 31);
+			customerDepositIdTextBox.TabIndex = 7;
+			// 
+			// customerDepositContentTextBox
+			// 
+			customerDepositContentTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerDepositContentTextBox.Enabled = false;
+			customerDepositContentTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositContentTextBox.Location = new System.Drawing.Point(259, 381);
+			customerDepositContentTextBox.Name = "customerDepositContentTextBox";
+			customerDepositContentTextBox.Size = new System.Drawing.Size(386, 31);
+			customerDepositContentTextBox.TabIndex = 14;
+			// 
+			// customerDepositContentLabel
+			// 
+			customerDepositContentLabel.AutoSize = true;
+			customerDepositContentLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositContentLabel.Location = new System.Drawing.Point(29, 383);
+			customerDepositContentLabel.Name = "customerDepositContentLabel";
+			customerDepositContentLabel.Size = new System.Drawing.Size(83, 23);
+			customerDepositContentLabel.TabIndex = 15;
+			customerDepositContentLabel.Text = "Content:";
+			// 
+			// customerDepositAmountLabel
+			// 
+			customerDepositAmountLabel.AutoSize = true;
+			customerDepositAmountLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositAmountLabel.Location = new System.Drawing.Point(29, 317);
+			customerDepositAmountLabel.Name = "customerDepositAmountLabel";
+			customerDepositAmountLabel.Size = new System.Drawing.Size(153, 23);
+			customerDepositAmountLabel.TabIndex = 13;
+			customerDepositAmountLabel.Text = "Deposit amount:";
+			// 
+			// customerDepositCicNumberTextBox
+			// 
+			customerDepositCicNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerDepositCicNumberTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositCicNumberTextBox.Location = new System.Drawing.Point(259, 246);
+			customerDepositCicNumberTextBox.Name = "customerDepositCicNumberTextBox";
+			customerDepositCicNumberTextBox.ReadOnly = true;
+			customerDepositCicNumberTextBox.Size = new System.Drawing.Size(386, 31);
+			customerDepositCicNumberTextBox.TabIndex = 11;
+			// 
+			// customerDepositCicNumberLabel
+			// 
+			customerDepositCicNumberLabel.AutoSize = true;
+			customerDepositCicNumberLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositCicNumberLabel.Location = new System.Drawing.Point(29, 248);
+			customerDepositCicNumberLabel.Name = "customerDepositCicNumberLabel";
+			customerDepositCicNumberLabel.Size = new System.Drawing.Size(118, 23);
+			customerDepositCicNumberLabel.TabIndex = 12;
+			customerDepositCicNumberLabel.Text = "CIC Number:";
+			// 
+			// customerDepositNameTextBox
+			// 
+			customerDepositNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			customerDepositNameTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositNameTextBox.Location = new System.Drawing.Point(259, 183);
+			customerDepositNameTextBox.Name = "customerDepositNameTextBox";
+			customerDepositNameTextBox.ReadOnly = true;
+			customerDepositNameTextBox.Size = new System.Drawing.Size(386, 31);
+			customerDepositNameTextBox.TabIndex = 9;
+			// 
+			// customerDepositNameLabel
+			// 
+			customerDepositNameLabel.AutoSize = true;
+			customerDepositNameLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositNameLabel.Location = new System.Drawing.Point(29, 185);
+			customerDepositNameLabel.Name = "customerDepositNameLabel";
+			customerDepositNameLabel.Size = new System.Drawing.Size(66, 23);
+			customerDepositNameLabel.TabIndex = 10;
+			customerDepositNameLabel.Text = "Name:";
+			// 
+			// customerDepositIdLabel
+			// 
+			customerDepositIdLabel.AutoSize = true;
+			customerDepositIdLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositIdLabel.Location = new System.Drawing.Point(29, 119);
+			customerDepositIdLabel.Name = "customerDepositIdLabel";
+			customerDepositIdLabel.Size = new System.Drawing.Size(122, 23);
+			customerDepositIdLabel.TabIndex = 8;
+			customerDepositIdLabel.Text = "Customer ID:";
+			// 
+			// reportDepositBtn
+			// 
+			reportDepositBtn.AutoSize = true;
+			reportDepositBtn.Font = new System.Drawing.Font("Cambria", 12F);
+			reportDepositBtn.Location = new System.Drawing.Point(259, 476);
+			reportDepositBtn.Margin = new System.Windows.Forms.Padding(2);
+			reportDepositBtn.Name = "reportDepositBtn";
+			reportDepositBtn.Size = new System.Drawing.Size(90, 36);
+			reportDepositBtn.TabIndex = 19;
+			reportDepositBtn.Text = "Report";
+			reportDepositBtn.UseVisualStyleBackColor = true;
+			// 
+			// customerPrintButton
+			// 
+			customerPrintButton.AutoSize = true;
+			customerPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			customerPrintButton.Enabled = false;
+			customerPrintButton.Font = new System.Drawing.Font("Cambria", 12F);
+			customerPrintButton.Location = new System.Drawing.Point(416, 479);
+			customerPrintButton.Name = "customerPrintButton";
+			customerPrintButton.Size = new System.Drawing.Size(63, 33);
+			customerPrintButton.TabIndex = 16;
+			customerPrintButton.Text = "Print";
+			customerPrintButton.UseVisualStyleBackColor = true;
+			// 
+			// customerDepositButton
+			// 
+			customerDepositButton.AutoSize = true;
+			customerDepositButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			customerDepositButton.Enabled = false;
+			customerDepositButton.Font = new System.Drawing.Font("Cambria", 12F);
+			customerDepositButton.Location = new System.Drawing.Point(558, 479);
+			customerDepositButton.Name = "customerDepositButton";
+			customerDepositButton.Size = new System.Drawing.Size(87, 33);
+			customerDepositButton.TabIndex = 17;
+			customerDepositButton.Text = "Deposit";
+			customerDepositButton.UseVisualStyleBackColor = true;
+			// 
+			// groupBox8
+			// 
+			groupBox8.Controls.Add(customerIdTextBox);
+			groupBox8.Controls.Add(customerBalanceTextBox);
+			groupBox8.Controls.Add(label10);
+			groupBox8.Controls.Add(label1);
+			groupBox8.Controls.Add(customerUsernameTextBox);
+			groupBox8.Controls.Add(label7);
+			groupBox8.Location = new System.Drawing.Point(793, 0);
+			groupBox8.Name = "groupBox8";
+			groupBox8.Size = new System.Drawing.Size(461, 281);
+			groupBox8.TabIndex = 5;
+			groupBox8.TabStop = false;
+			groupBox8.Text = "Account";
 			// 
 			// StaffMenuForm
 			// 
@@ -1553,24 +1628,16 @@ namespace GraphicalUserInterface
 			Margin = new System.Windows.Forms.Padding(2);
 			Name = "StaffMenuForm";
 			StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			Text = "StaffMenuForm";
+			Text = "Staff";
 			FormClosing += StaffMenuForm_FormClosing;
 			Load += StaffMenuForm_Load;
 			tabControlStaffMenu.ResumeLayout(false);
 			tabPageInformation.ResumeLayout(false);
 			tabPageInformation.PerformLayout();
 			tabPageDeposit.ResumeLayout(false);
-			tabPageDeposit.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridViewDeposit).EndInit();
-			((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).EndInit();
-			groupBox8.ResumeLayout(false);
-			groupBox8.PerformLayout();
 			tabPageWithdraw.ResumeLayout(false);
-			tabPageWithdraw.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridViewWithdraw).EndInit();
-			((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).EndInit();
-			groupBox9.ResumeLayout(false);
-			groupBox9.PerformLayout();
 			tabPageManageCustomers.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).EndInit();
 			groupBox6.ResumeLayout(false);
@@ -1588,15 +1655,25 @@ namespace GraphicalUserInterface
 			groupBox3.ResumeLayout(false);
 			groupBox3.PerformLayout();
 			tabPageFinancialReport.ResumeLayout(false);
-			tabPageChangeRegulations.ResumeLayout(false);
-			tabPageChangeRegulations.PerformLayout();
-			groupBox5.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)data_rate).EndInit();
-			((System.ComponentModel.ISupportInitialize)dataGridViewDailyReport).EndInit();
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();
 			groupBox11.ResumeLayout(false);
 			groupBox11.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)dataGridViewDailyReport).EndInit();
+			tabPageChangeRegulations.ResumeLayout(false);
+			tabPageChangeRegulations.PerformLayout();
+			groupBox5.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)data_rate).EndInit();
+			groupBox10.ResumeLayout(false);
+			groupBox10.PerformLayout();
+			panel2.ResumeLayout(false);
+			panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).EndInit();
+			panel3.ResumeLayout(false);
+			panel3.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).EndInit();
+			groupBox8.ResumeLayout(false);
+			groupBox8.PerformLayout();
 			ResumeLayout(false);
 		}
 
@@ -1609,30 +1686,7 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.TabPage tabPageManageStaffs;
         private System.Windows.Forms.TabPage tabPageChangeRegulations;
         private System.Windows.Forms.TabPage tabPageManageCustomers;
-        private System.Windows.Forms.Button customerDepositButton;
-        private System.Windows.Forms.TextBox customerDepositContentTextBox;
-        private System.Windows.Forms.Label customerDepositContentLabel;
         private System.Windows.Forms.TextBox customerDepositAmountTextBox;
-        private System.Windows.Forms.Label customerDepositAmountLabel;
-        private System.Windows.Forms.TextBox customerDepositCicNumberTextBox;
-        private System.Windows.Forms.Label customerDepositCicNumberLabel;
-        private System.Windows.Forms.TextBox customerDepositNameTextBox;
-        private System.Windows.Forms.Label customerDepositNameLabel;
-        private System.Windows.Forms.Label customerDepositIdLabel;
-        private System.Windows.Forms.TextBox customerDepositIdTextBox;
-        private System.Windows.Forms.NumericUpDown customerDepositAmountNumeric;
-        private System.Windows.Forms.NumericUpDown customerWithdrawAmountNumeric;
-        private System.Windows.Forms.TextBox customerWithdrawIdTextBox;
-        private System.Windows.Forms.Button customerWithdrawButton;
-        private System.Windows.Forms.TextBox customerWithdrawContentTextBox;
-        private System.Windows.Forms.Label customerWithdrawContentLabel;
-        private System.Windows.Forms.Label customerWithdrawAmountLabel;
-        private System.Windows.Forms.TextBox customerWithdrawCicNumberTextBox;
-        private System.Windows.Forms.Label customerWithdrawCicNumberLabel;
-        private System.Windows.Forms.TextBox customerWithdrawNameTextBox;
-        private System.Windows.Forms.Label customerWithdrawNameLabel;
-        private System.Windows.Forms.Label customerWithdrawIdLabel;
-        private System.Windows.Forms.TextBox customerWithdrawBalanceTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox customerUsernameTextBox;
@@ -1706,14 +1760,7 @@ namespace GraphicalUserInterface
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox staffSearchTextBox;
         private System.Windows.Forms.DataGridView dataGridViewDeposit;
-        private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridView dataGridViewWithdraw;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Label amountWithdrawingErrorLabel;
-        private System.Windows.Forms.Button customerPrintButton;
-        private System.Windows.Forms.Button withdrawPrintButton;
-        private System.Windows.Forms.Button reportDepositBtn;
-        private System.Windows.Forms.Button reportWithdrawBtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabPageFinancialReport;
 		private System.Windows.Forms.Panel panel1;
@@ -1724,5 +1771,34 @@ namespace GraphicalUserInterface
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.DateTimePicker dailyReportDateTimePicker;
 		private System.Windows.Forms.DataGridView dataGridViewDailyReport;
+		private System.Windows.Forms.GroupBox groupBox10;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.TextBox customerWithdrawBalanceTextBox;
+		private System.Windows.Forms.NumericUpDown customerWithdrawAmountNumeric;
+		private System.Windows.Forms.TextBox customerWithdrawIdTextBox;
+		private System.Windows.Forms.TextBox customerWithdrawCicNumberTextBox;
+		private System.Windows.Forms.TextBox customerWithdrawNameTextBox;
+		private System.Windows.Forms.Label amountWithdrawingErrorLabel;
+		private System.Windows.Forms.TextBox customerWithdrawContentTextBox;
+		private System.Windows.Forms.Button reportWithdrawBtn;
+		private System.Windows.Forms.Button withdrawPrintButton;
+		private System.Windows.Forms.Button customerWithdrawButton;
+		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.NumericUpDown customerDepositAmountNumeric;
+		private System.Windows.Forms.TextBox customerDepositIdTextBox;
+		private System.Windows.Forms.TextBox customerDepositContentTextBox;
+		private System.Windows.Forms.Label customerDepositContentLabel;
+		private System.Windows.Forms.Label customerDepositAmountLabel;
+		private System.Windows.Forms.TextBox customerDepositCicNumberTextBox;
+		private System.Windows.Forms.Label customerDepositCicNumberLabel;
+		private System.Windows.Forms.TextBox customerDepositNameTextBox;
+		private System.Windows.Forms.Label customerDepositNameLabel;
+		private System.Windows.Forms.Label customerDepositIdLabel;
+		private System.Windows.Forms.Button reportDepositBtn;
+		private System.Windows.Forms.Button customerPrintButton;
+		private System.Windows.Forms.Button customerDepositButton;
+		private System.Windows.Forms.GroupBox groupBox8;
 	}
 }

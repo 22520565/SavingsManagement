@@ -112,8 +112,21 @@ public partial class StaffMenuForm : Form {
 	}
 
 	private void staffChangePasswordButton_Click(object sender, EventArgs e) {
-		using var form = new PasswordChangingForm("Staff");
-		form.ShowDialog();
+		PasswordChangingForm form = new PasswordChangingForm("Staff");
+		Form bg = new Form();
+		using (form) {
+			bg.StartPosition = FormStartPosition.Manual;
+			bg.FormBorderStyle = FormBorderStyle.None;
+			bg.BackColor = Color.Black;
+			bg.Opacity = 0.7d;
+			bg.Size = this.Size;
+			bg.Location = this.Location;
+			bg.ShowInTaskbar = false;
+			bg.Show(this);
+			form.Owner = bg;
+			form.ShowDialog(bg);
+			bg.Dispose();
+		}
 	}
 
 	private void button1_Click(object sender, EventArgs e) {
