@@ -88,6 +88,7 @@ public partial class LoginForm : Form
     {
         try
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (txtCustomerUsername.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Properties.Resources.UsernameBlankWarningString, Properties.Resources.WarningTitleString,
@@ -298,6 +299,7 @@ public partial class LoginForm : Form
     {
         try
         {
+            Cursor.Current = Cursors.WaitCursor;
             if (txtStaffUsername.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Properties.Resources.UsernameBlankWarningString, Properties.Resources.WarningTitleString,

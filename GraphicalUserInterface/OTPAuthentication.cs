@@ -82,6 +82,7 @@ namespace GraphicalUserInterface {
 
 		private void linkResendOTP_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
 			try {
+				Cursor.Current = Cursors.WaitCursor;
 				OTP = random.Next(100000, 1000000);
 				var fromAddres = new MailAddress("truongdacdien2004@gmail.com");
 				var toAddress = new MailAddress(Email);

@@ -42,6 +42,7 @@ namespace GraphicalUserInterface
 
         private void btnResetPassword_Click(object sender, EventArgs e) {
 			try {
+				Cursor.Current = Cursors.WaitCursor;
 				if (txtEmail.Text.IsNullOrEmpty()) {
 					MessageBox.Show("Enter email to get OTP!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
