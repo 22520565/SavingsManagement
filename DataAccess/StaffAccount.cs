@@ -17,6 +17,19 @@ public sealed class StaffAccount
 
     public bool IsMale { get; set; }
 
+    public DateOnly BirthDate { get; set; }
+
+    [StringLength(20)]
+    [Unicode(false)]
+    public string PhoneNumber { get; set; } = null!;
+
+    [StringLength(50)]
+    public string Address { get; set; } = null!;
+
+    [StringLength(50)]
+    [Unicode(false)]
+    public string? Email { get; set; }
+
     [StringLength(50)]
     public string Position { get; set; } = null!;
 

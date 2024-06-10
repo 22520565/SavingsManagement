@@ -217,6 +217,10 @@ public partial class StaffMenuForm : Form {
 		staffIdTextBox.Text = "";
 		staffNameTextBox.Text = "";
 		staffMaleCheckBox.Checked = false;
+		staffBirthDateTimePicker.Value = DateTime.Now.Date;
+		staffPhoneTextBox.Text = "";
+		staffAddressTextBox.Text = "";
+		staffEmailTextBox.Text = "";
 		staffPositionTextBox.Text = "";
 		staffUsernameTextBox.Text = "";
 		staffPermissionIdComboBox.SelectedItem = staffPermissionIdComboBox.Items[0];
@@ -849,6 +853,13 @@ public partial class StaffMenuForm : Form {
 		staffIdTextBox.Text = dataGridViewStaff.Rows[i].Cells[0].Value.ToString();
 		staffNameTextBox.Text = dataGridViewStaff.Rows[i].Cells[1].Value.ToString();
 		staffMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[2].Value);
+		// Chuyển đổi giá trị ngày tháng từ chuỗi thành kiểu DateTime trước khi gán cho DateTimePicker
+		if (DateTime.TryParse(dataGridViewStaff.Rows[i].Cells[3].Value.ToString(), out DateTime birthDate)) {
+			staffBirthDateTimePicker.Value = birthDate;
+		}
+		staffPhoneTextBox.Text = dataGridViewStaff.Rows[i].Cells[4].Value.ToString();
+		staffAddressTextBox.Text = dataGridViewStaff.Rows[i].Cells[5].Value.ToString();
+		staffEmailTextBox.Text = dataGridViewStaff.Rows[i].Cells[6].Value.ToString();
 		staffPositionTextBox.Text = dataGridViewStaff.Rows[i].Cells[3].Value.ToString();
 		staffUsernameTextBox.Text = dataGridViewStaff.Rows[i].Cells[4].Value.ToString();
 		switch (dataGridViewStaff.Rows[i].Cells[5].Value) {
@@ -910,8 +921,8 @@ public partial class StaffMenuForm : Form {
 			return;
 		}
 
-		if (staffNameTextBox.Text.IsNullOrEmpty() ||
-			staffPositionTextBox.Text.IsNullOrEmpty() ||
+		if (staffNameTextBox.Text.IsNullOrEmpty() || staffAddressTextBox.Text.IsNullOrEmpty() || staffBirthDateTimePicker.Text.IsNullOrEmpty() ||
+			staffPositionTextBox.Text.IsNullOrEmpty() || staffEmailTextBox.Text.IsNullOrEmpty() || staffPhoneTextBox.Text.IsNullOrEmpty() ||
 			staffUsernameTextBox.Text.IsNullOrEmpty()) {
 			MessageBox.Show("Please fill in all blanks!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return;
@@ -934,6 +945,10 @@ public partial class StaffMenuForm : Form {
 					}
 					staff.Name = staffNameTextBox.Text;
 					staff.IsMale = staffMaleCheckBox.Checked;
+					staff.BirthDate = new DateOnly(staffBirthDateTimePicker.Value.Year, staffBirthDateTimePicker.Value.Month, staffBirthDateTimePicker.Value.Day);
+					staff.PhoneNumber = staffPhoneTextBox.Text;
+					staff.Address = staffAddressTextBox.Text;
+					staff.Email = staffEmailTextBox.Text;
 					staff.Position = staffPositionTextBox.Text;
 					staff.Username = staffUsernameTextBox.Text;
 					staff.PermissionId = permissionId;
