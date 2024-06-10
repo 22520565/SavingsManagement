@@ -59,13 +59,13 @@ public partial class LoginForm : Form
 
     private void btnExit_MouseEnter(object sender, EventArgs e)
     {
-        btnExit.BackColor = Color.FromArgb(11, 9, 120);
+        btnExit.BackColor = Color.FromArgb(226, 55, 52);
         btnExit.ForeColor = Color.White;
     }
 
     private void btnExit_MouseLeave(object sender, EventArgs e)
     {
-        btnExit.BackColor = SystemColors.Control;
+        btnExit.BackColor = Color.White;
         btnExit.ForeColor = Color.Black;
     }
 
@@ -257,13 +257,13 @@ public partial class LoginForm : Form
 
     private void btnStaffExit_MouseEnter(object sender, EventArgs e)
     {
-        btnStaffExit.BackColor = Color.FromArgb(11, 9, 120);
-        btnStaffExit.ForeColor = Color.White;
-    }
+		btnStaffExit.BackColor = Color.FromArgb(226, 55, 52);
+		btnStaffExit.ForeColor = Color.White;
+	}
 
     private void btnStaffExit_MouseLeave(object sender, EventArgs e)
     {
-        btnStaffExit.BackColor = SystemColors.Control;
+        btnStaffExit.BackColor = Color.White;
         btnStaffExit.ForeColor = Color.Black;
     }
 

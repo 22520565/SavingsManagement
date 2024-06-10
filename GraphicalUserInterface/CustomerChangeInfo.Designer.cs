@@ -190,6 +190,7 @@
 			customerChangeInfoButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			customerChangeInfoButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			customerChangeInfoButton.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			customerChangeInfoButton.ForeColor = System.Drawing.Color.White;
 			customerChangeInfoButton.Location = new System.Drawing.Point(832, 381);
 			customerChangeInfoButton.Name = "customerChangeInfoButton";
 			customerChangeInfoButton.Padding = new System.Windows.Forms.Padding(5);
@@ -198,6 +199,8 @@
 			customerChangeInfoButton.Text = "Save";
 			customerChangeInfoButton.UseVisualStyleBackColor = true;
 			customerChangeInfoButton.Click += customerChangeInfoButton_Click;
+			customerChangeInfoButton.MouseEnter += customerChangeInfoButton_MouseEnter;
+			customerChangeInfoButton.MouseLeave += customerChangeInfoButton_MouseLeave;
 			// 
 			// customerBirthDateTimePicker
 			// 

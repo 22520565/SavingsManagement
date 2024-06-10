@@ -27,6 +27,8 @@ namespace GraphicalUserInterface
 		private void LoadUI() {
 			this.BackColor = Color.FromArgb(247, 253, 255);
 			this.panelAvt.BackColor = Color.FromArgb(211, 245, 255);
+
+			this.customerChangeInfoButton.BackColor = Color.FromArgb(23, 33, 175);
 		}
 
 		public void LoadingAccountInfo() {
@@ -56,20 +58,15 @@ namespace GraphicalUserInterface
 		}
 
 		private void customerChangeInfoButton_Click(object sender, EventArgs e) {
-            bool isValid = IsValidPhoneNumber(customerPhoneNumberTextBox.Text);
-            bool isValidEmail = IsValidEmail(customerEmailTextBox.Text);
-            if (isValid)
-			{
-				if (isValidEmail)
-				{
+			bool isValid = IsValidPhoneNumber(customerPhoneNumberTextBox.Text);
+			bool isValidEmail = IsValidEmail(customerEmailTextBox.Text);
+			if (isValid) {
+				if (isValidEmail) {
 					CustomerAccount customerAccount = new CustomerAccount();
 					string gender = this.rbMale.Checked ? this.rbMale.Text : this.rbFemale.Text;
-					if (gender == Resources.MaleString)
-					{
+					if (gender == Resources.MaleString) {
 						customerAccount.IsMale = true;
-					}
-					else
-					{
+					} else {
 						customerAccount.IsMale = false;
 					}
 					customerAccount.Name = customerNameTextBox.Text;
@@ -83,48 +80,47 @@ namespace GraphicalUserInterface
 					MessageBox.Show(this, "Change Infomation successfully", Resources.NotificationTitleString,
 										   MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 					this.Close();
-                }
-				else
-                {
+				} else {
 					MessageBox.Show(this, "Invalid format Email.\nPlease try again!", Resources.WarningTitleString,
 						MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 				}
-			}
-			else
-			{
+			} else {
 				MessageBox.Show(this, "Phone number has at least 10 to 11 digit and begin with 0.\nPlease try again!", Resources.WarningTitleString,
 							MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 			}
 		}
 
-        private static bool IsValidEmail(string email)
-        {
-            try
-            {
-                // Khởi tạo đối tượng MailAddress với chuỗi email
-                var mailAddress = new MailAddress(email);
-                return true; // Nếu không ném ra ngoại lệ, email hợp lệ
-            }
-            catch (FormatException)
-            {
-                return false; // Nếu ném ra ngoại lệ FormatException, email không hợp lệ
-            }
-        }
+		private static bool IsValidEmail(string email) {
+			try {
+				// Khởi tạo đối tượng MailAddress với chuỗi email
+				var mailAddress = new MailAddress(email);
+				return true; // Nếu không ném ra ngoại lệ, email hợp lệ
+			} catch (FormatException) {
+				return false; // Nếu ném ra ngoại lệ FormatException, email không hợp lệ
+			}
+		}
 
-        private static bool IsValidPhoneNumber(string phoneNumber)
-        {
-            if (string.IsNullOrWhiteSpace(phoneNumber))
-                return false;
-            string pattern = @"^0[0-9]{9,10}$";
-            return Regex.IsMatch(phoneNumber, pattern);
-        }
+		private static bool IsValidPhoneNumber(string phoneNumber) {
+			if (string.IsNullOrWhiteSpace(phoneNumber))
+				return false;
+			string pattern = @"^0[0-9]{9,10}$";
+			return Regex.IsMatch(phoneNumber, pattern);
+		}
 
-        private void btnCancel_Click(object sender, EventArgs e) {
+		private void btnCancel_Click(object sender, EventArgs e) {
 			this.Close();
 		}
 
 		private void customerNameTextBox_TextChanged(object sender, EventArgs e) {
 			this.lbCustomerName.Text = customerNameTextBox.Text;
+		}
+
+		private void customerChangeInfoButton_MouseEnter(object sender, EventArgs e) {
+			this.customerChangeInfoButton.BackColor = Color.FromArgb(74, 131, 248);
+		}
+
+		private void customerChangeInfoButton_MouseLeave(object sender, EventArgs e) {
+			this.customerChangeInfoButton.BackColor = Color.FromArgb(23, 33, 175);
 		}
 	}
 }

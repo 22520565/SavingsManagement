@@ -199,6 +199,8 @@
 			btnConfirm.Text = "Update";
 			btnConfirm.UseVisualStyleBackColor = false;
 			btnConfirm.Click += btnConfirm_Click;
+			btnConfirm.MouseEnter += btnConfirm_MouseEnter;
+			btnConfirm.MouseLeave += btnConfirm_MouseLeave;
 			// 
 			// panel1
 			// 
