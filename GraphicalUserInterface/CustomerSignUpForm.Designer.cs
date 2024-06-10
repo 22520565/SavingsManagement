@@ -122,7 +122,7 @@
 			btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnSignUp.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 			btnSignUp.ForeColor = System.Drawing.Color.White;
-			btnSignUp.Location = new System.Drawing.Point(161, 630);
+			btnSignUp.Location = new System.Drawing.Point(160, 640);
 			btnSignUp.Margin = new System.Windows.Forms.Padding(2);
 			btnSignUp.Name = "btnSignUp";
 			btnSignUp.Size = new System.Drawing.Size(246, 53);
@@ -309,7 +309,7 @@
 			// 
 			label4.AutoSize = true;
 			label4.Font = new System.Drawing.Font("Cambria", 12F);
-			label4.Location = new System.Drawing.Point(136, 694);
+			label4.Location = new System.Drawing.Point(135, 711);
 			label4.Name = "label4";
 			label4.Size = new System.Drawing.Size(226, 23);
 			label4.TabIndex = 38;
@@ -320,7 +320,7 @@
 			linkLabel_Login.AutoSize = true;
 			linkLabel_Login.Font = new System.Drawing.Font("Cambria", 12F);
 			linkLabel_Login.LinkColor = System.Drawing.Color.Blue;
-			linkLabel_Login.Location = new System.Drawing.Point(368, 694);
+			linkLabel_Login.Location = new System.Drawing.Point(367, 711);
 			linkLabel_Login.Name = "linkLabel_Login";
 			linkLabel_Login.Size = new System.Drawing.Size(63, 23);
 			linkLabel_Login.TabIndex = 39;
@@ -374,9 +374,10 @@
 			// confirmOTPBtn
 			// 
 			confirmOTPBtn.AutoSize = true;
+			confirmOTPBtn.Cursor = System.Windows.Forms.Cursors.Hand;
 			confirmOTPBtn.Font = new System.Drawing.Font("Cambria", 12F);
 			confirmOTPBtn.Location = new System.Drawing.Point(359, 555);
-			confirmOTPBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			confirmOTPBtn.Margin = new System.Windows.Forms.Padding(2);
 			confirmOTPBtn.Name = "confirmOTPBtn";
 			confirmOTPBtn.Size = new System.Drawing.Size(130, 38);
 			confirmOTPBtn.TabIndex = 41;
@@ -387,9 +388,10 @@
 			// getOTPBtn
 			// 
 			getOTPBtn.AutoSize = true;
+			getOTPBtn.Cursor = System.Windows.Forms.Cursors.Hand;
 			getOTPBtn.Font = new System.Drawing.Font("Cambria", 12F);
 			getOTPBtn.Location = new System.Drawing.Point(359, 513);
-			getOTPBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			getOTPBtn.Margin = new System.Windows.Forms.Padding(2);
 			getOTPBtn.Name = "getOTPBtn";
 			getOTPBtn.Size = new System.Drawing.Size(128, 38);
 			getOTPBtn.TabIndex = 42;
@@ -414,7 +416,7 @@
 			typeAccountComboBox.FormattingEnabled = true;
 			typeAccountComboBox.Items.AddRange(new object[] { "Customer", "Staff" });
 			typeAccountComboBox.Location = new System.Drawing.Point(13, 40);
-			typeAccountComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			typeAccountComboBox.Margin = new System.Windows.Forms.Padding(2);
 			typeAccountComboBox.Name = "typeAccountComboBox";
 			typeAccountComboBox.Size = new System.Drawing.Size(387, 35);
 			typeAccountComboBox.TabIndex = 30;
@@ -448,7 +450,7 @@
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			BackColor = System.Drawing.Color.White;
-			ClientSize = new System.Drawing.Size(555, 740);
+			ClientSize = new System.Drawing.Size(555, 775);
 			ControlBox = false;
 			Controls.Add(panel6);
 			Controls.Add(getOTPBtn);

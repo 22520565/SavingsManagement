@@ -58,7 +58,9 @@
 			// staffChangeInfoButton
 			// 
 			staffChangeInfoButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			staffChangeInfoButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			staffChangeInfoButton.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			staffChangeInfoButton.ForeColor = System.Drawing.Color.White;
 			staffChangeInfoButton.Location = new System.Drawing.Point(837, 380);
 			staffChangeInfoButton.Name = "staffChangeInfoButton";
 			staffChangeInfoButton.Padding = new System.Windows.Forms.Padding(5);
@@ -67,6 +69,8 @@
 			staffChangeInfoButton.Text = "Save";
 			staffChangeInfoButton.UseVisualStyleBackColor = true;
 			staffChangeInfoButton.Click += staffChangeInfoButton_Click;
+			staffChangeInfoButton.MouseEnter += staffChangeInfoButton_MouseEnter;
+			staffChangeInfoButton.MouseLeave += staffChangeInfoButton_MouseLeave;
 			// 
 			// staffUsernameTextBox
 			// 
@@ -168,15 +172,20 @@
 			// btnCancel
 			// 
 			btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			btnCancel.BackColor = System.Drawing.Color.White;
+			btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnCancel.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			btnCancel.ForeColor = System.Drawing.Color.Black;
 			btnCancel.Location = new System.Drawing.Point(656, 380);
 			btnCancel.Name = "btnCancel";
 			btnCancel.Padding = new System.Windows.Forms.Padding(5);
 			btnCancel.Size = new System.Drawing.Size(124, 46);
 			btnCancel.TabIndex = 36;
 			btnCancel.Text = "Cancel";
-			btnCancel.UseVisualStyleBackColor = true;
+			btnCancel.UseVisualStyleBackColor = false;
 			btnCancel.Click += btnCancel_Click;
+			btnCancel.MouseEnter += btnCancel_MouseEnter;
+			btnCancel.MouseLeave += btnCancel_MouseLeave;
 			// 
 			// panelAvt
 			// 

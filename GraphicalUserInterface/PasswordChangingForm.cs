@@ -135,5 +135,13 @@ namespace GraphicalUserInterface
 				cbShowConfirmPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\show.png");
 			}
 		}
+
+		private void btnConfirm_MouseEnter(object sender, EventArgs e) {
+			btnConfirm.BackColor = Color.FromArgb(74, 131, 248);
+		}
+
+		private void btnConfirm_MouseLeave(object sender, EventArgs e) {
+			btnConfirm.BackColor = Color.FromArgb(23, 33, 175);
+		}
 	}
 }

@@ -25,7 +25,8 @@ public partial class CustomerSignUpForm : Form
         InitializeComponent();
         InitializeCbShowPassword();
         InitializeCbShowConfirmPassword();
-    }
+		btnSignUp.BackColor = Color.FromArgb(23, 33, 175);
+	}
 
     private void InitializeCbShowPassword()
     {
@@ -53,14 +54,12 @@ public partial class CustomerSignUpForm : Form
 
     private void btnSignUp_MouseEnter(object sender, EventArgs e)
     {
-        btnSignUp.BackColor = Color.FromArgb(11, 9, 120);
-        btnSignUp.ForeColor = Color.White;
-    }
+        btnSignUp.BackColor = Color.FromArgb(74, 131, 248);
+	}
 
     private void btnSignUp_MouseLeave(object sender, EventArgs e)
     {
-        btnSignUp.BackColor = Color.Black;
-        btnSignUp.ForeColor = Color.White;
+        btnSignUp.BackColor = Color.FromArgb(23, 33, 175);
     }
 
     private void cbShowPassword_CheckedChanged(object sender, EventArgs e)

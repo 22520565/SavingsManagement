@@ -37,7 +37,7 @@ namespace GraphicalUserInterface
 			System.Windows.Forms.Label customerWithdrawCicNumberLabel;
 			System.Windows.Forms.Label customerWithdrawNameLabel;
 			System.Windows.Forms.Label customerWithdrawIdLabel;
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			tabControlStaffMenu = new System.Windows.Forms.TabControl();
 			tabPageInformation = new System.Windows.Forms.TabPage();
 			gbFunction = new System.Windows.Forms.GroupBox();
@@ -694,41 +694,45 @@ namespace GraphicalUserInterface
 			// 
 			// reportDepositBtn
 			// 
-			reportDepositBtn.AutoSize = true;
-			reportDepositBtn.Font = new System.Drawing.Font("Cambria", 12F);
+			reportDepositBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			reportDepositBtn.Font = new System.Drawing.Font("Cambria", 13.8F);
 			reportDepositBtn.Location = new System.Drawing.Point(23, 521);
 			reportDepositBtn.Margin = new System.Windows.Forms.Padding(2);
 			reportDepositBtn.Name = "reportDepositBtn";
-			reportDepositBtn.Size = new System.Drawing.Size(90, 36);
+			reportDepositBtn.Padding = new System.Windows.Forms.Padding(5);
+			reportDepositBtn.Size = new System.Drawing.Size(100, 50);
 			reportDepositBtn.TabIndex = 19;
 			reportDepositBtn.Text = "Report";
 			reportDepositBtn.UseVisualStyleBackColor = true;
+			reportDepositBtn.Click += reportDepositBtn_Click;
 			// 
 			// customerPrintButton
 			// 
-			customerPrintButton.AutoSize = true;
 			customerPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			customerPrintButton.Enabled = false;
-			customerPrintButton.Font = new System.Drawing.Font("Cambria", 12F);
-			customerPrintButton.Location = new System.Drawing.Point(178, 523);
+			customerPrintButton.Font = new System.Drawing.Font("Cambria", 13.8F);
+			customerPrintButton.Location = new System.Drawing.Point(158, 521);
 			customerPrintButton.Name = "customerPrintButton";
-			customerPrintButton.Size = new System.Drawing.Size(63, 33);
+			customerPrintButton.Padding = new System.Windows.Forms.Padding(5);
+			customerPrintButton.Size = new System.Drawing.Size(100, 50);
 			customerPrintButton.TabIndex = 16;
 			customerPrintButton.Text = "Print";
 			customerPrintButton.UseVisualStyleBackColor = true;
+			customerPrintButton.Click += customerPrintButton_Click;
 			// 
 			// customerDepositButton
 			// 
-			customerDepositButton.AutoSize = true;
 			customerDepositButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			customerDepositButton.Enabled = false;
-			customerDepositButton.Font = new System.Drawing.Font("Cambria", 12F);
-			customerDepositButton.Location = new System.Drawing.Point(307, 524);
+			customerDepositButton.Font = new System.Drawing.Font("Cambria", 13.8F);
+			customerDepositButton.Location = new System.Drawing.Point(296, 521);
 			customerDepositButton.Name = "customerDepositButton";
-			customerDepositButton.Size = new System.Drawing.Size(87, 33);
+			customerDepositButton.Padding = new System.Windows.Forms.Padding(5);
+			customerDepositButton.Size = new System.Drawing.Size(113, 50);
 			customerDepositButton.TabIndex = 17;
 			customerDepositButton.Text = "Deposit";
 			customerDepositButton.UseVisualStyleBackColor = true;
+			customerDepositButton.Click += customerDepositButton_Click;
 			// 
 			// dataGridViewDeposit
 			// 
@@ -862,41 +866,45 @@ namespace GraphicalUserInterface
 			// 
 			// reportWithdrawBtn
 			// 
-			reportWithdrawBtn.AutoSize = true;
+			reportWithdrawBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			reportWithdrawBtn.Font = new System.Drawing.Font("Cambria", 12F);
 			reportWithdrawBtn.Location = new System.Drawing.Point(25, 598);
 			reportWithdrawBtn.Margin = new System.Windows.Forms.Padding(2);
 			reportWithdrawBtn.Name = "reportWithdrawBtn";
-			reportWithdrawBtn.Size = new System.Drawing.Size(90, 36);
+			reportWithdrawBtn.Padding = new System.Windows.Forms.Padding(5);
+			reportWithdrawBtn.Size = new System.Drawing.Size(120, 50);
 			reportWithdrawBtn.TabIndex = 27;
 			reportWithdrawBtn.Text = "Report";
 			reportWithdrawBtn.UseVisualStyleBackColor = true;
+			reportWithdrawBtn.Click += reportWithdrawBtn_Click;
 			// 
 			// withdrawPrintButton
 			// 
-			withdrawPrintButton.AutoSize = true;
 			withdrawPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			withdrawPrintButton.Enabled = false;
 			withdrawPrintButton.Font = new System.Drawing.Font("Cambria", 12F);
-			withdrawPrintButton.Location = new System.Drawing.Point(166, 603);
+			withdrawPrintButton.Location = new System.Drawing.Point(157, 598);
 			withdrawPrintButton.Name = "withdrawPrintButton";
-			withdrawPrintButton.Size = new System.Drawing.Size(63, 33);
+			withdrawPrintButton.Padding = new System.Windows.Forms.Padding(5);
+			withdrawPrintButton.Size = new System.Drawing.Size(120, 50);
 			withdrawPrintButton.TabIndex = 26;
 			withdrawPrintButton.Text = "Print";
 			withdrawPrintButton.UseVisualStyleBackColor = true;
+			withdrawPrintButton.Click += withdrawPrintButton_Click;
 			// 
 			// customerWithdrawButton
 			// 
-			customerWithdrawButton.AutoSize = true;
 			customerWithdrawButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			customerWithdrawButton.Enabled = false;
 			customerWithdrawButton.Font = new System.Drawing.Font("Cambria", 12F);
-			customerWithdrawButton.Location = new System.Drawing.Point(276, 600);
+			customerWithdrawButton.Location = new System.Drawing.Point(289, 598);
 			customerWithdrawButton.Name = "customerWithdrawButton";
-			customerWithdrawButton.Size = new System.Drawing.Size(106, 33);
+			customerWithdrawButton.Padding = new System.Windows.Forms.Padding(5);
+			customerWithdrawButton.Size = new System.Drawing.Size(120, 50);
 			customerWithdrawButton.TabIndex = 24;
 			customerWithdrawButton.Text = "Withdraw";
 			customerWithdrawButton.UseVisualStyleBackColor = true;
+			customerWithdrawButton.Click += customerWithdrawButton_Click;
 			// 
 			// dataGridViewWithdraw
 			// 
@@ -1699,6 +1707,7 @@ namespace GraphicalUserInterface
 			rbMonthly.TabStop = true;
 			rbMonthly.Text = "Monthly";
 			rbMonthly.UseVisualStyleBackColor = true;
+			rbMonthly.CheckedChanged += rbMonthly_CheckedChanged;
 			// 
 			// rbDaily
 			// 
@@ -1710,6 +1719,7 @@ namespace GraphicalUserInterface
 			rbDaily.TabStop = true;
 			rbDaily.Text = "Daily";
 			rbDaily.UseVisualStyleBackColor = true;
+			rbDaily.CheckedChanged += rbDaily_CheckedChanged;
 			// 
 			// dailyReportBtn
 			// 
@@ -1720,6 +1730,7 @@ namespace GraphicalUserInterface
 			dailyReportBtn.TabIndex = 8;
 			dailyReportBtn.Text = "Export Excel";
 			dailyReportBtn.UseVisualStyleBackColor = true;
+			dailyReportBtn.Click += dailyReportBtn_Click;
 			// 
 			// label22
 			// 
@@ -1737,6 +1748,7 @@ namespace GraphicalUserInterface
 			dailyReportDateTimePicker.Name = "dailyReportDateTimePicker";
 			dailyReportDateTimePicker.Size = new System.Drawing.Size(300, 31);
 			dailyReportDateTimePicker.TabIndex = 7;
+			dailyReportDateTimePicker.ValueChanged += dailyReportDateTimePicker_ValueChanged;
 			// 
 			// dataGridViewDailyReport
 			// 
@@ -1769,7 +1781,7 @@ namespace GraphicalUserInterface
 			// label19
 			// 
 			label19.AutoSize = true;
-			label19.Location = new System.Drawing.Point(1179, 109);
+			label19.Location = new System.Drawing.Point(1009, 332);
 			label19.Name = "label19";
 			label19.Size = new System.Drawing.Size(28, 23);
 			label19.TabIndex = 12;
@@ -1777,9 +1789,10 @@ namespace GraphicalUserInterface
 			// 
 			// saveRate
 			// 
-			saveRate.Location = new System.Drawing.Point(956, 220);
+			saveRate.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			saveRate.Location = new System.Drawing.Point(840, 444);
 			saveRate.Name = "saveRate";
-			saveRate.Size = new System.Drawing.Size(116, 42);
+			saveRate.Size = new System.Drawing.Size(124, 42);
 			saveRate.TabIndex = 11;
 			saveRate.Text = "Save";
 			saveRate.UseVisualStyleBackColor = true;
@@ -1788,15 +1801,16 @@ namespace GraphicalUserInterface
 			// ratetxt
 			// 
 			ratetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			ratetxt.Location = new System.Drawing.Point(1031, 106);
+			ratetxt.Location = new System.Drawing.Point(793, 330);
+			ratetxt.Margin = new System.Windows.Forms.Padding(5);
 			ratetxt.Name = "ratetxt";
-			ratetxt.Size = new System.Drawing.Size(142, 31);
+			ratetxt.Size = new System.Drawing.Size(208, 31);
 			ratetxt.TabIndex = 10;
 			// 
 			// label17
 			// 
 			label17.AutoSize = true;
-			label17.Location = new System.Drawing.Point(829, 114);
+			label17.Location = new System.Drawing.Point(793, 302);
 			label17.Name = "label17";
 			label17.Size = new System.Drawing.Size(182, 23);
 			label17.TabIndex = 9;
@@ -1805,16 +1819,17 @@ namespace GraphicalUserInterface
 			// monthtxt
 			// 
 			monthtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			monthtxt.Location = new System.Drawing.Point(652, 106);
+			monthtxt.Location = new System.Drawing.Point(794, 237);
+			monthtxt.Margin = new System.Windows.Forms.Padding(5);
 			monthtxt.Name = "monthtxt";
 			monthtxt.ReadOnly = true;
-			monthtxt.Size = new System.Drawing.Size(125, 31);
+			monthtxt.Size = new System.Drawing.Size(207, 31);
 			monthtxt.TabIndex = 8;
 			// 
 			// label18
 			// 
 			label18.AutoSize = true;
-			label18.Location = new System.Drawing.Point(477, 114);
+			label18.Location = new System.Drawing.Point(793, 209);
 			label18.Name = "label18";
 			label18.Size = new System.Drawing.Size(154, 23);
 			label18.TabIndex = 7;
@@ -1823,9 +1838,9 @@ namespace GraphicalUserInterface
 			// groupBox5
 			// 
 			groupBox5.Controls.Add(data_rate);
-			groupBox5.Location = new System.Drawing.Point(8, 25);
+			groupBox5.Location = new System.Drawing.Point(100, 142);
 			groupBox5.Name = "groupBox5";
-			groupBox5.Size = new System.Drawing.Size(442, 237);
+			groupBox5.Size = new System.Drawing.Size(617, 350);
 			groupBox5.TabIndex = 6;
 			groupBox5.TabStop = false;
 			groupBox5.Text = "InterestRate";
@@ -1846,10 +1861,10 @@ namespace GraphicalUserInterface
 			data_rate.ReadOnly = true;
 			data_rate.RowHeadersVisible = false;
 			data_rate.RowHeadersWidth = 51;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			data_rate.RowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			data_rate.RowsDefaultCellStyle = dataGridViewCellStyle2;
 			data_rate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			data_rate.Size = new System.Drawing.Size(426, 198);
+			data_rate.Size = new System.Drawing.Size(605, 317);
 			data_rate.TabIndex = 2;
 			data_rate.CellClick += data_rate_CellClick;
 			// 

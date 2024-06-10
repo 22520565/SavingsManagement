@@ -160,7 +160,7 @@
 			// btnExit
 			// 
 			btnExit.AutoSize = true;
-			btnExit.BackColor = System.Drawing.SystemColors.Control;
+			btnExit.BackColor = System.Drawing.Color.White;
 			btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnExit.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 			btnExit.ForeColor = System.Drawing.Color.Black;
@@ -390,9 +390,10 @@
 			// btnStaffExit
 			// 
 			btnStaffExit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			btnStaffExit.BackColor = System.Drawing.SystemColors.Control;
+			btnStaffExit.BackColor = System.Drawing.Color.White;
 			btnStaffExit.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnStaffExit.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			btnStaffExit.ForeColor = System.Drawing.Color.Black;
 			btnStaffExit.Location = new System.Drawing.Point(246, 374);
 			btnStaffExit.Margin = new System.Windows.Forms.Padding(2);
 			btnStaffExit.Name = "btnStaffExit";

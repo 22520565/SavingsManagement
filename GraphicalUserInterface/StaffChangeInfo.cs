@@ -26,6 +26,8 @@ namespace GraphicalUserInterface
 		private void LoadUI() {
 			this.BackColor = Color.FromArgb(247, 253, 255);
 			this.panelAvt.BackColor = Color.FromArgb(211, 245, 255);
+
+			this.staffChangeInfoButton.BackColor = Color.FromArgb(23, 33, 175);
 		}
 
 		public void LoadingAccountInfo() {
@@ -110,6 +112,24 @@ namespace GraphicalUserInterface
 
 		private void staffNameTextBox_TextChanged(object sender, EventArgs e) {
 			this.lbStaffName.Text = staffNameTextBox.Text;
+		}
+
+		private void staffChangeInfoButton_MouseEnter(object sender, EventArgs e) {
+			this.staffChangeInfoButton.BackColor = Color.FromArgb(74, 131, 248);
+		}
+
+		private void staffChangeInfoButton_MouseLeave(object sender, EventArgs e) {
+			this.staffChangeInfoButton.BackColor = Color.FromArgb(23, 33, 175);
+		}
+
+		private void btnCancel_MouseEnter(object sender, EventArgs e) {
+			this.btnCancel.BackColor = Color.FromArgb(226, 55, 52);
+			this.btnCancel.ForeColor = Color.White;
+		}
+
+		private void btnCancel_MouseLeave(object sender, EventArgs e) {
+			this.btnCancel.BackColor = Color.White;
+			this.btnCancel.ForeColor = Color.Black;
 		}
 	}
 }
