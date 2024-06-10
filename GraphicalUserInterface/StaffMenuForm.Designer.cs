@@ -23,7 +23,8 @@ namespace GraphicalUserInterface
             base.Dispose(disposing);
         }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
+
 
 		/// <summary>
 		/// Required method for Designer support - do not modify
@@ -1779,9 +1780,464 @@ namespace GraphicalUserInterface
 			ResumeLayout(false);
 		}
 
-		#endregion
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.Windows.Forms.Label customerWithdrawContentLabel;
+            System.Windows.Forms.Label customerWithdrawAmountLabel;
+            System.Windows.Forms.Label customerWithdrawCicNumberLabel;
+            System.Windows.Forms.Label customerWithdrawNameLabel;
+            System.Windows.Forms.Label customerWithdrawIdLabel;
+            System.Windows.Forms.Label customerWithdrawBalanceLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            tabControlStaffMenu = new System.Windows.Forms.TabControl();
+            tabPageInformation = new System.Windows.Forms.TabPage();
+            button1 = new System.Windows.Forms.Button();
+            staffusernametxt = new System.Windows.Forms.TextBox();
+            customerUsernameLabel = new System.Windows.Forms.Label();
+            staffIdtxt = new System.Windows.Forms.TextBox();
+            customerIdLabel = new System.Windows.Forms.Label();
+            staffChangePasswordButton = new System.Windows.Forms.Button();
+            customerPhoneNumberLabel = new System.Windows.Forms.Label();
+            staffpositiontxt = new System.Windows.Forms.TextBox();
+            staffgendertxt = new System.Windows.Forms.TextBox();
+            customerGenderLabel = new System.Windows.Forms.Label();
+            staffnametxt = new System.Windows.Forms.TextBox();
+            customerNameLabel = new System.Windows.Forms.Label();
+            tabPageDeposit = new System.Windows.Forms.TabPage();
+            dataGridViewDeposit = new System.Windows.Forms.DataGridView();
+            customerDepositAmountNumeric = new System.Windows.Forms.NumericUpDown();
+            customerDepositIdTextBox = new System.Windows.Forms.TextBox();
+            customerDepositButton = new System.Windows.Forms.Button();
+            customerDepositContentTextBox = new System.Windows.Forms.TextBox();
+            customerDepositContentLabel = new System.Windows.Forms.Label();
+            customerDepositAmountLabel = new System.Windows.Forms.Label();
+            customerDepositCicNumberTextBox = new System.Windows.Forms.TextBox();
+            customerDepositCicNumberLabel = new System.Windows.Forms.Label();
+            customerDepositNameTextBox = new System.Windows.Forms.TextBox();
+            customerDepositNameLabel = new System.Windows.Forms.Label();
+            customerDepositIdLabel = new System.Windows.Forms.Label();
+            groupBox8 = new System.Windows.Forms.GroupBox();
+            reportDepositBtn = new System.Windows.Forms.Button();
+            customerPrintButton = new System.Windows.Forms.Button();
+            tabPageWithdraw = new System.Windows.Forms.TabPage();
+            dataGridViewWithdraw = new System.Windows.Forms.DataGridView();
+            customerWithdrawBalanceTextBox = new System.Windows.Forms.TextBox();
+            customerWithdrawAmountNumeric = new System.Windows.Forms.NumericUpDown();
+            customerWithdrawIdTextBox = new System.Windows.Forms.TextBox();
+            customerWithdrawButton = new System.Windows.Forms.Button();
+            customerWithdrawContentTextBox = new System.Windows.Forms.TextBox();
+            customerWithdrawCicNumberTextBox = new System.Windows.Forms.TextBox();
+            customerWithdrawNameTextBox = new System.Windows.Forms.TextBox();
+            groupBox9 = new System.Windows.Forms.GroupBox();
+            reportWithdrawBtn = new System.Windows.Forms.Button();
+            withdrawPrintButton = new System.Windows.Forms.Button();
+            amountWithdrawingErrorLabel = new System.Windows.Forms.Label();
+            tabPageManageCustomers = new System.Windows.Forms.TabPage();
+            dataGridViewCustomer = new System.Windows.Forms.DataGridView();
+            groupBox6 = new System.Windows.Forms.GroupBox();
+            customerSearchTextBox = new System.Windows.Forms.TextBox();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            enableCustomerBtn = new System.Windows.Forms.Button();
+            clearScreenCustomerBtn = new System.Windows.Forms.Button();
+            disableCustomerBtn = new System.Windows.Forms.Button();
+            saveCustomerBtn = new System.Windows.Forms.Button();
+            addCustomerBtn = new System.Windows.Forms.Button();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            customerBalanceTextBox = new System.Windows.Forms.TextBox();
+            label10 = new System.Windows.Forms.Label();
+            customerDisableCheckBox = new System.Windows.Forms.CheckBox();
+            customerBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            label9 = new System.Windows.Forms.Label();
+            customerMaleCheckBox = new System.Windows.Forms.CheckBox();
+            customerUsernameTextBox = new System.Windows.Forms.TextBox();
+            label7 = new System.Windows.Forms.Label();
+            customerEmailTextBox = new System.Windows.Forms.TextBox();
+            label6 = new System.Windows.Forms.Label();
+            customerAddressTextBox = new System.Windows.Forms.TextBox();
+            label5 = new System.Windows.Forms.Label();
+            customerPhoneNumberTextBox = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            customerCicNumberTextBox = new System.Windows.Forms.TextBox();
+            label3 = new System.Windows.Forms.Label();
+            customerNameTextBox = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            customerIdTextBox = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
+            tabPageManageStaffs = new System.Windows.Forms.TabPage();
+            dataGridViewStaff = new System.Windows.Forms.DataGridView();
+            groupBox7 = new System.Windows.Forms.GroupBox();
+            staffSearchTextBox = new System.Windows.Forms.TextBox();
+            groupBox4 = new System.Windows.Forms.GroupBox();
+            enableStaffBtn = new System.Windows.Forms.Button();
+            clearScreenStaffBtn = new System.Windows.Forms.Button();
+            disableStaffBtn = new System.Windows.Forms.Button();
+            saveStaffBtn = new System.Windows.Forms.Button();
+            addStaffBtn = new System.Windows.Forms.Button();
+            groupBox3 = new System.Windows.Forms.GroupBox();
+            staffBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            label8 = new System.Windows.Forms.Label();
+            staffEmailTextBox = new System.Windows.Forms.TextBox();
+            label15 = new System.Windows.Forms.Label();
+            staffAddressTextBox = new System.Windows.Forms.TextBox();
+            label20 = new System.Windows.Forms.Label();
+            staffPhoneTextBox = new System.Windows.Forms.TextBox();
+            label21 = new System.Windows.Forms.Label();
+            staffDisableCheckBox = new System.Windows.Forms.CheckBox();
+            staffMaleCheckBox = new System.Windows.Forms.CheckBox();
+            staffPermissionIdComboBox = new System.Windows.Forms.ComboBox();
+            label16 = new System.Windows.Forms.Label();
+            staffUsernameTextBox = new System.Windows.Forms.TextBox();
+            label14 = new System.Windows.Forms.Label();
+            staffPositionTextBox = new System.Windows.Forms.TextBox();
+            label13 = new System.Windows.Forms.Label();
+            staffNameTextBox = new System.Windows.Forms.TextBox();
+            label12 = new System.Windows.Forms.Label();
+            staffIdTextBox = new System.Windows.Forms.TextBox();
+            label11 = new System.Windows.Forms.Label();
+            tabPageFinancialReport = new System.Windows.Forms.TabPage();
+            panel1 = new System.Windows.Forms.Panel();
+            groupBox11 = new System.Windows.Forms.GroupBox();
+            rbMonthly = new System.Windows.Forms.RadioButton();
+            rbDaily = new System.Windows.Forms.RadioButton();
+            dailyReportBtn = new System.Windows.Forms.Button();
+            label22 = new System.Windows.Forms.Label();
+            dailyReportDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            dataGridViewDailyReport = new System.Windows.Forms.DataGridView();
+            tabPageChangeRegulations = new System.Windows.Forms.TabPage();
+            label19 = new System.Windows.Forms.Label();
+            saveRate = new System.Windows.Forms.Button();
+            ratetxt = new System.Windows.Forms.TextBox();
+            label17 = new System.Windows.Forms.Label();
+            monthtxt = new System.Windows.Forms.TextBox();
+            label18 = new System.Windows.Forms.Label();
+            groupBox5 = new System.Windows.Forms.GroupBox();
+            data_rate = new System.Windows.Forms.DataGridView();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            customerWithdrawContentLabel = new System.Windows.Forms.Label();
+            customerWithdrawAmountLabel = new System.Windows.Forms.Label();
+            customerWithdrawCicNumberLabel = new System.Windows.Forms.Label();
+            customerWithdrawNameLabel = new System.Windows.Forms.Label();
+            customerWithdrawIdLabel = new System.Windows.Forms.Label();
+            customerWithdrawBalanceLabel = new System.Windows.Forms.Label();
+            tabControlStaffMenu.SuspendLayout();
+            tabPageInformation.SuspendLayout();
+            tabPageDeposit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDeposit).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).BeginInit();
+            groupBox8.SuspendLayout();
+            tabPageWithdraw.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewWithdraw).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)customerWithdrawAmountNumeric).BeginInit();
+            groupBox9.SuspendLayout();
+            tabPageManageCustomers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
+            groupBox6.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            tabPageManageStaffs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewStaff).BeginInit();
+            groupBox7.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox3.SuspendLayout();
+            tabPageFinancialReport.SuspendLayout();
+            panel1.SuspendLayout();
+            groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDailyReport).BeginInit();
+            tabPageChangeRegulations.SuspendLayout();
+            groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)data_rate).BeginInit();
+            SuspendLayout();
+            // 
+            // customerWithdrawContentLabel
+            // 
+            customerWithdrawContentLabel.AutoSize = true;
+            customerWithdrawContentLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawContentLabel.Location = new System.Drawing.Point(105, 320);
+            customerWithdrawContentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerWithdrawContentLabel.Name = "customerWithdrawContentLabel";
+            customerWithdrawContentLabel.Size = new System.Drawing.Size(112, 33);
+            customerWithdrawContentLabel.TabIndex = 5;
+            customerWithdrawContentLabel.Text = "Content:";
+            // 
+            // customerWithdrawAmountLabel
+            // 
+            customerWithdrawAmountLabel.AutoSize = true;
+            customerWithdrawAmountLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawAmountLabel.Location = new System.Drawing.Point(105, 262);
+            customerWithdrawAmountLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerWithdrawAmountLabel.Name = "customerWithdrawAmountLabel";
+            customerWithdrawAmountLabel.Size = new System.Drawing.Size(221, 33);
+            customerWithdrawAmountLabel.TabIndex = 4;
+            customerWithdrawAmountLabel.Text = "Withdraw amount:";
+            // 
+            // customerWithdrawCicNumberLabel
+            // 
+            customerWithdrawCicNumberLabel.AutoSize = true;
+            customerWithdrawCicNumberLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawCicNumberLabel.Location = new System.Drawing.Point(105, 160);
+            customerWithdrawCicNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerWithdrawCicNumberLabel.Name = "customerWithdrawCicNumberLabel";
+            customerWithdrawCicNumberLabel.Size = new System.Drawing.Size(165, 33);
+            customerWithdrawCicNumberLabel.TabIndex = 2;
+            customerWithdrawCicNumberLabel.Text = "CIC Number:";
+            // 
+            // customerWithdrawNameLabel
+            // 
+            customerWithdrawNameLabel.AutoSize = true;
+            customerWithdrawNameLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawNameLabel.Location = new System.Drawing.Point(105, 108);
+            customerWithdrawNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerWithdrawNameLabel.Name = "customerWithdrawNameLabel";
+            customerWithdrawNameLabel.Size = new System.Drawing.Size(87, 33);
+            customerWithdrawNameLabel.TabIndex = 1;
+            customerWithdrawNameLabel.Text = "Name:";
+            // 
+            // customerWithdrawIdLabel
+            // 
+            customerWithdrawIdLabel.AutoSize = true;
+            customerWithdrawIdLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawIdLabel.Location = new System.Drawing.Point(105, 50);
+            customerWithdrawIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerWithdrawIdLabel.Name = "customerWithdrawIdLabel";
+            customerWithdrawIdLabel.Size = new System.Drawing.Size(165, 33);
+            customerWithdrawIdLabel.TabIndex = 0;
+            customerWithdrawIdLabel.Text = "Customer ID:";
+            // 
+            // customerWithdrawBalanceLabel
+            // 
+            customerWithdrawBalanceLabel.AutoSize = true;
+            customerWithdrawBalanceLabel.Font = new System.Drawing.Font("Times New Roman", 13.8F);
+            customerWithdrawBalanceLabel.Location = new System.Drawing.Point(105, 209);
+            customerWithdrawBalanceLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerWithdrawBalanceLabel.Name = "customerWithdrawBalanceLabel";
+            customerWithdrawBalanceLabel.Size = new System.Drawing.Size(112, 33);
+            customerWithdrawBalanceLabel.TabIndex = 3;
+            customerWithdrawBalanceLabel.Text = "Balance:";
+            // 
+            // tabControlStaffMenu
+            // 
+            tabControlStaffMenu.Controls.Add(tabPageInformation);
+            tabControlStaffMenu.Controls.Add(tabPageDeposit);
+            tabControlStaffMenu.Controls.Add(tabPageWithdraw);
+            tabControlStaffMenu.Controls.Add(tabPageManageCustomers);
+            tabControlStaffMenu.Controls.Add(tabPageManageStaffs);
+            tabControlStaffMenu.Controls.Add(tabPageFinancialReport);
+            tabControlStaffMenu.Controls.Add(tabPageChangeRegulations);
+            tabControlStaffMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            tabControlStaffMenu.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            tabControlStaffMenu.Location = new System.Drawing.Point(0, 0);
+            tabControlStaffMenu.Margin = new System.Windows.Forms.Padding(2);
+            tabControlStaffMenu.Name = "tabControlStaffMenu";
+            tabControlStaffMenu.SelectedIndex = 0;
+            tabControlStaffMenu.Size = new System.Drawing.Size(1578, 944);
+            tabControlStaffMenu.TabIndex = 0;
+            tabControlStaffMenu.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
+            // 
+            // tabPageInformation
+            // 
+            tabPageInformation.Controls.Add(button1);
+            tabPageInformation.Controls.Add(staffusernametxt);
+            tabPageInformation.Controls.Add(customerUsernameLabel);
+            tabPageInformation.Controls.Add(staffIdtxt);
+            tabPageInformation.Controls.Add(customerIdLabel);
+            tabPageInformation.Controls.Add(staffChangePasswordButton);
+            tabPageInformation.Controls.Add(customerPhoneNumberLabel);
+            tabPageInformation.Controls.Add(staffpositiontxt);
+            tabPageInformation.Controls.Add(staffgendertxt);
+            tabPageInformation.Controls.Add(customerGenderLabel);
+            tabPageInformation.Controls.Add(staffnametxt);
+            tabPageInformation.Controls.Add(customerNameLabel);
+            tabPageInformation.Location = new System.Drawing.Point(4, 42);
+            tabPageInformation.Margin = new System.Windows.Forms.Padding(2);
+            tabPageInformation.Name = "tabPageInformation";
+            tabPageInformation.Padding = new System.Windows.Forms.Padding(2);
+            tabPageInformation.Size = new System.Drawing.Size(1570, 898);
+            tabPageInformation.TabIndex = 0;
+            tabPageInformation.Text = "Information";
+            tabPageInformation.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.AutoSize = true;
+            button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            button1.Location = new System.Drawing.Point(865, 261);
+            button1.Margin = new System.Windows.Forms.Padding(4);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(237, 43);
+            button1.TabIndex = 33;
+            button1.Text = "Change Infomation";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // staffusernametxt
+            // 
+            staffusernametxt.Location = new System.Drawing.Point(1108, 116);
+            staffusernametxt.Margin = new System.Windows.Forms.Padding(4);
+            staffusernametxt.Name = "staffusernametxt";
+            staffusernametxt.ReadOnly = true;
+            staffusernametxt.Size = new System.Drawing.Size(419, 39);
+            staffusernametxt.TabIndex = 30;
+            // 
+            // customerUsernameLabel
+            // 
+            customerUsernameLabel.AutoSize = true;
+            customerUsernameLabel.Location = new System.Drawing.Point(962, 124);
+            customerUsernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerUsernameLabel.Name = "customerUsernameLabel";
+            customerUsernameLabel.Size = new System.Drawing.Size(132, 33);
+            customerUsernameLabel.TabIndex = 31;
+            customerUsernameLabel.Text = "Username:";
+            // 
+            // staffIdtxt
+            // 
+            staffIdtxt.Location = new System.Drawing.Point(98, 36);
+            staffIdtxt.Margin = new System.Windows.Forms.Padding(4);
+            staffIdtxt.Name = "staffIdtxt";
+            staffIdtxt.ReadOnly = true;
+            staffIdtxt.Size = new System.Drawing.Size(455, 39);
+            staffIdtxt.TabIndex = 22;
+            // 
+            // customerIdLabel
+            // 
+            customerIdLabel.AutoSize = true;
+            customerIdLabel.Location = new System.Drawing.Point(48, 40);
+            customerIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerIdLabel.Name = "customerIdLabel";
+            customerIdLabel.Size = new System.Drawing.Size(51, 33);
+            customerIdLabel.TabIndex = 23;
+            customerIdLabel.Text = "ID:";
+            // 
+            // staffChangePasswordButton
+            // 
+            staffChangePasswordButton.AutoSize = true;
+            staffChangePasswordButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            staffChangePasswordButton.Location = new System.Drawing.Point(1211, 261);
+            staffChangePasswordButton.Margin = new System.Windows.Forms.Padding(4);
+            staffChangePasswordButton.Name = "staffChangePasswordButton";
+            staffChangePasswordButton.Size = new System.Drawing.Size(222, 43);
+            staffChangePasswordButton.TabIndex = 32;
+            staffChangePasswordButton.Text = "Change Password";
+            staffChangePasswordButton.UseVisualStyleBackColor = true;
+            staffChangePasswordButton.Click += staffChangePasswordButton_Click;
+            // 
+            // customerPhoneNumberLabel
+            // 
+            customerPhoneNumberLabel.AutoSize = true;
+            customerPhoneNumberLabel.Location = new System.Drawing.Point(418, 124);
+            customerPhoneNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerPhoneNumberLabel.Name = "customerPhoneNumberLabel";
+            customerPhoneNumberLabel.Size = new System.Drawing.Size(116, 33);
+            customerPhoneNumberLabel.TabIndex = 28;
+            customerPhoneNumberLabel.Text = "Position:";
+            // 
+            // staffpositiontxt
+            // 
+            staffpositiontxt.Location = new System.Drawing.Point(542, 116);
+            staffpositiontxt.Margin = new System.Windows.Forms.Padding(4);
+            staffpositiontxt.Name = "staffpositiontxt";
+            staffpositiontxt.ReadOnly = true;
+            staffpositiontxt.Size = new System.Drawing.Size(338, 39);
+            staffpositiontxt.TabIndex = 29;
+            // 
+            // staffgendertxt
+            // 
+            staffgendertxt.Location = new System.Drawing.Point(151, 116);
+            staffgendertxt.Margin = new System.Windows.Forms.Padding(4);
+            staffgendertxt.Name = "staffgendertxt";
+            staffgendertxt.ReadOnly = true;
+            staffgendertxt.Size = new System.Drawing.Size(202, 39);
+            staffgendertxt.TabIndex = 26;
+            // 
+            // customerGenderLabel
+            // 
+            customerGenderLabel.AutoSize = true;
+            customerGenderLabel.Location = new System.Drawing.Point(48, 120);
+            customerGenderLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerGenderLabel.Name = "customerGenderLabel";
+            customerGenderLabel.Size = new System.Drawing.Size(103, 33);
+            customerGenderLabel.TabIndex = 27;
+            customerGenderLabel.Text = "Gender:";
+            // 
+            // staffnametxt
+            // 
+            staffnametxt.Location = new System.Drawing.Point(696, 36);
+            staffnametxt.Margin = new System.Windows.Forms.Padding(4);
+            staffnametxt.Name = "staffnametxt";
+            staffnametxt.ReadOnly = true;
+            staffnametxt.Size = new System.Drawing.Size(710, 39);
+            staffnametxt.TabIndex = 24;
+            // 
+            // customerNameLabel
+            // 
+            customerNameLabel.AutoSize = true;
+            customerNameLabel.Location = new System.Drawing.Point(606, 40);
+            customerNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerNameLabel.Name = "customerNameLabel";
+            customerNameLabel.Size = new System.Drawing.Size(87, 33);
+            customerNameLabel.TabIndex = 25;
+            customerNameLabel.Text = "Name:";
+            // 
+            // tabPageDeposit
+            // 
+            tabPageDeposit.Controls.Add(dataGridViewDeposit);
+            tabPageDeposit.Controls.Add(customerDepositAmountNumeric);
+            tabPageDeposit.Controls.Add(customerDepositIdTextBox);
+            tabPageDeposit.Controls.Add(customerDepositButton);
+            tabPageDeposit.Controls.Add(customerDepositContentTextBox);
+            tabPageDeposit.Controls.Add(customerDepositContentLabel);
+            tabPageDeposit.Controls.Add(customerDepositAmountLabel);
+            tabPageDeposit.Controls.Add(customerDepositCicNumberTextBox);
+            tabPageDeposit.Controls.Add(customerDepositCicNumberLabel);
+            tabPageDeposit.Controls.Add(customerDepositNameTextBox);
+            tabPageDeposit.Controls.Add(customerDepositNameLabel);
+            tabPageDeposit.Controls.Add(customerDepositIdLabel);
+            tabPageDeposit.Controls.Add(groupBox8);
+            tabPageDeposit.Location = new System.Drawing.Point(4, 42);
+            tabPageDeposit.Margin = new System.Windows.Forms.Padding(2);
+            tabPageDeposit.Name = "tabPageDeposit";
+            tabPageDeposit.Padding = new System.Windows.Forms.Padding(2);
+            tabPageDeposit.Size = new System.Drawing.Size(1570, 898);
+            tabPageDeposit.TabIndex = 1;
+            tabPageDeposit.Text = "Deposit";
+            tabPageDeposit.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewDeposit
+            // 
+            dataGridViewDeposit.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewDeposit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDeposit.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridViewDeposit.Location = new System.Drawing.Point(2, 467);
+            dataGridViewDeposit.Margin = new System.Windows.Forms.Padding(2);
+            dataGridViewDeposit.Name = "dataGridViewDeposit";
+            dataGridViewDeposit.RowHeadersWidth = 62;
+            dataGridViewDeposit.Size = new System.Drawing.Size(1566, 429);
+            dataGridViewDeposit.TabIndex = 8;
+            dataGridViewDeposit.CellContentClick += dataGridViewDeposit_CellContentClick;
+            // 
+            // customerDepositAmountNumeric
+            // 
+            customerDepositAmountNumeric.DecimalPlaces = 2;
+            customerDepositAmountNumeric.Enabled = false;
+            customerDepositAmountNumeric.Location = new System.Drawing.Point(454, 218);
+            customerDepositAmountNumeric.Margin = new System.Windows.Forms.Padding(4);
+            customerDepositAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
+            customerDepositAmountNumeric.Name = "customerDepositAmountNumeric";
+            customerDepositAmountNumeric.Size = new System.Drawing.Size(379, 39);
+            customerDepositAmountNumeric.TabIndex = 6;
+            // 
+            // customerDepositIdTextBox
+            // 
+            customerDepositIdTextBox.Location = new System.Drawing.Point(454, 51);
+            customerDepositIdTextBox.Margin = new System.Windows.Forms.Padding(4);
 
-		private System.Windows.Forms.TabControl tabControlStaffMenu;
+
+        #endregion
+
+        private System.Windows.Forms.TabControl tabControlStaffMenu;
         private System.Windows.Forms.TabPage tabPageInformation;
         private System.Windows.Forms.TabPage tabPageDeposit;
         private System.Windows.Forms.TabPage tabPageWithdraw;
@@ -1873,6 +2329,7 @@ namespace GraphicalUserInterface
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.DateTimePicker dailyReportDateTimePicker;
 		private System.Windows.Forms.DataGridView dataGridViewDailyReport;
+
 		private System.Windows.Forms.GroupBox groupBox10;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.Label label8;

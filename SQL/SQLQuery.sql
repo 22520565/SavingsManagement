@@ -167,6 +167,10 @@ CREATE TABLE [dbo].[StaffAccounts](
 	[Id] [int] IDENTITY(0,1) NOT NULL,
 	[Name] [nvarchar](50) NOT NULL,
 	[IsMale] [bit] NOT NULL,
+	[BirthDate] [date] NOT NULL,
+	[PhoneNumber] [varchar](20) NOT NULL,
+	[Address] [nvarchar](50) NOT NULL,
+	[Email] [varchar](50) NULL,
 	[Position] [nvarchar](50) NOT NULL,
 	[Username] [varchar](50) NOT NULL,
 	[HashedPassword] [nvarchar](MAX) NOT NULL,
@@ -565,7 +569,7 @@ go
 insert into StaffPermissions (Id,Name) values (1, 'Admin')
 insert into StaffPermissions (Id,Name) values (2, 'Staff')
 
-insert into StaffAccounts (Name,IsMale, Position, Username,HashedPassword,PermissionId, IsDisabled) values 
-('Admin', 1, N'Giám đốc', 'Admin', N'AQAAAAIAAYagAAAAEHJxYRqg4BjiBmbDmOzAnboopsH+MGFxLSVSU7wc7ucW4msTPx8na2i6nsSUCr9cJA==',1, 0)
-insert into StaffAccounts (Name,IsMale, Position, Username,HashedPassword,PermissionId, IsDisabled) values 
-('Staff', 0, N'Nhân viên', 'Staff', N'AQAAAAIAAYagAAAAEHJxYRqg4BjiBmbDmOzAnboopsH+MGFxLSVSU7wc7ucW4msTPx8na2i6nsSUCr9cJA==',2, 0)
+insert into StaffAccounts (Name,IsMale,BirthDate,PhoneNumber,Address,Email,Position,Username,HashedPassword,PermissionId, IsDisabled) values 
+('Admin', 1,CAST(N'2024-11-04' AS Date), N'5404454665', N'Việt Nam', N'22520248@gmail.com',N'Giám đốc', 'Admin', N'AQAAAAIAAYagAAAAEHJxYRqg4BjiBmbDmOzAnboopsH+MGFxLSVSU7wc7ucW4msTPx8na2i6nsSUCr9cJA==',1, 0)
+insert into StaffAccounts (Name,IsMale,BirthDate,PhoneNumber,Address,Email,Position, Username,HashedPassword,PermissionId, IsDisabled) values 
+('Staff', 0,CAST(N'2024-11-04' AS Date), N'5404454665', N'Việt Nam', N'a', N'Nhân viên', 'Staff', N'AQAAAAIAAYagAAAAEHJxYRqg4BjiBmbDmOzAnboopsH+MGFxLSVSU7wc7ucW4msTPx8na2i6nsSUCr9cJA==',2, 0)

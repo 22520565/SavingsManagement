@@ -1,4 +1,4 @@
-﻿namespace GraphicalUserInterface;
+namespace GraphicalUserInterface;
 
 using System;
 using System.Data;
@@ -21,6 +21,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
+using Microsoft.Reporting.WinForms;
 
 public partial class StaffMenuForm : Form {
 	public bool GoingBackToLoginForm { get; private set; } = false;
@@ -828,6 +829,10 @@ public partial class StaffMenuForm : Form {
 				c.Id,
 				c.Name,
 				c.IsMale,
+				c.BirthDate,
+				c.PhoneNumber,
+				c.Address,
+				c.Email,
 				c.Position,
 				c.Username,
 				c.PermissionId,
@@ -860,9 +865,9 @@ public partial class StaffMenuForm : Form {
 		staffPhoneTextBox.Text = dataGridViewStaff.Rows[i].Cells[4].Value.ToString();
 		staffAddressTextBox.Text = dataGridViewStaff.Rows[i].Cells[5].Value.ToString();
 		staffEmailTextBox.Text = dataGridViewStaff.Rows[i].Cells[6].Value.ToString();
-		staffPositionTextBox.Text = dataGridViewStaff.Rows[i].Cells[3].Value.ToString();
-		staffUsernameTextBox.Text = dataGridViewStaff.Rows[i].Cells[4].Value.ToString();
-		switch (dataGridViewStaff.Rows[i].Cells[5].Value) {
+		staffPositionTextBox.Text = dataGridViewStaff.Rows[i].Cells[7].Value.ToString();
+		staffUsernameTextBox.Text = dataGridViewStaff.Rows[i].Cells[8].Value.ToString();
+		switch (dataGridViewStaff.Rows[i].Cells[9].Value) {
 			case 1:
 				staffPermissionIdComboBox.Text = "1 - Admin";
 				break;
@@ -873,7 +878,7 @@ public partial class StaffMenuForm : Form {
 				MessageBox.Show("Can not find type of staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 		}
-		staffDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[6].Value);
+		staffDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[10].Value);
 	}
 	private bool IsStaffUsernameExists(string username) {
 		using (var context = new SavingsManagementContext()) {
@@ -893,6 +898,24 @@ public partial class StaffMenuForm : Form {
 		return username;
 	}
 
+	private bool IsStaffEmailExists(string email) {
+		using (var context = new SavingsManagementContext()) {
+			return context.StaffAccounts.Any(c => c.Email == email);
+		}
+	}
+
+	private string GenerateUniqueStaffEmail() {
+		string email;
+		do {
+			// Tạo một số ngẫu nhiên có độ dài 6
+			string randomNumber = new Random().Next(100000, 999999).ToString();
+			// Kết hợp số ngẫu nhiên với địa chỉ email cơ sở
+			email = $"staff{randomNumber}@gmail.com";
+		}
+		while (IsStaffEmailExists(email)); // Kiểm tra xem địa chỉ email đã tồn tại hay chưa
+		return email;
+	}
+
 	private void addStaffBtn_Click(object sender, EventArgs e) {
 		// Mã hóa mật khẩu "123"
 		string hashedPassword = PasswordHasher.HashPassword(null!, "123");
@@ -901,6 +924,10 @@ public partial class StaffMenuForm : Form {
 			var staff = new StaffAccount {
 				Name = "Staff",
 				IsMale = false,
+				PhoneNumber = "0",
+				BirthDate = new DateOnly(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
+				Address = "Việt Nam",
+				Email = GenerateUniqueStaffEmail(),
 				Position = "Staff",
 				Username = GenerateUniqueStaffUsername(),
 				HashedPassword = hashedPassword,
@@ -969,7 +996,7 @@ public partial class StaffMenuForm : Form {
 		}
 
 		int staffId;
-		if (int.TryParse(staffUsernameTextBox.Text, out staffId)) {
+		if (int.TryParse(staffIdTextBox.Text, out staffId)) {
 			using (var context = new SavingsManagementContext()) {
 				var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
 				var staffPermission = context.StaffPermissions.FirstOrDefault(sp => sp.Id == staff.PermissionId);
@@ -996,7 +1023,7 @@ public partial class StaffMenuForm : Form {
 
 	private void enableStaffBtn_Click(object sender, EventArgs e) {
 		int staffId;
-		if (int.TryParse(staffUsernameTextBox.Text, out staffId)) {
+		if (int.TryParse(staffIdTextBox.Text, out staffId)) {
 			using (var context = new SavingsManagementContext()) {
 				var staff = context.StaffAccounts.FirstOrDefault(s => s.Id == staffId);
 				if (staff != null) {
@@ -1017,11 +1044,17 @@ public partial class StaffMenuForm : Form {
 			loadStaff();
 		} else {
 			using (var context = new SavingsManagementContext()) {
+				DateOnly searchDate;
+				bool isDate = DateOnly.TryParse(search, out searchDate);
 				var staffs = context.StaffAccounts
 								   .Where(s =>
 									   s.Id.ToString().Contains(search) ||
 									   s.Name.Contains(search) ||
 									   s.IsMale.ToString().Contains(search) ||
+									   s.PhoneNumber.Contains(search) ||
+									   s.Address.Contains(search) ||
+									   s.Email.Contains(search) ||
+									   (isDate && s.BirthDate == searchDate) ||
 									   s.Position.Contains(search) ||
 									   s.Username.Contains(search) ||
 									   s.HashedPassword.Contains(search) ||
@@ -1032,6 +1065,10 @@ public partial class StaffMenuForm : Form {
 									   s.Name,
 									   s.IsMale,
 									   s.Position,
+									   s.BirthDate,
+									   s.PhoneNumber,
+									   s.Address,
+									   s.Email,
 									   s.Username,
 									   s.HashedPassword,
 									   s.PermissionId,

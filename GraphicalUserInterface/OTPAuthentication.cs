@@ -29,26 +29,33 @@ namespace GraphicalUserInterface {
 			this.btnOTPAuth.BackColor = Color.FromArgb(22, 94, 240);
 		}
 
-		private void btnOTPAuth_Click(object sender, EventArgs e) {
-			CheckAuthentication();
+        private void btnOTPAuth_Click(object sender, EventArgs e)
+        {
+            CheckAuthentication();
 
-			if (confirmOTP == false) {
-				return;
-			} else {
-				using (var context = new SavingsManagementContext()) {
-					var customer = context.CustomerAccounts.FirstOrDefault(c => c.Email == Email);
-					if (customer != null) {
-						this.Hide();
-						ResetPasswordForm resetPasswordForm = new ResetPasswordForm(customer.Id);
-						resetPasswordForm.ShowDialog();
-						this.Close();
-					}
-				}
-				confirmOTP = false;
-			}
-		}
+            if (confirmOTP == false)
+            {
+                return;
+            }
+            else
+            {
+                using (var context = new SavingsManagementContext())
+                {
+                    var customer = context.CustomerAccounts.FirstOrDefault(c => c.Email == Email);
+                    var staff = context.CustomerAccounts.FirstOrDefault(s => s.Email == Email);
+                    this.Hide();
+                    int customerId = customer != null ? customer.Id : 0;
+                    int staffId = staff != null ? staff.Id : 0;
+                    ResetPasswordForm resetPasswordForm = new ResetPasswordForm(customerId, staffId);
+                    resetPasswordForm.ShowDialog();
+                    this.Close();
+                }
+                confirmOTP = false;
+            }
+        }
 
-		private void CheckAuthentication() {
+
+        private void CheckAuthentication() {
 			if (OTP.ToString().Equals(txtOTP.Text)) {
 				MessageBox.Show("Verify OTP successfully!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				confirmOTP = true;

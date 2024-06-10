@@ -148,6 +148,21 @@ public partial class CustomerSignUpForm : Form
             return context.CustomerAccounts.Any(c => c.Email == email);
         }
     }
+    private bool IsStaffUsernameExists(string username)
+    {
+        using (var context = new SavingsManagementContext())
+        {
+            return context.StaffAccounts.Any(s => s.Username == username);
+        }
+    }
+
+    private bool IsStaffEmailExists(string email)
+    {
+        using (var context = new SavingsManagementContext())
+        {
+            return context.StaffAccounts.Any(c => c.Email == email);
+        }
+    }
 
     private void getOTPBtn_Click(object sender, EventArgs e)
     {
@@ -156,6 +171,11 @@ public partial class CustomerSignUpForm : Form
             if (txtEmail.Text.IsNullOrEmpty())
             {
                 MessageBox.Show("Enter email to get OTP!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (IsEmailExists(txtEmail.Text) || IsStaffEmailExists(txtEmail.Text))
+            {
+                MessageBox.Show("Email has been registered, please register another email!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             otp = random.Next(100000, 1000000);
@@ -210,26 +230,52 @@ public partial class CustomerSignUpForm : Form
     {
         // Mã hóa mật khẩu
         string hashedPassword = PasswordHasher.HashPassword(null!, txtConfirmPassword.Text);
-
-        using (var context = new SavingsManagementContext())
+        if (typeAccountComboBox.SelectedItem == typeAccountComboBox.Items[0])
         {
-            var customer = new CustomerAccount
+            using (var context = new SavingsManagementContext())
             {
-                Name = "Customer",
-                IsMale = false,
-                CicNumber = "0",
-                BirthDate = new DateOnly(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
-                PhoneNumber = "0",
-                Address = "Việt Nam",
-                Email = txtEmail.Text,
-                Username = txtUsername.Text,
-                HashedPassword = hashedPassword,
-                Balance = Decimal.Zero,
-                IsDisabled = false
-            };
-            context.CustomerAccounts.Add(customer);
-            context.SaveChanges();
-            MessageBox.Show("Successfully registered account!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var customer = new CustomerAccount
+                {
+                    Name = "Customer",
+                    IsMale = false,
+                    CicNumber = "0",
+                    BirthDate = new DateOnly(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
+                    PhoneNumber = "0",
+                    Address = "Việt Nam",
+                    Email = txtEmail.Text,
+                    Username = txtUsername.Text,
+                    HashedPassword = hashedPassword,
+                    Balance = Decimal.Zero,
+                    IsDisabled = false
+                };
+                context.CustomerAccounts.Add(customer);
+                context.SaveChanges();
+                MessageBox.Show("Successfully registered account!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        else
+        {
+            using (var context = new SavingsManagementContext())
+            {
+                var staff = new StaffAccount
+                {
+                    Name = "Staff",
+                    IsMale = false,
+                    Position = "Staff",
+                    BirthDate = new DateOnly(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
+                    PhoneNumber = "0",
+                    Address = "Việt Nam",
+                    Email = txtEmail.Text,
+                    Username = txtUsername.Text,
+                    HashedPassword = hashedPassword,
+                    PermissionId = 2,
+                    IsDisabled = false
+                };
+
+                context.StaffAccounts.Add(staff);
+                context.SaveChanges();
+                MessageBox.Show("Successfully registered account!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 
@@ -272,15 +318,9 @@ public partial class CustomerSignUpForm : Form
             return;
         }
 
-        if (IsUsernameExists(txtUsername.Text))
+        if (IsUsernameExists(txtUsername.Text) || IsStaffUsernameExists(txtUsername.Text))
         {
             MessageBox.Show("Username already exists, please register another username!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
-
-        if (IsEmailExists(txtEmail.Text))
-        {
-            MessageBox.Show("Email has been registered, please register another email!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 
@@ -289,6 +329,7 @@ public partial class CustomerSignUpForm : Form
             MessageBox.Show("Please enter the OTP sent to your email to complete the registration.", "OTP Verification", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
         }
+
         else
         {
             CreateAccount();
