@@ -32,13 +32,21 @@ namespace GraphicalUserInterface
 			}
 		}
 
-		private void btnResetPassword_Click(object sender, EventArgs e) {
+        private bool IsStaffEmailExists(string email)
+        {
+            using (var context = new SavingsManagementContext())
+            {
+                return context.StaffAccounts.Any(c => c.Email == email);
+            }
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e) {
 			try {
 				if (txtEmail.Text.IsNullOrEmpty()) {
 					MessageBox.Show("Enter email to get OTP!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 					return;
 				}
-				if (!IsEmailExists(txtEmail.Text)) {
+				if (!IsEmailExists(txtEmail.Text) && !IsStaffEmailExists(txtEmail.Text)) {
 					MessageBox.Show("Email is not registered, please enter another email!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 					return;
 				}
