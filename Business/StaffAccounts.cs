@@ -45,6 +45,10 @@ public static class StaffAccounts
                 staffAccount.Name = staff.Name;
                 staffAccount.Position = staff.Position;
                 staffAccount.IsMale = staff.IsMale;
+                staffAccount.Address = staff.Address;
+                staffAccount.PhoneNumber = staff.PhoneNumber;
+                staffAccount.Email = staff.Email;
+                staffAccount.BirthDate = staff.BirthDate;
                 staffAccount.Username = staff.Username;
                 context.SaveChanges();
             }

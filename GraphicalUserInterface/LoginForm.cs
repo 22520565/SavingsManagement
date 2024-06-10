@@ -15,7 +15,9 @@ public partial class LoginForm : Form
     public LoginForm()
     {
         InitializeComponent();
-    }
+		btnStaffLogin.BackColor = Color.FromArgb(23, 33, 175);
+        btnCustomerLogin.BackColor = Color.FromArgb(23, 33, 175);
+	}
 
     private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
@@ -47,15 +49,13 @@ public partial class LoginForm : Form
 
     private void btnCustomerLogin_MouseEnter(object sender, EventArgs e)
     {
-        btnCustomerLogin.BackColor = Color.FromArgb(11, 9, 120);
-        btnCustomerLogin.ForeColor = Color.White;
-    }
+        btnCustomerLogin.BackColor = Color.FromArgb(74, 131, 248);
+	}
 
     private void btnCustomerLogin_MouseLeave(object sender, EventArgs e)
     {
-        btnCustomerLogin.BackColor = Color.Black;
-        btnCustomerLogin.ForeColor = Color.White;
-    }
+        btnCustomerLogin.BackColor = Color.FromArgb(23, 33, 175);
+	}
 
     private void btnExit_MouseEnter(object sender, EventArgs e)
     {
@@ -247,15 +247,13 @@ public partial class LoginForm : Form
 
     private void btnStaffLogin_MouseEnter(object sender, EventArgs e)
     {
-        btnStaffLogin.BackColor = Color.FromArgb(11, 9, 120);
-        btnStaffLogin.ForeColor = Color.White;
-    }
+        btnStaffLogin.BackColor = Color.FromArgb(74, 131, 248);
+	}
 
     private void btnStaffLogin_MouseLeave(object sender, EventArgs e)
     {
-        btnStaffLogin.BackColor = Color.Black;
-        btnStaffLogin.ForeColor = Color.White;
-    }
+        btnStaffLogin.BackColor = Color.FromArgb(23, 33, 175);
+	}
 
     private void btnStaffExit_MouseEnter(object sender, EventArgs e)
     {

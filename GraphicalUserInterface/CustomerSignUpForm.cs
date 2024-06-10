@@ -51,18 +51,6 @@ public partial class CustomerSignUpForm : Form
         this.Close();
     }
 
-    private void btnExit_MouseEnter(object sender, EventArgs e)
-    {
-        btnExit.BackColor = Color.Red;
-        btnExit.ForeColor = Color.White;
-    }
-
-    private void btnExit_MouseLeave(object sender, EventArgs e)
-    {
-        btnExit.BackColor = Color.Transparent;
-        btnExit.ForeColor = Color.Black;
-    }
-
     private void btnSignUp_MouseEnter(object sender, EventArgs e)
     {
         btnSignUp.BackColor = Color.FromArgb(11, 9, 120);
