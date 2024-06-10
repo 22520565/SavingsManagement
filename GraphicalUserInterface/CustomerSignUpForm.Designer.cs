@@ -49,12 +49,6 @@
 			label3 = new System.Windows.Forms.Label();
 			label4 = new System.Windows.Forms.Label();
 			linkLabel_Login = new System.Windows.Forms.LinkLabel();
-			panel5 = new System.Windows.Forms.Panel();
-			pictureBox5 = new System.Windows.Forms.PictureBox();
-			label7 = new System.Windows.Forms.Label();
-			txtOTP = new System.Windows.Forms.TextBox();
-			confirmOTPBtn = new System.Windows.Forms.Button();
-			getOTPBtn = new System.Windows.Forms.Button();
 			panel6 = new System.Windows.Forms.Panel();
 			typeAccountComboBox = new System.Windows.Forms.ComboBox();
 			pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -67,8 +61,6 @@
 			((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
 			panel4.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-			panel5.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
 			panel6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
 			SuspendLayout();
@@ -122,7 +114,7 @@
 			btnSignUp.Cursor = System.Windows.Forms.Cursors.Hand;
 			btnSignUp.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 			btnSignUp.ForeColor = System.Drawing.Color.White;
-			btnSignUp.Location = new System.Drawing.Point(160, 640);
+			btnSignUp.Location = new System.Drawing.Point(151, 574);
 			btnSignUp.Margin = new System.Windows.Forms.Padding(2);
 			btnSignUp.Name = "btnSignUp";
 			btnSignUp.Size = new System.Drawing.Size(246, 53);
@@ -309,7 +301,7 @@
 			// 
 			label4.AutoSize = true;
 			label4.Font = new System.Drawing.Font("Cambria", 12F);
-			label4.Location = new System.Drawing.Point(135, 711);
+			label4.Location = new System.Drawing.Point(126, 645);
 			label4.Name = "label4";
 			label4.Size = new System.Drawing.Size(226, 23);
 			label4.TabIndex = 38;
@@ -320,84 +312,13 @@
 			linkLabel_Login.AutoSize = true;
 			linkLabel_Login.Font = new System.Drawing.Font("Cambria", 12F);
 			linkLabel_Login.LinkColor = System.Drawing.Color.Blue;
-			linkLabel_Login.Location = new System.Drawing.Point(367, 711);
+			linkLabel_Login.Location = new System.Drawing.Point(358, 645);
 			linkLabel_Login.Name = "linkLabel_Login";
 			linkLabel_Login.Size = new System.Drawing.Size(63, 23);
 			linkLabel_Login.TabIndex = 39;
 			linkLabel_Login.TabStop = true;
 			linkLabel_Login.Text = "Log in";
 			linkLabel_Login.LinkClicked += linkLabel_Login_LinkClicked;
-			// 
-			// panel5
-			// 
-			panel5.Controls.Add(pictureBox5);
-			panel5.Controls.Add(label7);
-			panel5.Controls.Add(txtOTP);
-			panel5.Location = new System.Drawing.Point(70, 513);
-			panel5.Name = "panel5";
-			panel5.Size = new System.Drawing.Size(283, 88);
-			panel5.TabIndex = 40;
-			// 
-			// pictureBox5
-			// 
-			pictureBox5.Image = Properties.Resources.security_shield__1_1;
-			pictureBox5.Location = new System.Drawing.Point(13, 8);
-			pictureBox5.Margin = new System.Windows.Forms.Padding(2);
-			pictureBox5.Name = "pictureBox5";
-			pictureBox5.Size = new System.Drawing.Size(30, 30);
-			pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			pictureBox5.TabIndex = 29;
-			pictureBox5.TabStop = false;
-			// 
-			// label7
-			// 
-			label7.AutoSize = true;
-			label7.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			label7.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-			label7.Location = new System.Drawing.Point(42, 8);
-			label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			label7.Name = "label7";
-			label7.Size = new System.Drawing.Size(46, 23);
-			label7.TabIndex = 26;
-			label7.Text = "OTP";
-			// 
-			// txtOTP
-			// 
-			txtOTP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			txtOTP.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			txtOTP.Location = new System.Drawing.Point(13, 45);
-			txtOTP.Margin = new System.Windows.Forms.Padding(2);
-			txtOTP.Name = "txtOTP";
-			txtOTP.Size = new System.Drawing.Size(258, 34);
-			txtOTP.TabIndex = 3;
-			// 
-			// confirmOTPBtn
-			// 
-			confirmOTPBtn.AutoSize = true;
-			confirmOTPBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-			confirmOTPBtn.Font = new System.Drawing.Font("Cambria", 12F);
-			confirmOTPBtn.Location = new System.Drawing.Point(359, 555);
-			confirmOTPBtn.Margin = new System.Windows.Forms.Padding(2);
-			confirmOTPBtn.Name = "confirmOTPBtn";
-			confirmOTPBtn.Size = new System.Drawing.Size(130, 38);
-			confirmOTPBtn.TabIndex = 41;
-			confirmOTPBtn.Text = "Confirm OTP";
-			confirmOTPBtn.UseVisualStyleBackColor = true;
-			confirmOTPBtn.Click += confirmOTPBtn_Click;
-			// 
-			// getOTPBtn
-			// 
-			getOTPBtn.AutoSize = true;
-			getOTPBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-			getOTPBtn.Font = new System.Drawing.Font("Cambria", 12F);
-			getOTPBtn.Location = new System.Drawing.Point(359, 513);
-			getOTPBtn.Margin = new System.Windows.Forms.Padding(2);
-			getOTPBtn.Name = "getOTPBtn";
-			getOTPBtn.Size = new System.Drawing.Size(128, 38);
-			getOTPBtn.TabIndex = 42;
-			getOTPBtn.Text = "Get OTP";
-			getOTPBtn.UseVisualStyleBackColor = true;
-			getOTPBtn.Click += getOTPBtn_Click;
 			// 
 			// panel6
 			// 
@@ -450,12 +371,9 @@
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			BackColor = System.Drawing.Color.White;
-			ClientSize = new System.Drawing.Size(555, 775);
+			ClientSize = new System.Drawing.Size(555, 701);
 			ControlBox = false;
 			Controls.Add(panel6);
-			Controls.Add(getOTPBtn);
-			Controls.Add(confirmOTPBtn);
-			Controls.Add(panel5);
 			Controls.Add(linkLabel_Login);
 			Controls.Add(label4);
 			Controls.Add(panel4);
@@ -479,9 +397,6 @@
 			panel4.ResumeLayout(false);
 			panel4.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-			panel5.ResumeLayout(false);
-			panel5.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
 			panel6.ResumeLayout(false);
 			panel6.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
@@ -512,12 +427,6 @@
 		private System.Windows.Forms.CheckBox cbShowConfirmPassword;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.LinkLabel linkLabel_Login;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtOTP;
-        private System.Windows.Forms.Button confirmOTPBtn;
-        private System.Windows.Forms.Button getOTPBtn;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox typeAccountComboBox;
         private System.Windows.Forms.PictureBox pictureBox6;
