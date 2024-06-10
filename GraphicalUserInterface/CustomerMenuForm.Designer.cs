@@ -183,7 +183,7 @@ namespace GraphicalUserInterface
 			gbInfo.Size = new System.Drawing.Size(555, 592);
 			gbInfo.TabIndex = 17;
 			gbInfo.TabStop = false;
-			gbInfo.Text = "Information";
+			gbInfo.Text = "Personal";
 			// 
 			// customerNameTextBox
 			// 
@@ -643,10 +643,10 @@ namespace GraphicalUserInterface
 			openingTabPage.Controls.Add(periodOpeningComboBox);
 			openingTabPage.Controls.Add(balanceOpeningLabel);
 			openingTabPage.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			openingTabPage.Location = new System.Drawing.Point(4, 32);
+			openingTabPage.Location = new System.Drawing.Point(4, 29);
 			openingTabPage.Name = "openingTabPage";
 			openingTabPage.Padding = new Padding(3);
-			openingTabPage.Size = new System.Drawing.Size(1127, 680);
+			openingTabPage.Size = new System.Drawing.Size(1127, 683);
 			openingTabPage.TabIndex = 0;
 			openingTabPage.Text = "Opening";
 			openingTabPage.UseVisualStyleBackColor = true;
@@ -768,10 +768,10 @@ namespace GraphicalUserInterface
 			closingTabPage.Controls.Add(balanceClosingLabel);
 			closingTabPage.Controls.Add(savingClosingComboBox);
 			closingTabPage.Controls.Add(savingClosingLabel);
-			closingTabPage.Location = new System.Drawing.Point(4, 32);
+			closingTabPage.Location = new System.Drawing.Point(4, 29);
 			closingTabPage.Name = "closingTabPage";
 			closingTabPage.Padding = new Padding(3);
-			closingTabPage.Size = new System.Drawing.Size(1127, 680);
+			closingTabPage.Size = new System.Drawing.Size(1127, 683);
 			closingTabPage.TabIndex = 1;
 			closingTabPage.Text = "Closing";
 			closingTabPage.UseVisualStyleBackColor = true;

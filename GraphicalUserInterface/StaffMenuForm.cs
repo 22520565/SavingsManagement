@@ -91,7 +91,19 @@ public partial class StaffMenuForm : Form {
 	#region Information
 	private void InitializeInfo() {
 		LoadingAccountInfo();
+		LoadUI();
 		LoadingRateList();
+	}
+
+	private void LoadUI() {
+		this.tabPageInformation.BackColor = Color.FromArgb(221, 228, 244);
+
+		this.button1.BackColor = Color.FromArgb(23, 33, 175);
+		this.staffChangePasswordButton.BackColor = Color.FromArgb(23, 33, 175);
+
+		this.gbPersonal.BackColor = Color.FromArgb(191, 212, 252);
+		this.gbFunction.BackColor = Color.FromArgb(191, 212, 252);
+		this.gbAccount.BackColor = Color.FromArgb(191, 212, 252);
 	}
 
 	public void LoadingAccountInfo() {
@@ -101,6 +113,10 @@ public partial class StaffMenuForm : Form {
 				this.staffIdtxt.Text = staffAccount.Id.ToString(CultureInfo.CurrentCulture);
 				this.staffnametxt.Text = staffAccount.Name;
 				this.staffgendertxt.Text = staffAccount.IsMale ? Resources.MaleString : Resources.FemaleString;
+				this.staffBirthdayTxt.Text = staffAccount.BirthDate.ToString(CultureInfo.CurrentCulture);
+				this.staffPhoneTxt.Text = staffAccount.PhoneNumber;
+				this.staffAddressTxt.Text = staffAccount.Address;
+				this.staffEmailTxt.Text = staffAccount.Email;
 				this.staffpositiontxt.Text = staffAccount.Position;
 				this.staffusernametxt.Text = staffAccount.Username;
 			} else {
@@ -648,7 +664,7 @@ public partial class StaffMenuForm : Form {
 				IsMale = false,
 				CicNumber = "0",
 				BirthDate = new DateOnly(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day),
-				PhoneNumber = "0",
+				PhoneNumber = "0123456789",
 				Address = "Việt Nam",
 				Email = GenerateUniqueEmail(),
 				Username = GenerateUniqueUsername(),

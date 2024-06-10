@@ -23,7 +23,7 @@ namespace GraphicalUserInterface
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
 
 		/// <summary>
@@ -37,21 +37,32 @@ namespace GraphicalUserInterface
 			System.Windows.Forms.Label customerWithdrawCicNumberLabel;
 			System.Windows.Forms.Label customerWithdrawNameLabel;
 			System.Windows.Forms.Label customerWithdrawIdLabel;
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			tabControlStaffMenu = new System.Windows.Forms.TabControl();
 			tabPageInformation = new System.Windows.Forms.TabPage();
+			gbFunction = new System.Windows.Forms.GroupBox();
 			button1 = new System.Windows.Forms.Button();
-			staffusernametxt = new System.Windows.Forms.TextBox();
-			customerUsernameLabel = new System.Windows.Forms.Label();
+			staffChangePasswordButton = new System.Windows.Forms.Button();
+			gbAccount = new System.Windows.Forms.GroupBox();
 			staffIdtxt = new System.Windows.Forms.TextBox();
 			customerIdLabel = new System.Windows.Forms.Label();
-			staffChangePasswordButton = new System.Windows.Forms.Button();
+			staffusernametxt = new System.Windows.Forms.TextBox();
+			customerUsernameLabel = new System.Windows.Forms.Label();
+			gbPersonal = new System.Windows.Forms.GroupBox();
+			label28 = new System.Windows.Forms.Label();
+			label27 = new System.Windows.Forms.Label();
+			staffAddressTxt = new System.Windows.Forms.TextBox();
+			staffBirthdayTxt = new System.Windows.Forms.TextBox();
 			customerPhoneNumberLabel = new System.Windows.Forms.Label();
 			staffpositiontxt = new System.Windows.Forms.TextBox();
-			staffgendertxt = new System.Windows.Forms.TextBox();
-			customerGenderLabel = new System.Windows.Forms.Label();
+			label26 = new System.Windows.Forms.Label();
+			label25 = new System.Windows.Forms.Label();
+			staffPhoneTxt = new System.Windows.Forms.TextBox();
+			staffEmailTxt = new System.Windows.Forms.TextBox();
 			staffnametxt = new System.Windows.Forms.TextBox();
 			customerNameLabel = new System.Windows.Forms.Label();
+			staffgendertxt = new System.Windows.Forms.TextBox();
+			customerGenderLabel = new System.Windows.Forms.Label();
 			tabPageDeposit = new System.Windows.Forms.TabPage();
 			panel3 = new System.Windows.Forms.Panel();
 			customerDepositAmountNumeric = new System.Windows.Forms.NumericUpDown();
@@ -174,6 +185,9 @@ namespace GraphicalUserInterface
 			customerWithdrawIdLabel = new System.Windows.Forms.Label();
 			tabControlStaffMenu.SuspendLayout();
 			tabPageInformation.SuspendLayout();
+			gbFunction.SuspendLayout();
+			gbAccount.SuspendLayout();
+			gbPersonal.SuspendLayout();
 			tabPageDeposit.SuspendLayout();
 			panel3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)customerDepositAmountNumeric).BeginInit();
@@ -285,18 +299,9 @@ namespace GraphicalUserInterface
 			// 
 			// tabPageInformation
 			// 
-			tabPageInformation.Controls.Add(button1);
-			tabPageInformation.Controls.Add(staffusernametxt);
-			tabPageInformation.Controls.Add(customerUsernameLabel);
-			tabPageInformation.Controls.Add(staffIdtxt);
-			tabPageInformation.Controls.Add(customerIdLabel);
-			tabPageInformation.Controls.Add(staffChangePasswordButton);
-			tabPageInformation.Controls.Add(customerPhoneNumberLabel);
-			tabPageInformation.Controls.Add(staffpositiontxt);
-			tabPageInformation.Controls.Add(staffgendertxt);
-			tabPageInformation.Controls.Add(customerGenderLabel);
-			tabPageInformation.Controls.Add(staffnametxt);
-			tabPageInformation.Controls.Add(customerNameLabel);
+			tabPageInformation.Controls.Add(gbFunction);
+			tabPageInformation.Controls.Add(gbAccount);
+			tabPageInformation.Controls.Add(gbPersonal);
 			tabPageInformation.Location = new System.Drawing.Point(4, 35);
 			tabPageInformation.Margin = new System.Windows.Forms.Padding(2);
 			tabPageInformation.Name = "tabPageInformation";
@@ -306,119 +311,245 @@ namespace GraphicalUserInterface
 			tabPageInformation.Text = "Information";
 			tabPageInformation.UseVisualStyleBackColor = true;
 			// 
+			// gbFunction
+			// 
+			gbFunction.Controls.Add(button1);
+			gbFunction.Controls.Add(staffChangePasswordButton);
+			gbFunction.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			gbFunction.Location = new System.Drawing.Point(685, 380);
+			gbFunction.Name = "gbFunction";
+			gbFunction.Size = new System.Drawing.Size(538, 286);
+			gbFunction.TabIndex = 36;
+			gbFunction.TabStop = false;
+			gbFunction.Text = "Function";
+			// 
 			// button1
 			// 
-			button1.AutoSize = true;
 			button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			button1.Location = new System.Drawing.Point(692, 209);
+			button1.Cursor = System.Windows.Forms.Cursors.Hand;
+			button1.ForeColor = System.Drawing.Color.White;
+			button1.Location = new System.Drawing.Point(159, 63);
 			button1.Name = "button1";
-			button1.Size = new System.Drawing.Size(183, 33);
+			button1.Padding = new System.Windows.Forms.Padding(5);
+			button1.Size = new System.Drawing.Size(255, 66);
 			button1.TabIndex = 33;
 			button1.Text = "Change Infomation";
 			button1.UseVisualStyleBackColor = true;
 			button1.Click += button1_Click;
 			// 
-			// staffusernametxt
-			// 
-			staffusernametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			staffusernametxt.Location = new System.Drawing.Point(886, 93);
-			staffusernametxt.Name = "staffusernametxt";
-			staffusernametxt.ReadOnly = true;
-			staffusernametxt.Size = new System.Drawing.Size(336, 31);
-			staffusernametxt.TabIndex = 30;
-			// 
-			// customerUsernameLabel
-			// 
-			customerUsernameLabel.AutoSize = true;
-			customerUsernameLabel.Location = new System.Drawing.Point(770, 99);
-			customerUsernameLabel.Name = "customerUsernameLabel";
-			customerUsernameLabel.Size = new System.Drawing.Size(103, 23);
-			customerUsernameLabel.TabIndex = 31;
-			customerUsernameLabel.Text = "Username:";
-			// 
-			// staffIdtxt
-			// 
-			staffIdtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			staffIdtxt.Location = new System.Drawing.Point(78, 29);
-			staffIdtxt.Name = "staffIdtxt";
-			staffIdtxt.ReadOnly = true;
-			staffIdtxt.Size = new System.Drawing.Size(365, 31);
-			staffIdtxt.TabIndex = 22;
-			// 
-			// customerIdLabel
-			// 
-			customerIdLabel.AutoSize = true;
-			customerIdLabel.Location = new System.Drawing.Point(38, 32);
-			customerIdLabel.Name = "customerIdLabel";
-			customerIdLabel.Size = new System.Drawing.Size(34, 23);
-			customerIdLabel.TabIndex = 23;
-			customerIdLabel.Text = "ID:";
-			// 
 			// staffChangePasswordButton
 			// 
-			staffChangePasswordButton.AutoSize = true;
 			staffChangePasswordButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			staffChangePasswordButton.Location = new System.Drawing.Point(969, 209);
+			staffChangePasswordButton.Cursor = System.Windows.Forms.Cursors.Hand;
+			staffChangePasswordButton.ForeColor = System.Drawing.Color.White;
+			staffChangePasswordButton.Location = new System.Drawing.Point(159, 161);
 			staffChangePasswordButton.Name = "staffChangePasswordButton";
-			staffChangePasswordButton.Size = new System.Drawing.Size(171, 33);
+			staffChangePasswordButton.Padding = new System.Windows.Forms.Padding(5);
+			staffChangePasswordButton.Size = new System.Drawing.Size(255, 66);
 			staffChangePasswordButton.TabIndex = 32;
 			staffChangePasswordButton.Text = "Change Password";
 			staffChangePasswordButton.UseVisualStyleBackColor = true;
 			staffChangePasswordButton.Click += staffChangePasswordButton_Click;
 			// 
+			// gbAccount
+			// 
+			gbAccount.Controls.Add(staffIdtxt);
+			gbAccount.Controls.Add(customerIdLabel);
+			gbAccount.Controls.Add(staffusernametxt);
+			gbAccount.Controls.Add(customerUsernameLabel);
+			gbAccount.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			gbAccount.Location = new System.Drawing.Point(685, 42);
+			gbAccount.Name = "gbAccount";
+			gbAccount.Size = new System.Drawing.Size(538, 276);
+			gbAccount.TabIndex = 35;
+			gbAccount.TabStop = false;
+			gbAccount.Text = "Account";
+			// 
+			// staffIdtxt
+			// 
+			staffIdtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffIdtxt.Location = new System.Drawing.Point(170, 100);
+			staffIdtxt.Name = "staffIdtxt";
+			staffIdtxt.ReadOnly = true;
+			staffIdtxt.Size = new System.Drawing.Size(336, 34);
+			staffIdtxt.TabIndex = 22;
+			// 
+			// customerIdLabel
+			// 
+			customerIdLabel.AutoSize = true;
+			customerIdLabel.Location = new System.Drawing.Point(30, 100);
+			customerIdLabel.Name = "customerIdLabel";
+			customerIdLabel.Size = new System.Drawing.Size(40, 27);
+			customerIdLabel.TabIndex = 23;
+			customerIdLabel.Text = "ID:";
+			// 
+			// staffusernametxt
+			// 
+			staffusernametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffusernametxt.Location = new System.Drawing.Point(170, 174);
+			staffusernametxt.Name = "staffusernametxt";
+			staffusernametxt.ReadOnly = true;
+			staffusernametxt.Size = new System.Drawing.Size(336, 34);
+			staffusernametxt.TabIndex = 30;
+			// 
+			// customerUsernameLabel
+			// 
+			customerUsernameLabel.AutoSize = true;
+			customerUsernameLabel.Location = new System.Drawing.Point(30, 176);
+			customerUsernameLabel.Name = "customerUsernameLabel";
+			customerUsernameLabel.Size = new System.Drawing.Size(118, 27);
+			customerUsernameLabel.TabIndex = 31;
+			customerUsernameLabel.Text = "Username:";
+			// 
+			// gbPersonal
+			// 
+			gbPersonal.Controls.Add(label28);
+			gbPersonal.Controls.Add(label27);
+			gbPersonal.Controls.Add(staffAddressTxt);
+			gbPersonal.Controls.Add(staffBirthdayTxt);
+			gbPersonal.Controls.Add(customerPhoneNumberLabel);
+			gbPersonal.Controls.Add(staffpositiontxt);
+			gbPersonal.Controls.Add(label26);
+			gbPersonal.Controls.Add(label25);
+			gbPersonal.Controls.Add(staffPhoneTxt);
+			gbPersonal.Controls.Add(staffEmailTxt);
+			gbPersonal.Controls.Add(staffnametxt);
+			gbPersonal.Controls.Add(customerNameLabel);
+			gbPersonal.Controls.Add(staffgendertxt);
+			gbPersonal.Controls.Add(customerGenderLabel);
+			gbPersonal.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			gbPersonal.Location = new System.Drawing.Point(40, 42);
+			gbPersonal.Name = "gbPersonal";
+			gbPersonal.Size = new System.Drawing.Size(623, 624);
+			gbPersonal.TabIndex = 34;
+			gbPersonal.TabStop = false;
+			gbPersonal.Text = "Personal";
+			// 
+			// label28
+			// 
+			label28.AutoSize = true;
+			label28.Location = new System.Drawing.Point(96, 152);
+			label28.Name = "label28";
+			label28.Size = new System.Drawing.Size(105, 27);
+			label28.TabIndex = 36;
+			label28.Text = "Birthday:";
+			// 
+			// label27
+			// 
+			label27.AutoSize = true;
+			label27.Location = new System.Drawing.Point(96, 472);
+			label27.Name = "label27";
+			label27.Size = new System.Drawing.Size(99, 27);
+			label27.TabIndex = 34;
+			label27.Text = "Address:";
+			// 
+			// staffAddressTxt
+			// 
+			staffAddressTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffAddressTxt.Location = new System.Drawing.Point(223, 470);
+			staffAddressTxt.Name = "staffAddressTxt";
+			staffAddressTxt.ReadOnly = true;
+			staffAddressTxt.Size = new System.Drawing.Size(322, 34);
+			staffAddressTxt.TabIndex = 35;
+			// 
+			// staffBirthdayTxt
+			// 
+			staffBirthdayTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffBirthdayTxt.Location = new System.Drawing.Point(223, 150);
+			staffBirthdayTxt.Name = "staffBirthdayTxt";
+			staffBirthdayTxt.ReadOnly = true;
+			staffBirthdayTxt.Size = new System.Drawing.Size(322, 34);
+			staffBirthdayTxt.TabIndex = 37;
+			// 
 			// customerPhoneNumberLabel
 			// 
 			customerPhoneNumberLabel.AutoSize = true;
-			customerPhoneNumberLabel.Location = new System.Drawing.Point(334, 99);
+			customerPhoneNumberLabel.Location = new System.Drawing.Point(96, 552);
 			customerPhoneNumberLabel.Name = "customerPhoneNumberLabel";
-			customerPhoneNumberLabel.Size = new System.Drawing.Size(87, 23);
+			customerPhoneNumberLabel.Size = new System.Drawing.Size(98, 27);
 			customerPhoneNumberLabel.TabIndex = 28;
 			customerPhoneNumberLabel.Text = "Position:";
 			// 
 			// staffpositiontxt
 			// 
 			staffpositiontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			staffpositiontxt.Location = new System.Drawing.Point(434, 93);
+			staffpositiontxt.Location = new System.Drawing.Point(223, 550);
 			staffpositiontxt.Name = "staffpositiontxt";
 			staffpositiontxt.ReadOnly = true;
-			staffpositiontxt.Size = new System.Drawing.Size(271, 31);
+			staffpositiontxt.Size = new System.Drawing.Size(322, 34);
 			staffpositiontxt.TabIndex = 29;
 			// 
-			// staffgendertxt
+			// label26
 			// 
-			staffgendertxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			staffgendertxt.Location = new System.Drawing.Point(121, 93);
-			staffgendertxt.Name = "staffgendertxt";
-			staffgendertxt.ReadOnly = true;
-			staffgendertxt.Size = new System.Drawing.Size(162, 31);
-			staffgendertxt.TabIndex = 26;
+			label26.AutoSize = true;
+			label26.Location = new System.Drawing.Point(96, 392);
+			label26.Name = "label26";
+			label26.Size = new System.Drawing.Size(73, 27);
+			label26.TabIndex = 32;
+			label26.Text = "Email:";
 			// 
-			// customerGenderLabel
+			// label25
 			// 
-			customerGenderLabel.AutoSize = true;
-			customerGenderLabel.Location = new System.Drawing.Point(38, 96);
-			customerGenderLabel.Name = "customerGenderLabel";
-			customerGenderLabel.Size = new System.Drawing.Size(77, 23);
-			customerGenderLabel.TabIndex = 27;
-			customerGenderLabel.Text = "Gender:";
+			label25.AutoSize = true;
+			label25.Location = new System.Drawing.Point(96, 232);
+			label25.Name = "label25";
+			label25.Size = new System.Drawing.Size(80, 27);
+			label25.TabIndex = 30;
+			label25.Text = "Phone:";
+			// 
+			// staffPhoneTxt
+			// 
+			staffPhoneTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffPhoneTxt.Location = new System.Drawing.Point(223, 230);
+			staffPhoneTxt.Name = "staffPhoneTxt";
+			staffPhoneTxt.ReadOnly = true;
+			staffPhoneTxt.Size = new System.Drawing.Size(322, 34);
+			staffPhoneTxt.TabIndex = 31;
+			// 
+			// staffEmailTxt
+			// 
+			staffEmailTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffEmailTxt.Location = new System.Drawing.Point(223, 390);
+			staffEmailTxt.Name = "staffEmailTxt";
+			staffEmailTxt.ReadOnly = true;
+			staffEmailTxt.Size = new System.Drawing.Size(322, 34);
+			staffEmailTxt.TabIndex = 33;
 			// 
 			// staffnametxt
 			// 
 			staffnametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			staffnametxt.Location = new System.Drawing.Point(557, 29);
+			staffnametxt.Location = new System.Drawing.Point(223, 70);
 			staffnametxt.Name = "staffnametxt";
 			staffnametxt.ReadOnly = true;
-			staffnametxt.Size = new System.Drawing.Size(569, 31);
+			staffnametxt.Size = new System.Drawing.Size(322, 34);
 			staffnametxt.TabIndex = 24;
 			// 
 			// customerNameLabel
 			// 
 			customerNameLabel.AutoSize = true;
-			customerNameLabel.Location = new System.Drawing.Point(485, 32);
+			customerNameLabel.Location = new System.Drawing.Point(96, 72);
 			customerNameLabel.Name = "customerNameLabel";
-			customerNameLabel.Size = new System.Drawing.Size(66, 23);
+			customerNameLabel.Size = new System.Drawing.Size(75, 27);
 			customerNameLabel.TabIndex = 25;
 			customerNameLabel.Text = "Name:";
+			// 
+			// staffgendertxt
+			// 
+			staffgendertxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffgendertxt.Location = new System.Drawing.Point(223, 310);
+			staffgendertxt.Name = "staffgendertxt";
+			staffgendertxt.ReadOnly = true;
+			staffgendertxt.Size = new System.Drawing.Size(183, 34);
+			staffgendertxt.TabIndex = 26;
+			// 
+			// customerGenderLabel
+			// 
+			customerGenderLabel.AutoSize = true;
+			customerGenderLabel.Location = new System.Drawing.Point(96, 312);
+			customerGenderLabel.Name = "customerGenderLabel";
+			customerGenderLabel.Size = new System.Drawing.Size(90, 27);
+			customerGenderLabel.TabIndex = 27;
+			customerGenderLabel.Text = "Gender:";
 			// 
 			// tabPageDeposit
 			// 
@@ -1715,8 +1846,8 @@ namespace GraphicalUserInterface
 			data_rate.ReadOnly = true;
 			data_rate.RowHeadersVisible = false;
 			data_rate.RowHeadersWidth = 51;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			data_rate.RowsDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			data_rate.RowsDefaultCellStyle = dataGridViewCellStyle1;
 			data_rate.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			data_rate.Size = new System.Drawing.Size(426, 198);
 			data_rate.TabIndex = 2;
@@ -1736,7 +1867,11 @@ namespace GraphicalUserInterface
 			Load += StaffMenuForm_Load;
 			tabControlStaffMenu.ResumeLayout(false);
 			tabPageInformation.ResumeLayout(false);
-			tabPageInformation.PerformLayout();
+			gbFunction.ResumeLayout(false);
+			gbAccount.ResumeLayout(false);
+			gbAccount.PerformLayout();
+			gbPersonal.ResumeLayout(false);
+			gbPersonal.PerformLayout();
 			tabPageDeposit.ResumeLayout(false);
 			panel3.ResumeLayout(false);
 			panel3.PerformLayout();
@@ -1780,9 +1915,9 @@ namespace GraphicalUserInterface
 			ResumeLayout(false);
 		}
 
-        #endregion
+		#endregion
 
-        private System.Windows.Forms.TabControl tabControlStaffMenu;
+		private System.Windows.Forms.TabControl tabControlStaffMenu;
         private System.Windows.Forms.TabPage tabPageInformation;
         private System.Windows.Forms.TabPage tabPageDeposit;
         private System.Windows.Forms.TabPage tabPageWithdraw;
@@ -1912,5 +2047,16 @@ namespace GraphicalUserInterface
 		private System.Windows.Forms.Label label24;
 		private System.Windows.Forms.Label label23;
 		private System.Windows.Forms.TextBox staffAddressTextBox;
+		private System.Windows.Forms.GroupBox gbAccount;
+		private System.Windows.Forms.GroupBox gbPersonal;
+		private System.Windows.Forms.Label label26;
+		private System.Windows.Forms.TextBox staffEmailTxt;
+		private System.Windows.Forms.Label label25;
+		private System.Windows.Forms.TextBox staffPhoneTxt;
+		private System.Windows.Forms.Label label27;
+		private System.Windows.Forms.TextBox staffAddressTxt;
+		private System.Windows.Forms.Label label28;
+		private System.Windows.Forms.TextBox staffBirthdayTxt;
+		private System.Windows.Forms.GroupBox gbFunction;
 	}
 }

@@ -42,6 +42,14 @@
 			lbStaffName = new System.Windows.Forms.Label();
 			lbCustomerName = new System.Windows.Forms.Label();
 			pictureBox1 = new System.Windows.Forms.PictureBox();
+			staffBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			staffAddressTextBox = new System.Windows.Forms.TextBox();
+			staffEmailTextBox = new System.Windows.Forms.TextBox();
+			customerEmailLabel = new System.Windows.Forms.Label();
+			label1 = new System.Windows.Forms.Label();
+			customerAddressLabel = new System.Windows.Forms.Label();
+			staffPhoneNumberTextBox = new System.Windows.Forms.TextBox();
+			customerBirthdayLabel = new System.Windows.Forms.Label();
 			groupBox1.SuspendLayout();
 			panelAvt.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -51,7 +59,7 @@
 			// 
 			staffChangeInfoButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			staffChangeInfoButton.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			staffChangeInfoButton.Location = new System.Drawing.Point(837, 259);
+			staffChangeInfoButton.Location = new System.Drawing.Point(837, 380);
 			staffChangeInfoButton.Name = "staffChangeInfoButton";
 			staffChangeInfoButton.Padding = new System.Windows.Forms.Padding(5);
 			staffChangeInfoButton.Size = new System.Drawing.Size(124, 46);
@@ -64,7 +72,7 @@
 			// 
 			staffUsernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			staffUsernameTextBox.Font = new System.Drawing.Font("Cambria", 12F);
-			staffUsernameTextBox.Location = new System.Drawing.Point(340, 148);
+			staffUsernameTextBox.Location = new System.Drawing.Point(340, 136);
 			staffUsernameTextBox.Margin = new System.Windows.Forms.Padding(5);
 			staffUsernameTextBox.Name = "staffUsernameTextBox";
 			staffUsernameTextBox.Size = new System.Drawing.Size(271, 31);
@@ -74,7 +82,7 @@
 			// 
 			customerUsernameLabel.AutoSize = true;
 			customerUsernameLabel.Font = new System.Drawing.Font("Cambria", 12F);
-			customerUsernameLabel.Location = new System.Drawing.Point(340, 120);
+			customerUsernameLabel.Location = new System.Drawing.Point(340, 108);
 			customerUsernameLabel.Name = "customerUsernameLabel";
 			customerUsernameLabel.Size = new System.Drawing.Size(103, 23);
 			customerUsernameLabel.TabIndex = 33;
@@ -84,7 +92,7 @@
 			// 
 			customerPhoneNumberLabel.AutoSize = true;
 			customerPhoneNumberLabel.Font = new System.Drawing.Font("Cambria", 12F);
-			customerPhoneNumberLabel.Location = new System.Drawing.Point(656, 120);
+			customerPhoneNumberLabel.Location = new System.Drawing.Point(656, 283);
 			customerPhoneNumberLabel.Name = "customerPhoneNumberLabel";
 			customerPhoneNumberLabel.Size = new System.Drawing.Size(87, 23);
 			customerPhoneNumberLabel.TabIndex = 30;
@@ -94,7 +102,7 @@
 			// 
 			staffPositionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			staffPositionTextBox.Font = new System.Drawing.Font("Cambria", 12F);
-			staffPositionTextBox.Location = new System.Drawing.Point(656, 148);
+			staffPositionTextBox.Location = new System.Drawing.Point(656, 311);
 			staffPositionTextBox.Margin = new System.Windows.Forms.Padding(5);
 			staffPositionTextBox.Name = "staffPositionTextBox";
 			staffPositionTextBox.Size = new System.Drawing.Size(305, 31);
@@ -161,7 +169,7 @@
 			// 
 			btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			btnCancel.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-			btnCancel.Location = new System.Drawing.Point(656, 259);
+			btnCancel.Location = new System.Drawing.Point(656, 380);
 			btnCancel.Name = "btnCancel";
 			btnCancel.Padding = new System.Windows.Forms.Padding(5);
 			btnCancel.Size = new System.Drawing.Size(124, 46);
@@ -175,7 +183,7 @@
 			panelAvt.Controls.Add(lbStaffName);
 			panelAvt.Controls.Add(lbCustomerName);
 			panelAvt.Controls.Add(pictureBox1);
-			panelAvt.Location = new System.Drawing.Point(23, 23);
+			panelAvt.Location = new System.Drawing.Point(30, 44);
 			panelAvt.Name = "panelAvt";
 			panelAvt.Size = new System.Drawing.Size(270, 273);
 			panelAvt.TabIndex = 37;
@@ -212,11 +220,99 @@
 			pictureBox1.TabIndex = 0;
 			pictureBox1.TabStop = false;
 			// 
+			// staffBirthDateTimePicker
+			// 
+			staffBirthDateTimePicker.Font = new System.Drawing.Font("Cambria", 12F);
+			staffBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+			staffBirthDateTimePicker.Location = new System.Drawing.Point(340, 224);
+			staffBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(5);
+			staffBirthDateTimePicker.Name = "staffBirthDateTimePicker";
+			staffBirthDateTimePicker.Size = new System.Drawing.Size(271, 31);
+			staffBirthDateTimePicker.TabIndex = 45;
+			// 
+			// staffAddressTextBox
+			// 
+			staffAddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffAddressTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			staffAddressTextBox.Location = new System.Drawing.Point(340, 311);
+			staffAddressTextBox.Margin = new System.Windows.Forms.Padding(5);
+			staffAddressTextBox.Name = "staffAddressTextBox";
+			staffAddressTextBox.Size = new System.Drawing.Size(271, 31);
+			staffAddressTextBox.TabIndex = 43;
+			// 
+			// staffEmailTextBox
+			// 
+			staffEmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffEmailTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			staffEmailTextBox.Location = new System.Drawing.Point(656, 136);
+			staffEmailTextBox.Margin = new System.Windows.Forms.Padding(5);
+			staffEmailTextBox.Name = "staffEmailTextBox";
+			staffEmailTextBox.Size = new System.Drawing.Size(305, 31);
+			staffEmailTextBox.TabIndex = 41;
+			// 
+			// customerEmailLabel
+			// 
+			customerEmailLabel.AutoSize = true;
+			customerEmailLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerEmailLabel.Location = new System.Drawing.Point(656, 108);
+			customerEmailLabel.Name = "customerEmailLabel";
+			customerEmailLabel.Size = new System.Drawing.Size(65, 23);
+			customerEmailLabel.TabIndex = 42;
+			customerEmailLabel.Text = "Email:";
+			// 
+			// label1
+			// 
+			label1.AutoSize = true;
+			label1.Font = new System.Drawing.Font("Cambria", 12F);
+			label1.Location = new System.Drawing.Point(656, 195);
+			label1.Name = "label1";
+			label1.Size = new System.Drawing.Size(144, 23);
+			label1.TabIndex = 39;
+			label1.Text = "Phone Number:";
+			// 
+			// customerAddressLabel
+			// 
+			customerAddressLabel.AutoSize = true;
+			customerAddressLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerAddressLabel.Location = new System.Drawing.Point(340, 283);
+			customerAddressLabel.Name = "customerAddressLabel";
+			customerAddressLabel.Size = new System.Drawing.Size(85, 23);
+			customerAddressLabel.TabIndex = 44;
+			customerAddressLabel.Text = "Address:";
+			// 
+			// staffPhoneNumberTextBox
+			// 
+			staffPhoneNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			staffPhoneNumberTextBox.Font = new System.Drawing.Font("Cambria", 12F);
+			staffPhoneNumberTextBox.Location = new System.Drawing.Point(656, 223);
+			staffPhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(5);
+			staffPhoneNumberTextBox.Name = "staffPhoneNumberTextBox";
+			staffPhoneNumberTextBox.Size = new System.Drawing.Size(305, 31);
+			staffPhoneNumberTextBox.TabIndex = 40;
+			// 
+			// customerBirthdayLabel
+			// 
+			customerBirthdayLabel.AutoSize = true;
+			customerBirthdayLabel.Font = new System.Drawing.Font("Cambria", 12F);
+			customerBirthdayLabel.Location = new System.Drawing.Point(340, 196);
+			customerBirthdayLabel.Name = "customerBirthdayLabel";
+			customerBirthdayLabel.Size = new System.Drawing.Size(90, 23);
+			customerBirthdayLabel.TabIndex = 38;
+			customerBirthdayLabel.Text = "Birthday:";
+			// 
 			// StaffChangeInfo
 			// 
 			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
 			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			ClientSize = new System.Drawing.Size(992, 317);
+			ClientSize = new System.Drawing.Size(992, 438);
+			Controls.Add(staffBirthDateTimePicker);
+			Controls.Add(staffAddressTextBox);
+			Controls.Add(staffEmailTextBox);
+			Controls.Add(customerEmailLabel);
+			Controls.Add(label1);
+			Controls.Add(customerAddressLabel);
+			Controls.Add(staffPhoneNumberTextBox);
+			Controls.Add(customerBirthdayLabel);
 			Controls.Add(panelAvt);
 			Controls.Add(btnCancel);
 			Controls.Add(groupBox1);
@@ -254,5 +350,13 @@
 		private System.Windows.Forms.Label lbCustomerName;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Label lbStaffName;
+		private System.Windows.Forms.DateTimePicker staffBirthDateTimePicker;
+		private System.Windows.Forms.TextBox staffAddressTextBox;
+		private System.Windows.Forms.TextBox staffEmailTextBox;
+		private System.Windows.Forms.Label customerEmailLabel;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label customerAddressLabel;
+		private System.Windows.Forms.TextBox staffPhoneNumberTextBox;
+		private System.Windows.Forms.Label customerBirthdayLabel;
 	}
 }
