@@ -117,8 +117,21 @@ public partial class StaffMenuForm : Form {
 	}
 
 	private void button1_Click(object sender, EventArgs e) {
-		using var form = new StaffChangeInfo();
-		form.ShowDialog();
+		Form bg = new Form();
+		StaffChangeInfo form = new StaffChangeInfo();
+		using (form) {
+			bg.StartPosition = FormStartPosition.Manual;
+			bg.FormBorderStyle = FormBorderStyle.None;
+			bg.BackColor = Color.Black;
+			bg.Opacity = 0.7d;
+			bg.Size = this.Size;
+			bg.Location = this.Location;
+			bg.ShowInTaskbar = false;
+			bg.Show(this);
+			form.Owner = bg;
+			form.ShowDialog(bg);
+			bg.Dispose();
+		}
 		LoadingAccountInfo();
 	}
 
