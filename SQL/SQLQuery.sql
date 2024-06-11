@@ -566,7 +566,7 @@ BEGIN
 		BEGIN CATCH
 			IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
 		END CATCH;
-		FETCH NEXT FROM insertedCursor INTO @savingId, @customerId, @amountDeposit, @annualInterestRate, @periodInMonths;
+		FETCH NEXT FROM insertedTableCursor INTO @savingId, @customerId, @amountDeposit, @annualInterestRate, @periodInMonths;
 	END;
 	IF @@TRANCOUNT > 0 COMMIT TRANSACTION;
 
