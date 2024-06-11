@@ -31,9 +31,10 @@ namespace GraphicalUserInterface
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerMenuForm));
             tabControl1 = new TabControl();
             tabInformation = new TabPage();
             gbInfo = new GroupBox();
@@ -61,7 +62,7 @@ namespace GraphicalUserInterface
             customerIdTextBox = new TextBox();
             customerIdLabel = new Label();
             customerBalanceLabel = new Label();
-            tabPage2 = new TabPage();
+            tabPageSaving = new TabPage();
             savingTabControl = new TabControl();
             detailsTabPage = new TabPage();
             exportDetailsButton = new Button();
@@ -120,7 +121,7 @@ namespace GraphicalUserInterface
             gbInfo.SuspendLayout();
             gbFunction.SuspendLayout();
             gbAccount.SuspendLayout();
-            tabPage2.SuspendLayout();
+            tabPageSaving.SuspendLayout();
             savingTabControl.SuspendLayout();
             detailsTabPage.SuspendLayout();
             openingTabPage.SuspendLayout();
@@ -141,7 +142,7 @@ namespace GraphicalUserInterface
             // 
             tabControl1.Appearance = TabAppearance.Buttons;
             tabControl1.Controls.Add(tabInformation);
-            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPageSaving);
             tabControl1.Controls.Add(tabStatistical);
             tabControl1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             tabControl1.Location = new System.Drawing.Point(1, 1);
@@ -156,10 +157,10 @@ namespace GraphicalUserInterface
             tabInformation.Controls.Add(gbInfo);
             tabInformation.Controls.Add(gbFunction);
             tabInformation.Controls.Add(gbAccount);
-            tabInformation.Location = new System.Drawing.Point(4, 35);
+            tabInformation.Location = new System.Drawing.Point(4, 40);
             tabInformation.Name = "tabInformation";
             tabInformation.Padding = new Padding(3);
-            tabInformation.Size = new System.Drawing.Size(1141, 722);
+            tabInformation.Size = new System.Drawing.Size(1141, 717);
             tabInformation.TabIndex = 0;
             tabInformation.Text = "Information";
             tabInformation.UseVisualStyleBackColor = true;
@@ -193,7 +194,7 @@ namespace GraphicalUserInterface
             customerNameTextBox.Location = new System.Drawing.Point(207, 69);
             customerNameTextBox.Name = "customerNameTextBox";
             customerNameTextBox.ReadOnly = true;
-            customerNameTextBox.Size = new System.Drawing.Size(308, 34);
+            customerNameTextBox.Size = new System.Drawing.Size(308, 40);
             customerNameTextBox.TabIndex = 1;
             // 
             // customerNameLabel
@@ -201,7 +202,7 @@ namespace GraphicalUserInterface
             customerNameLabel.AutoSize = true;
             customerNameLabel.Location = new System.Drawing.Point(98, 69);
             customerNameLabel.Name = "customerNameLabel";
-            customerNameLabel.Size = new System.Drawing.Size(75, 27);
+            customerNameLabel.Size = new System.Drawing.Size(92, 33);
             customerNameLabel.TabIndex = 1;
             customerNameLabel.Text = "Name:";
             // 
@@ -211,7 +212,7 @@ namespace GraphicalUserInterface
             customerBirthdayTextBox.Location = new System.Drawing.Point(207, 135);
             customerBirthdayTextBox.Name = "customerBirthdayTextBox";
             customerBirthdayTextBox.ReadOnly = true;
-            customerBirthdayTextBox.Size = new System.Drawing.Size(308, 34);
+            customerBirthdayTextBox.Size = new System.Drawing.Size(308, 40);
             customerBirthdayTextBox.TabIndex = 4;
             // 
             // customerAddressTextBox
@@ -220,7 +221,7 @@ namespace GraphicalUserInterface
             customerAddressTextBox.Location = new System.Drawing.Point(207, 399);
             customerAddressTextBox.Name = "customerAddressTextBox";
             customerAddressTextBox.ReadOnly = true;
-            customerAddressTextBox.Size = new System.Drawing.Size(308, 34);
+            customerAddressTextBox.Size = new System.Drawing.Size(308, 40);
             customerAddressTextBox.TabIndex = 7;
             // 
             // customerAddressLabel
@@ -228,7 +229,7 @@ namespace GraphicalUserInterface
             customerAddressLabel.AutoSize = true;
             customerAddressLabel.Location = new System.Drawing.Point(79, 401);
             customerAddressLabel.Name = "customerAddressLabel";
-            customerAddressLabel.Size = new System.Drawing.Size(99, 27);
+            customerAddressLabel.Size = new System.Drawing.Size(121, 33);
             customerAddressLabel.TabIndex = 7;
             customerAddressLabel.Text = "Address:";
             // 
@@ -237,7 +238,7 @@ namespace GraphicalUserInterface
             customerBirthdayLabel.AutoSize = true;
             customerBirthdayLabel.Location = new System.Drawing.Point(74, 137);
             customerBirthdayLabel.Name = "customerBirthdayLabel";
-            customerBirthdayLabel.Size = new System.Drawing.Size(105, 27);
+            customerBirthdayLabel.Size = new System.Drawing.Size(126, 33);
             customerBirthdayLabel.TabIndex = 4;
             customerBirthdayLabel.Text = "Birthday:";
             // 
@@ -246,7 +247,7 @@ namespace GraphicalUserInterface
             customerPhoneNumberLabel.AutoSize = true;
             customerPhoneNumberLabel.Location = new System.Drawing.Point(20, 335);
             customerPhoneNumberLabel.Name = "customerPhoneNumberLabel";
-            customerPhoneNumberLabel.Size = new System.Drawing.Size(167, 27);
+            customerPhoneNumberLabel.Size = new System.Drawing.Size(202, 33);
             customerPhoneNumberLabel.TabIndex = 5;
             customerPhoneNumberLabel.Text = "Phone Number:";
             // 
@@ -256,7 +257,7 @@ namespace GraphicalUserInterface
             customerEmailTextBox.Location = new System.Drawing.Point(207, 201);
             customerEmailTextBox.Name = "customerEmailTextBox";
             customerEmailTextBox.ReadOnly = true;
-            customerEmailTextBox.Size = new System.Drawing.Size(308, 34);
+            customerEmailTextBox.Size = new System.Drawing.Size(308, 40);
             customerEmailTextBox.TabIndex = 6;
             // 
             // customerEmailLabel
@@ -264,7 +265,7 @@ namespace GraphicalUserInterface
             customerEmailLabel.AutoSize = true;
             customerEmailLabel.Location = new System.Drawing.Point(99, 205);
             customerEmailLabel.Name = "customerEmailLabel";
-            customerEmailLabel.Size = new System.Drawing.Size(73, 27);
+            customerEmailLabel.Size = new System.Drawing.Size(91, 33);
             customerEmailLabel.TabIndex = 6;
             customerEmailLabel.Text = "Email:";
             // 
@@ -274,7 +275,7 @@ namespace GraphicalUserInterface
             customerPhoneNumberTextBox.Location = new System.Drawing.Point(207, 333);
             customerPhoneNumberTextBox.Name = "customerPhoneNumberTextBox";
             customerPhoneNumberTextBox.ReadOnly = true;
-            customerPhoneNumberTextBox.Size = new System.Drawing.Size(308, 34);
+            customerPhoneNumberTextBox.Size = new System.Drawing.Size(308, 40);
             customerPhoneNumberTextBox.TabIndex = 5;
             // 
             // customerGenderTextBox
@@ -283,7 +284,7 @@ namespace GraphicalUserInterface
             customerGenderTextBox.Location = new System.Drawing.Point(207, 267);
             customerGenderTextBox.Name = "customerGenderTextBox";
             customerGenderTextBox.ReadOnly = true;
-            customerGenderTextBox.Size = new System.Drawing.Size(162, 34);
+            customerGenderTextBox.Size = new System.Drawing.Size(162, 40);
             customerGenderTextBox.TabIndex = 2;
             // 
             // customerGenderLabel
@@ -291,7 +292,7 @@ namespace GraphicalUserInterface
             customerGenderLabel.AutoSize = true;
             customerGenderLabel.Location = new System.Drawing.Point(87, 269);
             customerGenderLabel.Name = "customerGenderLabel";
-            customerGenderLabel.Size = new System.Drawing.Size(90, 27);
+            customerGenderLabel.Size = new System.Drawing.Size(111, 33);
             customerGenderLabel.TabIndex = 2;
             customerGenderLabel.Text = "Gender:";
             // 
@@ -365,7 +366,7 @@ namespace GraphicalUserInterface
             customerUsernameTextBox.Location = new System.Drawing.Point(181, 135);
             customerUsernameTextBox.Name = "customerUsernameTextBox";
             customerUsernameTextBox.ReadOnly = true;
-            customerUsernameTextBox.Size = new System.Drawing.Size(270, 34);
+            customerUsernameTextBox.Size = new System.Drawing.Size(270, 40);
             customerUsernameTextBox.TabIndex = 8;
             // 
             // customerUsernameLabel
@@ -373,7 +374,7 @@ namespace GraphicalUserInterface
             customerUsernameLabel.AutoSize = true;
             customerUsernameLabel.Location = new System.Drawing.Point(32, 137);
             customerUsernameLabel.Name = "customerUsernameLabel";
-            customerUsernameLabel.Size = new System.Drawing.Size(118, 27);
+            customerUsernameLabel.Size = new System.Drawing.Size(145, 33);
             customerUsernameLabel.TabIndex = 8;
             customerUsernameLabel.Text = "Username:";
             // 
@@ -383,7 +384,7 @@ namespace GraphicalUserInterface
             customerBalanceTextBox.Location = new System.Drawing.Point(181, 201);
             customerBalanceTextBox.Name = "customerBalanceTextBox";
             customerBalanceTextBox.ReadOnly = true;
-            customerBalanceTextBox.Size = new System.Drawing.Size(270, 34);
+            customerBalanceTextBox.Size = new System.Drawing.Size(270, 40);
             customerBalanceTextBox.TabIndex = 9;
             // 
             // customerCicNumberTextBox
@@ -392,7 +393,7 @@ namespace GraphicalUserInterface
             customerCicNumberTextBox.Location = new System.Drawing.Point(181, 261);
             customerCicNumberTextBox.Name = "customerCicNumberTextBox";
             customerCicNumberTextBox.ReadOnly = true;
-            customerCicNumberTextBox.Size = new System.Drawing.Size(270, 34);
+            customerCicNumberTextBox.Size = new System.Drawing.Size(270, 40);
             customerCicNumberTextBox.TabIndex = 3;
             // 
             // customerCicNumberLabel
@@ -400,7 +401,7 @@ namespace GraphicalUserInterface
             customerCicNumberLabel.AutoSize = true;
             customerCicNumberLabel.Location = new System.Drawing.Point(17, 263);
             customerCicNumberLabel.Name = "customerCicNumberLabel";
-            customerCicNumberLabel.Size = new System.Drawing.Size(138, 27);
+            customerCicNumberLabel.Size = new System.Drawing.Size(167, 33);
             customerCicNumberLabel.TabIndex = 3;
             customerCicNumberLabel.Text = "CIC Number:";
             // 
@@ -410,7 +411,7 @@ namespace GraphicalUserInterface
             customerIdTextBox.Location = new System.Drawing.Point(181, 69);
             customerIdTextBox.Name = "customerIdTextBox";
             customerIdTextBox.ReadOnly = true;
-            customerIdTextBox.Size = new System.Drawing.Size(270, 34);
+            customerIdTextBox.Size = new System.Drawing.Size(270, 40);
             customerIdTextBox.TabIndex = 0;
             // 
             // customerIdLabel
@@ -418,7 +419,7 @@ namespace GraphicalUserInterface
             customerIdLabel.AutoSize = true;
             customerIdLabel.Location = new System.Drawing.Point(101, 71);
             customerIdLabel.Name = "customerIdLabel";
-            customerIdLabel.Size = new System.Drawing.Size(40, 27);
+            customerIdLabel.Size = new System.Drawing.Size(50, 33);
             customerIdLabel.TabIndex = 0;
             customerIdLabel.Text = "ID:";
             // 
@@ -427,20 +428,20 @@ namespace GraphicalUserInterface
             customerBalanceLabel.AutoSize = true;
             customerBalanceLabel.Location = new System.Drawing.Point(53, 203);
             customerBalanceLabel.Name = "customerBalanceLabel";
-            customerBalanceLabel.Size = new System.Drawing.Size(94, 27);
+            customerBalanceLabel.Size = new System.Drawing.Size(117, 33);
             customerBalanceLabel.TabIndex = 9;
             customerBalanceLabel.Text = "Balance:";
             // 
-            // tabPage2
+            // tabPageSaving
             // 
-            tabPage2.Controls.Add(savingTabControl);
-            tabPage2.Location = new System.Drawing.Point(4, 35);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new System.Drawing.Size(1141, 722);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Savings";
-            tabPage2.UseVisualStyleBackColor = true;
+            tabPageSaving.Controls.Add(savingTabControl);
+            tabPageSaving.Location = new System.Drawing.Point(4, 40);
+            tabPageSaving.Name = "tabPageSaving";
+            tabPageSaving.Padding = new Padding(3);
+            tabPageSaving.Size = new System.Drawing.Size(1141, 717);
+            tabPageSaving.TabIndex = 1;
+            tabPageSaving.Text = "Savings";
+            tabPageSaving.UseVisualStyleBackColor = true;
             // 
             // savingTabControl
             // 
@@ -451,7 +452,7 @@ namespace GraphicalUserInterface
             savingTabControl.Location = new System.Drawing.Point(3, 3);
             savingTabControl.Name = "savingTabControl";
             savingTabControl.SelectedIndex = 0;
-            savingTabControl.Size = new System.Drawing.Size(1135, 716);
+            savingTabControl.Size = new System.Drawing.Size(1135, 711);
             savingTabControl.TabIndex = 1;
             // 
             // detailsTabPage
@@ -471,10 +472,10 @@ namespace GraphicalUserInterface
             detailsTabPage.Controls.Add(balanceDetailsLabel);
             detailsTabPage.Controls.Add(savingDetailsComboBox);
             detailsTabPage.Controls.Add(savingsDetailsLabel);
-            detailsTabPage.Location = new System.Drawing.Point(4, 32);
+            detailsTabPage.Location = new System.Drawing.Point(4, 37);
             detailsTabPage.Name = "detailsTabPage";
             detailsTabPage.Padding = new Padding(3);
-            detailsTabPage.Size = new System.Drawing.Size(1127, 680);
+            detailsTabPage.Size = new System.Drawing.Size(1127, 670);
             detailsTabPage.TabIndex = 2;
             detailsTabPage.Text = "Details";
             detailsTabPage.UseVisualStyleBackColor = true;
@@ -502,7 +503,7 @@ namespace GraphicalUserInterface
             maturityDayDetailsTextBox.Location = new System.Drawing.Point(582, 429);
             maturityDayDetailsTextBox.Name = "maturityDayDetailsTextBox";
             maturityDayDetailsTextBox.ReadOnly = true;
-            maturityDayDetailsTextBox.Size = new System.Drawing.Size(271, 34);
+            maturityDayDetailsTextBox.Size = new System.Drawing.Size(271, 40);
             maturityDayDetailsTextBox.TabIndex = 5;
             // 
             // openDayDetailsTextBox
@@ -512,7 +513,7 @@ namespace GraphicalUserInterface
             openDayDetailsTextBox.Location = new System.Drawing.Point(582, 363);
             openDayDetailsTextBox.Name = "openDayDetailsTextBox";
             openDayDetailsTextBox.ReadOnly = true;
-            openDayDetailsTextBox.Size = new System.Drawing.Size(271, 34);
+            openDayDetailsTextBox.Size = new System.Drawing.Size(271, 40);
             openDayDetailsTextBox.TabIndex = 4;
             // 
             // interestDetailsTextBox
@@ -522,7 +523,7 @@ namespace GraphicalUserInterface
             interestDetailsTextBox.Location = new System.Drawing.Point(582, 297);
             interestDetailsTextBox.Name = "interestDetailsTextBox";
             interestDetailsTextBox.ReadOnly = true;
-            interestDetailsTextBox.Size = new System.Drawing.Size(271, 34);
+            interestDetailsTextBox.Size = new System.Drawing.Size(271, 40);
             interestDetailsTextBox.TabIndex = 3;
             // 
             // periodDetailsTextBox
@@ -532,7 +533,7 @@ namespace GraphicalUserInterface
             periodDetailsTextBox.Location = new System.Drawing.Point(583, 231);
             periodDetailsTextBox.Name = "periodDetailsTextBox";
             periodDetailsTextBox.ReadOnly = true;
-            periodDetailsTextBox.Size = new System.Drawing.Size(270, 34);
+            periodDetailsTextBox.Size = new System.Drawing.Size(270, 40);
             periodDetailsTextBox.TabIndex = 2;
             // 
             // balanceDetailsTextBox
@@ -542,7 +543,7 @@ namespace GraphicalUserInterface
             balanceDetailsTextBox.Location = new System.Drawing.Point(583, 165);
             balanceDetailsTextBox.Name = "balanceDetailsTextBox";
             balanceDetailsTextBox.ReadOnly = true;
-            balanceDetailsTextBox.Size = new System.Drawing.Size(270, 34);
+            balanceDetailsTextBox.Size = new System.Drawing.Size(270, 40);
             balanceDetailsTextBox.TabIndex = 1;
             // 
             // label5
@@ -551,7 +552,7 @@ namespace GraphicalUserInterface
             label5.Font = new System.Drawing.Font("Cambria", 13.8F);
             label5.Location = new System.Drawing.Point(312, 432);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(153, 27);
+            label5.Size = new System.Drawing.Size(185, 33);
             label5.TabIndex = 6;
             label5.Text = "Maturity date:";
             // 
@@ -577,7 +578,7 @@ namespace GraphicalUserInterface
             openDayDetailsLabel.Font = new System.Drawing.Font("Cambria", 13.8F);
             openDayDetailsLabel.Location = new System.Drawing.Point(312, 366);
             openDayDetailsLabel.Name = "openDayDetailsLabel";
-            openDayDetailsLabel.Size = new System.Drawing.Size(148, 27);
+            openDayDetailsLabel.Size = new System.Drawing.Size(183, 33);
             openDayDetailsLabel.TabIndex = 4;
             openDayDetailsLabel.Text = "Opening date:";
             // 
@@ -587,7 +588,7 @@ namespace GraphicalUserInterface
             interestDetailsLabel.Font = new System.Drawing.Font("Cambria", 13.8F);
             interestDetailsLabel.Location = new System.Drawing.Point(312, 300);
             interestDetailsLabel.Name = "interestDetailsLabel";
-            interestDetailsLabel.Size = new System.Drawing.Size(215, 27);
+            interestDetailsLabel.Size = new System.Drawing.Size(263, 33);
             interestDetailsLabel.TabIndex = 3;
             interestDetailsLabel.Text = "Annual interest rate:";
             // 
@@ -597,7 +598,7 @@ namespace GraphicalUserInterface
             periodDetailsLabel.Font = new System.Drawing.Font("Cambria", 13.8F);
             periodDetailsLabel.Location = new System.Drawing.Point(312, 231);
             periodDetailsLabel.Name = "periodDetailsLabel";
-            periodDetailsLabel.Size = new System.Drawing.Size(181, 27);
+            periodDetailsLabel.Size = new System.Drawing.Size(220, 33);
             periodDetailsLabel.TabIndex = 2;
             periodDetailsLabel.Text = "Period (months):";
             // 
@@ -607,7 +608,7 @@ namespace GraphicalUserInterface
             balanceDetailsLabel.Font = new System.Drawing.Font("Cambria", 13.8F);
             balanceDetailsLabel.Location = new System.Drawing.Point(312, 168);
             balanceDetailsLabel.Name = "balanceDetailsLabel";
-            balanceDetailsLabel.Size = new System.Drawing.Size(94, 27);
+            balanceDetailsLabel.Size = new System.Drawing.Size(117, 33);
             balanceDetailsLabel.TabIndex = 1;
             balanceDetailsLabel.Text = "Balance:";
             // 
@@ -617,7 +618,7 @@ namespace GraphicalUserInterface
             savingDetailsComboBox.FormattingEnabled = true;
             savingDetailsComboBox.Location = new System.Drawing.Point(582, 99);
             savingDetailsComboBox.Name = "savingDetailsComboBox";
-            savingDetailsComboBox.Size = new System.Drawing.Size(271, 35);
+            savingDetailsComboBox.Size = new System.Drawing.Size(271, 41);
             savingDetailsComboBox.TabIndex = 0;
             savingDetailsComboBox.SelectedValueChanged += savingDetailsComboBox_SelectedValueChanged;
             // 
@@ -627,7 +628,7 @@ namespace GraphicalUserInterface
             savingsDetailsLabel.Font = new System.Drawing.Font("Cambria", 13.8F);
             savingsDetailsLabel.Location = new System.Drawing.Point(312, 102);
             savingsDetailsLabel.Name = "savingsDetailsLabel";
-            savingsDetailsLabel.Size = new System.Drawing.Size(82, 27);
+            savingsDetailsLabel.Size = new System.Drawing.Size(101, 33);
             savingsDetailsLabel.TabIndex = 0;
             savingsDetailsLabel.Text = "Saving:";
             // 
@@ -646,10 +647,10 @@ namespace GraphicalUserInterface
             openingTabPage.Controls.Add(periodOpeningComboBox);
             openingTabPage.Controls.Add(balanceOpeningLabel);
             openingTabPage.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            openingTabPage.Location = new System.Drawing.Point(4, 32);
+            openingTabPage.Location = new System.Drawing.Point(4, 34);
             openingTabPage.Name = "openingTabPage";
             openingTabPage.Padding = new Padding(3);
-            openingTabPage.Size = new System.Drawing.Size(1127, 680);
+            openingTabPage.Size = new System.Drawing.Size(1127, 673);
             openingTabPage.TabIndex = 0;
             openingTabPage.Text = "Opening";
             openingTabPage.UseVisualStyleBackColor = true;
@@ -660,7 +661,7 @@ namespace GraphicalUserInterface
             amountOpeningErrorLabel.ForeColor = System.Drawing.Color.Red;
             amountOpeningErrorLabel.Location = new System.Drawing.Point(408, 451);
             amountOpeningErrorLabel.Name = "amountOpeningErrorLabel";
-            amountOpeningErrorLabel.Size = new System.Drawing.Size(481, 27);
+            amountOpeningErrorLabel.Size = new System.Drawing.Size(587, 33);
             amountOpeningErrorLabel.TabIndex = 5;
             amountOpeningErrorLabel.Text = "The minimum amount to open a saving is $ 0.00";
             amountOpeningErrorLabel.Visible = false;
@@ -671,7 +672,7 @@ namespace GraphicalUserInterface
             maturityDayOpeningTextBox.Location = new System.Drawing.Point(554, 332);
             maturityDayOpeningTextBox.Name = "maturityDayOpeningTextBox";
             maturityDayOpeningTextBox.ReadOnly = true;
-            maturityDayOpeningTextBox.Size = new System.Drawing.Size(244, 34);
+            maturityDayOpeningTextBox.Size = new System.Drawing.Size(244, 40);
             maturityDayOpeningTextBox.TabIndex = 3;
             // 
             // interestOpeningTextBox
@@ -681,7 +682,7 @@ namespace GraphicalUserInterface
             interestOpeningTextBox.Name = "interestOpeningTextBox";
             interestOpeningTextBox.ReadOnly = true;
             interestOpeningTextBox.ShortcutsEnabled = false;
-            interestOpeningTextBox.Size = new System.Drawing.Size(244, 34);
+            interestOpeningTextBox.Size = new System.Drawing.Size(244, 40);
             interestOpeningTextBox.TabIndex = 2;
             // 
             // balanceOpeningTextBox
@@ -691,7 +692,7 @@ namespace GraphicalUserInterface
             balanceOpeningTextBox.Name = "balanceOpeningTextBox";
             balanceOpeningTextBox.ReadOnly = true;
             balanceOpeningTextBox.ShortcutsEnabled = false;
-            balanceOpeningTextBox.Size = new System.Drawing.Size(244, 34);
+            balanceOpeningTextBox.Size = new System.Drawing.Size(244, 40);
             balanceOpeningTextBox.TabIndex = 0;
             // 
             // maturityDayOpeningLabel
@@ -699,7 +700,7 @@ namespace GraphicalUserInterface
             maturityDayOpeningLabel.AutoSize = true;
             maturityDayOpeningLabel.Location = new System.Drawing.Point(295, 335);
             maturityDayOpeningLabel.Name = "maturityDayOpeningLabel";
-            maturityDayOpeningLabel.Size = new System.Drawing.Size(146, 27);
+            maturityDayOpeningLabel.Size = new System.Drawing.Size(175, 33);
             maturityDayOpeningLabel.TabIndex = 8;
             maturityDayOpeningLabel.Text = "Maturity day:";
             // 
@@ -708,7 +709,7 @@ namespace GraphicalUserInterface
             interestOpeningLabel.AutoSize = true;
             interestOpeningLabel.Location = new System.Drawing.Point(295, 270);
             interestOpeningLabel.Name = "interestOpeningLabel";
-            interestOpeningLabel.Size = new System.Drawing.Size(215, 27);
+            interestOpeningLabel.Size = new System.Drawing.Size(263, 33);
             interestOpeningLabel.TabIndex = 2;
             interestOpeningLabel.Text = "Annual interest rate:";
             // 
@@ -732,7 +733,7 @@ namespace GraphicalUserInterface
             amountOpeningNumeric.DecimalPlaces = 2;
             amountOpeningNumeric.Location = new System.Drawing.Point(554, 396);
             amountOpeningNumeric.Name = "amountOpeningNumeric";
-            amountOpeningNumeric.Size = new System.Drawing.Size(244, 34);
+            amountOpeningNumeric.Size = new System.Drawing.Size(244, 40);
             amountOpeningNumeric.TabIndex = 4;
             // 
             // amountOpeningLabel
@@ -740,7 +741,7 @@ namespace GraphicalUserInterface
             amountOpeningLabel.AutoSize = true;
             amountOpeningLabel.Location = new System.Drawing.Point(295, 398);
             amountOpeningLabel.Name = "amountOpeningLabel";
-            amountOpeningLabel.Size = new System.Drawing.Size(174, 27);
+            amountOpeningLabel.Size = new System.Drawing.Size(213, 33);
             amountOpeningLabel.TabIndex = 2;
             amountOpeningLabel.Text = "Deposit amount:";
             // 
@@ -749,7 +750,7 @@ namespace GraphicalUserInterface
             periodOpeningLabel.AutoSize = true;
             periodOpeningLabel.Location = new System.Drawing.Point(295, 204);
             periodOpeningLabel.Name = "periodOpeningLabel";
-            periodOpeningLabel.Size = new System.Drawing.Size(181, 27);
+            periodOpeningLabel.Size = new System.Drawing.Size(220, 33);
             periodOpeningLabel.TabIndex = 1;
             periodOpeningLabel.Text = "Period (months):";
             // 
@@ -758,7 +759,7 @@ namespace GraphicalUserInterface
             periodOpeningComboBox.FormattingEnabled = true;
             periodOpeningComboBox.Location = new System.Drawing.Point(554, 201);
             periodOpeningComboBox.Name = "periodOpeningComboBox";
-            periodOpeningComboBox.Size = new System.Drawing.Size(244, 35);
+            periodOpeningComboBox.Size = new System.Drawing.Size(244, 41);
             periodOpeningComboBox.TabIndex = 1;
             periodOpeningComboBox.SelectedValueChanged += periodDepositComboBox_SelectedValueChanged;
             // 
@@ -767,7 +768,7 @@ namespace GraphicalUserInterface
             balanceOpeningLabel.AutoSize = true;
             balanceOpeningLabel.Location = new System.Drawing.Point(295, 138);
             balanceOpeningLabel.Name = "balanceOpeningLabel";
-            balanceOpeningLabel.Size = new System.Drawing.Size(144, 27);
+            balanceOpeningLabel.Size = new System.Drawing.Size(177, 33);
             balanceOpeningLabel.TabIndex = 0;
             balanceOpeningLabel.Text = "Your balance:";
             // 
@@ -782,10 +783,10 @@ namespace GraphicalUserInterface
             closingTabPage.Controls.Add(balanceClosingLabel);
             closingTabPage.Controls.Add(savingClosingComboBox);
             closingTabPage.Controls.Add(savingClosingLabel);
-            closingTabPage.Location = new System.Drawing.Point(4, 29);
+            closingTabPage.Location = new System.Drawing.Point(4, 34);
             closingTabPage.Name = "closingTabPage";
             closingTabPage.Padding = new Padding(3);
-            closingTabPage.Size = new System.Drawing.Size(1127, 683);
+            closingTabPage.Size = new System.Drawing.Size(1127, 673);
             closingTabPage.TabIndex = 1;
             closingTabPage.Text = "Closing";
             closingTabPage.UseVisualStyleBackColor = true;
@@ -797,7 +798,7 @@ namespace GraphicalUserInterface
             maturityDayClosingTextBox.Location = new System.Drawing.Point(537, 291);
             maturityDayClosingTextBox.Name = "maturityDayClosingTextBox";
             maturityDayClosingTextBox.ReadOnly = true;
-            maturityDayClosingTextBox.Size = new System.Drawing.Size(213, 34);
+            maturityDayClosingTextBox.Size = new System.Drawing.Size(213, 40);
             maturityDayClosingTextBox.TabIndex = 2;
             // 
             // amountToGetClosingTextBox
@@ -807,7 +808,7 @@ namespace GraphicalUserInterface
             amountToGetClosingTextBox.Location = new System.Drawing.Point(537, 357);
             amountToGetClosingTextBox.Name = "amountToGetClosingTextBox";
             amountToGetClosingTextBox.ReadOnly = true;
-            amountToGetClosingTextBox.Size = new System.Drawing.Size(213, 34);
+            amountToGetClosingTextBox.Size = new System.Drawing.Size(213, 40);
             amountToGetClosingTextBox.TabIndex = 3;
             // 
             // balanceClosingTextBox
@@ -817,7 +818,7 @@ namespace GraphicalUserInterface
             balanceClosingTextBox.Location = new System.Drawing.Point(537, 225);
             balanceClosingTextBox.Name = "balanceClosingTextBox";
             balanceClosingTextBox.ReadOnly = true;
-            balanceClosingTextBox.Size = new System.Drawing.Size(213, 34);
+            balanceClosingTextBox.Size = new System.Drawing.Size(213, 40);
             balanceClosingTextBox.TabIndex = 1;
             // 
             // maturityDayClosingLabel
@@ -826,7 +827,7 @@ namespace GraphicalUserInterface
             maturityDayClosingLabel.Font = new System.Drawing.Font("Cambria", 13.8F);
             maturityDayClosingLabel.Location = new System.Drawing.Point(324, 294);
             maturityDayClosingLabel.Name = "maturityDayClosingLabel";
-            maturityDayClosingLabel.Size = new System.Drawing.Size(146, 27);
+            maturityDayClosingLabel.Size = new System.Drawing.Size(175, 33);
             maturityDayClosingLabel.TabIndex = 2;
             maturityDayClosingLabel.Text = "Maturity day:";
             // 
@@ -852,7 +853,7 @@ namespace GraphicalUserInterface
             amountToGetClosingLabel.Font = new System.Drawing.Font("Cambria", 13.8F);
             amountToGetClosingLabel.Location = new System.Drawing.Point(324, 360);
             amountToGetClosingLabel.Name = "amountToGetClosingLabel";
-            amountToGetClosingLabel.Size = new System.Drawing.Size(130, 27);
+            amountToGetClosingLabel.Size = new System.Drawing.Size(161, 33);
             amountToGetClosingLabel.TabIndex = 3;
             amountToGetClosingLabel.Text = "You will get:";
             // 
@@ -862,7 +863,7 @@ namespace GraphicalUserInterface
             balanceClosingLabel.Font = new System.Drawing.Font("Cambria", 13.8F);
             balanceClosingLabel.Location = new System.Drawing.Point(324, 228);
             balanceClosingLabel.Name = "balanceClosingLabel";
-            balanceClosingLabel.Size = new System.Drawing.Size(94, 27);
+            balanceClosingLabel.Size = new System.Drawing.Size(117, 33);
             balanceClosingLabel.TabIndex = 1;
             balanceClosingLabel.Text = "Balance:";
             // 
@@ -872,7 +873,7 @@ namespace GraphicalUserInterface
             savingClosingComboBox.FormattingEnabled = true;
             savingClosingComboBox.Location = new System.Drawing.Point(537, 159);
             savingClosingComboBox.Name = "savingClosingComboBox";
-            savingClosingComboBox.Size = new System.Drawing.Size(213, 35);
+            savingClosingComboBox.Size = new System.Drawing.Size(213, 41);
             savingClosingComboBox.TabIndex = 0;
             savingClosingComboBox.SelectedValueChanged += savingClosingComboBox_SelectedValueChanged;
             // 
@@ -882,7 +883,7 @@ namespace GraphicalUserInterface
             savingClosingLabel.Font = new System.Drawing.Font("Cambria", 13.8F);
             savingClosingLabel.Location = new System.Drawing.Point(324, 163);
             savingClosingLabel.Name = "savingClosingLabel";
-            savingClosingLabel.Size = new System.Drawing.Size(82, 27);
+            savingClosingLabel.Size = new System.Drawing.Size(101, 33);
             savingClosingLabel.TabIndex = 0;
             savingClosingLabel.Text = "Saving:";
             // 
@@ -893,10 +894,10 @@ namespace GraphicalUserInterface
             tabStatistical.Controls.Add(groupBoxTransactionList);
             tabStatistical.Controls.Add(groupBoxStats);
             tabStatistical.Font = new System.Drawing.Font("Cambria", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            tabStatistical.Location = new System.Drawing.Point(4, 35);
+            tabStatistical.Location = new System.Drawing.Point(4, 40);
             tabStatistical.Name = "tabStatistical";
             tabStatistical.Padding = new Padding(3);
-            tabStatistical.Size = new System.Drawing.Size(1141, 722);
+            tabStatistical.Size = new System.Drawing.Size(1141, 717);
             tabStatistical.TabIndex = 2;
             tabStatistical.Text = "Statistical";
             // 
@@ -946,34 +947,34 @@ namespace GraphicalUserInterface
             data_Transactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             data_Transactions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             data_Transactions.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.Padding = new Padding(5);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            data_Transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            data_Transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             data_Transactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Padding = new Padding(5);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            data_Transactions.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Padding = new Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            data_Transactions.DefaultCellStyle = dataGridViewCellStyle2;
             data_Transactions.EditMode = DataGridViewEditMode.EditOnF2;
             data_Transactions.Location = new System.Drawing.Point(5, 38);
             data_Transactions.Name = "data_Transactions";
             data_Transactions.RowHeadersVisible = false;
             data_Transactions.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.Padding = new Padding(5);
-            data_Transactions.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Padding = new Padding(5);
+            data_Transactions.RowsDefaultCellStyle = dataGridViewCellStyle3;
             data_Transactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             data_Transactions.Size = new System.Drawing.Size(825, 645);
             data_Transactions.TabIndex = 4;
@@ -1023,7 +1024,7 @@ namespace GraphicalUserInterface
             lbSavings.ForeColor = System.Drawing.Color.White;
             lbSavings.Location = new System.Drawing.Point(16, 121);
             lbSavings.Name = "lbSavings";
-            lbSavings.Size = new System.Drawing.Size(112, 27);
+            lbSavings.Size = new System.Drawing.Size(137, 33);
             lbSavings.TabIndex = 1;
             lbSavings.Text = "$1,146.45";
             // 
@@ -1035,7 +1036,7 @@ namespace GraphicalUserInterface
             label2.ForeColor = System.Drawing.Color.White;
             label2.Location = new System.Drawing.Point(16, 79);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(86, 27);
+            label2.Size = new System.Drawing.Size(106, 33);
             label2.TabIndex = 0;
             label2.Text = "Savings";
             // 
@@ -1071,7 +1072,7 @@ namespace GraphicalUserInterface
             lbExpenses.ForeColor = System.Drawing.Color.White;
             lbExpenses.Location = new System.Drawing.Point(16, 121);
             lbExpenses.Name = "lbExpenses";
-            lbExpenses.Size = new System.Drawing.Size(112, 27);
+            lbExpenses.Size = new System.Drawing.Size(137, 33);
             lbExpenses.TabIndex = 1;
             lbExpenses.Text = "$2,146.45";
             // 
@@ -1083,18 +1084,19 @@ namespace GraphicalUserInterface
             label8.ForeColor = System.Drawing.Color.White;
             label8.Location = new System.Drawing.Point(16, 79);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(104, 27);
+            label8.Size = new System.Drawing.Size(129, 33);
             label8.TabIndex = 0;
             label8.Text = "Expenses";
             // 
             // CustomerMenuForm
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(13F, 31F);
+            AutoScaleDimensions = new System.Drawing.SizeF(15F, 38F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = System.Drawing.Color.White;
             ClientSize = new System.Drawing.Size(1150, 763);
             Controls.Add(tabControl1);
             Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 5, 4, 5);
             Name = "CustomerMenuForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -1108,7 +1110,7 @@ namespace GraphicalUserInterface
             gbFunction.ResumeLayout(false);
             gbAccount.ResumeLayout(false);
             gbAccount.PerformLayout();
-            tabPage2.ResumeLayout(false);
+            tabPageSaving.ResumeLayout(false);
             savingTabControl.ResumeLayout(false);
             detailsTabPage.ResumeLayout(false);
             detailsTabPage.PerformLayout();
@@ -1134,7 +1136,7 @@ namespace GraphicalUserInterface
         #endregion
         private System.Windows.Forms.TabControl tabControl1;
 		private System.Windows.Forms.TabPage tabInformation;
-		private System.Windows.Forms.TabPage tabPage2;
+		private System.Windows.Forms.TabPage tabPageSaving;
 		private System.Windows.Forms.TabPage tabStatistical;
 		private GradientPanel panelSavings;
 		private System.Windows.Forms.PictureBox pictureBox1;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerSignUpForm));
             txtUsername = new System.Windows.Forms.TextBox();
             txtPassword = new System.Windows.Forms.TextBox();
             txtConfirmPassword = new System.Windows.Forms.TextBox();
@@ -143,7 +144,7 @@
             panel1.Controls.Add(label6);
             panel1.Controls.Add(txtUsername);
             panel1.Location = new System.Drawing.Point(88, 84);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(521, 104);
             panel1.TabIndex = 35;
@@ -178,7 +179,7 @@
             panel2.Controls.Add(label1);
             panel2.Controls.Add(txtPassword);
             panel2.Location = new System.Drawing.Point(88, 308);
-            panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel2.Margin = new System.Windows.Forms.Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(521, 104);
             panel2.TabIndex = 36;
@@ -227,7 +228,7 @@
             panel3.Controls.Add(label2);
             panel3.Controls.Add(txtConfirmPassword);
             panel3.Location = new System.Drawing.Point(88, 418);
-            panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel3.Margin = new System.Windows.Forms.Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new System.Drawing.Size(521, 104);
             panel3.TabIndex = 37;
@@ -275,7 +276,7 @@
             panel4.Controls.Add(label3);
             panel4.Controls.Add(txtEmail);
             panel4.Location = new System.Drawing.Point(88, 195);
-            panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel4.Margin = new System.Windows.Forms.Padding(4);
             panel4.Name = "panel4";
             panel4.Size = new System.Drawing.Size(521, 104);
             panel4.TabIndex = 36;
@@ -334,7 +335,7 @@
             panel6.Controls.Add(pictureBox6);
             panel6.Controls.Add(label8);
             panel6.Location = new System.Drawing.Point(88, 530);
-            panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel6.Margin = new System.Windows.Forms.Padding(4);
             panel6.Name = "panel6";
             panel6.Size = new System.Drawing.Size(521, 104);
             panel6.TabIndex = 43;
@@ -391,6 +392,7 @@
             Controls.Add(panel1);
             Controls.Add(label5);
             Controls.Add(btnSignUp);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new System.Windows.Forms.Padding(2);
             Name = "CustomerSignUpForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

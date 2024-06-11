@@ -25,6 +25,8 @@ public partial class StaffMenuForm : Form
 
     private static readonly PasswordHasher<String> PasswordHasher = new();
 
+    private ImageList imageList = new ImageList();
+
     public StaffMenuForm()
     {
         InitializeComponent();
@@ -73,6 +75,27 @@ public partial class StaffMenuForm : Form
     {
         this.GoingBackToLoginForm = false;
 
+        this.imageList = new ImageList();
+        this.imageList.ImageSize = new Size(40, 40);
+        this.imageList.ColorDepth = ColorDepth.Depth32Bit;
+
+        this.imageList.Images.Add("Information", GraphicalUserInterface.Properties.Resources.info);
+        this.imageList.Images.Add("Deposit", GraphicalUserInterface.Properties.Resources.deposit);
+        this.imageList.Images.Add("Withdraw", GraphicalUserInterface.Properties.Resources.withdrawal);
+        this.imageList.Images.Add("Customer", GraphicalUserInterface.Properties.Resources.customermanagement);
+        this.imageList.Images.Add("Staff", GraphicalUserInterface.Properties.Resources.staffmanagement);
+        this.imageList.Images.Add("Report", GraphicalUserInterface.Properties.Resources.seo_report);
+        this.imageList.Images.Add("Regulation", GraphicalUserInterface.Properties.Resources.regulation);
+
+        this.tabControlStaffMenu.ImageList = this.imageList;
+        this.tabPageInformation.ImageKey = "Information";
+        this.tabPageDeposit.ImageKey = "Deposit";
+        this.tabPageWithdraw.ImageKey = "Withdraw";
+        this.tabPageManageCustomers.ImageKey = "Customer";
+        this.tabPageManageStaffs.ImageKey = "Staff";
+        this.tabPageFinancialReport.ImageKey = "Report";
+        this.tabPageChangeRegulations.ImageKey = "Regulation";
+
         using var context = new SavingsManagementContext();
         switch (context.StaffAccounts.Find(StaffAccounts.CurrentStaffId)?.PermissionId)
         {
@@ -87,6 +110,8 @@ public partial class StaffMenuForm : Form
                 break;
 
         }
+
+
     }
 
     #region Information

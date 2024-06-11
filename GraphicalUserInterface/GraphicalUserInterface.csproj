@@ -11,11 +11,13 @@
   <ItemGroup>
     <None Remove="ReportDeposit.rdlc" />
     <None Remove="ReportWithdraw.rdlc" />
+    <None Remove="SavingsReport.rdlc" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="ReportDeposit.rdlc" />
     <EmbeddedResource Include="ReportWithdraw.rdlc" />
+    <EmbeddedResource Include="SavingsReport.rdlc" />
   </ItemGroup>
 
   <ItemGroup>

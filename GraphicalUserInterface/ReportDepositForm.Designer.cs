@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDepositForm));
             reportViewerDeposit = new Microsoft.Reporting.WinForms.ReportViewer();
             SuspendLayout();
             // 
@@ -46,9 +47,10 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1378, 844);
             Controls.Add(reportViewerDeposit);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "ReportDepositForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "ReportDepositForm";
+            Text = "Report Deposit";
             Load += ReportDepositForm_Load;
             ResumeLayout(false);
         }
