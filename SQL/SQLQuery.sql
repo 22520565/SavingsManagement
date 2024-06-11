@@ -219,6 +219,30 @@ INSERT [dbo].[Configurations] ([ID], [MaxAmountOpeningSaving], [MinAmountOpening
 GO
 ALTER TABLE [dbo].[Configurations] ADD  CONSTRAINT [DF_Configuration_ID]  DEFAULT ((0)) FOR [ID]
 GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MaxAmountDepositing] CHECK  (([MaxAmountDepositing]>=(0)))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MaxAmountDepositing]
+GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MaxAmountOpeningSaving] CHECK  (([MaxAmountOpeningSaving]>=(0)))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MaxAmountOpeningSaving]
+GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MaxAmountWithdrawing] CHECK  (([MaxAmountWithdrawing]>=(0)))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MaxAmountWithdrawing]
+GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MinAmountDepositing] CHECK  (([MinAmountDepositing]>=(0)))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MinAmountDepositing]
+GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MinAmountOpeningSaving] CHECK  (([MinAmountOpeningSaving]>=(0)))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MinAmountOpeningSaving]
+GO
+ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MinAmountWithdrawing] CHECK  (([MinAmountWithdrawing]>=(0)))
+GO
+ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MinAmountWithdrawing]
+GO
 ALTER TABLE [dbo].[Configurations]  WITH CHECK ADD  CONSTRAINT [CK_Configurations_MinMaxAmountDepositing] CHECK  (([MaxAmountDepositing]>=[MinAmountDepositing]))
 GO
 ALTER TABLE [dbo].[Configurations] CHECK CONSTRAINT [CK_Configurations_MinMaxAmountDepositing]
@@ -562,6 +586,139 @@ GO
 ALTER DATABASE [SavingsManagement] SET  READ_WRITE 
 GO
 
+USE [msdb]
+GO
+
+/****** Object:  Job [RefreshDaily]    Script Date: 11/06/24 08:50:29 ******/
+BEGIN TRANSACTION
+DECLARE @ReturnCode INT
+SELECT @ReturnCode = 0
+/****** Object:  JobCategory [[Uncategorized (Local)]]    Script Date: 11/06/24 08:50:29 ******/
+IF NOT EXISTS (SELECT name FROM msdb.dbo.syscategories WHERE name=N'[Uncategorized (Local)]' AND category_class=1)
+BEGIN
+EXEC @ReturnCode = msdb.dbo.sp_add_category @class=N'JOB', @type=N'LOCAL', @name=N'[Uncategorized (Local)]'
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+
+END
+
+DECLARE @jobId BINARY(16)
+EXEC @ReturnCode =  msdb.dbo.sp_add_job @job_name=N'RefreshDaily', 
+		@enabled=1, 
+		@notify_level_eventlog=0, 
+		@notify_level_email=0, 
+		@notify_level_netsend=0, 
+		@notify_level_page=0, 
+		@delete_level=0, 
+		@description=N'Refesh daily. Backup database. Update savings'' balance, open day, and interest rate when it''s after their maturity day.', 
+		@category_name=N'[Uncategorized (Local)]', 
+		@owner_login_name=N'sa', @job_id = @jobId OUTPUT
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+/****** Object:  Step [Backup]    Script Date: 11/06/24 08:50:29 ******/
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'Backup', 
+		@step_id=1, 
+		@cmdexec_success_code=0, 
+		@on_success_action=3, 
+		@on_success_step_id=0, 
+		@on_fail_action=2, 
+		@on_fail_step_id=0, 
+		@retry_attempts=0, 
+		@retry_interval=0, 
+		@os_run_priority=0, @subsystem=N'TSQL', 
+		@command=N'BACKUP DATABASE [SavingsManagement] TO  DISK = N''C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Backup\SavingsManagement.bak'' WITH  RETAINDAYS = 14, NOFORMAT, NOINIT,  NAME = N''SavingsManagement-Full Database Backup'', SKIP, NOREWIND, NOUNLOAD,  STATS = 10
+GO
+', 
+		@database_name=N'SavingsManagement', 
+		@flags=0
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+/****** Object:  Step [UpdateSavings]    Script Date: 11/06/24 08:50:29 ******/
+EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'UpdateSavings', 
+		@step_id=2, 
+		@cmdexec_success_code=0, 
+		@on_success_action=1, 
+		@on_success_step_id=0, 
+		@on_fail_action=2, 
+		@on_fail_step_id=0, 
+		@retry_attempts=0, 
+		@retry_interval=0, 
+		@os_run_priority=0, @subsystem=N'TSQL', 
+		@command=N'DECLARE @currentDateTime DATETIMEOFFSET(7) = SYSDATETIMEOFFSET();
+DECLARE @currentDate DATE = CONVERT(DATE, SWITCHOFFSET(@currentDateTime, ''+00:00''));
+DECLARE @balance MONEY = 0.0;
+DECLARE @annualInterestRate DECIMAL(5,3) = 0.0;
+DECLARE @periodInMonths INT = 0;
+DECLARE @openingDateTime DATETIMEOFFSET(7) = @currentDateTime;
+
+DECLARE tableCursor CURSOR LOCAL FOR SELECT [PeriodInMonths], [OpeningDateTime] FROM [Savings];
+OPEN tableCursor;
+
+BEGIN TRANSACTION;
+FETCH NEXT FROM tableCursor INTO @periodInMonths, @openingDateTime;
+WHILE @@FETCH_STATUS = 0
+BEGIN
+	DECLARE @openingDate DATE = CONVERT(DATE, SWITCHOFFSET(@openingDateTime, ''+00:00''));
+	DECLARE @maturityDate DATE = CONVERT(DATE, SWITCHOFFSET(DATEADD(MONTH, @periodInMonths, @openingDate), ''+00:00''));
+	IF @maturityDate <= @currentDate
+	BEGIN TRY
+		SELECT TOP(1) [SavingInterestRates].[PeriodInMonths], [SavingInterestRates].[AnnualInterestRate]
+			INTO [#NewInterestRate]
+			FROM [SavingInterestRates]
+			WHERE [SavingInterestRates].[PeriodInMonths] <= @periodInMonths
+			ORDER BY [SavingInterestRates].[PeriodInMonths] DESC
+		IF (SELECT COUNT(*) FROM #newInterestRate) > 0
+			UPDATE [Savings]
+				SET [Savings].[Balance] += [Savings].[Balance] * [Savings].[AnnualInterestRate] * ([Savings].[PeriodInMonths] / 12.0),
+					[Savings].[OpeningDateTime] = @currentDateTime,
+					[Savings].[AnnualInterestRate] = (SELECT [#NewInterestRate].[AnnualInterestRate] FROM [#NewInterestRate]),
+					[Savings].[PeriodInMonths] = (SELECT [#NewInterestRate].[PeriodInMonths] FROM [#NewInterestRate])
+				WHERE CURRENT OF tableCursor;
+		ELSE DELETE [Savings] WHERE CURRENT OF tableCursor;
+		DROP TABLE [#NewInterestRate]
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0 ROLLBACK TRANSACTION;
+	END CATCH;
+	FETCH NEXT FROM tableCursor INTO @periodInMonths, @openingDateTime;
+END;
+IF @@TRANCOUNT > 0 COMMIT TRANSACTION;
+
+BEGIN TRY
+	CLOSE tableCursor;
+	DEALLOCATE tableCursor;
+END TRY
+BEGIN CATCH
+	-- Ignore Exception --
+END CATCH;
+
+GO
+', 
+		@database_name=N'SavingsManagement', 
+		@output_file_name=N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\Log\UpdateSavingsError.log', 
+		@flags=6
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+EXEC @ReturnCode = msdb.dbo.sp_update_job @job_id = @jobId, @start_step_id = 1
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+EXEC @ReturnCode = msdb.dbo.sp_add_jobschedule @job_id=@jobId, @name=N'Daily', 
+		@enabled=1, 
+		@freq_type=4, 
+		@freq_interval=1, 
+		@freq_subday_type=1, 
+		@freq_subday_interval=0, 
+		@freq_relative_interval=0, 
+		@freq_recurrence_factor=0, 
+		@active_start_date=20240419, 
+		@active_end_date=99991231, 
+		@active_start_time=0, 
+		@active_end_time=235959, 
+		@schedule_uid=N'2cc84a3d-75ec-4d24-bc36-a15bb1843b8f'
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+EXEC @ReturnCode = msdb.dbo.sp_add_jobserver @job_id = @jobId, @server_name = N'(local)'
+IF (@@ERROR <> 0 OR @ReturnCode <> 0) GOTO QuitWithRollback
+COMMIT TRANSACTION
+GOTO EndSave
+QuitWithRollback:
+    IF (@@TRANCOUNT > 0) ROLLBACK TRANSACTION
+EndSave:
+GO
 
 -- Chạy riêng
 use [SavingsManagement]
