@@ -95,9 +95,8 @@ namespace GraphicalUserInterface
 
 		private void linkBackToLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
 			this.Hide();
-			LoginForm login = new LoginForm();
-			login.ShowDialog();
-			this.Close();
+            CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Login);
+            this.Close();
 		}
 	}
 }
