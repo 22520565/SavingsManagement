@@ -9,7 +9,11 @@ public static class CashFlows
 {
     public static void Deposit(int customerId, decimal amount, string content)
     {
-        if (amount < Configurations.MinAmountDepositing || amount > Configurations.MaxAmountWithdrawing)
+        if (amount < 0)
+        {
+            throw new ArgumentException("Amount to deposit must be positive!");
+        }
+        else if (amount < Configurations.MinAmountDepositing || amount > Configurations.MaxAmountWithdrawing)
         {
             throw new ArgumentException("Amount to deposit must be in a range.");
         }
@@ -21,7 +25,11 @@ public static class CashFlows
 
     public static void Withdraw(int customerId, decimal amount, string content)
     {
-        if (amount < Configurations.MinAmountWithdrawing || amount > Configurations.MaxAmountWithdrawing)
+        if (amount < 0)
+        {
+            throw new ArgumentException("Amount to withdraw must be positive!");
+        }
+        else if (amount < Configurations.MinAmountWithdrawing || amount > Configurations.MaxAmountWithdrawing)
         {
             throw new ArgumentException("Amount to withdraw must be in a range.");
         }
