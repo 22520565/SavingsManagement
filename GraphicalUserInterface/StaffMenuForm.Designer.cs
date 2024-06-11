@@ -23,7 +23,8 @@ namespace GraphicalUserInterface
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
+
 
 
         /// <summary>
@@ -2007,9 +2008,9 @@ namespace GraphicalUserInterface
             ResumeLayout(false);
         }
 
-        #endregion
+		#endregion
 
-        private System.Windows.Forms.TabControl tabControlStaffMenu;
+		private System.Windows.Forms.TabControl tabControlStaffMenu;
         private System.Windows.Forms.TabPage tabPageInformation;
         private System.Windows.Forms.TabPage tabPageDeposit;
         private System.Windows.Forms.TabPage tabPageWithdraw;
