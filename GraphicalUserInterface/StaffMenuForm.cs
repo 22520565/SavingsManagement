@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
@@ -24,6 +25,8 @@ public partial class StaffMenuForm : Form
     DataTable dt;
 
     private static readonly PasswordHasher<String> PasswordHasher = new();
+
+    private ImageList imageList = new ImageList();
 
     public StaffMenuForm()
     {
@@ -73,6 +76,27 @@ public partial class StaffMenuForm : Form
     {
         this.GoingBackToLoginForm = false;
 
+        this.imageList = new ImageList();
+        this.imageList.ImageSize = new Size(40, 40);
+        this.imageList.ColorDepth = ColorDepth.Depth32Bit;
+
+        this.imageList.Images.Add("Information", GraphicalUserInterface.Properties.Resources.info);
+        this.imageList.Images.Add("Deposit", GraphicalUserInterface.Properties.Resources.deposit);
+        this.imageList.Images.Add("Withdraw", GraphicalUserInterface.Properties.Resources.withdrawal);
+        this.imageList.Images.Add("Customer", GraphicalUserInterface.Properties.Resources.customermanagement);
+        this.imageList.Images.Add("Staff", GraphicalUserInterface.Properties.Resources.staffmanagement);
+        this.imageList.Images.Add("Report", GraphicalUserInterface.Properties.Resources.seo_report);
+        this.imageList.Images.Add("Regulation", GraphicalUserInterface.Properties.Resources.regulation);
+
+        this.tabControlStaffMenu.ImageList = this.imageList;
+        this.tabPageInformation.ImageKey = "Information";
+        this.tabPageDeposit.ImageKey = "Deposit";
+        this.tabPageWithdraw.ImageKey = "Withdraw";
+        this.tabPageManageCustomers.ImageKey = "Customer";
+        this.tabPageManageStaffs.ImageKey = "Staff";
+        this.tabPageFinancialReport.ImageKey = "Report";
+        this.tabPageChangeRegulations.ImageKey = "Regulation";
+
         using var context = new SavingsManagementContext();
         switch (context.StaffAccounts.Find(StaffAccounts.CurrentStaffId)?.PermissionId)
         {
@@ -87,6 +111,8 @@ public partial class StaffMenuForm : Form
                 break;
 
         }
+
+
     }
 
     #region Information
@@ -470,7 +496,7 @@ public partial class StaffMenuForm : Form
         }
     }
 
-    public string PATH_TEMPLATE = Application.StartupPath + "\\Certificate1.xlsx";
+    public string PATH_TEMPLATE = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()).ToString()).ToString()) + "\\Resources\\Certificate1.xlsx";
     public string PATH_EXPORT = Application.StartupPath + "\\Certificate1Export.xlsx";
 
     private async void customerPrintButton_Click(object sender, EventArgs e)
@@ -489,6 +515,7 @@ public partial class StaffMenuForm : Form
 
         await MiniExcel.SaveAsByTemplateAsync(PATH_EXPORT, PATH_TEMPLATE, value, config);
         MessageBox.Show("Export successful");
+        export_Open(PATH_EXPORT);
     }
     #endregion
 
@@ -654,7 +681,7 @@ public partial class StaffMenuForm : Form
         }
     }
 
-    public string PATH_WITHDRAW = Application.StartupPath + "\\Certificate2.xlsx";
+    public string PATH_WITHDRAW = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()).ToString()).ToString()) + "\\Resources\\Certificate2.xlsx";
     public string PATH_EXPORTWD = Application.StartupPath + "\\Certificate2Export.xlsx";
     private async void withdrawPrintButton_Click(object sender, EventArgs e)
     {
@@ -672,6 +699,7 @@ public partial class StaffMenuForm : Form
 
         await MiniExcel.SaveAsByTemplateAsync(PATH_EXPORTWD, PATH_WITHDRAW, value, config);
         MessageBox.Show("Export successful");
+        export_Open(PATH_EXPORTWD);
     }
     #endregion
 
@@ -1446,5 +1474,17 @@ public partial class StaffMenuForm : Form
             dailyReportDateTimePicker.ShowUpDown = false;
             loadDailyReport();
         }
+    }
+
+    public void export_Open(string filepath)
+    {
+        string fileExcel = filepath;
+        Excel.Application xlapp;
+        Excel.Workbook xlworkbook;
+        xlapp = new Excel.Application();
+
+        xlworkbook = xlapp.Workbooks.Open(fileExcel, 0, false, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+
+        xlapp.Visible = true;
     }
 }

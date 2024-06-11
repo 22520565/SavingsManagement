@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportWithdrawForm));
             reportViewerWithdraw = new Microsoft.Reporting.WinForms.ReportViewer();
             SuspendLayout();
             // 
@@ -46,9 +47,10 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1378, 844);
             Controls.Add(reportViewerWithdraw);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "ReportWithdrawForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "ReportWithdrawForm";
+            Text = "Report Withdraw";
             Load += ReportWithdrawForm_Load;
             ResumeLayout(false);
         }
