@@ -43,7 +43,26 @@ public partial class StaffMenuForm : Form
         staffIdTextBox.ReadOnly = true;
         dataGridViewStaff.ReadOnly = true;
         rbDaily.Checked = true;
-    }
+
+        this.tabPageChangeRegulations.BackColor = Color.FromArgb(221, 228, 244);
+        this.tabPageDeposit.BackColor = Color.FromArgb(221, 228, 244); 
+        this.tabPageFinancialReport.BackColor = Color.FromArgb(221, 228, 244);
+        this.tabPageInformation.BackColor = Color.FromArgb(221, 228, 244);
+        this.tabPageManageCustomers.BackColor = Color.FromArgb(221, 228, 244);
+        this.tabPageManageStaffs.BackColor = Color.FromArgb(221, 228, 244);
+        this.tabPageWithdraw.BackColor = Color.FromArgb(221, 228, 244);
+
+        this.groupBox1.BackColor = Color.FromArgb(191, 212, 252);
+		this.groupBox10.BackColor = Color.FromArgb(191, 212, 252);
+		this.groupBox11.BackColor = Color.FromArgb(191, 212, 252);
+		this.groupBox2.BackColor = Color.FromArgb(191, 212, 252);
+		this.groupBox3.BackColor = Color.FromArgb(191, 212, 252);
+		this.groupBox4.BackColor = Color.FromArgb(191, 212, 252);
+		this.groupBox5.BackColor = Color.FromArgb(191, 212, 252);
+		this.groupBox6.BackColor = Color.FromArgb(191, 212, 252);
+		this.groupBox7.BackColor = Color.FromArgb(191, 212, 252);
+		this.groupBox8.BackColor = Color.FromArgb(191, 212, 252);
+	}
 
     private void StaffMenuForm_FormClosing(object sender, FormClosingEventArgs e)
     {
@@ -77,7 +96,7 @@ public partial class StaffMenuForm : Form
         this.GoingBackToLoginForm = false;
 
         this.imageList = new ImageList();
-        this.imageList.ImageSize = new Size(40, 40);
+        this.imageList.ImageSize = new Size(24, 24);
         this.imageList.ColorDepth = ColorDepth.Depth32Bit;
 
         this.imageList.Images.Add("Information", GraphicalUserInterface.Properties.Resources.info);

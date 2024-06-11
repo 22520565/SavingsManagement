@@ -505,7 +505,7 @@ public partial class CustomerMenuForm : Form
         this.GoingBackToLoginForm = false;
 
         this.imageList = new ImageList();
-        this.imageList.ImageSize = new Size(40, 40);
+        this.imageList.ImageSize = new Size(24, 24);
         this.imageList.ColorDepth = ColorDepth.Depth32Bit;
 
         this.imageList.Images.Add("Information", GraphicalUserInterface.Properties.Resources.info);
