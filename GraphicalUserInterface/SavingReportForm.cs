@@ -20,7 +20,8 @@ public partial class SavingReportForm : Form
 
     private void reportViewer_Load(object sender, EventArgs e)
     {
-        using SavingsManagementDataSet savingsManagementDataSet = new SavingsManagementDataSet();
+		reportViewer.LocalReport.ReportEmbeddedResource = "GraphicalUserInterface.SavingsReport.rdlc";
+		using SavingsManagementDataSet savingsManagementDataSet = new SavingsManagementDataSet();
         DataTable savingsDataTable = savingsManagementDataSet.Savings;
         MemoryStream memoryStream = new MemoryStream(Resources.SavingsReport);
         savingsDataTable.Rows.Add(this.saving.Id, this.saving.CustomerId, this.saving.Balance, this.saving.AnnualInterestRate, this.saving.PeriodInMonths, this.saving.OpeningDateTime);
