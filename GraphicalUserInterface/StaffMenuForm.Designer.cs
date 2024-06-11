@@ -39,6 +39,7 @@ namespace GraphicalUserInterface
             System.Windows.Forms.Label customerWithdrawNameLabel;
             System.Windows.Forms.Label customerWithdrawIdLabel;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffMenuForm));
             tabControlStaffMenu = new System.Windows.Forms.TabControl();
             tabPageInformation = new System.Windows.Forms.TabPage();
             gbFunction = new System.Windows.Forms.GroupBox();
@@ -309,6 +310,7 @@ namespace GraphicalUserInterface
             tabPageInformation.Controls.Add(gbFunction);
             tabPageInformation.Controls.Add(gbAccount);
             tabPageInformation.Controls.Add(gbPersonal);
+            tabPageInformation.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             tabPageInformation.Location = new System.Drawing.Point(4, 40);
             tabPageInformation.Margin = new System.Windows.Forms.Padding(2);
             tabPageInformation.Name = "tabPageInformation";
@@ -324,9 +326,9 @@ namespace GraphicalUserInterface
             gbFunction.Controls.Add(staffChangePasswordButton);
             gbFunction.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             gbFunction.Location = new System.Drawing.Point(856, 475);
-            gbFunction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            gbFunction.Margin = new System.Windows.Forms.Padding(4);
             gbFunction.Name = "gbFunction";
-            gbFunction.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            gbFunction.Padding = new System.Windows.Forms.Padding(4);
             gbFunction.Size = new System.Drawing.Size(672, 358);
             gbFunction.TabIndex = 36;
             gbFunction.TabStop = false;
@@ -338,9 +340,9 @@ namespace GraphicalUserInterface
             button1.Cursor = System.Windows.Forms.Cursors.Hand;
             button1.ForeColor = System.Drawing.Color.White;
             button1.Location = new System.Drawing.Point(199, 79);
-            button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            button1.Margin = new System.Windows.Forms.Padding(4);
             button1.Name = "button1";
-            button1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            button1.Padding = new System.Windows.Forms.Padding(6);
             button1.Size = new System.Drawing.Size(319, 82);
             button1.TabIndex = 33;
             button1.Text = "Change Infomation";
@@ -353,9 +355,9 @@ namespace GraphicalUserInterface
             staffChangePasswordButton.Cursor = System.Windows.Forms.Cursors.Hand;
             staffChangePasswordButton.ForeColor = System.Drawing.Color.White;
             staffChangePasswordButton.Location = new System.Drawing.Point(199, 201);
-            staffChangePasswordButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffChangePasswordButton.Margin = new System.Windows.Forms.Padding(4);
             staffChangePasswordButton.Name = "staffChangePasswordButton";
-            staffChangePasswordButton.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffChangePasswordButton.Padding = new System.Windows.Forms.Padding(6);
             staffChangePasswordButton.Size = new System.Drawing.Size(319, 82);
             staffChangePasswordButton.TabIndex = 32;
             staffChangePasswordButton.Text = "Change Password";
@@ -370,9 +372,9 @@ namespace GraphicalUserInterface
             gbAccount.Controls.Add(customerUsernameLabel);
             gbAccount.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             gbAccount.Location = new System.Drawing.Point(856, 52);
-            gbAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            gbAccount.Margin = new System.Windows.Forms.Padding(4);
             gbAccount.Name = "gbAccount";
-            gbAccount.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            gbAccount.Padding = new System.Windows.Forms.Padding(4);
             gbAccount.Size = new System.Drawing.Size(672, 345);
             gbAccount.TabIndex = 35;
             gbAccount.TabStop = false;
@@ -382,7 +384,7 @@ namespace GraphicalUserInterface
             // 
             staffIdtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffIdtxt.Location = new System.Drawing.Point(212, 125);
-            staffIdtxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffIdtxt.Margin = new System.Windows.Forms.Padding(4);
             staffIdtxt.Name = "staffIdtxt";
             staffIdtxt.ReadOnly = true;
             staffIdtxt.Size = new System.Drawing.Size(420, 40);
@@ -402,7 +404,7 @@ namespace GraphicalUserInterface
             // 
             staffusernametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffusernametxt.Location = new System.Drawing.Point(212, 218);
-            staffusernametxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffusernametxt.Margin = new System.Windows.Forms.Padding(4);
             staffusernametxt.Name = "staffusernametxt";
             staffusernametxt.ReadOnly = true;
             staffusernametxt.Size = new System.Drawing.Size(420, 40);
@@ -436,9 +438,9 @@ namespace GraphicalUserInterface
             gbPersonal.Controls.Add(customerGenderLabel);
             gbPersonal.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             gbPersonal.Location = new System.Drawing.Point(50, 52);
-            gbPersonal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            gbPersonal.Margin = new System.Windows.Forms.Padding(4);
             gbPersonal.Name = "gbPersonal";
-            gbPersonal.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            gbPersonal.Padding = new System.Windows.Forms.Padding(4);
             gbPersonal.Size = new System.Drawing.Size(779, 780);
             gbPersonal.TabIndex = 34;
             gbPersonal.TabStop = false;
@@ -468,7 +470,7 @@ namespace GraphicalUserInterface
             // 
             staffAddressTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffAddressTxt.Location = new System.Drawing.Point(279, 588);
-            staffAddressTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffAddressTxt.Margin = new System.Windows.Forms.Padding(4);
             staffAddressTxt.Name = "staffAddressTxt";
             staffAddressTxt.ReadOnly = true;
             staffAddressTxt.Size = new System.Drawing.Size(402, 40);
@@ -478,7 +480,7 @@ namespace GraphicalUserInterface
             // 
             staffBirthdayTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffBirthdayTxt.Location = new System.Drawing.Point(279, 188);
-            staffBirthdayTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffBirthdayTxt.Margin = new System.Windows.Forms.Padding(4);
             staffBirthdayTxt.Name = "staffBirthdayTxt";
             staffBirthdayTxt.ReadOnly = true;
             staffBirthdayTxt.Size = new System.Drawing.Size(402, 40);
@@ -498,7 +500,7 @@ namespace GraphicalUserInterface
             // 
             staffpositiontxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffpositiontxt.Location = new System.Drawing.Point(279, 688);
-            staffpositiontxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffpositiontxt.Margin = new System.Windows.Forms.Padding(4);
             staffpositiontxt.Name = "staffpositiontxt";
             staffpositiontxt.ReadOnly = true;
             staffpositiontxt.Size = new System.Drawing.Size(402, 40);
@@ -528,7 +530,7 @@ namespace GraphicalUserInterface
             // 
             staffPhoneTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffPhoneTxt.Location = new System.Drawing.Point(279, 288);
-            staffPhoneTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffPhoneTxt.Margin = new System.Windows.Forms.Padding(4);
             staffPhoneTxt.Name = "staffPhoneTxt";
             staffPhoneTxt.ReadOnly = true;
             staffPhoneTxt.Size = new System.Drawing.Size(402, 40);
@@ -538,7 +540,7 @@ namespace GraphicalUserInterface
             // 
             staffEmailTxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffEmailTxt.Location = new System.Drawing.Point(279, 488);
-            staffEmailTxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffEmailTxt.Margin = new System.Windows.Forms.Padding(4);
             staffEmailTxt.Name = "staffEmailTxt";
             staffEmailTxt.ReadOnly = true;
             staffEmailTxt.Size = new System.Drawing.Size(402, 40);
@@ -548,7 +550,7 @@ namespace GraphicalUserInterface
             // 
             staffnametxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffnametxt.Location = new System.Drawing.Point(279, 88);
-            staffnametxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffnametxt.Margin = new System.Windows.Forms.Padding(4);
             staffnametxt.Name = "staffnametxt";
             staffnametxt.ReadOnly = true;
             staffnametxt.Size = new System.Drawing.Size(402, 40);
@@ -568,7 +570,7 @@ namespace GraphicalUserInterface
             // 
             staffgendertxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffgendertxt.Location = new System.Drawing.Point(279, 388);
-            staffgendertxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            staffgendertxt.Margin = new System.Windows.Forms.Padding(4);
             staffgendertxt.Name = "staffgendertxt";
             staffgendertxt.ReadOnly = true;
             staffgendertxt.Size = new System.Drawing.Size(228, 40);
@@ -615,7 +617,7 @@ namespace GraphicalUserInterface
             panel3.Controls.Add(customerDepositButton);
             panel3.Dock = System.Windows.Forms.DockStyle.Left;
             panel3.Location = new System.Drawing.Point(2, 2);
-            panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel3.Margin = new System.Windows.Forms.Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new System.Drawing.Size(554, 896);
             panel3.TabIndex = 9;
@@ -626,7 +628,7 @@ namespace GraphicalUserInterface
             customerDepositAmountNumeric.Enabled = false;
             customerDepositAmountNumeric.Font = new System.Drawing.Font("Cambria", 12F);
             customerDepositAmountNumeric.Location = new System.Drawing.Point(29, 430);
-            customerDepositAmountNumeric.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerDepositAmountNumeric.Margin = new System.Windows.Forms.Padding(6);
             customerDepositAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
             customerDepositAmountNumeric.Name = "customerDepositAmountNumeric";
             customerDepositAmountNumeric.Size = new System.Drawing.Size(482, 36);
@@ -637,7 +639,7 @@ namespace GraphicalUserInterface
             customerDepositIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerDepositIdTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             customerDepositIdTextBox.Location = new System.Drawing.Point(29, 141);
-            customerDepositIdTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerDepositIdTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerDepositIdTextBox.MaxLength = 10;
             customerDepositIdTextBox.Name = "customerDepositIdTextBox";
             customerDepositIdTextBox.Size = new System.Drawing.Size(482, 36);
@@ -651,7 +653,7 @@ namespace GraphicalUserInterface
             customerDepositContentTextBox.Enabled = false;
             customerDepositContentTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             customerDepositContentTextBox.Location = new System.Drawing.Point(29, 526);
-            customerDepositContentTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerDepositContentTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerDepositContentTextBox.Name = "customerDepositContentTextBox";
             customerDepositContentTextBox.Size = new System.Drawing.Size(482, 36);
             customerDepositContentTextBox.TabIndex = 14;
@@ -684,7 +686,7 @@ namespace GraphicalUserInterface
             customerDepositCicNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerDepositCicNumberTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             customerDepositCicNumberTextBox.Location = new System.Drawing.Point(29, 334);
-            customerDepositCicNumberTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerDepositCicNumberTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerDepositCicNumberTextBox.Name = "customerDepositCicNumberTextBox";
             customerDepositCicNumberTextBox.ReadOnly = true;
             customerDepositCicNumberTextBox.Size = new System.Drawing.Size(482, 36);
@@ -706,7 +708,7 @@ namespace GraphicalUserInterface
             customerDepositNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerDepositNameTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             customerDepositNameTextBox.Location = new System.Drawing.Point(29, 238);
-            customerDepositNameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerDepositNameTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerDepositNameTextBox.Name = "customerDepositNameTextBox";
             customerDepositNameTextBox.ReadOnly = true;
             customerDepositNameTextBox.Size = new System.Drawing.Size(482, 36);
@@ -741,7 +743,7 @@ namespace GraphicalUserInterface
             reportDepositBtn.Location = new System.Drawing.Point(29, 651);
             reportDepositBtn.Margin = new System.Windows.Forms.Padding(2);
             reportDepositBtn.Name = "reportDepositBtn";
-            reportDepositBtn.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            reportDepositBtn.Padding = new System.Windows.Forms.Padding(6);
             reportDepositBtn.Size = new System.Drawing.Size(125, 62);
             reportDepositBtn.TabIndex = 19;
             reportDepositBtn.Text = "Report";
@@ -754,9 +756,9 @@ namespace GraphicalUserInterface
             customerPrintButton.Enabled = false;
             customerPrintButton.Font = new System.Drawing.Font("Cambria", 13.8F);
             customerPrintButton.Location = new System.Drawing.Point(198, 651);
-            customerPrintButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            customerPrintButton.Margin = new System.Windows.Forms.Padding(4);
             customerPrintButton.Name = "customerPrintButton";
-            customerPrintButton.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerPrintButton.Padding = new System.Windows.Forms.Padding(6);
             customerPrintButton.Size = new System.Drawing.Size(125, 62);
             customerPrintButton.TabIndex = 16;
             customerPrintButton.Text = "Print";
@@ -769,9 +771,9 @@ namespace GraphicalUserInterface
             customerDepositButton.Enabled = false;
             customerDepositButton.Font = new System.Drawing.Font("Cambria", 13.8F);
             customerDepositButton.Location = new System.Drawing.Point(370, 651);
-            customerDepositButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            customerDepositButton.Margin = new System.Windows.Forms.Padding(4);
             customerDepositButton.Name = "customerDepositButton";
-            customerDepositButton.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerDepositButton.Padding = new System.Windows.Forms.Padding(6);
             customerDepositButton.Size = new System.Drawing.Size(141, 62);
             customerDepositButton.TabIndex = 17;
             customerDepositButton.Text = "Deposit";
@@ -824,7 +826,7 @@ namespace GraphicalUserInterface
             panel2.Controls.Add(customerWithdrawButton);
             panel2.Dock = System.Windows.Forms.DockStyle.Left;
             panel2.Location = new System.Drawing.Point(0, 0);
-            panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel2.Margin = new System.Windows.Forms.Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new System.Drawing.Size(547, 900);
             panel2.TabIndex = 10;
@@ -834,7 +836,7 @@ namespace GraphicalUserInterface
             customerWithdrawBalanceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerWithdrawBalanceTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             customerWithdrawBalanceTextBox.Location = new System.Drawing.Point(29, 435);
-            customerWithdrawBalanceTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerWithdrawBalanceTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerWithdrawBalanceTextBox.Name = "customerWithdrawBalanceTextBox";
             customerWithdrawBalanceTextBox.ReadOnly = true;
             customerWithdrawBalanceTextBox.Size = new System.Drawing.Size(482, 36);
@@ -846,7 +848,7 @@ namespace GraphicalUserInterface
             customerWithdrawAmountNumeric.Enabled = false;
             customerWithdrawAmountNumeric.Font = new System.Drawing.Font("Cambria", 12F);
             customerWithdrawAmountNumeric.Location = new System.Drawing.Point(29, 531);
-            customerWithdrawAmountNumeric.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerWithdrawAmountNumeric.Margin = new System.Windows.Forms.Padding(6);
             customerWithdrawAmountNumeric.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
             customerWithdrawAmountNumeric.Minimum = new decimal(new int[] { 99999, 0, 0, int.MinValue });
             customerWithdrawAmountNumeric.Name = "customerWithdrawAmountNumeric";
@@ -858,7 +860,7 @@ namespace GraphicalUserInterface
             customerWithdrawIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerWithdrawIdTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             customerWithdrawIdTextBox.Location = new System.Drawing.Point(29, 146);
-            customerWithdrawIdTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerWithdrawIdTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerWithdrawIdTextBox.MaxLength = 0;
             customerWithdrawIdTextBox.Name = "customerWithdrawIdTextBox";
             customerWithdrawIdTextBox.Size = new System.Drawing.Size(482, 36);
@@ -871,7 +873,7 @@ namespace GraphicalUserInterface
             customerWithdrawCicNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerWithdrawCicNumberTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             customerWithdrawCicNumberTextBox.Location = new System.Drawing.Point(29, 339);
-            customerWithdrawCicNumberTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerWithdrawCicNumberTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerWithdrawCicNumberTextBox.Name = "customerWithdrawCicNumberTextBox";
             customerWithdrawCicNumberTextBox.ReadOnly = true;
             customerWithdrawCicNumberTextBox.Size = new System.Drawing.Size(482, 36);
@@ -882,7 +884,7 @@ namespace GraphicalUserInterface
             customerWithdrawNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerWithdrawNameTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             customerWithdrawNameTextBox.Location = new System.Drawing.Point(29, 242);
-            customerWithdrawNameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerWithdrawNameTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerWithdrawNameTextBox.Name = "customerWithdrawNameTextBox";
             customerWithdrawNameTextBox.ReadOnly = true;
             customerWithdrawNameTextBox.Size = new System.Drawing.Size(482, 36);
@@ -907,7 +909,7 @@ namespace GraphicalUserInterface
             customerWithdrawContentTextBox.Enabled = false;
             customerWithdrawContentTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             customerWithdrawContentTextBox.Location = new System.Drawing.Point(29, 659);
-            customerWithdrawContentTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerWithdrawContentTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerWithdrawContentTextBox.Name = "customerWithdrawContentTextBox";
             customerWithdrawContentTextBox.Size = new System.Drawing.Size(482, 36);
             customerWithdrawContentTextBox.TabIndex = 23;
@@ -920,7 +922,7 @@ namespace GraphicalUserInterface
             reportWithdrawBtn.Location = new System.Drawing.Point(31, 748);
             reportWithdrawBtn.Margin = new System.Windows.Forms.Padding(2);
             reportWithdrawBtn.Name = "reportWithdrawBtn";
-            reportWithdrawBtn.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            reportWithdrawBtn.Padding = new System.Windows.Forms.Padding(6);
             reportWithdrawBtn.Size = new System.Drawing.Size(150, 62);
             reportWithdrawBtn.TabIndex = 27;
             reportWithdrawBtn.Text = "Report";
@@ -933,9 +935,9 @@ namespace GraphicalUserInterface
             withdrawPrintButton.Enabled = false;
             withdrawPrintButton.Font = new System.Drawing.Font("Cambria", 12F);
             withdrawPrintButton.Location = new System.Drawing.Point(196, 748);
-            withdrawPrintButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            withdrawPrintButton.Margin = new System.Windows.Forms.Padding(4);
             withdrawPrintButton.Name = "withdrawPrintButton";
-            withdrawPrintButton.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            withdrawPrintButton.Padding = new System.Windows.Forms.Padding(6);
             withdrawPrintButton.Size = new System.Drawing.Size(150, 62);
             withdrawPrintButton.TabIndex = 26;
             withdrawPrintButton.Text = "Print";
@@ -948,9 +950,9 @@ namespace GraphicalUserInterface
             customerWithdrawButton.Enabled = false;
             customerWithdrawButton.Font = new System.Drawing.Font("Cambria", 12F);
             customerWithdrawButton.Location = new System.Drawing.Point(361, 748);
-            customerWithdrawButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            customerWithdrawButton.Margin = new System.Windows.Forms.Padding(4);
             customerWithdrawButton.Name = "customerWithdrawButton";
-            customerWithdrawButton.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerWithdrawButton.Padding = new System.Windows.Forms.Padding(6);
             customerWithdrawButton.Size = new System.Drawing.Size(150, 62);
             customerWithdrawButton.TabIndex = 24;
             customerWithdrawButton.Text = "Withdraw";
@@ -994,9 +996,9 @@ namespace GraphicalUserInterface
             groupBox8.Controls.Add(customerUsernameTextBox);
             groupBox8.Controls.Add(label7);
             groupBox8.Location = new System.Drawing.Point(991, 0);
-            groupBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            groupBox8.Margin = new System.Windows.Forms.Padding(4);
             groupBox8.Name = "groupBox8";
-            groupBox8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            groupBox8.Padding = new System.Windows.Forms.Padding(4);
             groupBox8.Size = new System.Drawing.Size(576, 351);
             groupBox8.TabIndex = 5;
             groupBox8.TabStop = false;
@@ -1006,7 +1008,7 @@ namespace GraphicalUserInterface
             // 
             customerIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerIdTextBox.Location = new System.Drawing.Point(54, 114);
-            customerIdTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerIdTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerIdTextBox.Name = "customerIdTextBox";
             customerIdTextBox.Size = new System.Drawing.Size(158, 36);
             customerIdTextBox.TabIndex = 1;
@@ -1015,7 +1017,7 @@ namespace GraphicalUserInterface
             // 
             customerBalanceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerBalanceTextBox.Location = new System.Drawing.Point(284, 114);
-            customerBalanceTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerBalanceTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerBalanceTextBox.Name = "customerBalanceTextBox";
             customerBalanceTextBox.Size = new System.Drawing.Size(242, 36);
             customerBalanceTextBox.TabIndex = 21;
@@ -1044,7 +1046,7 @@ namespace GraphicalUserInterface
             // 
             customerUsernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerUsernameTextBox.Location = new System.Drawing.Point(54, 222);
-            customerUsernameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerUsernameTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerUsernameTextBox.Name = "customerUsernameTextBox";
             customerUsernameTextBox.Size = new System.Drawing.Size(472, 36);
             customerUsernameTextBox.TabIndex = 13;
@@ -1115,7 +1117,7 @@ namespace GraphicalUserInterface
             enableCustomerBtn.Location = new System.Drawing.Point(570, 48);
             enableCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
             enableCustomerBtn.Name = "enableCustomerBtn";
-            enableCustomerBtn.Size = new System.Drawing.Size(128, 54);
+            enableCustomerBtn.Size = new System.Drawing.Size(135, 54);
             enableCustomerBtn.TabIndex = 4;
             enableCustomerBtn.Text = "Enable";
             enableCustomerBtn.UseVisualStyleBackColor = true;
@@ -1127,7 +1129,7 @@ namespace GraphicalUserInterface
             clearScreenCustomerBtn.Location = new System.Drawing.Point(734, 48);
             clearScreenCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
             clearScreenCustomerBtn.Name = "clearScreenCustomerBtn";
-            clearScreenCustomerBtn.Size = new System.Drawing.Size(209, 54);
+            clearScreenCustomerBtn.Size = new System.Drawing.Size(221, 54);
             clearScreenCustomerBtn.TabIndex = 3;
             clearScreenCustomerBtn.Text = "Clear Screen";
             clearScreenCustomerBtn.UseVisualStyleBackColor = true;
@@ -1139,7 +1141,7 @@ namespace GraphicalUserInterface
             disableCustomerBtn.Location = new System.Drawing.Point(385, 48);
             disableCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
             disableCustomerBtn.Name = "disableCustomerBtn";
-            disableCustomerBtn.Size = new System.Drawing.Size(138, 54);
+            disableCustomerBtn.Size = new System.Drawing.Size(143, 54);
             disableCustomerBtn.TabIndex = 2;
             disableCustomerBtn.Text = "Disable";
             disableCustomerBtn.UseVisualStyleBackColor = true;
@@ -1209,7 +1211,7 @@ namespace GraphicalUserInterface
             // 
             customerBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             customerBirthDateTimePicker.Location = new System.Drawing.Point(481, 79);
-            customerBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(6);
             customerBirthDateTimePicker.Name = "customerBirthDateTimePicker";
             customerBirthDateTimePicker.Size = new System.Drawing.Size(303, 36);
             customerBirthDateTimePicker.TabIndex = 18;
@@ -1239,7 +1241,7 @@ namespace GraphicalUserInterface
             // 
             customerEmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerEmailTextBox.Location = new System.Drawing.Point(45, 186);
-            customerEmailTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerEmailTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerEmailTextBox.Name = "customerEmailTextBox";
             customerEmailTextBox.Size = new System.Drawing.Size(368, 36);
             customerEmailTextBox.TabIndex = 11;
@@ -1258,7 +1260,7 @@ namespace GraphicalUserInterface
             // 
             customerPhoneNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerPhoneNumberTextBox.Location = new System.Drawing.Point(481, 186);
-            customerPhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerPhoneNumberTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerPhoneNumberTextBox.Name = "customerPhoneNumberTextBox";
             customerPhoneNumberTextBox.Size = new System.Drawing.Size(303, 36);
             customerPhoneNumberTextBox.TabIndex = 7;
@@ -1277,7 +1279,7 @@ namespace GraphicalUserInterface
             // 
             customerAddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerAddressTextBox.Location = new System.Drawing.Point(45, 279);
-            customerAddressTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerAddressTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerAddressTextBox.Name = "customerAddressTextBox";
             customerAddressTextBox.Size = new System.Drawing.Size(368, 36);
             customerAddressTextBox.TabIndex = 9;
@@ -1296,7 +1298,7 @@ namespace GraphicalUserInterface
             // 
             customerCicNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerCicNumberTextBox.Location = new System.Drawing.Point(481, 279);
-            customerCicNumberTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerCicNumberTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerCicNumberTextBox.Name = "customerCicNumberTextBox";
             customerCicNumberTextBox.Size = new System.Drawing.Size(303, 36);
             customerCicNumberTextBox.TabIndex = 5;
@@ -1315,7 +1317,7 @@ namespace GraphicalUserInterface
             // 
             customerNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             customerNameTextBox.Location = new System.Drawing.Point(45, 79);
-            customerNameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            customerNameTextBox.Margin = new System.Windows.Forms.Padding(6);
             customerNameTextBox.Name = "customerNameTextBox";
             customerNameTextBox.Size = new System.Drawing.Size(368, 36);
             customerNameTextBox.TabIndex = 3;
@@ -1356,9 +1358,9 @@ namespace GraphicalUserInterface
             groupBox10.Controls.Add(staffUsernameTextBox);
             groupBox10.Controls.Add(label14);
             groupBox10.Location = new System.Drawing.Point(965, 0);
-            groupBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            groupBox10.Margin = new System.Windows.Forms.Padding(4);
             groupBox10.Name = "groupBox10";
-            groupBox10.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            groupBox10.Padding = new System.Windows.Forms.Padding(4);
             groupBox10.Size = new System.Drawing.Size(596, 345);
             groupBox10.TabIndex = 4;
             groupBox10.TabStop = false;
@@ -1379,7 +1381,7 @@ namespace GraphicalUserInterface
             staffIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffIdTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             staffIdTextBox.Location = new System.Drawing.Point(35, 102);
-            staffIdTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffIdTextBox.Margin = new System.Windows.Forms.Padding(6);
             staffIdTextBox.Name = "staffIdTextBox";
             staffIdTextBox.Size = new System.Drawing.Size(214, 36);
             staffIdTextBox.TabIndex = 1;
@@ -1390,7 +1392,7 @@ namespace GraphicalUserInterface
             staffPermissionIdComboBox.Font = new System.Drawing.Font("Cambria", 12F);
             staffPermissionIdComboBox.FormattingEnabled = true;
             staffPermissionIdComboBox.Location = new System.Drawing.Point(35, 205);
-            staffPermissionIdComboBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffPermissionIdComboBox.Margin = new System.Windows.Forms.Padding(6);
             staffPermissionIdComboBox.Name = "staffPermissionIdComboBox";
             staffPermissionIdComboBox.Size = new System.Drawing.Size(214, 36);
             staffPermissionIdComboBox.TabIndex = 11;
@@ -1399,7 +1401,7 @@ namespace GraphicalUserInterface
             // 
             staffDisableCheckBox.AutoSize = true;
             staffDisableCheckBox.Location = new System.Drawing.Point(311, 208);
-            staffDisableCheckBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffDisableCheckBox.Margin = new System.Windows.Forms.Padding(6);
             staffDisableCheckBox.Name = "staffDisableCheckBox";
             staffDisableCheckBox.Size = new System.Drawing.Size(115, 32);
             staffDisableCheckBox.TabIndex = 13;
@@ -1431,7 +1433,7 @@ namespace GraphicalUserInterface
             staffUsernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffUsernameTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             staffUsernameTextBox.Location = new System.Drawing.Point(311, 100);
-            staffUsernameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffUsernameTextBox.Margin = new System.Windows.Forms.Padding(6);
             staffUsernameTextBox.Name = "staffUsernameTextBox";
             staffUsernameTextBox.Size = new System.Drawing.Size(260, 36);
             staffUsernameTextBox.TabIndex = 7;
@@ -1502,7 +1504,7 @@ namespace GraphicalUserInterface
             enableStaffBtn.Location = new System.Drawing.Point(621, 55);
             enableStaffBtn.Margin = new System.Windows.Forms.Padding(2);
             enableStaffBtn.Name = "enableStaffBtn";
-            enableStaffBtn.Size = new System.Drawing.Size(128, 54);
+            enableStaffBtn.Size = new System.Drawing.Size(135, 54);
             enableStaffBtn.TabIndex = 4;
             enableStaffBtn.Text = "Enable";
             enableStaffBtn.UseVisualStyleBackColor = true;
@@ -1512,9 +1514,9 @@ namespace GraphicalUserInterface
             // 
             clearScreenStaffBtn.AutoSize = true;
             clearScreenStaffBtn.Location = new System.Drawing.Point(808, 55);
-            clearScreenStaffBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            clearScreenStaffBtn.Margin = new System.Windows.Forms.Padding(4);
             clearScreenStaffBtn.Name = "clearScreenStaffBtn";
-            clearScreenStaffBtn.Size = new System.Drawing.Size(200, 54);
+            clearScreenStaffBtn.Size = new System.Drawing.Size(213, 54);
             clearScreenStaffBtn.TabIndex = 3;
             clearScreenStaffBtn.Text = "ClearScreen";
             clearScreenStaffBtn.UseVisualStyleBackColor = true;
@@ -1526,7 +1528,7 @@ namespace GraphicalUserInterface
             disableStaffBtn.Location = new System.Drawing.Point(422, 55);
             disableStaffBtn.Margin = new System.Windows.Forms.Padding(2);
             disableStaffBtn.Name = "disableStaffBtn";
-            disableStaffBtn.Size = new System.Drawing.Size(138, 54);
+            disableStaffBtn.Size = new System.Drawing.Size(143, 54);
             disableStaffBtn.TabIndex = 2;
             disableStaffBtn.Text = "Disable";
             disableStaffBtn.UseVisualStyleBackColor = true;
@@ -1585,7 +1587,7 @@ namespace GraphicalUserInterface
             // 
             staffBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             staffBirthDateTimePicker.Location = new System.Drawing.Point(396, 74);
-            staffBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(6);
             staffBirthDateTimePicker.Name = "staffBirthDateTimePicker";
             staffBirthDateTimePicker.Size = new System.Drawing.Size(252, 36);
             staffBirthDateTimePicker.TabIndex = 34;
@@ -1604,7 +1606,7 @@ namespace GraphicalUserInterface
             // 
             staffEmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffEmailTextBox.Location = new System.Drawing.Point(39, 184);
-            staffEmailTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffEmailTextBox.Margin = new System.Windows.Forms.Padding(6);
             staffEmailTextBox.Name = "staffEmailTextBox";
             staffEmailTextBox.Size = new System.Drawing.Size(297, 36);
             staffEmailTextBox.TabIndex = 32;
@@ -1653,7 +1655,7 @@ namespace GraphicalUserInterface
             // 
             staffPhoneTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffPhoneTextBox.Location = new System.Drawing.Point(396, 184);
-            staffPhoneTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffPhoneTextBox.Margin = new System.Windows.Forms.Padding(6);
             staffPhoneTextBox.Name = "staffPhoneTextBox";
             staffPhoneTextBox.Size = new System.Drawing.Size(252, 36);
             staffPhoneTextBox.TabIndex = 28;
@@ -1663,7 +1665,7 @@ namespace GraphicalUserInterface
             staffPositionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffPositionTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             staffPositionTextBox.Location = new System.Drawing.Point(692, 184);
-            staffPositionTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffPositionTextBox.Margin = new System.Windows.Forms.Padding(6);
             staffPositionTextBox.Name = "staffPositionTextBox";
             staffPositionTextBox.Size = new System.Drawing.Size(230, 36);
             staffPositionTextBox.TabIndex = 5;
@@ -1682,7 +1684,7 @@ namespace GraphicalUserInterface
             // 
             staffAddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffAddressTextBox.Location = new System.Drawing.Point(39, 279);
-            staffAddressTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffAddressTextBox.Margin = new System.Windows.Forms.Padding(6);
             staffAddressTextBox.Name = "staffAddressTextBox";
             staffAddressTextBox.Size = new System.Drawing.Size(610, 36);
             staffAddressTextBox.TabIndex = 30;
@@ -1713,7 +1715,7 @@ namespace GraphicalUserInterface
             staffNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             staffNameTextBox.Font = new System.Drawing.Font("Cambria", 12F);
             staffNameTextBox.Location = new System.Drawing.Point(39, 74);
-            staffNameTextBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            staffNameTextBox.Margin = new System.Windows.Forms.Padding(6);
             staffNameTextBox.Name = "staffNameTextBox";
             staffNameTextBox.Size = new System.Drawing.Size(297, 36);
             staffNameTextBox.TabIndex = 3;
@@ -1723,7 +1725,7 @@ namespace GraphicalUserInterface
             tabPageFinancialReport.Controls.Add(panel1);
             tabPageFinancialReport.Controls.Add(dataGridViewDailyReport);
             tabPageFinancialReport.Location = new System.Drawing.Point(4, 40);
-            tabPageFinancialReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            tabPageFinancialReport.Margin = new System.Windows.Forms.Padding(4);
             tabPageFinancialReport.Name = "tabPageFinancialReport";
             tabPageFinancialReport.Size = new System.Drawing.Size(1570, 900);
             tabPageFinancialReport.TabIndex = 6;
@@ -1739,7 +1741,7 @@ namespace GraphicalUserInterface
             panel1.Controls.Add(dailyReportDateTimePicker);
             panel1.Dock = System.Windows.Forms.DockStyle.Left;
             panel1.Location = new System.Drawing.Point(0, 0);
-            panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            panel1.Margin = new System.Windows.Forms.Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(642, 900);
             panel1.TabIndex = 9;
@@ -1749,9 +1751,9 @@ namespace GraphicalUserInterface
             groupBox11.Controls.Add(rbMonthly);
             groupBox11.Controls.Add(rbDaily);
             groupBox11.Location = new System.Drawing.Point(160, 179);
-            groupBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            groupBox11.Margin = new System.Windows.Forms.Padding(4);
             groupBox11.Name = "groupBox11";
-            groupBox11.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            groupBox11.Padding = new System.Windows.Forms.Padding(4);
             groupBox11.Size = new System.Drawing.Size(375, 156);
             groupBox11.TabIndex = 9;
             groupBox11.TabStop = false;
@@ -1761,7 +1763,7 @@ namespace GraphicalUserInterface
             // 
             rbMonthly.AutoSize = true;
             rbMonthly.Location = new System.Drawing.Point(206, 82);
-            rbMonthly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            rbMonthly.Margin = new System.Windows.Forms.Padding(4);
             rbMonthly.Name = "rbMonthly";
             rbMonthly.Size = new System.Drawing.Size(123, 32);
             rbMonthly.TabIndex = 1;
@@ -1774,7 +1776,7 @@ namespace GraphicalUserInterface
             // 
             rbDaily.AutoSize = true;
             rbDaily.Location = new System.Drawing.Point(30, 82);
-            rbDaily.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            rbDaily.Margin = new System.Windows.Forms.Padding(4);
             rbDaily.Name = "rbDaily";
             rbDaily.Size = new System.Drawing.Size(91, 32);
             rbDaily.TabIndex = 0;
@@ -1787,9 +1789,9 @@ namespace GraphicalUserInterface
             // 
             dailyReportBtn.AutoSize = true;
             dailyReportBtn.Location = new System.Drawing.Point(211, 546);
-            dailyReportBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            dailyReportBtn.Margin = new System.Windows.Forms.Padding(4);
             dailyReportBtn.Name = "dailyReportBtn";
-            dailyReportBtn.Size = new System.Drawing.Size(214, 54);
+            dailyReportBtn.Size = new System.Drawing.Size(221, 54);
             dailyReportBtn.TabIndex = 8;
             dailyReportBtn.Text = "Export Excel";
             dailyReportBtn.UseVisualStyleBackColor = true;
@@ -1809,7 +1811,7 @@ namespace GraphicalUserInterface
             // 
             dailyReportDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             dailyReportDateTimePicker.Location = new System.Drawing.Point(160, 419);
-            dailyReportDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            dailyReportDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             dailyReportDateTimePicker.Name = "dailyReportDateTimePicker";
             dailyReportDateTimePicker.Size = new System.Drawing.Size(374, 36);
             dailyReportDateTimePicker.TabIndex = 7;
@@ -1821,7 +1823,7 @@ namespace GraphicalUserInterface
             dataGridViewDailyReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewDailyReport.Dock = System.Windows.Forms.DockStyle.Right;
             dataGridViewDailyReport.Location = new System.Drawing.Point(652, 0);
-            dataGridViewDailyReport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            dataGridViewDailyReport.Margin = new System.Windows.Forms.Padding(4);
             dataGridViewDailyReport.Name = "dataGridViewDailyReport";
             dataGridViewDailyReport.RowHeadersWidth = 62;
             dataGridViewDailyReport.Size = new System.Drawing.Size(918, 900);
@@ -1858,7 +1860,7 @@ namespace GraphicalUserInterface
             // 
             saveRate.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             saveRate.Location = new System.Drawing.Point(1050, 555);
-            saveRate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            saveRate.Margin = new System.Windows.Forms.Padding(4);
             saveRate.Name = "saveRate";
             saveRate.Size = new System.Drawing.Size(155, 52);
             saveRate.TabIndex = 11;
@@ -1870,7 +1872,7 @@ namespace GraphicalUserInterface
             // 
             ratetxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             ratetxt.Location = new System.Drawing.Point(991, 412);
-            ratetxt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            ratetxt.Margin = new System.Windows.Forms.Padding(6);
             ratetxt.Name = "ratetxt";
             ratetxt.Size = new System.Drawing.Size(260, 36);
             ratetxt.TabIndex = 10;
@@ -1889,7 +1891,7 @@ namespace GraphicalUserInterface
             // 
             monthtxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             monthtxt.Location = new System.Drawing.Point(992, 296);
-            monthtxt.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            monthtxt.Margin = new System.Windows.Forms.Padding(6);
             monthtxt.Name = "monthtxt";
             monthtxt.ReadOnly = true;
             monthtxt.Size = new System.Drawing.Size(258, 36);
@@ -1909,9 +1911,9 @@ namespace GraphicalUserInterface
             // 
             groupBox5.Controls.Add(data_rate);
             groupBox5.Location = new System.Drawing.Point(125, 178);
-            groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            groupBox5.Margin = new System.Windows.Forms.Padding(4);
             groupBox5.Name = "groupBox5";
-            groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            groupBox5.Padding = new System.Windows.Forms.Padding(4);
             groupBox5.Size = new System.Drawing.Size(771, 438);
             groupBox5.TabIndex = 6;
             groupBox5.TabStop = false;
@@ -1930,7 +1932,7 @@ namespace GraphicalUserInterface
             data_rate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             data_rate.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             data_rate.Location = new System.Drawing.Point(8, 34);
-            data_rate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            data_rate.Margin = new System.Windows.Forms.Padding(4);
             data_rate.Name = "data_rate";
             data_rate.ReadOnly = true;
             data_rate.RowHeadersVisible = false;
@@ -1948,6 +1950,7 @@ namespace GraphicalUserInterface
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1578, 944);
             Controls.Add(tabControlStaffMenu);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new System.Windows.Forms.Padding(2);
             Name = "StaffMenuForm";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -2147,5 +2150,5 @@ namespace GraphicalUserInterface
 		private System.Windows.Forms.Label label28;
 		private System.Windows.Forms.TextBox staffBirthdayTxt;
 		private System.Windows.Forms.GroupBox gbFunction;
-	}
+    }
 }

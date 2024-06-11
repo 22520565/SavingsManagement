@@ -17,6 +17,7 @@ public partial class CustomerMenuForm : Form
     DataTable dt;
     private SavingOpeningInfo? savingDepositInfo = new SavingOpeningInfo();
     private SavingWithdrawInfo? savingWithdrawInfo = new SavingWithdrawInfo();
+    private ImageList imageList = new ImageList();
 
     public CustomerMenuForm()
     {
@@ -502,6 +503,26 @@ public partial class CustomerMenuForm : Form
     private void Form_MainMenu_Load(object sender, EventArgs e)
     {
         this.GoingBackToLoginForm = false;
+
+        this.imageList = new ImageList();
+        this.imageList.ImageSize = new Size(40, 40);
+        this.imageList.ColorDepth = ColorDepth.Depth32Bit;
+
+        this.imageList.Images.Add("Information", GraphicalUserInterface.Properties.Resources.info);
+        this.imageList.Images.Add("Saving", GraphicalUserInterface.Properties.Resources.ping_saving);
+        this.imageList.Images.Add("Transaction", GraphicalUserInterface.Properties.Resources.transaction);
+        this.imageList.Images.Add("Detail", GraphicalUserInterface.Properties.Resources.detail_saving);
+        this.imageList.Images.Add("Open", GraphicalUserInterface.Properties.Resources.open_saving);
+        this.imageList.Images.Add("Close", GraphicalUserInterface.Properties.Resources.close_saving);
+
+        this.tabControl1.ImageList = this.imageList;
+        this.tabInformation.ImageKey = "Information";
+        this.tabPageSaving.ImageKey = "Saving";
+        this.tabStatistical.ImageKey = "Transaction";
+        this.savingTabControl.ImageList = this.imageList;
+        this.detailsTabPage.ImageKey = "Detail";
+        this.openingTabPage.ImageKey = "Open";
+        this.closingTabPage.ImageKey = "Close";
     }
 
     private void MainMenuForm_FormClosing(object sender, FormClosingEventArgs e)
