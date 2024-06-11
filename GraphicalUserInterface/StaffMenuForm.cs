@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
@@ -495,7 +496,7 @@ public partial class StaffMenuForm : Form
         }
     }
 
-    public string PATH_TEMPLATE = Application.StartupPath + "\\Certificate1.xlsx";
+    public string PATH_TEMPLATE = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()).ToString()).ToString()) + "\\Resources\\Certificate1.xlsx";
     public string PATH_EXPORT = Application.StartupPath + "\\Certificate1Export.xlsx";
 
     private async void customerPrintButton_Click(object sender, EventArgs e)
@@ -514,6 +515,7 @@ public partial class StaffMenuForm : Form
 
         await MiniExcel.SaveAsByTemplateAsync(PATH_EXPORT, PATH_TEMPLATE, value, config);
         MessageBox.Show("Export successful");
+        export_Open(PATH_EXPORT);
     }
     #endregion
 
@@ -679,7 +681,7 @@ public partial class StaffMenuForm : Form
         }
     }
 
-    public string PATH_WITHDRAW = Application.StartupPath + "\\Certificate2.xlsx";
+    public string PATH_WITHDRAW = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(Application.StartupPath).ToString()).ToString()).ToString()) + "\\Resources\\Certificate2.xlsx";
     public string PATH_EXPORTWD = Application.StartupPath + "\\Certificate2Export.xlsx";
     private async void withdrawPrintButton_Click(object sender, EventArgs e)
     {
@@ -697,6 +699,7 @@ public partial class StaffMenuForm : Form
 
         await MiniExcel.SaveAsByTemplateAsync(PATH_EXPORTWD, PATH_WITHDRAW, value, config);
         MessageBox.Show("Export successful");
+        export_Open(PATH_EXPORTWD);
     }
     #endregion
 
@@ -1471,5 +1474,17 @@ public partial class StaffMenuForm : Form
             dailyReportDateTimePicker.ShowUpDown = false;
             loadDailyReport();
         }
+    }
+
+    public void export_Open(string filepath)
+    {
+        string fileExcel = filepath;
+        Excel.Application xlapp;
+        Excel.Workbook xlworkbook;
+        xlapp = new Excel.Application();
+
+        xlworkbook = xlapp.Workbooks.Open(fileExcel, 0, false, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+
+        xlapp.Visible = true;
     }
 }
