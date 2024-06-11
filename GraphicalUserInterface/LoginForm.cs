@@ -8,54 +8,50 @@ using Microsoft.IdentityModel.Tokens;
 
 public partial class LoginForm : Form
 {
-    public bool UserSuccessfullyAuthenticated { get; private set; } = false;
-
-    public bool StaffSuccessfullyAuthenticated { get; private set; } = false;
-
     public LoginForm()
     {
         InitializeComponent();
-		btnStaffLogin.BackColor = Color.FromArgb(23, 33, 175);
+        btnStaffLogin.BackColor = Color.FromArgb(23, 33, 175);
         btnCustomerLogin.BackColor = Color.FromArgb(23, 33, 175);
-	}
+    }
 
     private void linkLabel_SignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         this.Hide();
-        new CustomerSignUpForm().ShowDialog();
+        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.SignUp);
         this.Close();
     }
 
     private void linkLabel_ForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         this.Hide();
-        new ForgotPasswordForm().ShowDialog();
+        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Forgot);
         this.Close();
     }
 
     private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         this.Hide();
-        new ForgotPasswordForm().ShowDialog();
+        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.SignUp);
         this.Close();
     }
 
     private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         this.Hide();
-        new CustomerSignUpForm().ShowDialog();
+        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Forgot);
         this.Close();
     }
 
     private void btnCustomerLogin_MouseEnter(object sender, EventArgs e)
     {
         btnCustomerLogin.BackColor = Color.FromArgb(74, 131, 248);
-	}
+    }
 
     private void btnCustomerLogin_MouseLeave(object sender, EventArgs e)
     {
         btnCustomerLogin.BackColor = Color.FromArgb(23, 33, 175);
-	}
+    }
 
     private void btnExit_MouseEnter(object sender, EventArgs e)
     {
@@ -88,7 +84,6 @@ public partial class LoginForm : Form
     {
         try
         {
-            Cursor.Current = Cursors.WaitCursor;
             if (txtCustomerUsername.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Properties.Resources.UsernameBlankWarningString, Properties.Resources.WarningTitleString,
@@ -108,7 +103,7 @@ public partial class LoginForm : Form
                 }))
                 {
                     case CustomerAccounts.LoginResult.Success:
-                        this.UserSuccessfullyAuthenticated = true;
+                        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Customer);
                         this.Close();
                         break;
 
@@ -161,7 +156,7 @@ public partial class LoginForm : Form
 
     private void LoginForm_Load(object sender, EventArgs e)
     {
-        this.UserSuccessfullyAuthenticated = false;
+
         CustomerAccounts.LogOut();
         txtCustomerUsername.Text = Properties.Settings.Default.AcUsername;
         txtCustomerPassword.Text = Properties.Settings.Default.AcPassword;
@@ -173,7 +168,6 @@ public partial class LoginForm : Form
         cbCustomerShowPassword.FlatAppearance.BorderSize = 0;
         cbCustomerShowPassword.BackgroundImage = Image.FromFile("..\\..\\..\\Resources\\hide.png");
 
-        this.StaffSuccessfullyAuthenticated = false;
         StaffAccounts.LogOut();
         txtStaffUsername.Text = Properties.Settings.Default.StaffUsername;
         txtStaffPassword.Text = Properties.Settings.Default.StaffPassword;
@@ -209,7 +203,8 @@ public partial class LoginForm : Form
         }
         if (logOut.IsNotClosed == false)
         {
-            Application.Exit();
+            CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Exit);
+            this.Close();
         }
     }
 
@@ -249,18 +244,18 @@ public partial class LoginForm : Form
     private void btnStaffLogin_MouseEnter(object sender, EventArgs e)
     {
         btnStaffLogin.BackColor = Color.FromArgb(74, 131, 248);
-	}
+    }
 
     private void btnStaffLogin_MouseLeave(object sender, EventArgs e)
     {
         btnStaffLogin.BackColor = Color.FromArgb(23, 33, 175);
-	}
+    }
 
     private void btnStaffExit_MouseEnter(object sender, EventArgs e)
     {
-		btnStaffExit.BackColor = Color.FromArgb(226, 55, 52);
-		btnStaffExit.ForeColor = Color.White;
-	}
+        btnStaffExit.BackColor = Color.FromArgb(226, 55, 52);
+        btnStaffExit.ForeColor = Color.White;
+    }
 
     private void btnStaffExit_MouseLeave(object sender, EventArgs e)
     {
@@ -291,7 +286,8 @@ public partial class LoginForm : Form
         }
         if (logOut.IsNotClosed == false)
         {
-            Application.Exit();
+            CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Exit);
+            this.Close();
         }
     }
 
@@ -299,7 +295,6 @@ public partial class LoginForm : Form
     {
         try
         {
-            Cursor.Current = Cursors.WaitCursor;
             if (txtStaffUsername.Text.IsNullOrEmpty())
             {
                 MessageBox.Show(this, Properties.Resources.UsernameBlankWarningString, Properties.Resources.WarningTitleString,
@@ -319,7 +314,7 @@ public partial class LoginForm : Form
                 }))
                 {
                     case StaffAccounts.LoginResult.Success:
-                        this.StaffSuccessfullyAuthenticated = true;
+                        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Staff);
                         this.Close();
                         break;
 

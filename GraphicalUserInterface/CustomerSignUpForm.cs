@@ -91,7 +91,7 @@ public partial class CustomerSignUpForm : Form
     private void linkLabel_Login_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         this.Hide();
-        new LoginForm().ShowDialog();
+        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Login);
         this.Close();
     }
 
@@ -253,8 +253,7 @@ public partial class CustomerSignUpForm : Form
 
 		CreateAccount();
 		this.Hide();
-		LoginForm login = new LoginForm();
-		login.ShowDialog();
-		this.Close();
+        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Login);
+        this.Close();
 	}
 }

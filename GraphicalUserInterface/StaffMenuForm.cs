@@ -64,6 +64,7 @@ public partial class StaffMenuForm : Form
             bg.Dispose();
         }
         this.GoingBackToLoginForm = !logOut.IsNotClosed;
+        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Login);
         e.Cancel = logOut.IsNotClosed;
     }
 

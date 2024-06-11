@@ -15,35 +15,54 @@ internal static class Program
         // see https://aka.ms/applicationconfiguration.
 
         ApplicationConfiguration.Initialize();
-        do
+        bool exitApplication = false;
+        while (!exitApplication)
         {
-            using var loginForm = new LoginForm();
-            Application.Run(loginForm);
-            if (!loginForm.UserSuccessfullyAuthenticated && !loginForm.StaffSuccessfullyAuthenticated)
+            switch (CurrentForm.SelectedForm)
             {
-                break;
-            }
-            else
-            {
-                if (loginForm.UserSuccessfullyAuthenticated)
-                {
-                    using var customerMenuForm = new CustomerMenuForm();
-                    Application.Run(customerMenuForm);
-                    if (!customerMenuForm.GoingBackToLoginForm)
+                case CurrentForm.OpenForm.Login:
+                    using (LoginForm loginForm = new LoginForm())
                     {
-                        break;
+                        Application.Run(loginForm);
                     }
-                }
-                if (loginForm.StaffSuccessfullyAuthenticated)
-                {
-                    using var staffMenuForm = new StaffMenuForm();
-                    Application.Run(staffMenuForm);
-                    if (!staffMenuForm.GoingBackToLoginForm)
+                    break;
+
+                case CurrentForm.OpenForm.Customer:
+                    using (CustomerMenuForm customerMenuForm = new CustomerMenuForm())
                     {
-                        break;
+                        Application.Run(customerMenuForm);
                     }
-                }
+                    break;
+
+                case CurrentForm.OpenForm.Staff:
+                    using (StaffMenuForm staffMenuForm = new StaffMenuForm())
+                    {
+                        Application.Run(staffMenuForm);
+                    }
+                    break;
+
+                case CurrentForm.OpenForm.Forgot:
+                    using (ForgotPasswordForm forgotPasswordForm = new ForgotPasswordForm())
+                    {
+                        Application.Run(forgotPasswordForm);
+                    }
+                    break;
+
+                case CurrentForm.OpenForm.SignUp:
+                    using (CustomerSignUpForm customerSignUpForm = new CustomerSignUpForm())
+                    {
+                        Application.Run(customerSignUpForm);
+                    }
+                    break;
+
+                case CurrentForm.OpenForm.Exit:
+                    exitApplication = true;
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
+                    break;
             }
-        } while (true);
+        }
     }
 }

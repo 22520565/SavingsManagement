@@ -431,6 +431,7 @@ public partial class CustomerMenuForm : Form {
 			bg.Dispose();
 		}
 		this.GoingBackToLoginForm = !logOut.IsNotClosed;
-		e.Cancel = logOut.IsNotClosed;
+        CurrentForm.SetSelectedForm(CurrentForm.OpenForm.Login);
+        e.Cancel = logOut.IsNotClosed;
 	}
 }
