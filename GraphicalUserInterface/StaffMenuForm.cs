@@ -197,7 +197,7 @@ public partial class StaffMenuForm : Form
         {
             MessageBox.Show(Resources.NoCustomerLoggingInString);
         }
-
+        data_rate.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
     }
 
     private void AddRateEntry(SavingInterestRate interestRate)
