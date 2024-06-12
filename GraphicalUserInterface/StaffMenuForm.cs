@@ -335,6 +335,8 @@ public partial class StaffMenuForm : Form
         customerDepositIdTextBox.Text = "";
         customerDepositNameTextBox.Text = "";
         customerDepositCicNumberTextBox.Text = "";
+        this.customerDepositAmountNumeric.Maximum = decimal.MaxValue;
+        this.customerDepositAmountNumeric.Minimum = decimal.MinValue;
         customerDepositAmountNumeric.Value = customerDepositAmountNumeric.Minimum;
         customerDepositContentTextBox.Text = "";
     }
@@ -345,6 +347,8 @@ public partial class StaffMenuForm : Form
         customerWithdrawNameTextBox.Text = "";
         customerWithdrawCicNumberTextBox.Text = "";
         customerWithdrawBalanceTextBox.Text = "";
+        this.customerWithdrawAmountNumeric.Maximum = decimal.MaxValue;
+        this.customerWithdrawAmountNumeric.Minimum = decimal.MinValue;
         customerWithdrawAmountNumeric.Value = customerDepositAmountNumeric.Minimum;
         customerWithdrawContentTextBox.Text = "";
     }
@@ -383,6 +387,8 @@ public partial class StaffMenuForm : Form
     // FIXME
     public void loadDeposit()
     {
+        this.customerDepositAmountNumeric.Maximum = decimal.MaxValue;
+        this.customerDepositAmountNumeric.Minimum = decimal.MinValue;
         using var context = new SavingsManagementContext();
         var deposits = context.CashFlows
                             .Where(d => d.BalanceChanging > 0)
@@ -586,6 +592,8 @@ public partial class StaffMenuForm : Form
     #region Withdraw
     public void loadWithdraw()
     {
+        this.customerWithdrawAmountNumeric.Minimum = decimal.MinValue;
+        this.customerWithdrawAmountNumeric.Maximum = decimal.MaxValue;
         using (var context = new SavingsManagementContext())
         {
             var deposits = (from cf in context.CashFlows
