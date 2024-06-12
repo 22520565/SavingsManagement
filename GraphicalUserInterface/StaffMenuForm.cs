@@ -45,7 +45,7 @@ public partial class StaffMenuForm : Form
         rbDaily.Checked = true;
 
         this.tabPageChangeRegulations.BackColor = Color.FromArgb(221, 228, 244);
-        this.tabPageDeposit.BackColor = Color.FromArgb(221, 228, 244); 
+        this.tabPageDeposit.BackColor = Color.FromArgb(221, 228, 244);
         this.tabPageFinancialReport.BackColor = Color.FromArgb(221, 228, 244);
         this.tabPageInformation.BackColor = Color.FromArgb(221, 228, 244);
         this.tabPageManageCustomers.BackColor = Color.FromArgb(221, 228, 244);
@@ -53,15 +53,15 @@ public partial class StaffMenuForm : Form
         this.tabPageWithdraw.BackColor = Color.FromArgb(221, 228, 244);
 
         this.groupBox1.BackColor = Color.FromArgb(191, 212, 252);
-		this.groupBox10.BackColor = Color.FromArgb(191, 212, 252);
-		this.groupBox11.BackColor = Color.FromArgb(191, 212, 252);
-		this.groupBox2.BackColor = Color.FromArgb(191, 212, 252);
-		this.groupBox3.BackColor = Color.FromArgb(191, 212, 252);
-		this.groupBox4.BackColor = Color.FromArgb(191, 212, 252);
-		this.groupBox5.BackColor = Color.FromArgb(191, 212, 252);
-		this.groupBox6.BackColor = Color.FromArgb(191, 212, 252);
-		this.groupBox7.BackColor = Color.FromArgb(191, 212, 252);
-		this.groupBox8.BackColor = Color.FromArgb(191, 212, 252);
+        this.groupBox10.BackColor = Color.FromArgb(191, 212, 252);
+        this.groupBox11.BackColor = Color.FromArgb(191, 212, 252);
+        this.groupBox2.BackColor = Color.FromArgb(191, 212, 252);
+        this.groupBox3.BackColor = Color.FromArgb(191, 212, 252);
+        this.groupBox4.BackColor = Color.FromArgb(191, 212, 252);
+        this.groupBox5.BackColor = Color.FromArgb(191, 212, 252);
+        this.groupBox6.BackColor = Color.FromArgb(191, 212, 252);
+        this.groupBox7.BackColor = Color.FromArgb(191, 212, 252);
+        this.groupBox8.BackColor = Color.FromArgb(191, 212, 252);
 
         this.addCustomerBtn.BackColor = Color.FromArgb(23, 33, 175);
         this.addStaffBtn.BackColor = Color.FromArgb(23, 33, 175);
@@ -77,7 +77,7 @@ public partial class StaffMenuForm : Form
         this.saveCustomerBtn.BackColor = Color.FromArgb(23, 33, 175);
         this.saveStaffBtn.BackColor = Color.FromArgb(23, 33, 175);
         this.saveRate.BackColor = Color.FromArgb(23, 33, 175);
-	}
+    }
 
     private void StaffMenuForm_FormClosing(object sender, FormClosingEventArgs e)
     {
@@ -383,6 +383,8 @@ public partial class StaffMenuForm : Form
     // FIXME
     public void loadDeposit()
     {
+        this.customerDepositAmountNumeric.Maximum = decimal.MaxValue;
+        this.customerDepositAmountNumeric.Minimum = decimal.MinValue;
         using var context = new SavingsManagementContext();
         var deposits = context.CashFlows
                             .Where(d => d.BalanceChanging > 0)
@@ -404,29 +406,40 @@ public partial class StaffMenuForm : Form
         dataGridViewDeposit.Columns["CustomerName"].HeaderText = "Customer Name";
         dataGridViewDeposit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-        if (dataGridViewDeposit.Rows[0] != null) {
-			int i = 0;
-			int customerId;
-			if (int.TryParse(dataGridViewDeposit.Rows[i].Cells[1].Value.ToString(), out customerId)) {
-				customerDepositIdTextBox.Text = customerId.ToString();
-			}
-			customerDepositNameTextBox.Text = dataGridViewDeposit.Rows[i].Cells[2].Value.ToString();
-			using (var context2 = new SavingsManagementContext()) {
-				var customer = context2.CustomerAccounts.FirstOrDefault(c => c.Id == customerId); // Use == for comparison
-				if (customer != null) {
-					customerDepositCicNumberTextBox.Text = customer.CicNumber;
-				}
-			}
-			decimal amount;
-			if (decimal.TryParse(dataGridViewDeposit.Rows[i].Cells[4].Value.ToString(), out amount)) {
-				customerDepositAmountNumeric.Value = amount;
-			}
-			customerDepositContentTextBox.Text = dataGridViewDeposit.Rows[i].Cells[5].Value.ToString();
-		}
+        if (dataGridViewDeposit.Rows[0] != null)
+        {
+            int i = 0;
+            int customerId;
+            if (int.TryParse(dataGridViewDeposit.Rows[i].Cells[1].Value.ToString(), out customerId))
+            {
+                customerDepositIdTextBox.Text = customerId.ToString();
+            }
+            customerDepositNameTextBox.Text = dataGridViewDeposit.Rows[i].Cells[2].Value.ToString();
+            using (var context2 = new SavingsManagementContext())
+            {
+                var customer = context2.CustomerAccounts.FirstOrDefault(c => c.Id == customerId); // Use == for comparison
+                if (customer != null)
+                {
+                    customerDepositCicNumberTextBox.Text = customer.CicNumber;
+                }
+            }
+            decimal amount;
+            if (decimal.TryParse(dataGridViewDeposit.Rows[i].Cells[4].Value.ToString(), out amount))
+            {
+                customerDepositAmountNumeric.Value = amount;
+            }
+            customerDepositContentTextBox.Text = dataGridViewDeposit.Rows[i].Cells[5].Value.ToString();
+        }
     }
 
-    private void dataGridViewDeposit_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+    private void dataGridViewDeposit_CellClick(object sender, DataGridViewCellEventArgs e)
     {
+        this.customerDepositAmountNumeric.Maximum = decimal.MaxValue;
+        this.customerDepositAmountNumeric.Minimum = decimal.MinValue;
+        this.customerDepositAmountNumeric.Enabled = false;
+        this.customerDepositContentTextBox.Enabled = false;
+        this.customerDepositButton.Enabled = false;
         int i = e.RowIndex;
         int customerId;
         if (int.TryParse(dataGridViewDeposit.Rows[i].Cells[1].Value.ToString(), out customerId))
@@ -449,7 +462,6 @@ public partial class StaffMenuForm : Form
         }
         customerDepositContentTextBox.Text = dataGridViewDeposit.Rows[i].Cells[5].Value.ToString();
     }
-
 
     private void reportDepositBtn_Click(object sender, EventArgs e)
     {
@@ -576,6 +588,8 @@ public partial class StaffMenuForm : Form
     #region Withdraw
     public void loadWithdraw()
     {
+        this.customerWithdrawAmountNumeric.Minimum = decimal.MinValue;
+        this.customerWithdrawAmountNumeric.Maximum = decimal.MaxValue;
         using (var context = new SavingsManagementContext())
         {
             var deposits = (from cf in context.CashFlows
@@ -596,30 +610,40 @@ public partial class StaffMenuForm : Form
             dataGridViewWithdraw.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
-		if (dataGridViewWithdraw.Rows[0] != null) {
-			int i = 0;
-			int customerId;
-			if (int.TryParse(dataGridViewWithdraw.Rows[i].Cells[1].Value.ToString(), out customerId)) {
-				customerWithdrawIdTextBox.Text = customerId.ToString();
-			}
-			customerWithdrawNameTextBox.Text = dataGridViewWithdraw.Rows[i].Cells[2].Value.ToString();
-			using (var context2 = new SavingsManagementContext()) {
-				var customer = context2.CustomerAccounts.FirstOrDefault(c => c.Id == customerId); // Use == for comparison
-				if (customer != null) {
-					customerWithdrawCicNumberTextBox.Text = customer.CicNumber;
-					customerWithdrawBalanceTextBox.Text = customer.Balance.ToString();
-				}
-			}
-			decimal amount;
-			if (decimal.TryParse(dataGridViewWithdraw.Rows[i].Cells[4].Value.ToString(), out amount)) {
-				customerWithdrawAmountNumeric.Value = amount;
-			}
-			customerWithdrawContentTextBox.Text = dataGridViewWithdraw.Rows[i].Cells[5].Value.ToString();
-		}
-	}
+        if (dataGridViewWithdraw.Rows[0] != null)
+        {
+            int i = 0;
+            int customerId;
+            if (int.TryParse(dataGridViewWithdraw.Rows[i].Cells[1].Value.ToString(), out customerId))
+            {
+                customerWithdrawIdTextBox.Text = customerId.ToString();
+            }
+            customerWithdrawNameTextBox.Text = dataGridViewWithdraw.Rows[i].Cells[2].Value.ToString();
+            using (var context2 = new SavingsManagementContext())
+            {
+                var customer = context2.CustomerAccounts.FirstOrDefault(c => c.Id == customerId); // Use == for comparison
+                if (customer != null)
+                {
+                    customerWithdrawCicNumberTextBox.Text = customer.CicNumber;
+                    customerWithdrawBalanceTextBox.Text = customer.Balance.ToString();
+                }
+            }
+            decimal amount;
+            if (decimal.TryParse(dataGridViewWithdraw.Rows[i].Cells[4].Value.ToString(), out amount))
+            {
+                customerWithdrawAmountNumeric.Value = -amount;
+            }
+            customerWithdrawContentTextBox.Text = dataGridViewWithdraw.Rows[i].Cells[5].Value.ToString();
+        }
+    }
 
-    private void dataGridViewWithdraw_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    private void dataGridViewWithdraw_CellClick(object sender, DataGridViewCellEventArgs e)
     {
+        this.customerWithdrawAmountNumeric.Minimum = decimal.MinValue;
+        this.customerWithdrawAmountNumeric.Maximum = decimal.MaxValue;
+        this.customerWithdrawAmountNumeric.Enabled = false;
+        this.customerWithdrawContentTextBox.Enabled = false;
+        this.customerWithdrawButton.Enabled = false;
         int i = e.RowIndex;
         int customerId;
         if (int.TryParse(dataGridViewWithdraw.Rows[i].Cells[1].Value.ToString(), out customerId))
@@ -639,7 +663,7 @@ public partial class StaffMenuForm : Form
         decimal amount;
         if (decimal.TryParse(dataGridViewWithdraw.Rows[i].Cells[4].Value.ToString(), out amount))
         {
-            customerWithdrawAmountNumeric.Value = amount;
+            customerWithdrawAmountNumeric.Value = -amount;
         }
         customerWithdrawContentTextBox.Text = dataGridViewWithdraw.Rows[i].Cells[5].Value.ToString();
     }
@@ -800,23 +824,25 @@ public partial class StaffMenuForm : Form
             dataGridViewCustomer.DataSource = customers;
             dataGridViewCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            if (dataGridViewCustomer.Rows[0] != null) {
-				int i = 0;
-				customerIdTextBox.Text = dataGridViewCustomer.Rows[i].Cells[0].Value.ToString();
-				customerNameTextBox.Text = dataGridViewCustomer.Rows[i].Cells[1].Value.ToString();
-				customerMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[2].Value);
-				customerCicNumberTextBox.Text = dataGridViewCustomer.Rows[i].Cells[3].Value.ToString();
-				// Chuyển đổi giá trị ngày tháng từ chuỗi thành kiểu DateTime trước khi gán cho DateTimePicker
-				if (DateTime.TryParse(dataGridViewCustomer.Rows[i].Cells[4].Value.ToString(), out DateTime birthDate)) {
-					customerBirthDateTimePicker.Value = birthDate;
-				}
-				customerPhoneNumberTextBox.Text = dataGridViewCustomer.Rows[i].Cells[5].Value.ToString();
-				customerAddressTextBox.Text = dataGridViewCustomer.Rows[i].Cells[6].Value.ToString();
-				customerEmailTextBox.Text = dataGridViewCustomer.Rows[i].Cells[7].Value.ToString();
-				customerUsernameTextBox.Text = dataGridViewCustomer.Rows[i].Cells[8].Value.ToString();
-				customerBalanceTextBox.Text = dataGridViewCustomer.Rows[i].Cells[9].Value.ToString();
-				customerDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[10].Value);
-			}
+            if (dataGridViewCustomer.Rows[0] != null)
+            {
+                int i = 0;
+                customerIdTextBox.Text = dataGridViewCustomer.Rows[i].Cells[0].Value.ToString();
+                customerNameTextBox.Text = dataGridViewCustomer.Rows[i].Cells[1].Value.ToString();
+                customerMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[2].Value);
+                customerCicNumberTextBox.Text = dataGridViewCustomer.Rows[i].Cells[3].Value.ToString();
+                // Chuyển đổi giá trị ngày tháng từ chuỗi thành kiểu DateTime trước khi gán cho DateTimePicker
+                if (DateTime.TryParse(dataGridViewCustomer.Rows[i].Cells[4].Value.ToString(), out DateTime birthDate))
+                {
+                    customerBirthDateTimePicker.Value = birthDate;
+                }
+                customerPhoneNumberTextBox.Text = dataGridViewCustomer.Rows[i].Cells[5].Value.ToString();
+                customerAddressTextBox.Text = dataGridViewCustomer.Rows[i].Cells[6].Value.ToString();
+                customerEmailTextBox.Text = dataGridViewCustomer.Rows[i].Cells[7].Value.ToString();
+                customerUsernameTextBox.Text = dataGridViewCustomer.Rows[i].Cells[8].Value.ToString();
+                customerBalanceTextBox.Text = dataGridViewCustomer.Rows[i].Cells[9].Value.ToString();
+                customerDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[10].Value);
+            }
         }
     }
 
@@ -1140,33 +1166,36 @@ public partial class StaffMenuForm : Form
             staffPermissionIdComboBox.ValueMember = "Id";
         }
 
-        if (dataGridViewStaff.Rows[0] != null) {
-			int i = 0;
-			staffIdTextBox.Text = dataGridViewStaff.Rows[i].Cells[0].Value.ToString();
-			staffNameTextBox.Text = dataGridViewStaff.Rows[i].Cells[1].Value.ToString();
-			staffMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[2].Value);
-			// Chuyển đổi giá trị ngày tháng từ chuỗi thành kiểu DateTime trước khi gán cho DateTimePicker
-			if (DateTime.TryParse(dataGridViewStaff.Rows[i].Cells[3].Value.ToString(), out DateTime birthDate)) {
-				staffBirthDateTimePicker.Value = birthDate;
-			}
-			staffPhoneTextBox.Text = dataGridViewStaff.Rows[i].Cells[4].Value.ToString();
-			staffAddressTextBox.Text = dataGridViewStaff.Rows[i].Cells[5].Value.ToString();
-			staffEmailTextBox.Text = dataGridViewStaff.Rows[i].Cells[6].Value.ToString();
-			staffPositionTextBox.Text = dataGridViewStaff.Rows[i].Cells[7].Value.ToString();
-			staffUsernameTextBox.Text = dataGridViewStaff.Rows[i].Cells[8].Value.ToString();
-			switch (dataGridViewStaff.Rows[i].Cells[9].Value) {
-				case 1:
-					staffPermissionIdComboBox.Text = "1 - Admin";
-					break;
-				case 2:
-					staffPermissionIdComboBox.Text = "2 - Staff";
-					break;
-				default:
-					MessageBox.Show("Can not find type of staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-					return;
-			}
-			staffDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[10].Value);
-		}
+        if (dataGridViewStaff.Rows[0] != null)
+        {
+            int i = 0;
+            staffIdTextBox.Text = dataGridViewStaff.Rows[i].Cells[0].Value.ToString();
+            staffNameTextBox.Text = dataGridViewStaff.Rows[i].Cells[1].Value.ToString();
+            staffMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[2].Value);
+            // Chuyển đổi giá trị ngày tháng từ chuỗi thành kiểu DateTime trước khi gán cho DateTimePicker
+            if (DateTime.TryParse(dataGridViewStaff.Rows[i].Cells[3].Value.ToString(), out DateTime birthDate))
+            {
+                staffBirthDateTimePicker.Value = birthDate;
+            }
+            staffPhoneTextBox.Text = dataGridViewStaff.Rows[i].Cells[4].Value.ToString();
+            staffAddressTextBox.Text = dataGridViewStaff.Rows[i].Cells[5].Value.ToString();
+            staffEmailTextBox.Text = dataGridViewStaff.Rows[i].Cells[6].Value.ToString();
+            staffPositionTextBox.Text = dataGridViewStaff.Rows[i].Cells[7].Value.ToString();
+            staffUsernameTextBox.Text = dataGridViewStaff.Rows[i].Cells[8].Value.ToString();
+            switch (dataGridViewStaff.Rows[i].Cells[9].Value)
+            {
+                case 1:
+                    staffPermissionIdComboBox.Text = "1 - Admin";
+                    break;
+                case 2:
+                    staffPermissionIdComboBox.Text = "2 - Staff";
+                    break;
+                default:
+                    MessageBox.Show("Can not find type of staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+            staffDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[10].Value);
+        }
     }
 
     private void dataGridViewStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
