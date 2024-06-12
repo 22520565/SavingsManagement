@@ -335,6 +335,8 @@ public partial class StaffMenuForm : Form
         customerDepositIdTextBox.Text = "";
         customerDepositNameTextBox.Text = "";
         customerDepositCicNumberTextBox.Text = "";
+        this.customerDepositAmountNumeric.Maximum = decimal.MaxValue;
+        this.customerDepositAmountNumeric.Minimum = decimal.MinValue;
         customerDepositAmountNumeric.Value = customerDepositAmountNumeric.Minimum;
         customerDepositContentTextBox.Text = "";
     }
@@ -345,6 +347,8 @@ public partial class StaffMenuForm : Form
         customerWithdrawNameTextBox.Text = "";
         customerWithdrawCicNumberTextBox.Text = "";
         customerWithdrawBalanceTextBox.Text = "";
+        this.customerWithdrawAmountNumeric.Maximum = decimal.MaxValue;
+        this.customerWithdrawAmountNumeric.Minimum = decimal.MinValue;
         customerWithdrawAmountNumeric.Value = customerDepositAmountNumeric.Minimum;
         customerWithdrawContentTextBox.Text = "";
     }

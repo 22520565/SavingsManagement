@@ -31,12 +31,12 @@ public static class Savings
         using var context = new SavingsManagementContext();
 
         decimal? currentBalance = CustomerAccounts.CurrentCustomerBalance;
-        if (currentBalance is null || savingOpeningInfo.Balance > currentBalance)
+        if (currentBalance is null || savingOpeningInfo.Balance > currentBalance || savingOpeningInfo.Balance <= decimal.Zero)
         {
             throw new ArgumentException("The balance is not enough to open a saving");
         }
 
-        if (currentBalance < Configurations.MinAmountOpeningSaving || currentBalance > Configurations.MaxAmountOpeningSaving)
+        if (savingOpeningInfo.Balance < Configurations.MinAmountOpeningSaving || savingOpeningInfo.Balance > Configurations.MaxAmountOpeningSaving)
         {
             throw new ArgumentException("The amount to open a saving is not in a range! Please try again.");
         }
