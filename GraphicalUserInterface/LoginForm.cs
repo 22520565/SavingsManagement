@@ -96,6 +96,20 @@ public partial class LoginForm : Form
             }
             else
             {
+
+                if (cbCustomerRememberInfo.Checked)
+                {
+                    Properties.Settings.Default.AcUsername = txtCustomerUsername.Text;
+                    Properties.Settings.Default.AcPassword = txtCustomerPassword.Text;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    Properties.Settings.Default.AcUsername = string.Empty;
+                    Properties.Settings.Default.AcPassword = string.Empty;
+                    Properties.Settings.Default.Save();
+                }
+
                 switch (CustomerAccounts.Login(new LoginInfo
                 {
                     Username = txtCustomerUsername.Text,
@@ -137,21 +151,8 @@ public partial class LoginForm : Form
 
     private void cbCustomerRememberInfo_CheckedChanged(object sender, EventArgs e)
     {
-        if (!string.IsNullOrEmpty(txtCustomerUsername.Text) && !string.IsNullOrEmpty(txtCustomerPassword.Text))
-        {
-            if (cbCustomerRememberInfo.Checked)
-            {
-                Properties.Settings.Default.AcUsername = txtCustomerUsername.Text;
-                Properties.Settings.Default.AcPassword = txtCustomerPassword.Text;
-                Properties.Settings.Default.Save();
-            }
-            else
-            {
-                Properties.Settings.Default.AcUsername = string.Empty;
-                Properties.Settings.Default.AcPassword = string.Empty;
-                Properties.Settings.Default.Save();
-            }
-        }
+        
+        
     }
 
     private void LoginForm_Load(object sender, EventArgs e)
@@ -222,25 +223,6 @@ public partial class LoginForm : Form
         }
     }
 
-    private void cbStaffRemeberInfo_CheckedChanged(object sender, EventArgs e)
-    {
-        if (!string.IsNullOrEmpty(txtStaffUsername.Text) && !string.IsNullOrEmpty(txtStaffPassword.Text))
-        {
-            if (cbStaffRemeberInfo.Checked)
-            {
-                Properties.Settings.Default.StaffUsername = txtStaffUsername.Text;
-                Properties.Settings.Default.StaffPassword = txtStaffPassword.Text;
-                Properties.Settings.Default.Save();
-            }
-            else
-            {
-                Properties.Settings.Default.StaffUsername = string.Empty;
-                Properties.Settings.Default.StaffPassword = string.Empty;
-                Properties.Settings.Default.Save();
-            }
-        }
-    }
-
     private void btnStaffLogin_MouseEnter(object sender, EventArgs e)
     {
         btnStaffLogin.BackColor = Color.FromArgb(74, 131, 248);
@@ -307,6 +289,18 @@ public partial class LoginForm : Form
             }
             else
             {
+                if (cbStaffRemeberInfo.Checked)
+                {
+                    Properties.Settings.Default.StaffUsername = txtStaffUsername.Text;
+                    Properties.Settings.Default.StaffPassword = txtStaffPassword.Text;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    Properties.Settings.Default.StaffUsername = string.Empty;
+                    Properties.Settings.Default.StaffPassword = string.Empty;
+                    Properties.Settings.Default.Save();
+                }
                 switch (StaffAccounts.Login(new LoginInfo
                 {
                     Username = txtStaffUsername.Text,

@@ -299,7 +299,6 @@
             cbCustomerRememberInfo.TabIndex = 6;
             cbCustomerRememberInfo.Text = "Remember me";
             cbCustomerRememberInfo.UseVisualStyleBackColor = true;
-            cbCustomerRememberInfo.CheckedChanged += cbCustomerRememberInfo_CheckedChanged;
             // 
             // btnCustomerLogin
             // 
@@ -535,7 +534,6 @@
             cbStaffRemeberInfo.TabIndex = 4;
             cbStaffRemeberInfo.Text = "Remember me";
             cbStaffRemeberInfo.UseVisualStyleBackColor = true;
-            cbStaffRemeberInfo.CheckedChanged += cbStaffRemeberInfo_CheckedChanged;
             // 
             // btnStaffLogin
             // 
