@@ -701,7 +701,9 @@ namespace GraphicalUserInterface
 			// reportDepositBtn
 			// 
 			reportDepositBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			reportDepositBtn.Cursor = System.Windows.Forms.Cursors.Hand;
 			reportDepositBtn.Font = new System.Drawing.Font("Cambria", 13.8F);
+			reportDepositBtn.ForeColor = System.Drawing.Color.White;
 			reportDepositBtn.Location = new System.Drawing.Point(23, 521);
 			reportDepositBtn.Margin = new System.Windows.Forms.Padding(2);
 			reportDepositBtn.Name = "reportDepositBtn";
@@ -715,6 +717,7 @@ namespace GraphicalUserInterface
 			// customerPrintButton
 			// 
 			customerPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			customerPrintButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			customerPrintButton.Enabled = false;
 			customerPrintButton.Font = new System.Drawing.Font("Cambria", 13.8F);
 			customerPrintButton.Location = new System.Drawing.Point(158, 521);
@@ -729,6 +732,7 @@ namespace GraphicalUserInterface
 			// customerDepositButton
 			// 
 			customerDepositButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			customerDepositButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			customerDepositButton.Enabled = false;
 			customerDepositButton.Font = new System.Drawing.Font("Cambria", 13.8F);
 			customerDepositButton.Location = new System.Drawing.Point(296, 521);
@@ -878,7 +882,9 @@ namespace GraphicalUserInterface
 			// reportWithdrawBtn
 			// 
 			reportWithdrawBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			reportWithdrawBtn.Cursor = System.Windows.Forms.Cursors.Hand;
 			reportWithdrawBtn.Font = new System.Drawing.Font("Cambria", 12F);
+			reportWithdrawBtn.ForeColor = System.Drawing.Color.White;
 			reportWithdrawBtn.Location = new System.Drawing.Point(25, 598);
 			reportWithdrawBtn.Margin = new System.Windows.Forms.Padding(2);
 			reportWithdrawBtn.Name = "reportWithdrawBtn";
@@ -892,6 +898,7 @@ namespace GraphicalUserInterface
 			// withdrawPrintButton
 			// 
 			withdrawPrintButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			withdrawPrintButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			withdrawPrintButton.Enabled = false;
 			withdrawPrintButton.Font = new System.Drawing.Font("Cambria", 12F);
 			withdrawPrintButton.Location = new System.Drawing.Point(157, 598);
@@ -906,6 +913,7 @@ namespace GraphicalUserInterface
 			// customerWithdrawButton
 			// 
 			customerWithdrawButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			customerWithdrawButton.Cursor = System.Windows.Forms.Cursors.Hand;
 			customerWithdrawButton.Enabled = false;
 			customerWithdrawButton.Font = new System.Drawing.Font("Cambria", 12F);
 			customerWithdrawButton.Location = new System.Drawing.Point(289, 598);
@@ -1074,6 +1082,8 @@ namespace GraphicalUserInterface
 			// enableCustomerBtn
 			// 
 			enableCustomerBtn.AutoSize = true;
+			enableCustomerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			enableCustomerBtn.ForeColor = System.Drawing.Color.White;
 			enableCustomerBtn.Location = new System.Drawing.Point(456, 33);
 			enableCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
 			enableCustomerBtn.Name = "enableCustomerBtn";
@@ -1086,6 +1096,8 @@ namespace GraphicalUserInterface
 			// clearScreenCustomerBtn
 			// 
 			clearScreenCustomerBtn.AutoSize = true;
+			clearScreenCustomerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			clearScreenCustomerBtn.ForeColor = System.Drawing.Color.White;
 			clearScreenCustomerBtn.Location = new System.Drawing.Point(587, 33);
 			clearScreenCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
 			clearScreenCustomerBtn.Name = "clearScreenCustomerBtn";
@@ -1098,6 +1110,8 @@ namespace GraphicalUserInterface
 			// disableCustomerBtn
 			// 
 			disableCustomerBtn.AutoSize = true;
+			disableCustomerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			disableCustomerBtn.ForeColor = System.Drawing.Color.White;
 			disableCustomerBtn.Location = new System.Drawing.Point(308, 33);
 			disableCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
 			disableCustomerBtn.Name = "disableCustomerBtn";
@@ -1110,6 +1124,8 @@ namespace GraphicalUserInterface
 			// saveCustomerBtn
 			// 
 			saveCustomerBtn.AutoSize = true;
+			saveCustomerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			saveCustomerBtn.ForeColor = System.Drawing.Color.White;
 			saveCustomerBtn.Location = new System.Drawing.Point(174, 33);
 			saveCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
 			saveCustomerBtn.Name = "saveCustomerBtn";
@@ -1122,6 +1138,8 @@ namespace GraphicalUserInterface
 			// addCustomerBtn
 			// 
 			addCustomerBtn.AutoSize = true;
+			addCustomerBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			addCustomerBtn.ForeColor = System.Drawing.Color.White;
 			addCustomerBtn.Location = new System.Drawing.Point(45, 33);
 			addCustomerBtn.Margin = new System.Windows.Forms.Padding(2);
 			addCustomerBtn.Name = "addCustomerBtn";
@@ -1461,6 +1479,8 @@ namespace GraphicalUserInterface
 			// enableStaffBtn
 			// 
 			enableStaffBtn.AutoSize = true;
+			enableStaffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			enableStaffBtn.ForeColor = System.Drawing.Color.White;
 			enableStaffBtn.Location = new System.Drawing.Point(497, 44);
 			enableStaffBtn.Margin = new System.Windows.Forms.Padding(2);
 			enableStaffBtn.Name = "enableStaffBtn";
@@ -1473,6 +1493,8 @@ namespace GraphicalUserInterface
 			// clearScreenStaffBtn
 			// 
 			clearScreenStaffBtn.AutoSize = true;
+			clearScreenStaffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			clearScreenStaffBtn.ForeColor = System.Drawing.Color.White;
 			clearScreenStaffBtn.Location = new System.Drawing.Point(646, 44);
 			clearScreenStaffBtn.Name = "clearScreenStaffBtn";
 			clearScreenStaffBtn.Size = new System.Drawing.Size(170, 43);
@@ -1484,6 +1506,8 @@ namespace GraphicalUserInterface
 			// disableStaffBtn
 			// 
 			disableStaffBtn.AutoSize = true;
+			disableStaffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			disableStaffBtn.ForeColor = System.Drawing.Color.White;
 			disableStaffBtn.Location = new System.Drawing.Point(338, 44);
 			disableStaffBtn.Margin = new System.Windows.Forms.Padding(2);
 			disableStaffBtn.Name = "disableStaffBtn";
@@ -1496,6 +1520,8 @@ namespace GraphicalUserInterface
 			// saveStaffBtn
 			// 
 			saveStaffBtn.AutoSize = true;
+			saveStaffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			saveStaffBtn.ForeColor = System.Drawing.Color.White;
 			saveStaffBtn.Location = new System.Drawing.Point(196, 44);
 			saveStaffBtn.Margin = new System.Windows.Forms.Padding(2);
 			saveStaffBtn.Name = "saveStaffBtn";
@@ -1508,6 +1534,8 @@ namespace GraphicalUserInterface
 			// addStaffBtn
 			// 
 			addStaffBtn.AutoSize = true;
+			addStaffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			addStaffBtn.ForeColor = System.Drawing.Color.White;
 			addStaffBtn.Location = new System.Drawing.Point(56, 44);
 			addStaffBtn.Margin = new System.Windows.Forms.Padding(2);
 			addStaffBtn.Name = "addStaffBtn";
@@ -1741,9 +1769,12 @@ namespace GraphicalUserInterface
 			// dailyReportBtn
 			// 
 			dailyReportBtn.AutoSize = true;
+			dailyReportBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+			dailyReportBtn.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			dailyReportBtn.ForeColor = System.Drawing.Color.White;
 			dailyReportBtn.Location = new System.Drawing.Point(169, 437);
 			dailyReportBtn.Name = "dailyReportBtn";
-			dailyReportBtn.Size = new System.Drawing.Size(177, 43);
+			dailyReportBtn.Size = new System.Drawing.Size(185, 54);
 			dailyReportBtn.TabIndex = 8;
 			dailyReportBtn.Text = "Export Excel";
 			dailyReportBtn.UseVisualStyleBackColor = true;
@@ -1808,7 +1839,9 @@ namespace GraphicalUserInterface
 			// 
 			// saveRate
 			// 
+			saveRate.Cursor = System.Windows.Forms.Cursors.Hand;
 			saveRate.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+			saveRate.ForeColor = System.Drawing.Color.White;
 			saveRate.Location = new System.Drawing.Point(840, 444);
 			saveRate.Name = "saveRate";
 			saveRate.Size = new System.Drawing.Size(124, 42);
