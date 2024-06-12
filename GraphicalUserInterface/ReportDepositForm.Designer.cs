@@ -20,43 +20,44 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDepositForm));
-            reportViewerDeposit = new Microsoft.Reporting.WinForms.ReportViewer();
-            SuspendLayout();
-            // 
-            // reportViewerDeposit
-            // 
-            reportViewerDeposit.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportViewerDeposit.Location = new System.Drawing.Point(0, 0);
-            reportViewerDeposit.Name = "reportViewerDeposit";
-            reportViewerDeposit.ServerReport.BearerToken = null;
-            reportViewerDeposit.Size = new System.Drawing.Size(1378, 844);
-            reportViewerDeposit.TabIndex = 0;
-            // 
-            // ReportDepositForm
-            // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1378, 844);
-            Controls.Add(reportViewerDeposit);
-            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
-            Name = "ReportDepositForm";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Report Deposit";
-            Load += ReportDepositForm_Load;
-            ResumeLayout(false);
-        }
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent() {
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDepositForm));
+			reportViewerDeposit = new Microsoft.Reporting.WinForms.ReportViewer();
+			SuspendLayout();
+			// 
+			// reportViewerDeposit
+			// 
+			reportViewerDeposit.Dock = System.Windows.Forms.DockStyle.Fill;
+			reportViewerDeposit.Location = new System.Drawing.Point(0, 0);
+			reportViewerDeposit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			reportViewerDeposit.Name = "reportViewerDeposit";
+			reportViewerDeposit.ServerReport.BearerToken = null;
+			reportViewerDeposit.Size = new System.Drawing.Size(572, 633);
+			reportViewerDeposit.TabIndex = 0;
+			// 
+			// ReportDepositForm
+			// 
+			AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+			AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			ClientSize = new System.Drawing.Size(572, 633);
+			Controls.Add(reportViewerDeposit);
+			Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+			Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			Name = "ReportDepositForm";
+			StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			Text = "Report Deposit";
+			Load += ReportDepositForm_Load;
+			ResumeLayout(false);
+		}
 
-        #endregion
+		#endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewerDeposit;
+		private Microsoft.Reporting.WinForms.ReportViewer reportViewerDeposit;
     }
 }
