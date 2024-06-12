@@ -62,6 +62,21 @@ public partial class StaffMenuForm : Form
 		this.groupBox6.BackColor = Color.FromArgb(191, 212, 252);
 		this.groupBox7.BackColor = Color.FromArgb(191, 212, 252);
 		this.groupBox8.BackColor = Color.FromArgb(191, 212, 252);
+
+        this.addCustomerBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.addStaffBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.clearScreenCustomerBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.clearScreenStaffBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.dailyReportBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.disableCustomerBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.disableStaffBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.enableCustomerBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.enableStaffBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.reportDepositBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.reportWithdrawBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.saveCustomerBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.saveStaffBtn.BackColor = Color.FromArgb(23, 33, 175);
+        this.saveRate.BackColor = Color.FromArgb(23, 33, 175);
 	}
 
     private void StaffMenuForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -388,6 +403,26 @@ public partial class StaffMenuForm : Form
         dataGridViewDeposit.DataSource = deposits;
         dataGridViewDeposit.Columns["CustomerName"].HeaderText = "Customer Name";
         dataGridViewDeposit.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+        if (dataGridViewDeposit.Rows[0] != null) {
+			int i = 0;
+			int customerId;
+			if (int.TryParse(dataGridViewDeposit.Rows[i].Cells[1].Value.ToString(), out customerId)) {
+				customerDepositIdTextBox.Text = customerId.ToString();
+			}
+			customerDepositNameTextBox.Text = dataGridViewDeposit.Rows[i].Cells[2].Value.ToString();
+			using (var context2 = new SavingsManagementContext()) {
+				var customer = context2.CustomerAccounts.FirstOrDefault(c => c.Id == customerId); // Use == for comparison
+				if (customer != null) {
+					customerDepositCicNumberTextBox.Text = customer.CicNumber;
+				}
+			}
+			decimal amount;
+			if (decimal.TryParse(dataGridViewDeposit.Rows[i].Cells[4].Value.ToString(), out amount)) {
+				customerDepositAmountNumeric.Value = amount;
+			}
+			customerDepositContentTextBox.Text = dataGridViewDeposit.Rows[i].Cells[5].Value.ToString();
+		}
     }
 
     private void dataGridViewDeposit_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -560,7 +595,28 @@ public partial class StaffMenuForm : Form
             dataGridViewWithdraw.Columns["BalanceChanging"].HeaderText = "Withdraw Amount";
             dataGridViewWithdraw.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-    }
+
+		if (dataGridViewWithdraw.Rows[0] != null) {
+			int i = 0;
+			int customerId;
+			if (int.TryParse(dataGridViewWithdraw.Rows[i].Cells[1].Value.ToString(), out customerId)) {
+				customerWithdrawIdTextBox.Text = customerId.ToString();
+			}
+			customerWithdrawNameTextBox.Text = dataGridViewWithdraw.Rows[i].Cells[2].Value.ToString();
+			using (var context2 = new SavingsManagementContext()) {
+				var customer = context2.CustomerAccounts.FirstOrDefault(c => c.Id == customerId); // Use == for comparison
+				if (customer != null) {
+					customerWithdrawCicNumberTextBox.Text = customer.CicNumber;
+					customerWithdrawBalanceTextBox.Text = customer.Balance.ToString();
+				}
+			}
+			decimal amount;
+			if (decimal.TryParse(dataGridViewWithdraw.Rows[i].Cells[4].Value.ToString(), out amount)) {
+				customerWithdrawAmountNumeric.Value = amount;
+			}
+			customerWithdrawContentTextBox.Text = dataGridViewWithdraw.Rows[i].Cells[5].Value.ToString();
+		}
+	}
 
     private void dataGridViewWithdraw_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
@@ -743,6 +799,24 @@ public partial class StaffMenuForm : Form
             }).ToList();
             dataGridViewCustomer.DataSource = customers;
             dataGridViewCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            if (dataGridViewCustomer.Rows[0] != null) {
+				int i = 0;
+				customerIdTextBox.Text = dataGridViewCustomer.Rows[i].Cells[0].Value.ToString();
+				customerNameTextBox.Text = dataGridViewCustomer.Rows[i].Cells[1].Value.ToString();
+				customerMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[2].Value);
+				customerCicNumberTextBox.Text = dataGridViewCustomer.Rows[i].Cells[3].Value.ToString();
+				// Chuyển đổi giá trị ngày tháng từ chuỗi thành kiểu DateTime trước khi gán cho DateTimePicker
+				if (DateTime.TryParse(dataGridViewCustomer.Rows[i].Cells[4].Value.ToString(), out DateTime birthDate)) {
+					customerBirthDateTimePicker.Value = birthDate;
+				}
+				customerPhoneNumberTextBox.Text = dataGridViewCustomer.Rows[i].Cells[5].Value.ToString();
+				customerAddressTextBox.Text = dataGridViewCustomer.Rows[i].Cells[6].Value.ToString();
+				customerEmailTextBox.Text = dataGridViewCustomer.Rows[i].Cells[7].Value.ToString();
+				customerUsernameTextBox.Text = dataGridViewCustomer.Rows[i].Cells[8].Value.ToString();
+				customerBalanceTextBox.Text = dataGridViewCustomer.Rows[i].Cells[9].Value.ToString();
+				customerDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewCustomer.Rows[i].Cells[10].Value);
+			}
         }
     }
 
@@ -1065,6 +1139,34 @@ public partial class StaffMenuForm : Form
             staffPermissionIdComboBox.DisplayMember = "Display";
             staffPermissionIdComboBox.ValueMember = "Id";
         }
+
+        if (dataGridViewStaff.Rows[0] != null) {
+			int i = 0;
+			staffIdTextBox.Text = dataGridViewStaff.Rows[i].Cells[0].Value.ToString();
+			staffNameTextBox.Text = dataGridViewStaff.Rows[i].Cells[1].Value.ToString();
+			staffMaleCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[2].Value);
+			// Chuyển đổi giá trị ngày tháng từ chuỗi thành kiểu DateTime trước khi gán cho DateTimePicker
+			if (DateTime.TryParse(dataGridViewStaff.Rows[i].Cells[3].Value.ToString(), out DateTime birthDate)) {
+				staffBirthDateTimePicker.Value = birthDate;
+			}
+			staffPhoneTextBox.Text = dataGridViewStaff.Rows[i].Cells[4].Value.ToString();
+			staffAddressTextBox.Text = dataGridViewStaff.Rows[i].Cells[5].Value.ToString();
+			staffEmailTextBox.Text = dataGridViewStaff.Rows[i].Cells[6].Value.ToString();
+			staffPositionTextBox.Text = dataGridViewStaff.Rows[i].Cells[7].Value.ToString();
+			staffUsernameTextBox.Text = dataGridViewStaff.Rows[i].Cells[8].Value.ToString();
+			switch (dataGridViewStaff.Rows[i].Cells[9].Value) {
+				case 1:
+					staffPermissionIdComboBox.Text = "1 - Admin";
+					break;
+				case 2:
+					staffPermissionIdComboBox.Text = "2 - Staff";
+					break;
+				default:
+					MessageBox.Show("Can not find type of staff!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+			}
+			staffDisableCheckBox.Checked = Convert.ToBoolean(dataGridViewStaff.Rows[i].Cells[10].Value);
+		}
     }
 
     private void dataGridViewStaff_CellContentClick(object sender, DataGridViewCellEventArgs e)
