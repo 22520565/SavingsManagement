@@ -492,7 +492,7 @@ BEGIN
 	DECLARE @savingId INT = 0;
 	DECLARE @customerId INT = 0;
 	DECLARE @amountToReceive MONEY = 0.0;
-	DECLARE @annualInterestRate DECIMAL(5,3) = 0.0;
+	DECLARE @annualInterestRate DECIMAL(10,8) = 0.0;
 	DECLARE @periodInMonths INT = 0;
 	DECLARE @openingDateTime DATETIMEOFFSET(7) = SYSDATETIMEOFFSET();
 	DECLARE @currentDate DATE = CONVERT(DATE, SWITCHOFFSET(@openingDateTime, '+00:00'));
@@ -548,7 +548,7 @@ BEGIN
 	DECLARE @savingId INT = 0;
 	DECLARE @customerId INT = 0;
 	DECLARE @amountDeposit MONEY = 0.0;
-	DECLARE @annualInterestRate DECIMAL(5,3) = 0.0;
+	DECLARE @annualInterestRate DECIMAL(10,8) = 0.0;
 	DECLARE @periodInMonths INT = 0;
 
 	DECLARE insertedTableCursor CURSOR LOCAL READ_ONLY FOR SELECT [Id], [CustomerId], [Balance], [AnnualInterestRate], [PeriodInMonths] FROM inserted;
@@ -644,7 +644,7 @@ EXEC @ReturnCode = msdb.dbo.sp_add_jobstep @job_id=@jobId, @step_name=N'UpdateSa
 		@command=N'DECLARE @currentDateTime DATETIMEOFFSET(7) = SYSDATETIMEOFFSET();
 DECLARE @currentDate DATE = CONVERT(DATE, SWITCHOFFSET(@currentDateTime, ''+00:00''));
 DECLARE @balance MONEY = 0.0;
-DECLARE @annualInterestRate DECIMAL(5,3) = 0.0;
+DECLARE @annualInterestRate DECIMAL(10,8) = 0.0;
 DECLARE @periodInMonths INT = 0;
 DECLARE @openingDateTime DATETIMEOFFSET(7) = @currentDateTime;
 
